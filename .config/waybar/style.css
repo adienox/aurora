@@ -1,0 +1,129 @@
+* {
+  font-family: Readex Pro, "Font Awesome 6 Brands", "Font Awesome 6 Free",
+    "Font Awesome 6 Free Solid";
+  font-size: 14px;
+}
+
+window#waybar {
+  /* background-color: alpha(#232335, 0.7); */
+  background-color: alpha(#1e1e2f, 0.78);
+  box-shadow: none;
+}
+
+.modules-right {
+  margin: 5px;
+}
+
+.modules-left {
+  margin: 5px;
+}
+
+.modules-center {
+  margin: 5px;
+}
+
+#submap,
+#custom-weather,
+#custom-dynamic_pill,
+#battery,
+#bluetooth,
+#backlight,
+#pulseaudio,
+#custom-dunst,
+#clock,
+#tray {
+  padding: 2px 14px;
+  border-radius: 4px;
+  background-color: #181825;
+  font-weight: bold;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px; */
+  color: #cdd6f4;
+}
+
+#submap {
+  color: #a6e3a1;
+}
+#battery {
+  color: #cba6f7;
+}
+#bluetooth {
+  color: #eba0ac;
+}
+#backlight {
+  color: #fab387;
+}
+#pulseaudio {
+  color: #f9e2af;
+}
+#custom-dunst {
+  color: #f38ba8;
+}
+#clock {
+  color: #94e2d5;
+}
+#tray {
+  color: #a6e3a1;
+}
+
+#workspaces button {
+  /* box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px; */
+  background-color: #181825;
+  border-radius: 4px;
+  margin-right: 6px;
+  padding: 2px 8px;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#workspaces button label {
+  color: #f38ba8;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  font-weight: bold;
+}
+
+#workspaces button.active label {
+  color: #11111b;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#workspaces button.active {
+  padding: 2px 14px;
+  background-color: #f38ba8;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#custom-dynamic_pill label {
+  color: #11111b;
+  font-weight: bold;
+}
+
+#custom-dynamic_pill.paused label {
+  color: #f38ba8;
+  font-weight: bolder;
+}
+
+#custom-dynamic_pill.low {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+  font-weight: bolder;
+  color: #fff;
+}
+#custom-dynamic_pill.normal {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+  font-weight: bolder;
+  color: #fff;
+}
+#custom-dynamic_pill.critical {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+  font-weight: bolder;
+  color: #fff;
+}
+
+#custom-dynamic_pill.playing {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+  font-weight: bold;
+  color: #fff;
+}
+
+#custom-dynamic_pill.paused {
+  font-weight: bolder;
+  color: #f38ba8;
+}
