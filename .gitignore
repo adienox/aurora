@@ -1,6 +1,5 @@
 .config/mpv/watch_later/
 .config/nvim/plugin/
 .config/tmux/plugins/
-.config/waybar/store/*.txt
 .config/zsh/.zcompdump
 .config/zsh/.zsh_history
