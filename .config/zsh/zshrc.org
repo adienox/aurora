@@ -4,7 +4,6 @@
 #+Author: Adwait Adhikari
 
 * Table of Content :toc:
-- [[#tmux-setup-while-running-shell][Tmux Setup while running shell]]
 - [[#basic-options][Basic options]]
   - [[#manpager][Manpager]]
   - [[#fzf-options][FZF options]]
@@ -27,23 +26,8 @@
   - [[#git-alias][Git alias]]
   - [[#useful-aliases][Useful aliases]]
 - [[#misc-setup][Misc Setup]]
-  - [[#navi-widget][Navi Widget]]
-  - [[#starship][Starship]]
-  - [[#zoxide][Zoxide]]
-
-* Tmux Setup while running shell
-Runs tmux when starting a shell, you can skip it by setting the SKIP_TMUX variable
-
-#+begin_src shell
-if [ -z $TMUX ] && [ -z $SKIP_TMUX ]; then
-    session=$(tmux list-sessions -F "#{session_attached} #{session_id}" 2>/dev/null | awk '/^0/ {print substr($2, 2)}' | head --line 1)
-    if [ -z $session ]; then
-        exec tmux new-session
-    else
-        exec tmux attach-session -t $session
-    fi
-fi
-#+end_src
+  - [[#pfetch][Pfetch]]
+  - [[#starship--zoxide][Starship & Zoxide]]
 
 * Basic options
 Basic zsh options to make it more usable
@@ -141,13 +125,6 @@ plug "zsh-users/zsh-history-substring-search"
 # Pretty print json tools
 source ~/.config/zsh/plugins/jsontools.plugin.zsh
 
-function zvm_config() {
-    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-    ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-}
-# Improved vi mode for zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 # Keys for history search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -174,7 +151,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-if [ -f /usr/bin/zoxide ]; then
+if command -v zoxide &> /dev/null; then
     alias cd='z'
     alias zz='z -'
 fi
@@ -182,9 +159,8 @@ fi
 
 ** LS alias
 Uses exa if present
-
 #+begin_src shell
-if [ -f /usr/bin/exa ]; then
+if command -v exa &> /dev/null; then
     alias ls='exa -al --color=always --group-directories-first --icons'
     alias la='exa -a --color=always --group-directories-first --icons'
     alias ll='exa -l --color=always --group-directories-first --icons'
@@ -196,7 +172,7 @@ fi
 ** Docker alias
 
 #+begin_src shell
-if [ -f /usr/bin/docker ]; then
+if command -v docker &> /dev/null; then
     alias dps='docker ps -a'
     alias dc='docker'
     alias dci='docker images'
@@ -207,7 +183,7 @@ fi
 ** Tmux alias
 
 #+begin_src shell
-if [ -f /usr/bin/tmux ]; then
+if command -v tmux &> /dev/null; then
     alias tls='tmux list-sessions 2>/dev/null'
 fi
 #+end_src
@@ -255,23 +231,18 @@ alias ipa="ip --brief address"
 #+end_src
 
 * Misc Setup
-** Navi Widget
-Enable navi auto complete and cheatsheet helper
-
+** Pfetch
+Runs the pfetch command only if zsh is interactive
 #+begin_src shell
-eval "$(navi widget zsh)" # Ctrl + G
+if [[ $- == *i* ]]; then
+    pfetch
+fi
 #+end_src
 
-** Starship
-Using the starship prompt
-
+** Starship & Zoxide
++ Using the starship prompt
++ Initializing zoxide
 #+begin_src shell
 eval "$(starship init zsh)"
-#+end_src
-
-** Zoxide
-Initializing zoxide
-
-#+begin_src shell
 eval "$(zoxide init zsh)"
 #+end_src

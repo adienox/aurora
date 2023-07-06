@@ -1,12 +1,3 @@
-if [ -z $TMUX ] && [ -z $SKIP_TMUX ]; then
-    session=$(tmux list-sessions -F "#{session_attached} #{session_id}" 2>/dev/null | awk '/^0/ {print substr($2, 2)}' | head --line 1)
-    if [ -z $session ]; then
-        exec tmux new-session
-    else
-        exec tmux attach-session -t $session
-    fi
-fi
-
 setopt autocd              # change directory just by typing its name
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
@@ -60,13 +51,6 @@ plug "zsh-users/zsh-history-substring-search"
 # Pretty print json tools
 source ~/.config/zsh/plugins/jsontools.plugin.zsh
 
-function zvm_config() {
-    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-    ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-}
-# Improved vi mode for zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 # Keys for history search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -81,12 +65,12 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-if [ -f /usr/bin/zoxide ]; then
+if command -v zoxide &> /dev/null; then
     alias cd='z'
     alias zz='z -'
 fi
 
-if [ -f /usr/bin/exa ]; then
+if command -v exa &> /dev/null; then
     alias ls='exa -al --color=always --group-directories-first --icons'
     alias la='exa -a --color=always --group-directories-first --icons'
     alias ll='exa -l --color=always --group-directories-first --icons'
@@ -94,14 +78,14 @@ if [ -f /usr/bin/exa ]; then
     alias l.="exa -a | grep -E '^\.'"
 fi
 
-if [ -f /usr/bin/docker ]; then
+if command -v docker &> /dev/null; then
     alias dps='docker ps -a'
     alias dc='docker'
     alias dci='docker images'
     alias dcp='docker container prune'
 fi
 
-if [ -f /usr/bin/tmux ]; then
+if command -v tmux &> /dev/null; then
     alias tls='tmux list-sessions 2>/dev/null'
 fi
 
@@ -131,8 +115,9 @@ alias hw="hwinfo --short"
 alias tb="curl -F "file=@-" gcg.sh"
 alias ipa="ip --brief address"
 
-eval "$(navi widget zsh)" # Ctrl + G
+if [[ $- == *i* ]]; then
+    pfetch
+fi
 
 eval "$(starship init zsh)"
-
 eval "$(zoxide init zsh)"
