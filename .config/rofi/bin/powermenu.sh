@@ -2,10 +2,10 @@
 rofi_command="rofi -theme $HOME/.config/rofi/config/powermenu.rasi"
 ddir=~/.config/rofi/config
 
-shutdown="襤"
-reboot="ﰇ"
+shutdown=""
+reboot=""
 lock=""
-suspend="鈴"
+suspend="󰤄"
 logout="󰗽"
 
 # Ask for confirmation
