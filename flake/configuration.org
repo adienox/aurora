@@ -1,10 +1,49 @@
+#+title: NixOS Config
+#+Description: NixOS configuration file
+#+Property: header-args :tangle configuration.nix
+#+Author: Adwait Adhikari
+
+* Table of Contents :toc:
+- [[#setting-up-imports][Setting up Imports]]
+- [[#bootloader-grub][Bootloader (Grub)]]
+- [[#environment-variables][Environment Variables]]
+- [[#fonts][Fonts]]
+- [[#hardware-bluetooth-opengl-nvidia][Hardware (Bluetooth, OpenGL, Nvidia)]]
+- [[#kde-polkit-enable][KDE Polkit enable]]
+- [[#locale-and-timezone][Locale and Timezone]]
+- [[#networking][Networking]]
+  - [[#firewall][Firewall]]
+  - [[#proxy][Proxy]]
+- [[#x11-keymap][X11 Keymap]]
+- [[#user-setup][User Setup]]
+- [[#packages][Packages]]
+  - [[#allow-unfree-packages][Allow unfree packages]]
+  - [[#system-packages][System Packages]]
+  - [[#discord-overlay][Discord Overlay]]
+  - [[#gnupg][Gnupg]]
+  - [[#hyprland][Hyprland]]
+  - [[#kde-connect][KDE Connect]]
+  - [[#zsh][Zsh]]
+- [[#security][Security]]
+- [[#services][Services]]
+- [[#sound][Sound]]
+  - [[#pipewire][Pipewire]]
+- [[#nix-options-flakes-garbage-collect][Nix Options (flakes, garbage-collect)]]
+- [[#xdg-portal][XDG Portal]]
+- [[#system-auto-upgrade-channel][System (auto-upgrade, channel)]]
+
+* Setting up Imports
+#+begin_src nix
 { config,lib, pkgs, ... }:
 {
   imports =
     [
       ./hardware-configuration.nix
     ];
+#+end_src
 
+* Bootloader (Grub)
+#+begin_src nix
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
@@ -18,7 +57,10 @@
       };
     };
   };
+#+end_src
 
+* Environment Variables
+#+begin_src nix
   environment = {
     variables = {
       QT_QPA_PLATFORMTHEME = "qt5ct";
@@ -27,7 +69,11 @@
       LIBSEAT_BACKEND = "logind";
     };
   };
+#+end_src
 
+* Fonts
+Using [[https://github.com/samuelngs/apple-emoji-linux][Apple Color Emoji]] as the default emoji font. Download and place it in ~$HOME/.local/share/fonts~
+#+begin_src nix
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
@@ -38,7 +84,10 @@
     ];
     fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
   };
+#+end_src
 
+* Hardware (Bluetooth, OpenGL, Nvidia)
+#+begin_src nix
   hardware = {
     bluetooth = {
       enable = true;
@@ -68,7 +117,10 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
      };
   };
+#+end_src
 
+* KDE Polkit enable
+#+begin_src nix
   # systemd = {
   #   user.services.polkit-kde-authentication-agent-1 = {
   #     description = "polkit-kde-authentication-agent-1";
@@ -84,28 +136,48 @@
   #     };
   #   };
   # };
+#+end_src
 
+* Locale and Timezone
+Setting time zone and internationalisation properties.
+#+begin_src nix
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
+#+end_src
 
+* Networking
+Enable networking
+#+begin_src nix
   networking.hostName = "anomaly";
   networking.networkmanager.enable = true;
+#+end_src
 
+** Firewall
+#+begin_src nix
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+#+end_src
 
+** Proxy
+#+begin_src nix
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+#+end_src
 
+* X11 Keymap
+#+begin_src nix
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
+#+end_src
 
+* User Setup
+#+begin_src nix
   users.users.nox = {
     isNormalUser = true;
     description = "adienox";
@@ -113,9 +185,17 @@
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     packages = with pkgs; [];
   };
+#+end_src
 
+* Packages
+** Allow unfree packages
+#+begin_src nix
   nixpkgs.config.allowUnfree = true;
+#+end_src
 
+** System Packages
+List of packages installed in system profile
+#+begin_src nix
   environment.systemPackages = with pkgs; [
     vim
     killall
@@ -127,7 +207,10 @@
     discord
     auto-cpufreq
   ];
+#+end_src
 
+** Discord Overlay
+#+begin_src nix
   nixpkgs.overlays =
     let
       myOverlay = self: super: {
@@ -135,12 +218,18 @@
       };
     in
       [ myOverlay ];
+#+end_src
 
+** Gnupg
+#+begin_src nix
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
+#+end_src
 
+** Hyprland
+#+begin_src nix
   programs.hyprland = {
     enable = true;
     xwayland = {
@@ -148,15 +237,24 @@
       enable = true;
     };
   };
+#+end_src
 
+** KDE Connect
+#+begin_src nix
   programs.kdeconnect.enable = true;
+#+end_src
 
+** Zsh
+#+begin_src nix
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     enableBashCompletion = true;
   };
+#+end_src
 
+* Security
+#+begin_src nix
   security = {
     polkit.enable = true;
     pam.services.swaylock = {
@@ -165,7 +263,10 @@
         '';
     };
   };
+#+end_src
 
+* Services
+#+begin_src nix
   services = {
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -185,12 +286,18 @@
       localuser = null;
     };
   };
+#+end_src
 
+* Sound
+#+begin_src nix
   sound = {
     enable = true;
     mediaKeys.enable = true;
   };
+#+end_src
 
+** Pipewire
+#+begin_src nix
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -198,7 +305,11 @@
     pulse.enable = true;
     jack.enable = true;
   };
+#+end_src
 
+* Nix Options (flakes, garbage-collect)
+Enabling nix flakes and running garbage collection weekly
+#+begin_src nix
   nix = {
     gc = {
       automatic = true;
@@ -208,9 +319,17 @@
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
+#+end_src
 
+* XDG Portal
+#+begin_src nix
   xdg.portal.enable = true;
+#+end_src
 
+* System (auto-upgrade, channel)
+This value determines the NixOS release from which the default settings for stateful data, like file locations and database versions on your system were taken. It‘s perfectly fine and recommended to leave this value at the release version of the first install of this system. Before changing this value read the documentation for this option (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+
+#+begin_src nix
   system = {
     stateVersion = "23.05";
     autoUpgrade = {
@@ -219,3 +338,4 @@
     };
   };
 }
+#+end_src
