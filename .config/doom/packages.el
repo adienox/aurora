@@ -56,4 +56,4 @@
 (package! peep-dired)
 (package! dired-open)
 (package! beacon)
-(package! rainbow-mode)
+(package! nix-mode)
