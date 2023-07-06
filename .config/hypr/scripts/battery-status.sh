@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ICON=/usr/share/icons/Papirus-Dark/16x16/devices/battery.svg
 

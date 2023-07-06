@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ICON=~/.config/dunst/icons/brightness.svg
 

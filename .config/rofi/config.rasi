@@ -20,7 +20,7 @@ configuration{
     kb-row-down: "Alt+j,Control+n,Down";
     kb-row-up: "Alt+k,Control+p,Up";
     kb-remove-word-back: "Control+BackSpace";
-    modi: "drun,window";
+    modi: "drun";
 }
 
 button {
