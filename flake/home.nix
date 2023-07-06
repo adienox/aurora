@@ -10,17 +10,20 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
+    pfetch
+    libsForQt5.ark
+    calibre
+    swww
+    ispell
     dunst
-    emacs
     brave
     blueman
     brightnessctl
     kitty
     mpv
-    neofetch
     pavucontrol
-    qt5.qtwayland
     qt6.qmake
+    qt5.qtwayland
     qt6.qtwayland
     trash-cli
     tldr
@@ -34,6 +37,7 @@
     obsidian
     swayidle
     swaylock-effects
+    unzip
     udiskie
     bibata-cursors
     libsForQt5.qt5ct
@@ -43,12 +47,9 @@
     networkmanagerapplet
     bat
     dolphin
-    hanazono
     cmake
     gnumake
     gcc
-    discord
-    betterdiscord-installer
     telegram-desktop
     qpwgraph
     pulsemixer
@@ -56,11 +57,12 @@
     nodejs
     pamixer
     jq
-    catppuccin-gtk
     libtool
     exa
     tmux
     acpi
+    fd
+    yt-dlp
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -78,16 +80,23 @@
     # '';
   };
 
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
+  };
+
   services = {
     syncthing.enable = true;
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
   };
 
   fonts = {
     fontconfig.enable = true;
-  };
-
-  home.sessionVariables = {
-    EDITOR = "emacsclient";
   };
 
   programs.home-manager.enable = true;
