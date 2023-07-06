@@ -9,7 +9,6 @@
   - [[#helpful-keybindings][Helpful Keybindings]]
   - [[#line-numbers][Line Numbers]]
   - [[#user-details][User Details]]
-- [[#beacon][Beacon]]
 - [[#dired][Dired]]
   - [[#keybindings-to-open-dired][Keybindings to open Dired]]
   - [[#keybindings-withing-dired][Keybindings withing Dired]]
@@ -58,12 +57,6 @@ clients, file templates and snippets. It is optional.
 #+begin_src emacs-lisp
 (setq user-full-name "Adienox"
       user-mail-address "adwaitadk@pm.me")
-#+end_src
-
-* Beacon
-Never lose your cursor.  When you scroll, your cursor will shine!  This is a global minor-mode.
-#+begin_src emacs-lisp
-(beacon-mode 1)
 #+end_src
 
 * Dired

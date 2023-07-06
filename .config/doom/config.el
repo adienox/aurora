@@ -8,8 +8,6 @@
 (setq user-full-name "Adienox"
       user-mail-address "adwaitadk@pm.me")
 
-(beacon-mode 1)
-
 (map! :leader
       (:prefix ("d" . "dired")
        :desc "Open dired" "d" #'dired

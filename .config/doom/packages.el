@@ -55,5 +55,4 @@
 (package! org-auto-tangle)
 (package! peep-dired)
 (package! dired-open)
-(package! beacon)
 (package! nix-mode)
