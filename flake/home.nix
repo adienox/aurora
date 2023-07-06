@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     pfetch
+    todoist-electron
     libsForQt5.ark
     calibre
     swww
