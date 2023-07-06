@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 hyprctl setcursor 'Bibata-Modern-Ice' 24 &
 nm-applet &
@@ -22,6 +22,6 @@ obsidian &
 todoist &
 
 # other
-/usr/lib/polkit-kde-authentication-agent-1 &
+/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk 'NR==1{print $9}')/libexec/polkit-kde-authentication-agent-1 &
 notify-send -a aurora "hello $(whoami)" &
 sleep 3 && rm "$HOME/test.log" &
