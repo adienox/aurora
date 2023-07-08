@@ -6,4 +6,3 @@ menu() {
 
 choice=$(menu | rofi -p 'Emoji  ' -dmenu | awk '{print $1}')
 echo $choice | wl-copy -n
-wl-paste -n -p
