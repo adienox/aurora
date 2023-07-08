@@ -19,13 +19,11 @@
     };
   };
 
-  environment = {
-    variables = {
+  environment.variables = {
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_QPA_PLATFORM = "xcb obs";
       #https://unix.stackexchange.com/a/657578
       LIBSEAT_BACKEND = "logind";
-    };
   };
 
   fonts = {
@@ -39,51 +37,11 @@
     fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
   };
 
-  hardware = {
-    bluetooth = {
+  hardware.bluetooth = {
       enable = true;
-      settings = {
-        General = {
-          Experimental = true;
-        };
-      };
+      settings.General.Experimental = true;
     };
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    nvidia = {
-      # Modesetting is needed for most wayland compositors
-      modesetting.enable = true;
-
-      # Use the open source version of the kernel module
-      # Only available on driver 515.43.04+
-      open = true;
-
-      # Enable the nvidia settings menu
-      nvidiaSettings = true;
-
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-     };
-  };
-
-  # systemd = {
-  #   user.services.polkit-kde-authentication-agent-1 = {
-  #     description = "polkit-kde-authentication-agent-1";
-  #     wantedBy = [ "graphical-session.target" ];
-  #     wants = [ "graphical-session.target" ];
-  #     after = [ "graphical-session.target" ];
-  #     serviceConfig = {
-  #       Type = "simple";
-  #       ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
-  #       Restart = "on-failure";
-  #       RestartSec = 1;
-  #       TimeoutStopSec = 10;
-  #     };
-  #   };
-  # };
+  services.blueman.enable = true;
 
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -114,6 +72,30 @@
     packages = with pkgs; [];
   };
 
+  # Make sure opengl is enabled
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  # Tell Xorg to use the nvidia driver
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    # Modesetting is needed for most wayland compositors
+    modesetting.enable = true;
+
+    # Use the open source version of the kernel module
+    # Only available on driver 515.43.04+
+    open = true;
+
+    # Enable the nvidia settings menu
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -126,6 +108,10 @@
     xdg-utils
     discord
     auto-cpufreq
+    pciutils
+    usbutils
+    powertop
+    libsForQt5.polkit-kde-agent
   ];
 
   nixpkgs.overlays =
@@ -167,7 +153,6 @@
   };
 
   services = {
-    blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     dbus.enable = true;
     auto-cpufreq.enable = true;
@@ -185,6 +170,7 @@
       localuser = null;
     };
   };
+  xdg.portal.enable = true;
 
   sound = {
     enable = true;
@@ -199,6 +185,39 @@
     jack.enable = true;
   };
 
+systemd.tmpfiles.rules = map
+        (e:
+          "w /sys/bus/${e}/power/control - - - - auto"
+        ) [
+        "pci/devices/0000:00:00.0" # Root Complex
+        "pci/devices/0000:00:00.2" # IOMMU
+        "pci/devices/0000:00:01.0" # Renoir PCIe Dummy Host Bridge
+        "pci/devices/0000:00:02.0" # Renoir PCIe Dummy Host Bridge
+        "pci/devices/0000:00:08.0" # Renoir PCIe Dummy Host Bridge
+        "pci/devices/0000:00:14.0" # FCH SMBus Controller
+        "pci/devices/0000:00:14.3" # FCH LPC bridge
+        "pci/devices/0000:00:18.0" # Renoir Function 0
+        "pci/devices/0000:00:18.1" # Renoir Function 1
+        "pci/devices/0000:00:18.2" # Renoir Function 2
+        "pci/devices/0000:00:18.3" # Renoir Function 3
+        "pci/devices/0000:00:18.4" # Renoir Function 4
+        "pci/devices/0000:00:18.5" # Renoir Function 5
+        "pci/devices/0000:00:18.6" # Renoir Function 6
+        "pci/devices/0000:00:18.7" # Renoir Function 7
+        "pci/devices/0000:01:00.0" # Nvidia GPU
+        "pci/devices/0000:02:00.0" # Non-Volatile Memory Controller
+        "pci/devices/0000:03:00.0" # Ethernet
+        "pci/devices/0000:04:00.0" # Wifi
+        "pci/devices/0000:05:00.0" # VGA controller
+        "pci/devices/0000:05:00.2" # Encryption controller
+        "pci/devices/0000:05:00.5" # Audio co-processor
+        "pci/devices/0000:05:00.6" # Audio controller
+        "pci/devices/0000:06:00.0" # FCH SATA Controller [AHCI mode]
+        "pci/devices/0000:06:00.1" # FCH SATA Controller [AHCI mode]
+        "pci/devices/0000:06:00.0/ata1" # FCH SATA Controller [AHCI mode]
+        "pci/devices/0000:06:00.1/ata2" # FCH SATA Controller [AHCI mode]
+      ];
+
   nix = {
     gc = {
       automatic = true;
@@ -208,8 +227,6 @@
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
-
-  xdg.portal.enable = true;
 
   system = {
     stateVersion = "23.05";
