@@ -10,6 +10,7 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
+    mindustry-wayland
     pfetch
     wl-clipboard
     todoist-electron

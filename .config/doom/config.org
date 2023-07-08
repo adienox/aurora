@@ -182,7 +182,7 @@ Settings related to fonts within Doom Emacs:
 Changing the default appearance of org bullets
 #+begin_src emacs-lisp
 (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-      org-sueprstar-headline-itembullet '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
+      org-sueprstar-headline-itembullet '((?- . ?✦))) ; changes +/- symbols in item lists
 #+end_src
 
 ** General Configuration

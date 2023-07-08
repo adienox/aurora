@@ -64,7 +64,7 @@
   '(font-lock-keyword-face :slant italic))
 
 (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
-      org-sueprstar-headline-itembullet '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
+      org-sueprstar-headline-itembullet '((?- . ?✦))) ; changes +/- symbols in item lists
 
 (setq org-directory "~/Documents/org/")
 
