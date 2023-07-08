@@ -11,8 +11,8 @@
 
   home.packages = with pkgs; [
     pfetch
+    wl-clipboard
     todoist-electron
-    libsForQt5.ark
     calibre
     swww
     ispell
@@ -79,6 +79,16 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  xdg.desktopEntries.keepassxc = {
+    name = "KeepassXC (XCB)";
+    genericName = "Password Manager";
+    icon = "keepassxc";
+    exec = "keepassxc -platform xcb %f";
+    terminal = false;
+    categories = [ "Utility" "Security" ];
+    mimeType = [ "application/x-keepass2" ];
   };
 
   programs.waybar = {
