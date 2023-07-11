@@ -3,7 +3,6 @@
 hyprctl setcursor 'Bibata-Modern-Ice' 24 &
 nm-applet &
 blueman-applet &
-/usr/lib/kdeconnectd &
 kdeconnect-indicator &
 waybar &
 swww init &
@@ -12,7 +11,7 @@ keepassxc -platform xcb &
 udiskie -s &
 
 ~/.config/hypr/scripts/battery-status.sh &
-~/.config/hypr/scripts/desktop-portal.sh &
+~/.config/hypr/scripts/bluetooth-auto-off.sh &
 ~/.config/hypr/scripts/clipboard.sh &
 
 lock="$HOME/.config/hypr/scripts/lock.sh"
@@ -23,5 +22,5 @@ todoist &
 
 # other
 /nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk 'NR==1{print $9}')/libexec/polkit-kde-authentication-agent-1 &
-notify-send -a aurora "hello $(whoami)" &
+notify-send -a aurora "Hello $(whoami)! 👋" &
 sleep 3 && rm "$HOME/test.log" &
