@@ -46,8 +46,12 @@
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  networking.hostName = "anomaly";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "anomaly";
+    nameservers = ["1.1.1.1"];
+    networkmanager.enable = true;
+    networkmanager.insertNameservers = ["1.1.1.1"];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -112,6 +116,7 @@
     usbutils
     powertop
     libsForQt5.polkit-kde-agent
+    python3Full
   ];
 
   nixpkgs.overlays =
@@ -142,6 +147,7 @@
     enableCompletion = true;
     enableBashCompletion = true;
   };
+  environment.shells = with pkgs; [ zsh ];
 
   security = {
     polkit.enable = true;

@@ -102,8 +102,12 @@ Setting time zone and internationalisation properties.
 * Networking
 Enable networking
 #+begin_src nix
-  networking.hostName = "anomaly";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "anomaly";
+    nameservers = ["1.1.1.1"];
+    networkmanager.enable = true;
+    networkmanager.insertNameservers = ["1.1.1.1"];
+  };
 #+end_src
 
 ** Firewall
@@ -191,6 +195,7 @@ List of packages installed in system profile
     usbutils
     powertop
     libsForQt5.polkit-kde-agent
+    python3Full
   ];
 #+end_src
 
@@ -236,6 +241,7 @@ List of packages installed in system profile
     enableCompletion = true;
     enableBashCompletion = true;
   };
+  environment.shells = with pkgs; [ zsh ];
 #+end_src
 
 * Security
