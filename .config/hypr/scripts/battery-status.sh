@@ -4,7 +4,7 @@ ICON=/usr/share/icons/Papirus-Dark/16x16/devices/battery.svg
 
 notiSound () {
     if [ "$(dunstctl is-paused)" == 'false' ]; then
-        paplay /usr/share/sounds/freedesktop/stereo/dialog-warning.oga
+        mpv --no-resume-playback --quiet --keep-open=no $HOME/.config/hypr/assets/notification.mp3
     fi
 }
 
@@ -19,5 +19,5 @@ while true; do
         notify-send -i $ICON --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%"
         notiSound
     fi
-    sleep 60
+    sleep 120
 done
