@@ -1,0 +1,32 @@
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [
+    wl-clipboard
+    swww
+    dunst
+    libnotify
+    blueman
+    brightnessctl
+    rofi-wayland
+    pamixer
+    papirus-icon-theme
+    swayidle
+    swaylock-effects
+    udiskie
+    bibata-cursors
+    networkmanagerapplet
+    acpi
+    qt5.qtwayland
+    libsForQt5.qt5ct
+    libsForQt5.lightly
+    qt6.qmake
+    qt6.qtwayland
+    dolphin
+  ];
+
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
+  };
+}

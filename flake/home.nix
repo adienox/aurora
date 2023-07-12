@@ -1,69 +1,34 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: {
 
-{
   imports = [
     ./config/git.nix
     ./config/theme.nix
+    ./module/hyprland.nix
+    ./module/shell.nix
   ];
+
   home.username = "nox";
   home.homeDirectory = "/home/nox";
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
-    pfetch
-    wl-clipboard
     todoist-electron
     calibre
-    swww
-    ispell
-    dunst
     brave
-    blueman
-    brightnessctl
     kitty
     mpv
     pavucontrol
-    qt6.qmake
-    qt5.qtwayland
-    qt6.qtwayland
-    trash-cli
-    tldr
     scrot
-    rofi-wayland
-    ripgrep
-    nixfmt
-    zoxide
-    papirus-icon-theme
     morgen
     obsidian
-    swayidle
-    swaylock-effects
-    unzip
-    udiskie
-    bibata-cursors
-    libsForQt5.qt5ct
-    libsForQt5.lightly
     cava
     keepassxc
-    networkmanagerapplet
-    bat
-    dolphin
-    cmake
-    gnumake
-    gcc
     telegram-desktop
     qpwgraph
-    pulsemixer
-    libnotify
-    nodejs
-    pamixer
-    jq
     libtool
-    exa
-    tmux
-    acpi
-    fd
     yt-dlp
+    jq
+    pulsemixer
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -91,14 +56,6 @@
     mimeType = [ "application/x-keepass2" ];
   };
 
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    });
-  };
-  programs.starship.enable = true;
-
   services = {
     syncthing.enable = true;
     kdeconnect = {
@@ -107,9 +64,7 @@
     };
   };
 
-  fonts = {
-    fontconfig.enable = true;
-  };
+  fonts = { fontconfig.enable = true; };
 
   programs.home-manager.enable = true;
 }
