@@ -10,7 +10,6 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
-    mindustry-wayland
     pfetch
     wl-clipboard
     todoist-electron
@@ -32,7 +31,7 @@
     scrot
     rofi-wayland
     ripgrep
-    starship
+    nixfmt
     zoxide
     papirus-icon-theme
     morgen
@@ -98,6 +97,7 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     });
   };
+  programs.starship.enable = true;
 
   services = {
     syncthing.enable = true;
