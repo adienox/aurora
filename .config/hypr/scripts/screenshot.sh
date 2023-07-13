@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-PHOTOPATH="/Pictures/Screenshots"
 DATE=$(date +%Y%m%d_%H%M%S)
-FULLPATH="$HOME$PHOTOPATH"/"$DATE"".png"
+FULLPATH="$HOME/Pictures/Screenshots/$DATE.png"
 
 if [ "$1" == 'full' ]; then
     grim "$FULLPATH"
