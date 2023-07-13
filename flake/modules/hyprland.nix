@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
+    jq
     wl-clipboard
     swww
     dunst
@@ -7,6 +8,8 @@
     blueman
     brightnessctl
     rofi-wayland
+    grim
+    slurp
     pamixer
     papirus-icon-theme
     swayidle

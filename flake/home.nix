@@ -3,8 +3,8 @@
   imports = [
     ./config/git.nix
     ./config/theme.nix
-    ./module/hyprland.nix
-    ./module/shell.nix
+    ./modules/hyprland.nix
+    ./modules/shell.nix
   ];
 
   home.username = "nox";
@@ -18,7 +18,6 @@
     kitty
     mpv
     pavucontrol
-    scrot
     morgen
     obsidian
     cava
@@ -27,10 +26,17 @@
     qpwgraph
     libtool
     yt-dlp
-    jq
     pulsemixer
+    imv
+    discord
   ];
 
+  nixpkgs.overlays = [ (final: prev: {
+      discord = prev.discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      };
+  }) ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
