@@ -112,7 +112,6 @@
     gnome.gnome-keyring
     seatd
     xdg-utils
-    discord
     auto-cpufreq
     pciutils
     usbutils
@@ -121,13 +120,7 @@
     python3Full
   ];
 
-  nixpkgs.overlays =
-    let
-      myOverlay = self: super: {
-        discord = super.discord.override { withOpenASAR = true; withVencord = true; };
-      };
-    in
-      [ myOverlay ];
+
 
   programs.gnupg.agent = {
     enable = true;
@@ -166,12 +159,6 @@
     auto-cpufreq.enable = true;
     openssh.enable = true;
     udisks2.enable = true;
-
-    emacs = {
-      enable = true;
-      defaultEditor = true;
-      install = true;
-    };
 
     locate = {
       enable = true;
@@ -235,6 +222,7 @@
             "pci/devices/0000:04:00.0" # Wifi
             "pci/devices/0000:05:00.0" # VGA controller
             "pci/devices/0000:05:00.2" # Encryption controller
+            "pci/devices/0000:05:00.3" # Renoir/Cezanne USB 3.1
             "pci/devices/0000:05:00.5" # Audio co-processor
             "pci/devices/0000:05:00.6" # Audio controller
             "pci/devices/0000:06:00.0" # FCH SATA Controller [AHCI mode]
@@ -245,13 +233,13 @@
             "usb/devices/3-4" # ITE device
           ];
 
-  systemd.tmpfiles.rules = map
-          (e:
-          "w /sys/class/scsi_host/${e}/link_power_management_policy - - - - med_power_with_dipm"
-          ) [
-            "host0" # Sata link power management Host0
-            "host1" # Sata link power management Host1
-          ];
+  # systemd.tmpfiles.rules = map
+  #         (e:
+  #         "w /sys/class/scsi_host/${e}/link_power_management_policy - - - - med_power_with_dipm"
+  #         ) [
+  #           "host0" # Sata link power management Host0
+  #           "host1" # Sata link power management Host1
+  #         ];
 
   nix = {
     gc = {
