@@ -74,7 +74,7 @@
     isNormalUser = true;
     description = "adienox";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "adbusers" ];
     packages = with pkgs; [];
   };
 
@@ -118,9 +118,11 @@
     powertop
     libsForQt5.polkit-kde-agent
     python3Full
+    gnome.nautilus
   ];
 
-
+programs.adb.enable = true;
+# Enable adbusers in extragroups for user
 
   programs.gnupg.agent = {
     enable = true;
@@ -136,6 +138,7 @@
   };
 
   programs.kdeconnect.enable = true;
+  programs.dconf.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -159,6 +162,8 @@
     auto-cpufreq.enable = true;
     openssh.enable = true;
     udisks2.enable = true;
+    gvfs.enable = true; # Nautilus Trash
+    gnome.sushi.enable = true; # Nautilus file preview
 
     locate = {
       enable = true;

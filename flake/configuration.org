@@ -19,7 +19,7 @@
 - [[#packages][Packages]]
   - [[#allow-unfree-packages][Allow unfree packages]]
   - [[#system-packages][System Packages]]
-  - [[#discord-overlay][Discord Overlay]]
+  - [[#android][Android]]
   - [[#gnupg][Gnupg]]
   - [[#hyprland][Hyprland]]
   - [[#kde-connect][KDE Connect]]
@@ -142,7 +142,7 @@ Enable networking
     isNormalUser = true;
     description = "adienox";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "adbusers" ];
     packages = with pkgs; [];
   };
 #+end_src
@@ -197,13 +197,15 @@ List of packages installed in system profile
     powertop
     libsForQt5.polkit-kde-agent
     python3Full
+    gnome.nautilus
   ];
 #+end_src
 
-** Discord Overlay
+** Android
 #+begin_src nix
+programs.adb.enable = true;
+# Enable adbusers in extragroups for user
 #+end_src
-
 ** Gnupg
 #+begin_src nix
   programs.gnupg.agent = {
@@ -226,6 +228,7 @@ List of packages installed in system profile
 ** KDE Connect
 #+begin_src nix
   programs.kdeconnect.enable = true;
+  programs.dconf.enable = true;
 #+end_src
 
 ** Zsh
@@ -258,6 +261,8 @@ List of packages installed in system profile
     auto-cpufreq.enable = true;
     openssh.enable = true;
     udisks2.enable = true;
+    gvfs.enable = true; # Nautilus Trash
+    gnome.sushi.enable = true; # Nautilus file preview
 
     locate = {
       enable = true;
