@@ -20,6 +20,7 @@
   - [[#allow-unfree-packages][Allow unfree packages]]
   - [[#system-packages][System Packages]]
   - [[#android][Android]]
+  - [[#discord][Discord]]
   - [[#gnupg][Gnupg]]
   - [[#hyprland][Hyprland]]
   - [[#zsh][Zsh]]
@@ -199,14 +200,28 @@ List of packages installed in system profile
     libsForQt5.polkit-kde-agent
     python3Full
     gnome.nautilus
+    discord
   ];
 #+end_src
 
 ** Android
 #+begin_src nix
-programs.adb.enable = true;
+  programs.adb.enable = true;
 # Enable adbusers in extragroups for user
 #+end_src
+
+** Discord
+#+begin_src nix
+  nixpkgs.overlays = [
+    (final: prev: {
+      discord = prev.discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      };
+    })
+  ];
+#+end_src
+
 ** Gnupg
 #+begin_src nix
   programs.gnupg.agent = {

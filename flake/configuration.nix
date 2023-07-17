@@ -121,10 +121,20 @@
     libsForQt5.polkit-kde-agent
     python3Full
     gnome.nautilus
+    discord
   ];
 
-programs.adb.enable = true;
+  programs.adb.enable = true;
 # Enable adbusers in extragroups for user
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      discord = prev.discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      };
+    })
+  ];
 
   programs.gnupg.agent = {
     enable = true;
