@@ -23,7 +23,6 @@
     libsForQt5.lightly
     qt6.qmake
     qt6.qtwayland
-    dolphin
   ];
 
   programs.waybar = {
