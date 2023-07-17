@@ -59,6 +59,8 @@
     enable = true;
     allowedTCPPorts = [ 22000 ];
     allowedUDPPorts = [ ];
+    allowedTCPPortRanges = [ {from = 1714; to = 1764;} ]; # Needed for KDE connect
+    allowedUDPPortRanges = [ {from = 1714; to = 1764;} ]; # Needed for KDE connect
   };
 
   # Configure network proxy if necessary
@@ -74,7 +76,7 @@
     isNormalUser = true;
     description = "adienox";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" ];
     packages = with pkgs; [];
   };
 
@@ -136,9 +138,6 @@ programs.adb.enable = true;
       enable = true;
     };
   };
-
-  programs.kdeconnect.enable = true;
-  programs.dconf.enable = true;
 
   programs.zsh = {
     enable = true;

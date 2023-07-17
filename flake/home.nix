@@ -5,6 +5,9 @@
     ./config/theme.nix
     ./modules/hyprland.nix
     ./modules/shell.nix
+    ./modules/emacs.nix
+    ./modules/espanso.nix
+    ./modules/xdg.nix
   ];
 
   home.username = "nox";
@@ -28,15 +31,8 @@
     yt-dlp
     pulsemixer
     imv
-    discord
   ];
 
-  nixpkgs.overlays = [ (final: prev: {
-      discord = prev.discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      };
-  }) ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -50,16 +46,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
-
-  xdg.desktopEntries.keepassxc = {
-    name = "KeepassXC (XCB)";
-    genericName = "Password Manager";
-    icon = "keepassxc";
-    exec = "keepassxc -platform xcb %f";
-    terminal = false;
-    categories = [ "Utility" "Security" ];
-    mimeType = [ "application/x-keepass2" ];
   };
 
   services = {
