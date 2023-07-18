@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 rofi_command="rofi -theme $HOME/.config/rofi/config/powermenu.rasi"
 ddir=~/.config/rofi/config
 
@@ -48,12 +49,12 @@ case $chosen in
         fi
         ;;
     $lock)
-        ~/.config/hypr/scripts/lock.sh
+        gtklock
         ;;
     $suspend)
         ans=$(rdialog &)
         if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-            ~/.config/hypr/scripts/lock.sh
+            gtklock
             systemctl suspend
         elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
             exit

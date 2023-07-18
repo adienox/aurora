@@ -14,16 +14,21 @@
     papirus-icon-theme
     swayidle
     swaylock-effects
+    gtklock
     udiskie
     bibata-cursors
     networkmanagerapplet
     acpi
+    playerctl
+    noto-fonts-cjk-sans
     qt5.qtwayland
     libsForQt5.qt5ct
     libsForQt5.lightly
     qt6.qmake
     qt6.qtwayland
   ];
+
+  fonts.fontconfig.enable = true;
 
   programs.waybar = {
     enable = true;

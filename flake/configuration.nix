@@ -162,6 +162,11 @@
         auth include login
         '';
     };
+    pam.services.gtklock = {
+        text = ''
+        auth include login
+        '';
+    };
     sudo.extraConfig = ''
       Defaults env_reset,pwfeedback
     '';
