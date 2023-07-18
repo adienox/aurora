@@ -69,7 +69,6 @@
 #+end_src
 
 * Fonts
-Using [[https://github.com/samuelngs/apple-emoji-linux][Apple Color Emoji]] as the default emoji font. Download and place it in ~$HOME/.local/share/fonts~
 #+begin_src nix
   fonts = {
     fontDir.enable = true;
@@ -190,7 +189,6 @@ List of packages installed in system profile
     killall
     wget
     git
-    gnome.gnome-keyring
     seatd
     xdg-utils
     auto-cpufreq
@@ -260,6 +258,7 @@ List of packages installed in system profile
         auth include login
         '';
     };
+    pam.services.nox.enableGnomeKeyring = true;
   };
 #+end_src
 
