@@ -6,7 +6,7 @@
 
 window#waybar {
   /* background-color: alpha(#232335, 0.7); */
-  background-color: alpha(#1e1e2f, 0.78);
+  background-color: alpha(#000000, 0.8);
   box-shadow: none;
 }
 
@@ -34,7 +34,7 @@ window#waybar {
 #tray {
   padding: 2px 14px;
   border-radius: 4px;
-  background-color: #181825;
+  background-color: #020202;
   font-weight: bold;
   /* box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px; */
   color: #cdd6f4;
@@ -67,7 +67,7 @@ window#waybar {
 
 #workspaces button {
   /* box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px; */
-  background-color: #181825;
+  background-color: #020202;
   border-radius: 4px;
   margin-right: 6px;
   padding: 2px 8px;

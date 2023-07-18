@@ -1,37 +1,28 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   gtk = {
     enable = true;
-    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
       size = 24;
+    };
+    font = {
+      name = "Readex Pro";
+      size = 11;
     };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
     theme = {
-      name = "Catppuccin-Mocha-Standard-Red-Dark";
+      name = "Catppuccin-Mocha-Standard-Red-dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "red" ];
+        tweaks = [ "black" "rimless" ];
         variant = "mocha";
       };
     };
-    gtk2.extraConfig = ''
-      gtk-toolbar-style=GTK_TOOLBAR_BOTH
-      gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
-      gtk-button-images=1
-      gtk-menu-images=1
-      gtk-enable-event-sounds=1
-      gtk-enable-input-feedback-sounds=0
-      gtk-xft-antialias=1
-      gtk-xft-hinting=1
-      gtk-xft-hintstyle="hintslight"
-      gtk-xft-rgba="rgb"
-    '';
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
@@ -43,7 +34,6 @@
       '';
     };
   };
-
   qt = {
     enable = true;
     platformTheme = "qtct";
