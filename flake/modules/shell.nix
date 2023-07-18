@@ -1,14 +1,12 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs; [
-    pfetch
+    neofetch
     trash-cli
     tldr
     zoxide
     unzip
     bat
     exa
-    tmux
   ];
-
   programs.starship.enable = true;
 }

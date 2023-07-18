@@ -115,9 +115,13 @@ alias hw="hwinfo --short"
 alias tb="curl -F "file=@-" gcg.sh"
 alias ipa="ip --brief address"
 
-if [[ $- == *i* ]]; then
-    pfetch
-fi
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# runs pfetch if shell is interactive and not inside vscode
+if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" ]] ; then
+	neofetch
+fi
+
+# Vscode support in commandline
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

@@ -6,6 +6,7 @@
     ./modules/hyprland.nix
     ./modules/shell.nix
     ./modules/emacs.nix
+    ./modules/vscode.nix
     ./modules/espanso.nix
     ./modules/xdg.nix
   ];
@@ -16,6 +17,8 @@
 
   home.packages = with pkgs; [
     todoist-electron
+    amberol
+    anki-bin
     calibre
     brave
     kitty
@@ -31,6 +34,7 @@
     yt-dlp
     pulsemixer
     imv
+    jetbrains.idea-community
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

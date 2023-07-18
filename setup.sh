@@ -8,6 +8,7 @@ ln -s "$HOME"/aurora/.config/dunst ~/.config
 ln -s "$HOME"/aurora/.config/gtk-2.0 ~/.config
 ln -s "$HOME"/aurora/.config/kitty ~/.config
 ln -s "$HOME"/aurora/.config/mpv ~/.config
+ln -s "$HOME"/aurora/.config/neofetch ~/.config
 ln -s "$HOME"/aurora/.config/nvim ~/.config
 ln -s "$HOME"/aurora/.config/rofi ~/.config
 ln -s "$HOME"/aurora/.config/scripts ~/.config

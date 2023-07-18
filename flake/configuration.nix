@@ -26,6 +26,7 @@
       LIBSEAT_BACKEND = "logind";
   };
 
+  # Using https://github.com/samuelngs/apple-emoji-linux Apple Color Emoji as the default emoji font. Download and place it in ~$HOME/.local/share/fonts~
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
@@ -48,26 +49,25 @@
 
   networking = {
     hostName = "anomaly";
-    nameservers = ["1.1.1.1"];
     networkmanager.enable = true;
+
+    nameservers = ["1.1.1.1"];
     networkmanager.insertNameservers = ["1.1.1.1"];
-  };
 
-  # Open ports in the firewall.
-  # Or disable the firewall altogether.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22000 ];
-    allowedUDPPorts = [ ];
-    allowedTCPPortRanges = [ {from = 1714; to = 1764;} ]; # Needed for KDE connect
-    allowedUDPPortRanges = [ {from = 1714; to = 1764;} ]; # Needed for KDE connect
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22000 ];
+      allowedUDPPorts = [ ];
+      allowedTCPPortRanges = [ {from = 1714; to = 1764;} ]; # Needed for KDE connect
+      allowedUDPPortRanges = [ {from = 1714; to = 1764;} ]; # Needed for KDE connect
+    };
   };
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "";
   };
@@ -111,7 +111,6 @@
     killall
     wget
     git
-    gnome.gnome-keyring
     seatd
     xdg-utils
     auto-cpufreq
@@ -124,8 +123,8 @@
     discord
   ];
 
+  # Enable adbusers in extragroups for user
   programs.adb.enable = true;
-# Enable adbusers in extragroups for user
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -149,12 +148,12 @@
     };
   };
 
+  environment.shells = with pkgs; [ zsh ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     enableBashCompletion = true;
   };
-  environment.shells = with pkgs; [ zsh ];
 
   security = {
     polkit.enable = true;
@@ -163,6 +162,10 @@
         auth include login
         '';
     };
+    sudo.extraConfig = ''
+      Defaults env_reset,pwfeedback
+    '';
+    pam.services.nox.enableGnomeKeyring = true;
   };
 
   services = {
@@ -195,6 +198,7 @@
     jack.enable = true;
   };
 
+  # Power Management
   boot = {
       extraModprobeConfig =''
           options iwlwifi power_save=1
