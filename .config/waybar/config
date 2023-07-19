@@ -7,6 +7,9 @@
 		"custom/weather",
 		"hyprland/submap"
 	],
+	"modules-center": [
+		"custom/playerlabel"
+	],
 	"modules-right": [
 		"battery",
 		"bluetooth",
@@ -15,9 +18,6 @@
 		"custom/dunst",
 		"clock",
 		"tray"
-	],
-	"modules-center": [
-		"custom/dynamic_pill"
 	],
 	"wlr/workspaces": {
 		"disable-scroll": true,
@@ -49,10 +49,12 @@
 		"max-length": 8,
 		"tooltip": false
 	},
-	"custom/dynamic_pill": {
+	"custom/playerlabel": {
+		"format": "<span>{}</span>",
 		"return-type": "json",
-		"exec": "~/.config/waybar/scripts/tools/start_dyn",
-		"escape": true
+		"max-length": 48,
+		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"on-click": "playerctl play-pause"
 	},
 	"battery": {
 		"states": {
@@ -125,13 +127,5 @@
 	},
 	"tray": {
 		"spacing": 10
-	},
-	"network": {
-		"format-wifi": "<span font='14' rise='-2500'></span> {signalStrength}%",
-		"format-ethernet": "{ipaddr}/{cidr} ",
-		"tooltip-format": "{ifname} via {gwaddr} ",
-		"format-linked": "{ifname} (No IP) ",
-		"format-disconnected": "⚠ Disconnected",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	}
 }

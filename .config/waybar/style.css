@@ -1,10 +1,9 @@
 * {
-  font-family: "Readex Pro", "Font Awesome 6 Brands", "Font Awesome 6 Free", "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
+  font-family: "Readex Pro", "Font Awesome 6 Brands", "Font Awesome 6 Free", "Font Awesome 6 Free Solid", "Noto Sans CJK JP";
   font-size: 14px;
 }
 
 window#waybar {
-  /* background-color: alpha(#232335, 0.7); */
   background-color: alpha(#000000, 0.8);
   box-shadow: none;
 }
@@ -23,7 +22,7 @@ window#waybar {
 
 #submap,
 #custom-weather,
-#custom-dynamic_pill,
+#custom-playerlabel,
 #battery,
 #bluetooth,
 #backlight,
@@ -35,7 +34,7 @@ window#waybar {
   border-radius: 4px;
   background-color: #020202;
   font-weight: bold;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px; */
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
   color: #cdd6f4;
 }
 
@@ -65,18 +64,18 @@ window#waybar {
 }
 
 #workspaces button {
-  /* box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px; */
-  background-color: #020202;
   border-radius: 4px;
   margin-right: 6px;
   padding: 2px 8px;
+  background-color: #020202;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button label {
   color: #f38ba8;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
   font-weight: bold;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active label {
@@ -90,39 +89,8 @@ window#waybar {
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
-#custom-dynamic_pill label {
-  color: #11111b;
-  font-weight: bold;
-}
-
-#custom-dynamic_pill.paused label {
+#custom-playerlabel.Paused {
   color: #f38ba8;
   font-weight: bolder;
-}
-
-#custom-dynamic_pill.low {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
-  font-weight: bolder;
-  color: #fff;
-}
-#custom-dynamic_pill.normal {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
-  font-weight: bolder;
-  color: #fff;
-}
-#custom-dynamic_pill.critical {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
-  font-weight: bolder;
-  color: #fff;
-}
-
-#custom-dynamic_pill.playing {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-dynamic_pill.paused {
-  font-weight: bolder;
-  color: #f38ba8;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
