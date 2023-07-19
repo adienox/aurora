@@ -6,6 +6,7 @@ ln -s "$HOME"/aurora/.config/cava ~/.config
 ln -s "$HOME"/aurora/.config/doom ~/.config
 ln -s "$HOME"/aurora/.config/dunst ~/.config
 ln -s "$HOME"/aurora/.config/gtk-2.0 ~/.config
+ln -s "$HOME"/aurora/.config/hypr ~/.config
 ln -s "$HOME"/aurora/.config/kitty ~/.config
 ln -s "$HOME"/aurora/.config/mpv ~/.config
 ln -s "$HOME"/aurora/.config/neofetch ~/.config
