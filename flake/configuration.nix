@@ -201,6 +201,12 @@
   };
 
   # Power Management
+  # Disable Watchdogs [[https://wiki.archlinux.org/title/Improving_performance#Watchdogs][Blacklist SP5100]] [[https://wiki.archlinux.org/title/Power_management#Disabling_NMI_watchdog][NMI Watchdog]]
+  # Enabling powersave on [[https://wiki.archlinux.org/title/Power_management#Network_interfaces][network interfaces]]
+  # Enabling powersave on [[https://wiki.archlinux.org/title/Power_management#Intel_wireless_cards_(iwlwifi)][Iwlwifi]]
+  # Enabling powersave on [[https://wiki.archlinux.org/title/Power_management#Audio][Audio]]
+  # Enabling powersave on pci devices [[https://github.com/NixOS/nixpkgs/issues/211345#issuecomment-1397825573][Github Issue]]
+  # Increasing virtual memory [[https://wiki.archlinux.org/title/Power_management#Writeback_Time][Writeback time]]
   boot = {
     extraModprobeConfig = ''
       options iwlwifi power_save=1
