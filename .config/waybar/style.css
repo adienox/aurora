@@ -20,8 +20,8 @@ window#waybar {
   margin: 5px;
 }
 
-#submap,
 #custom-weather,
+#submap,
 #custom-playerlabel,
 #battery,
 #bluetooth,
@@ -36,6 +36,7 @@ window#waybar {
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
   color: #cdd6f4;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #submap {
@@ -78,14 +79,14 @@ window#waybar {
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
-#workspaces button.active label {
-  color: #11111b;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-}
-
 #workspaces button.active {
   padding: 2px 14px;
   background-color: #f38ba8;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#workspaces button.active label {
+  color: #11111b;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 

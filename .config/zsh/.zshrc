@@ -92,6 +92,8 @@ fi
 alias zc='$EDITOR $HOME/.config/zsh/.zshrc'
 alias zsc='source $HOME/.config/zsh/.zshrc'
 
+alias waybar_restart="kill -SIGUSR2 $(pidof waybar)"
+
 alias p='ipython --no-banner --no-confirm-exit'
 alias psv='source ./venv/bin/activate'
 alias pcv='python -m venv venv'
