@@ -14,8 +14,7 @@ udiskie -s &
 ~/.config/hypr/scripts/bluetooth-auto-off.sh &
 ~/.config/hypr/scripts/clipboard.sh &
 
-lock="$HOME/.config/hypr/scripts/lock.sh"
-swayidle timeout 300 "$lock" timeout 600 'hyptctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep "$lock" &
+swayidle timeout 300 gtklock timeout 600 'hyptctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep gtklock &
 morgen &
 obsidian &
 todoist &
