@@ -19,6 +19,8 @@
     todoist-electron
     amberol
     anki-bin
+    caprine-bin
+    gnome.gnome-clocks
     calibre
     brave
     kitty
