@@ -42,8 +42,8 @@
     hostName = "anomaly";
     networkmanager.enable = true;
 
-    nameservers = [ "1.1.1.1" ];
-    networkmanager.insertNameservers = [ "1.1.1.1" ];
+    nameservers = [ "94.140.14.14" "94.140.15.15" "1.1.1.1" ];
+    networkmanager.insertNameservers = [ "94.140.14.14" "94.140.15.15" "1.1.1.1" ];
 
     firewall = {
       enable = true;
@@ -114,7 +114,7 @@
     pciutils
     usbutils
     powertop
-    libsForQt5.polkit-kde-agent
+    polkit_gnome
     python3Full
     gnome.nautilus
     discord
@@ -154,11 +154,6 @@
 
   security = {
     polkit.enable = true;
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
-    };
     pam.services.gtklock = {
       text = ''
         auth include login
@@ -184,6 +179,13 @@
       locate = pkgs.mlocate;
       localuser = null;
     };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
   };
   xdg.portal.enable = true;
 
@@ -192,12 +194,20 @@
     mediaKeys.enable = true;
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
   };
 
   # Power Management
