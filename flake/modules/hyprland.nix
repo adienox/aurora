@@ -26,6 +26,7 @@
     libsForQt5.lightly
     qt6.qmake
     qt6.qtwayland
+    xdg-user-dirs
   ];
 
   fonts.fontconfig.enable = true;

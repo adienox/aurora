@@ -11,8 +11,8 @@
       size = 11;
     };
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Win11-dark";
+      # package = pkgs.papirus-icon-theme;
     };
     theme = {
       name = "Catppuccin-Mocha-Standard-Red-dark";
