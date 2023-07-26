@@ -27,6 +27,7 @@
     qt6.qmake
     qt6.qtwayland
     xdg-user-dirs
+    eww-wayland
   ];
 
   fonts.fontconfig.enable = true;
