@@ -1,23 +1,24 @@
 * {
-  font-family: "Readex Pro", "Font Awesome 6 Brands", "Font Awesome 6 Free", "Font Awesome 6 Free Solid", "Noto Sans CJK JP";
-  font-size: 14px;
+	font-family: 'Readex Pro', 'Font Awesome 6 Brands', 'Font Awesome 6 Free',
+		'Font Awesome 6 Free Solid', 'Noto Sans CJK JP';
+	font-size: 14px;
 }
 
 window#waybar {
-  background-color: alpha(#000000, 0.8);
-  box-shadow: none;
+	background-color: alpha(#000000, 0.8);
+	box-shadow: none;
 }
 
 .modules-right {
-  margin: 5px;
+	margin: 5px;
 }
 
 .modules-left {
-  margin: 5px;
+	margin: 5px;
 }
 
 .modules-center {
-  margin: 5px;
+	margin: 5px;
 }
 
 #custom-weather,
@@ -30,68 +31,68 @@ window#waybar {
 #custom-dunst,
 #clock,
 #tray {
-  padding: 2px 14px;
-  border-radius: 4px;
-  background-color: #020202;
-  font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
-  color: #cdd6f4;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+	padding: 2px 14px;
+	border-radius: 4px;
+	background-color: #020202;
+	font-weight: bold;
+	box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
+	color: #cdd6f4;
+	transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #submap {
-  color: #a6e3a1;
+	color: #a6e3a1;
 }
 #battery {
-  color: #cba6f7;
+	color: #cba6f7;
 }
 #bluetooth {
-  color: #eba0ac;
+	color: #eba0ac;
 }
 #backlight {
-  color: #fab387;
+	color: #fab387;
 }
 #pulseaudio {
-  color: #f9e2af;
+	color: #f9e2af;
 }
 #custom-dunst {
-  color: #f38ba8;
+	color: #f38ba8;
 }
 #clock {
-  color: #94e2d5;
+	color: #94e2d5;
 }
 #tray {
-  color: #a6e3a1;
+	color: #a6e3a1;
 }
 
 #workspaces button {
-  border-radius: 4px;
-  margin-right: 6px;
-  padding: 2px 8px;
-  background-color: #020202;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+	border-radius: 4px;
+	margin-right: 6px;
+	padding: 2px 8px;
+	background-color: #020202;
+	box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
+	transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button label {
-  color: #f38ba8;
-  font-weight: bold;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+	color: #f38ba8;
+	font-weight: bold;
+	transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active {
-  padding: 2px 14px;
-  background-color: #f38ba8;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+	padding: 2px 14px;
+	background-color: #f38ba8;
+	transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active label {
-  color: #11111b;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+	color: #11111b;
+	transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #custom-playerlabel.Paused {
-  color: #f38ba8;
-  font-weight: bolder;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+	color: #f38ba8;
+	font-weight: bolder;
+	transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
