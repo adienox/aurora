@@ -19,7 +19,6 @@
     todoist-electron
     amberol
     anki-bin
-    caprine-bin
     gnome.gnome-clocks
     calibre
     brave
@@ -63,6 +62,9 @@
   };
 
   fonts = { fontconfig.enable = true; };
+  programs = {
+    librewolf.enable = true;
+  };
 
   programs.home-manager.enable = true;
 }
