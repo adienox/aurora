@@ -1,6 +1,5 @@
-export EDITOR="emacsclient"
-export ALTERNATE_EDITOR="emacs"
-export BROWSER="brave"
+export EDITOR="code"
+export BROWSER="librewolf"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
