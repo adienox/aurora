@@ -25,7 +25,7 @@
   # Using https://github.com/samuelngs/apple-emoji-linux Apple Color Emoji as the default emoji font. Download and place it in ~$HOME/.local/share/fonts~
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ nerdfonts font-awesome google-fonts source-han-sans ];
+    packages = with pkgs; [ nerdfonts font-awesome google-fonts source-han-sans ];
     fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
   };
 
@@ -107,7 +107,6 @@
     iw
     killall
     wget
-    git
     seatd
     xdg-utils
     auto-cpufreq
