@@ -15,7 +15,7 @@
         anomaly = nixpkgs.lib.nixosSystem {
           system = "X86_64-linux";
           modules = [
-            ./configuration.nix
+            ./system/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

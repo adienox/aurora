@@ -1,14 +1,14 @@
 { config, pkgs, ... }: {
 
   imports = [
+    ./shell.nix
     ./config/git.nix
     ./config/theme.nix
-    ./modules/hyprland.nix
-    ./modules/shell.nix
-    ./modules/emacs.nix
-    ./modules/vscode.nix
-    ./modules/espanso.nix
-    ./modules/xdg.nix
+    ./desktop/hyprland.nix
+    ./desktop/espanso.nix
+    ./desktop/xdg.nix
+    ./editors/emacs.nix
+    ./editors/vscode.nix
   ];
 
   home.username = "nox";
