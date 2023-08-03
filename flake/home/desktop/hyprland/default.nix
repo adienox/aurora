@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  imports = [ ./config.nix ];
   home.packages = with pkgs; [
     jq
     wl-clipboard
@@ -28,9 +29,18 @@
     qt6.qtwayland
     xdg-user-dirs
     eww-wayland
+    dconf
   ];
 
   fonts.fontconfig.enable = true;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
+  };
 
   programs.waybar = {
     enable = true;

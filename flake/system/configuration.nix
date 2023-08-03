@@ -136,14 +136,6 @@
     enableSSHSupport = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland = {
-      hidpi = true;
-      enable = true;
-    };
-  };
-
   environment.shells = with pkgs; [ zsh ];
   programs.zsh = {
     enable = true;

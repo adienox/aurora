@@ -4,7 +4,7 @@
     ./shell.nix
     ./config/git.nix
     ./config/theme.nix
-    ./desktop/hyprland.nix
+    ./desktop/hyprland
     ./desktop/espanso.nix
     ./desktop/xdg.nix
     ./editors/emacs.nix
@@ -53,6 +53,15 @@
     # '';
   };
 
+  home.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    XDG_SESSION_TYPE = "wayland";
+
+    EDITOR = "code";
+    BROWSER = "librewolf";
+  };
+
   services = {
     syncthing.enable = true;
     kdeconnect = {
@@ -61,10 +70,8 @@
     };
   };
 
-  fonts = { fontconfig.enable = true; };
   programs = {
     librewolf.enable = true;
+    home-manager.enable = true;
   };
-
-  programs.home-manager.enable = true;
 }
