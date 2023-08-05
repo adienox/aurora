@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   imports = [
     ./shell
@@ -24,7 +24,6 @@
     pavucontrol
     morgen
     obsidian
-    cava
     keepassxc
     telegram-desktop
     qpwgraph
@@ -33,6 +32,7 @@
     pulsemixer
     imv
     jetbrains.idea-community
+    inputs.nh.packages.${pkgs.system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

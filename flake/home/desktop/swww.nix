@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  home.packages = [ pkgs.swww ];
+
   systemd.user.services.swww = {
     Unit = {
       Description = "Wayland wallpaper daemon";

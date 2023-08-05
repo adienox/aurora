@@ -11,6 +11,7 @@
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
     EDITOR = "code";
     BROWSER = "librewolf";
+    FLAKE = "/home/nox/aurora/flake";
 
     TMUX_TMPDIR = "$XDG_RUNTIME_DIR";
     ANDROID_SDK_HOME = "$XDG_CONFIG_HOME/android";

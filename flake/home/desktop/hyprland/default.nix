@@ -1,8 +1,6 @@
-{config, lib, pkgs, hyprland, ... }: {
+{config, lib, pkgs, inputs, ... }: {
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
-    dunst
-    libnotify
     blueman
     brightnessctl
     rofi-wayland
@@ -20,7 +18,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-  package = hyprland.packages.${pkgs.system}.hyprland;
+  package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland = {
       enable = true;
       hidpi = true;

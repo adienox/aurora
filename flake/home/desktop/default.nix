@@ -8,8 +8,6 @@
 
   home.packages = with pkgs; [
     wl-clipboard
-    swww
-    swayidle
     gtklock
     libsForQt5.qt5.qtwayland
     libsForQt5.qt5ct

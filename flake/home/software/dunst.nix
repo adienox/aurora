@@ -1,5 +1,7 @@
 { pkgs, default, ... }: {
   # notification daemon
+  home.packages = [ pkgs.libnotify ];
+
   services.dunst = {
     enable = true;
     iconTheme = {

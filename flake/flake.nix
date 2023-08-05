@@ -1,5 +1,5 @@
 {
-  description = "Anomaly";
+  description = "Use with care.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -10,9 +10,24 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs"; # override this repo's nixpkgs snapshot
+    };
+
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     {
       imports = [ ./pkgs ];
       nixosConfigurations = {
@@ -20,13 +35,14 @@
           system = "X86_64-linux";
           modules = [
             ./system
+            nix-index-database.nixosModules.nix-index
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 users.nox = { imports = [ ./home ]; };
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = { inherit hyprland; };
+                extraSpecialArgs = { inherit inputs; };
               };
             }
           ];

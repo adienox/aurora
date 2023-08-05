@@ -98,20 +98,10 @@ in
     polkit_gnome
     python3Full
     gnome.nautilus
-    discord
   ];
 
   # Enable adbusers in extragroups for user
   programs.adb.enable = true;
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      discord = prev.discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      };
-    })
-  ];
 
   programs.gnupg.agent = {
     enable = true;
