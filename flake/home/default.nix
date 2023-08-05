@@ -2,13 +2,9 @@
 
   imports = [
     ./shell.nix
-    ./config/git.nix
-    ./config/theme.nix
-    ./desktop/hyprland
-    ./desktop/espanso.nix
-    ./desktop/xdg.nix
-    ./editors/emacs.nix
-    ./editors/vscode.nix
+    ./desktop
+    ./config
+    ./editors
   ];
 
   home.username = "nox";
@@ -54,10 +50,6 @@
   };
 
   home.sessionVariables = {
-    QT_QPA_PLATFORM = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-    XDG_SESSION_TYPE = "wayland";
-
     EDITOR = "code";
     BROWSER = "librewolf";
   };

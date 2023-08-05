@@ -2,9 +2,6 @@
   wayland.windowManager.hyprland = {
     settings = {
       monitor = ",preferred,auto,1";
-      source = [
-        "~/.config/hypr/env.conf"
-      ];
       input = {
         kb_options = "ctrl:nocaps"; # Swap capsLock with ctrl
         kb_layout = "us";
@@ -85,8 +82,8 @@
         vfr = true;
         key_press_enables_dpms = true;
       };
+
       exec-once = [
-        "dbus-update-activation-environment - -systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "~/.config/hypr/autostart.sh"
       ];
     };
@@ -96,7 +93,5 @@
     ./binds.nix
   ];
   wayland.windowManager.hyprland.extraConfig = ''
-    env = "QT_QPA_PLATFORM,wayland;xcb";
-    env = "QT_QPA_PLATFORMTHEME,qt5ct";
   '';
 }

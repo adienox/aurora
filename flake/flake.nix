@@ -21,9 +21,12 @@
             ./system
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.nox = { imports = [ ./home ]; };
+              home-manager = {
+                users.nox = { imports = [ ./home ]; };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit hyprland; };
+              };
             }
           ];
         };
