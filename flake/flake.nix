@@ -20,11 +20,6 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs"; # override this repo's nixpkgs snapshot
     };
-
-    nix-index-db = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -35,7 +30,6 @@
           system = "X86_64-linux";
           modules = [
             ./system
-            nix-index-database.nixosModules.nix-index
             home-manager.nixosModules.home-manager
             {
               home-manager = {

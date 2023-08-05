@@ -43,11 +43,13 @@
         "col.shadow" = "0x33000000";
         "col.shadow_inactive" = "0x22000000";
 
-        blur = true;
-        blur_size = 6; # minimum 1
-        blur_passes = 4; # minimum 1, more passes = more resource intensive.
-        blur_ignore_opacity = true;
-        blur_new_optimizations = true;
+        blur = {
+          enabled = true;
+          size = 6; # minimum 1
+          passes = 4; # minimum 1, more passes = more resource intensive.
+          ignore_opacity = true;
+          new_optimizations = true;
+        };
       };
 
       animations = {
