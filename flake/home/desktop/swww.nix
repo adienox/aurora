@@ -1,12 +1,11 @@
-{ pkgs, lib, default, ... }: {
+{ pkgs, ... }: {
   systemd.user.services.swww = {
     Unit = {
       Description = "Wayland wallpaper daemon";
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${lib.getExe pkgs.swww} init --no-daemon";
-      ExecStartPost = "${lib.getExe pkgs.swww} img ${default.wallpaper}";
+      ExecStart = "${pkgs.swww}/bin/swww init";
       Restart = "on-failure";
     };
     Install.WantedBy = [ "graphical-session.target" ];

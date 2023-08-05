@@ -14,6 +14,7 @@
 
   outputs = { self, nixpkgs, home-manager, hyprland }:
     {
+      imports = [ ./pkgs ];
       nixosConfigurations = {
         anomaly = nixpkgs.lib.nixosSystem {
           system = "X86_64-linux";

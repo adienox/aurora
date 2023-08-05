@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
 
   imports = [
-    ./shell.nix
+    ./shell
     ./desktop
     ./config
     ./editors

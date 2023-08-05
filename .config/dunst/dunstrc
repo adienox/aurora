@@ -366,11 +366,3 @@
     set_stack_tag = "volume"
     history_ignore = yes
     urgency = low
-
-[redirect]
-summary = "*"
-script = "~/.config/waybar/scripts/tools/notif"
-
-[logger]
-summary = "*"
-script = "~/.config/waybar/scripts/tools/notif"

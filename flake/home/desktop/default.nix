@@ -3,7 +3,6 @@
     ./hyprland
     ./swayidle.nix
     ./swww.nix
-    ./xdg.nix
   ];
 
   home.packages = with pkgs; [
@@ -11,7 +10,7 @@
     swww
     swayidle
     gtklock
-    qt5.qtwayland
+    libsForQt5.qt5.qtwayland
     libsForQt5.qt5ct
     libsForQt5.lightly
     qt6.qmake
@@ -26,5 +25,14 @@
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORMTHEME="qt5ct";
+  };
+
+  # fake a tray to let apps start
+  # https://github.com/nix-community/home-manager/issues/2064
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
   };
 }

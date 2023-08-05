@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{config, lib, pkgs, hyprland, ... }: {
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
     dunst
@@ -20,6 +20,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+  package = hyprland.packages.${pkgs.system}.hyprland;
     xwayland = {
       enable = true;
       hidpi = true;
@@ -32,4 +33,7 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     });
   };
+
+  # start swayidle as part of hyprland, not sway
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
 }

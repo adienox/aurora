@@ -16,8 +16,6 @@
   };
 
   environment.variables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_QPA_PLATFORM = "xcb obs";
     #https://unix.stackexchange.com/a/657578
     LIBSEAT_BACKEND = "logind";
   };

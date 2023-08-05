@@ -5,7 +5,7 @@ nm-applet &
 blueman-applet &
 kdeconnect-indicator &
 waybar &
-swww init &
+# swww init &
 dunst &
 keepassxc -platform xcb &
 udiskie -s &
@@ -14,7 +14,6 @@ udiskie -s &
 ~/.config/hypr/scripts/bluetooth-auto-off.sh &
 ~/.config/hypr/scripts/clipboard.sh &
 
-swayidle timeout 300 'gtklock -d' timeout 600 'hyptctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'gtklock -d' &
 morgen &
 obsidian &
 todoist &
