@@ -5,7 +5,7 @@
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.swww}/bin/swww init";
+      ExecStart = "${pkgs.swww}/bin/swww-daemon";
       Restart = "on-failure";
     };
     Install.WantedBy = [ "graphical-session.target" ];

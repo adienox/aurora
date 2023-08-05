@@ -5,6 +5,8 @@
     ./desktop
     ./config
     ./editors
+    ./terminal
+    ./software
   ];
 
   home.username = "nox";
@@ -18,7 +20,6 @@
     gnome.gnome-clocks
     calibre
     brave
-    kitty
     mpv
     pavucontrol
     morgen
@@ -49,10 +50,6 @@
     # '';
   };
 
-  home.sessionVariables = {
-    EDITOR = "code";
-    BROWSER = "librewolf";
-  };
 
   services = {
     syncthing.enable = true;

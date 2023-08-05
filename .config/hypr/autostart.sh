@@ -6,7 +6,7 @@ blueman-applet &
 kdeconnect-indicator &
 waybar &
 # swww init &
-dunst &
+# dunst &
 keepassxc -platform xcb &
 udiskie -s &
 

@@ -3,6 +3,7 @@
     ./hyprland
     ./swayidle.nix
     ./swww.nix
+    ./espanso.nix
   ];
 
   home.packages = with pkgs; [
