@@ -57,7 +57,6 @@
       jack.enable = true;
     };
   };
-  xdg.portal.enable = true;
 
   sound = {
     enable = true;

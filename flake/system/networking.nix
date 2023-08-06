@@ -9,7 +9,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22000 ];
+      allowedTCPPorts = [ 22000 ]; # needed for syncthing
       allowedUDPPorts = [ ];
       allowedTCPPortRanges = [{
         from = 1714;

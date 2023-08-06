@@ -10,8 +10,9 @@ in
     ./hardware-configuration.nix
     ./networking.nix
     ./power-management.nix
+    ./security.nix
     ./software.nix
-    ];
+  ];
 
   boot = {
     loader = {
@@ -34,19 +35,6 @@ in
     extraGroups =
       [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" ];
     packages = with pkgs; [ ];
-  };
-
-  security = {
-    polkit.enable = true;
-    pam.services.gtklock = {
-      text = ''
-        auth include login
-      '';
-    };
-    sudo.extraConfig = ''
-      Defaults env_reset,pwfeedback
-    '';
-    pam.services.${username}.enableGnomeKeyring = true;
   };
 
   nix = {
