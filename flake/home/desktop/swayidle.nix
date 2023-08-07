@@ -14,7 +14,7 @@ in {
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.systemd}/bin/loginctl lock-session";
+        command = "${pkgs.gtklock}/bin/gtklock -d";
       }
       {
         event = "lock";
