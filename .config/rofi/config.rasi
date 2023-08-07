@@ -1,5 +1,9 @@
 @theme "catppuccin.rasi"
 
+* {
+    background-color: transparent;
+}
+
 configuration{
     font: "Readex Pro 16";
     show-icons: true;
@@ -24,7 +28,6 @@ configuration{
 }
 
 button {
-    background-color: @background;
     horizontal-align: 0.5;
     padding: 10px;
     text-color: @foreground;
@@ -32,12 +35,10 @@ button {
 }
 
 button selected {
-    background-color: @background;
     text-color: @accent;
 }
 
 element {
-    background-color: @background;
     padding: 5px;
     text-color: @foreground;
 }
@@ -47,28 +48,22 @@ element-icon {
 }
 
 element selected {
-    background-color: @background;
     text-color: @foreground-selected;
 }
 
 entry {
-    background-color: @background;
     margin: 20px 10px 0px 10px;
     padding: 6px;
     text-color: @foreground;
-    border: 0px 0px 1px 0px;
-    border-color: @base;
 }
 
 inputbar {
-    background-color: @background;
     border-radius: 5px;
     children: [prompt, entry];
     padding: 2px;
 }
 
 listview {
-    background-color: @background;
     border: 0px 0px 0px;
     lines: 8;
     columns: 2;
@@ -81,12 +76,7 @@ message {
 }
 
 textbox {
-    background-color: @background;
     text-color: @foreground;
-}
-
-mainbox {
-    background-color: @background;
 }
 
 mode-switcher {
@@ -107,7 +97,7 @@ textbox-prompt-colon {
 }
 
 window {
-    background-color: @background;
+    background-color: black / 50%;
     border-color: @accent;
     border: 1px;
     border-radius: 8px;

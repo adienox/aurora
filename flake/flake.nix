@@ -18,13 +18,12 @@
 
     nh = {
       url = "github:viperML/nh";
-      inputs.nixpkgs.follows = "nixpkgs"; # override this repo's nixpkgs snapshot
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     {
-      imports = [ ./pkgs ];
       nixosConfigurations = {
         anomaly = nixpkgs.lib.nixosSystem {
           system = "X86_64-linux";

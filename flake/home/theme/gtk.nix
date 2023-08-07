@@ -30,8 +30,4 @@
       gtk-application-prefer-dark-theme=true;
     };
   };
-  qt = {
-    enable = true;
-    platformTheme = "qtct";
-  };
 }

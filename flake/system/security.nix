@@ -1,5 +1,5 @@
 # security tweaks borrowed from @hlissner
-{
+{username, ...}: {
   boot.kernel.sysctl = {
     # The Magic SysRq key is a key combo that allows users connected to the
     # system console of a Linux kernel to perform some low-level commands.
@@ -50,7 +50,7 @@
     sudo.extraConfig = ''
       Defaults env_reset,pwfeedback
     '';
-    pam.services.${username}.enableGnomeKeyring = true;
+    pam.services.nox.enableGnomeKeyring = true;
 
     rtkit.enable = true;
   };

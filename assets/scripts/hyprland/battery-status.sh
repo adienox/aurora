@@ -2,9 +2,10 @@
 
 ICON=/usr/share/icons/Papirus-Dark/16x16/devices/battery.svg
 
-notiSound () {
+notiSound() {
     if [ "$(dunstctl is-paused)" == 'false' ]; then
-        mpv --no-resume-playback --quiet --keep-open=no $HOME/.config/hypr/assets/notification.mp3
+        # TODO fix the path
+        mpv --no-resume-playback --quiet --keep-open=no $HOME/.config/scripts/hyprland/assets/notification.mp3
     fi
 }
 

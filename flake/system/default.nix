@@ -15,6 +15,8 @@ in
   ];
 
   boot = {
+    kernelModules = [ "amdgpu" ];
+    kernelParams = [ "module_blacklist=nvidia" ];
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 3;

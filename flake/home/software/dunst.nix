@@ -31,9 +31,9 @@
         markup = "full";
         min_icon_size = 32;
         max_icon_size = 64;
-        mouse_left_click = "do_action";
+        mouse_left_click = "close_current";
         mouse_middle_click = "close_all";
-        mouse_right_click = "close_current";
+        mouse_right_click = "do_action";
         notification_limit = 3;
         padding = 8;
         plain_text = "no";

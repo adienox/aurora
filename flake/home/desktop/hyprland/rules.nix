@@ -34,6 +34,7 @@
         "float, title:DevTools"
         "float, title:wlogout"
         "float, ^(io\.bassi\.Amberol)$"
+        "float, ^(org\.gnome\.Calculator)$"
 
         #Size, Move, and Pin rules
         "pin, title:^(Picture in picture)$"
@@ -84,10 +85,17 @@
 
         "opacity 0.80 0.70,class:^(pavucontrol)$"
         "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+
+        # XWaylandVideoBridge
+        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "nofocus,class:^(xwaylandvideobridge)$"
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
       ];
       layerrule = [
         "blur, waybar"
         "blur, notifications"
+        "blur, rofi"
       ];
     };
   };

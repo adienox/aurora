@@ -32,17 +32,26 @@ in
 
   xdg = {
     enable = true;
+    cacheHome = config.home.homeDirectory + "/.local/cache";
+
     userDirs = {
       enable = true;
       createDirectories = true;
+      documents = "$HOME/Documents";
+      download = "$HOME/Downloads";
+      videos = "$HOME/Videos";
+      music = "$HOME/Music";
+      pictures = "$HOME/Pictures";
       desktop = null;
       publicShare = null;
       templates = null;
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+      };
     };
 
     mimeApps = {
       enable = true;
-      associations.added = associations;
       defaultApplications = associations;
     };
 

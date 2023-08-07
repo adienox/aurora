@@ -14,9 +14,15 @@
   #environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland.enable = true;
 
+  programs = {
+    # make HM-managed GTK stuff work
+    dconf.enable = true;
+    seahorse.enable = true;
+  };
+
   xdg.portal.enable = true;
 
-  # Using https://github.com/samuelngs/apple-emoji-linux Apple Color Emoji as the default emoji font. Download and place it in ~$HOME/.local/share/fonts~
+  # Using https://github.com/samuelngs/apple-emoji-linux Apple Color Emoji as the default emoji font.
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [ nerdfonts font-awesome google-fonts ];

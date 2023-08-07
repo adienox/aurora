@@ -2,6 +2,7 @@
   imports = [
     ./dunst.nix
     ./discord.nix
-    ./spicetify.nix
+    ./media.nix
+    ./git.nix
   ];
 }

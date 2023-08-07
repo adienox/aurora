@@ -2,11 +2,12 @@
   imports = [
     ./zoxide.nix
     ./zsh.nix
-    ./starship.nix
     ./xdg.nix
     ./cli.nix
   ];
   home.sessionVariables = {
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+
     # ~/ Clean-up:
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
     EDITOR = "code";

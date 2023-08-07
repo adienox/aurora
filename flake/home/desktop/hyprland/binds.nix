@@ -16,10 +16,10 @@
 
         # Applications
         "$MOD, W, exec, librewolf"
-        "$MOD, O, exec, ~/.config/hypr/scripts/focus.sh obsidian obsidian"
-        "$MOD, C, exec, ~/.config/hypr/scripts/focus.sh Morgen morgen"
-        "$MOD, E, exec, ~/.config/hypr/scripts/focus.sh Code code"
-        "$MOD, T, exec, ~/.config/hypr/scripts/focus.sh Todoist todoist"
+        "$MOD, O, exec, ~/.config/scripts/hyprland/focus.sh obsidian obsidian"
+        "$MOD, C, exec, ~/.config/scripts/hyprland/focus.sh Morgen morgen"
+        "$MOD, E, exec, ~/.config/scripts/hyprland/focus.sh Code code"
+        "$MOD, T, exec, ~/.config/scripts/hyprland/focus.sh Todoist todoist"
         "$MOD SHIFT, O, exec, ~/.config/scripts/obsidian-log.sh"
 
         # Rofi
@@ -39,9 +39,9 @@
         "$MOD, P, pseudo,"
 
         # Screenshot
-        ", Print, exec, ~/.config/hypr/scripts/screenshot.sh full"
-        "SHIFT, Print, exec, ~/.config/hypr/scripts/screenshot.sh partial"
-        "$MOD SHIFT, T, exec, ~/.config/hypr/scripts/screenshot.sh ocr"
+        ", Print, exec, ~/.config/scripts/hyprland/screenshot.sh full"
+        "SHIFT, Print, exec, ~/.config/scripts/hyprland/screenshot.sh partial"
+        "$MOD SHIFT, T, exec, ~/.config/scripts/hyprland/screenshot.sh ocr"
 
         # Move focus with MOD + vim keys
         "$MOD, H, movefocus, l"
@@ -83,7 +83,7 @@
 
         # Misc
         ", F11, exec, hyprctl dispatch fullscreen"
-        "$MOD SHIFT, P, exec, ~/.config/hypr/scripts/window-pin.sh"
+        "$MOD SHIFT, P, exec, ~/.config/scripts/hyprland/window-pin.sh"
 
         # Group bindings
         "$MOD,g,togglegroup"
@@ -91,16 +91,16 @@
       ];
       bindel = [
         # Brightness Control
-        ", XF86MonBrightnessUp, exec, ~/.config/hypr/scripts/brightness.sh up"
-        ", XF86MonBrightnessDown, exec, ~/.config/hypr/scripts/brightness.sh down"
-        "SHIFT, XF86MonBrightnessUp, exec, ~/.config/hypr/scripts/brightness.sh up1"
-        "SHIFT, XF86MonBrightnessDown, exec, ~/.config/hypr/scripts/brightness.sh down1"
+        ", XF86MonBrightnessUp, exec, ~/.config/scripts/hyprland/brightness.sh up"
+        ", XF86MonBrightnessDown, exec, ~/.config/scripts/hyprland/brightness.sh down"
+        "SHIFT, XF86MonBrightnessUp, exec, ~/.config/scripts/hyprland/brightness.sh up1"
+        "SHIFT, XF86MonBrightnessDown, exec, ~/.config/scripts/hyprland/brightness.sh down1"
 
         # Audio Control
-        " , XF86AudioMute, exec, ~/.config/hypr/scripts/volume.sh toggleMute"
+        " , XF86AudioMute, exec, ~/.config/scripts/hyprland/volume.sh toggleMute"
         " , XF86AudioMicMute, exec, pamixer --default-source -t"
-        ", XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume.sh up"
-        ", XF86AudioLowerVolume, exec, ~/.config/hypr/scripts/volume.sh down"
+        ", XF86AudioRaiseVolume, exec, ~/.config/scripts/hyprland/volume.sh up"
+        ", XF86AudioLowerVolume, exec, ~/.config/scripts/hyprland/volume.sh down"
       ];
       bindl = [
         # Media Control

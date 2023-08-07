@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    ./git.nix
-    ./theme.nix
+    ./gtk.nix
+    ./qt.nix
   ];
 }

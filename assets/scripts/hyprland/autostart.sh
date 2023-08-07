@@ -5,14 +5,13 @@ nm-applet &
 blueman-applet &
 kdeconnect-indicator &
 waybar &
-# swww init &
-# dunst &
 keepassxc -platform xcb &
 udiskie -s &
 
-~/.config/hypr/scripts/battery-status.sh &
-~/.config/hypr/scripts/bluetooth-auto-off.sh &
-~/.config/hypr/scripts/clipboard.sh &
+~/.config/scripts/hyprland/battery-status.sh &
+~/.config/scripts/hyprland/bluetooth-auto-off.sh &
+~/.config/scripts/hyprland/clipboard.sh &
+~/Documents/xwaylandvideobridge/result/bin/xwaylandvideobridge &
 
 morgen &
 obsidian &

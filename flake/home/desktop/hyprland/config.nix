@@ -1,4 +1,9 @@
 { config, pkgs, ... }: {
+  imports = [
+    ./rules.nix
+    ./binds.nix
+  ];
+
   wayland.windowManager.hyprland = {
     settings = {
       monitor = ",preferred,auto,1";
@@ -72,7 +77,7 @@
       gestures = {
         workspace_swipe = true;
         workspace_swipe_fingers = 3;
-        workspace_swipe_cancel_ratio = 0.7;
+        workspace_swipe_cancel_ratio = 0.6;
         workspace_swipe_min_speed_to_force = 5;
       };
 
@@ -86,14 +91,8 @@
       };
 
       exec-once = [
-        "~/.config/hypr/autostart.sh"
+        "~/.config/scripts/hyprland/autostart.sh"
       ];
     };
   };
-  imports = [
-    ./rules.nix
-    ./binds.nix
-  ];
-  wayland.windowManager.hyprland.extraConfig = ''
-  '';
 }

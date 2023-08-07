@@ -3,9 +3,9 @@
   imports = [
     ./shell
     ./desktop
-    ./config
     ./editors
     ./terminal
+    ./theme
     ./software
   ];
 
@@ -18,10 +18,9 @@
     amberol
     anki-bin
     gnome.gnome-clocks
+    gnome.gnome-calculator
     calibre
     brave
-    mpv
-    pavucontrol
     morgen
     obsidian
     keepassxc
@@ -30,7 +29,6 @@
     libtool
     yt-dlp
     pulsemixer
-    imv
     jetbrains.idea-community
     inputs.nh.packages.${pkgs.system}.default
   ];

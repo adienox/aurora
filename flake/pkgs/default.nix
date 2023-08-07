@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  packages."x86_64-linux" = {
+  packages.${pkgs.system} = {
     xwaylandvideobridge =
       pkgs.libsForQt5.callPackage ./xwaylandvideobridge { };
   };
