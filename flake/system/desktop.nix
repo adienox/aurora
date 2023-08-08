@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: {
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -14,13 +14,15 @@
   #environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland.enable = true;
 
+  services.logind.extraConfig = ''
+      HandlePowerKey=suspend
+    '';
+
   programs = {
     # make HM-managed GTK stuff work
     dconf.enable = true;
     seahorse.enable = true;
   };
-
-  xdg.portal.enable = true;
 
   # Using https://github.com/samuelngs/apple-emoji-linux Apple Color Emoji as the default emoji font.
   fonts = {
