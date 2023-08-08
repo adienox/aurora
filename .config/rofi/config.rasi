@@ -19,12 +19,16 @@ configuration{
     show-match: false;
     kb-mode-previous: "Control+Alt+h,Control+Shift+Tab";
     kb-mode-next: "Control+Alt+l,Control+Tab";
-    kb-row-left: "Alt+h";
-    kb-row-right: "Alt+l";
-    kb-row-down: "Alt+j,Control+n,Down";
-    kb-row-up: "Alt+k,Control+p,Up";
+    kb-remove-to-eol: "";
+    kb-mode-complete: "";
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-row-left: "Control+h";
+    kb-row-right: "Control+l";
+    kb-row-down: "Control+j,Control+n,Down";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-row-up: "Control+k,Control+p,Up";
     kb-remove-word-back: "Control+BackSpace";
-    modi: "drun";
+    modi: "drun,window";
 }
 
 button {
@@ -39,7 +43,7 @@ button selected {
 }
 
 element {
-    padding: 5px;
+    padding: 8px;
     text-color: @foreground;
 }
 
@@ -49,6 +53,7 @@ element-icon {
 
 element selected {
     text-color: @foreground-selected;
+    border-radius: 8px;
 }
 
 entry {
