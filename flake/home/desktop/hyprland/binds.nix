@@ -24,7 +24,7 @@
 
         # Rofi
         "$MOD SHIFT, I, exec, ~/.config/rofi/bin/emoji.sh"
-        "$MOD, X, exec, ~/.config/rofi/bin/powermenu.sh"
+        "$MOD, X, exec, wlogout"
         "$MOD, B, exec, ~/.config/rofi/bin/bluetooth.sh"
         "$MOD, Space, exec, rofi -show drun"
         "$ALT, Tab, exec, rofi -show window"
