@@ -19,7 +19,7 @@
       }
       {
         label = "logout";
-        action = "loginctl terminate-session $USER";
+        action = "loginctl terminate-user $USER";
         text = "logout";
         keybind = "e";
       }
