@@ -77,25 +77,37 @@
         # Misc rules
         "idleinhibit focus, mpv"
         "idleinhibit focus, ^(discord)$"
+        "rounding 4, title:^(LibreWolf — Sharing Indicator)$"
       ];
       windowrulev2 = [
-        "idleinhibit fullscreen, class:^(Brave-browser)$"
-        "idleinhibit focus, class:^(Brave-browser)$, title:^(.*YouTube.*)$"
+        "idleinhibit fullscreen, class:^(librewolf)$"
+        "idleinhibit focus, class:^(librewolf)$, title:^(.*YouTube.*)$"
         "noshadow, floating:0"
 
         "opacity 0.80 0.70,class:^(pavucontrol)$"
-        "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+        "opacity 0.80 0.70,class:^(polkit-gnome-authentication-agent-1)$"
+
+        "noanim, class:^(wlogout)$, title:^(wlogout)$"
+        "noshadow, class:^(wlogout)$, title:^(wlogout)$"
 
         # XWaylandVideoBridge
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "nofocus,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
+
+        # Librewolf sharing indicator
+        "opacity 0.0 override 0.0 override,title:^(LibreWolf - Sharing Indicator)$"
+        "noanim,title:^(LibreWolf - Sharing Indicator)$"
+        "nofocus,title:^(LibreWolf - Sharing Indicator)$"
+        "noinitialfocus,title:^(LibreWolf - Sharing Indicator)$"
       ];
       layerrule = [
-        "blur, waybar"
-        "blur, notifications"
+        "ignorealpha 0.69, notifications"
         "blur, rofi"
+        "ignorealpha 0.5, rofi"
+        "blur, gtk-layer-shell"
+        "ignorezero, gtk-layer-shell"
       ];
     };
   };
