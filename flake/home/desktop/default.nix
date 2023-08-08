@@ -3,6 +3,7 @@
     ./hyprland
     ./waybar
     ./gtklock
+    ./wlogout
     ./swayidle.nix
     ./swww.nix
     ./espanso.nix
