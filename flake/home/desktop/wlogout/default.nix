@@ -1,11 +1,13 @@
 { config, pkgs, ... }: {
+  home.packages = [ pkgs.material-symbols ];
+
   programs.wlogout = {
     enable = true;
     style = ./style.css;
     layout = [
       {
         label = "lock";
-        action = "gtklock";
+        action = "gtklock -d";
         text = "lock";
         keybind = "l";
       }
@@ -17,7 +19,7 @@
       }
       {
         label = "logout";
-        action = "loginctl terminate-user $USER";
+        action = "loginctl terminate-session $USER";
         text = "logout";
         keybind = "e";
       }
