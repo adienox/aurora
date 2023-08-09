@@ -13,10 +13,11 @@
         "float, ^(blueman-manager)$"
         "float, title:^(Discord Popout)$"
         "float, title:^(Picture in picture)$"
-        "float, class:^(udiskie)$"
         "float, title:^(Volume Control)$"
         "float, title:^(Picture-in-Picture)$"
         "float, title:^(LibreWolf — Sharing Indicator)$"
+        "float, yad"
+        "float, udiskie"
         "float, file_progress"
         "float, confirm"
         "float, dialog"
@@ -53,6 +54,7 @@
 
         # Animation Rules
         "animation popin, floating:1"
+        "animation popin, yad"
         "animation popin, title:^(fly_is_kitty)$"
         "animation popin, title:^(Discord Popout)$"
         "animation popin, title:^(Picture in picture)$"
@@ -60,7 +62,9 @@
 
         # Workspace Rules
         "workspace 1, ^(Brave-browser)$"
+        "workspace 1, ^(librewolf)$"
         "workspace 2, ^(Emacs)$"
+        "workspace 2, ^(Code)$"
         "workspace 3, ^(obsidian)$"
         "workspace 4, ^(calibre-gui)$"
         "workspace 5, ^(discord)$"
@@ -85,7 +89,10 @@
         "noshadow, floating:0"
 
         "opacity 0.80 0.70,class:^(pavucontrol)$"
+        "opacity 0.80 0.70,class:^(yad)$"
         "opacity 0.80 0.70,class:^(polkit-gnome-authentication-agent-1)$"
+        "opacity 0.80 0.70,title:^(Discord Popout)$"
+        "noborder,title:^(Discord Popout)$"
 
         "noanim, class:^(wlogout)$, title:^(wlogout)$"
         "noshadow, class:^(wlogout)$, title:^(wlogout)$"
@@ -103,6 +110,7 @@
         "noinitialfocus,title:^(LibreWolf - Sharing Indicator)$"
       ];
       layerrule = [
+        "blur, notifications"
         "ignorealpha 0.69, notifications"
         "blur, rofi"
         "ignorealpha 0.5, rofi"
