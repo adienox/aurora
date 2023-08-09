@@ -15,22 +15,22 @@
         "$ALT, 2, exec, kitty --title fly_is_kitty pulsemixer"
 
         # Applications
-        "$MOD, W, exec, librewolf"
+        "$MOD, W, exec, ~/.config/scripts/hyprland/focus.sh librewolf librewolf"
         "$MOD, O, exec, ~/.config/scripts/hyprland/focus.sh obsidian obsidian"
         "$MOD, C, exec, ~/.config/scripts/hyprland/focus.sh Morgen morgen"
         "$MOD, E, exec, ~/.config/scripts/hyprland/focus.sh Code code"
         "$MOD, T, exec, ~/.config/scripts/hyprland/focus.sh Todoist todoist"
-        "$MOD SHIFT, O, exec, ~/.config/scripts/obsidian-log.sh"
+        "$MOD, X, exec, wlogout"
 
         # Rofi
-        "$MOD SHIFT, I, exec, ~/.config/rofi/bin/emoji.sh"
-        "$MOD, X, exec, wlogout"
-        "$MOD, B, exec, ~/.config/rofi/bin/bluetooth.sh"
-        "$MOD, Space, exec, rofi -show drun"
-        "$ALT, Tab, exec, rofi -show window"
+        "$MOD SHIFT, I, exec, ~/.config/scripts/hyprland/rofi.sh emoji"
+        "$ALT, Space, exec, ~/.config/scripts/hyprland/rofi.sh calc"
+        "$MOD, B, exec, ~/.config/scripts/hyprland/rofi.sh bluetooth"
+        "$MOD, Space, exec, ~/.config/scripts/hyprland/rofi.sh drun"
+        "$ALT, Tab, exec, ~/.config/scripts/hyprland/rofi.sh window"
 
         # Clipboard
-        "$MOD, V, exec, ~/.config/rofi/bin/clipboard.sh"
+        "$MOD, V, exec, ~/.config/scripts/rofi/clipboard.sh"
         "$MOD SHIFT, V, exec, cliphist wipe"
 
         # Hyprland Bindings
@@ -84,6 +84,7 @@
         # Misc
         ", F11, exec, hyprctl dispatch fullscreen"
         "$MOD SHIFT, P, exec, ~/.config/scripts/hyprland/window-pin.sh"
+        "$MOD SHIFT, W, exec, ~/.config/scripts/hyprland/switchwall.sh"
 
         # Group bindings
         "$MOD,g,togglegroup"

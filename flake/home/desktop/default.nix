@@ -4,6 +4,7 @@
     ./waybar
     ./gtklock
     ./wlogout
+    ./rofi
     ./swayidle.nix
     ./swww.nix
     ./espanso.nix
