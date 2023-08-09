@@ -2,12 +2,14 @@
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
     brightnessctl
-    rofi-wayland
     udiskie
     bibata-cursors
     networkmanagerapplet
     acpi
     noto-fonts-cjk-sans
+    gojq
+    xorg.xrandr
+    yad
   ];
 
   fonts.fontconfig.enable = true;
