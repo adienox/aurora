@@ -17,19 +17,24 @@ in
       enable = true;
       theme = spicePkgs.themes.catppuccin-mocha;
       colorScheme = "red";
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      sidebarConfig = true;
+      enabledCustomApps = with spicePkgs.apps; [ lyrics-plus new-releases reddit ];
 
       enabledExtensions = with spicePkgs.extensions; [
-      hidePodcasts
-      shuffle
-      adblock
-      playlistIcons
-      lastfm
-      genre
-      historyShortcut
-      bookmark
-      fullAlbumDate
-      groupSession
-      popupLyrics
+        hidePodcasts
+        shuffle
+        adblock
+        playlistIcons
+        lastfm
+        genre
+        historyShortcut
+        bookmark
+        fullAlbumDate
+        groupSession
+        popupLyrics
       ];
     };
 }

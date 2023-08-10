@@ -4,5 +4,6 @@
     ./discord.nix
     ./media.nix
     ./git.nix
+    ./librewolf.nix
   ];
 }
