@@ -102,12 +102,7 @@
         "noanim,class:^(xwaylandvideobridge)$"
         "nofocus,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
-
-        # Librewolf sharing indicator
-        "opacity 0.0 override 0.0 override,title:^(LibreWolf - Sharing Indicator)$"
-        "noanim,title:^(LibreWolf - Sharing Indicator)$"
-        "nofocus,title:^(LibreWolf - Sharing Indicator)$"
-        "noinitialfocus,title:^(LibreWolf - Sharing Indicator)$"
+        "noshadow,class:^(xwaylandvideobridge)$"
       ];
       layerrule = [
         "blur, notifications"
