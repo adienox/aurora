@@ -62,6 +62,7 @@
       grep = "grep --color=auto";
       hw = "hwinfo --short";
       ipa = "ip --brief address";
+      quote = "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
     };
     initExtra = ''
       setopt interactivecomments # allow comments in interactive mode
