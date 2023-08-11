@@ -18,7 +18,7 @@
         "$MOD, W, exec, ~/.config/scripts/hyprland/focus.sh librewolf librewolf"
         "$MOD, O, exec, ~/.config/scripts/hyprland/focus.sh obsidian obsidian"
         "$MOD, C, exec, ~/.config/scripts/hyprland/focus.sh Morgen morgen"
-        "$MOD, E, exec, ~/.config/scripts/hyprland/focus.sh Code code"
+        "$MOD, E, exec, ~/.config/scripts/hyprland/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
         "$MOD, T, exec, ~/.config/scripts/hyprland/focus.sh Todoist todoist"
         "$MOD, X, exec, wlogout"
 
