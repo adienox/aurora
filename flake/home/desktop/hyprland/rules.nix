@@ -103,6 +103,7 @@
         "nofocus,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         "noshadow,class:^(xwaylandvideobridge)$"
+        "noblur,class:^(xwaylandvideobridge)$"
       ];
       layerrule = [
         "blur, notifications"

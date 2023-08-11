@@ -4,6 +4,6 @@
     settings = {
       "privacy.webrtc.hideGlobalIndicator" = true;
       "identity.fxaccounts.enable" = true;
-    }
+    };
   };
 }
