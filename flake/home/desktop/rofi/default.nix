@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
-  home.packages = [ pkgs.wtype ]; # Auto type for emoji
+  # home.packages = [ pkgs.wtype ]; # Auto type for emoji
+  home.packages = [ pkgs.cliphist ];
 
   programs.rofi = {
     enable = true;
