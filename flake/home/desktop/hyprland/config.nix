@@ -25,8 +25,8 @@
 
         border_size = 1;
 
-        "col.active_border" = "0xfff38ba8 0xffb4befe 270deg";
-        "col.inactive_border" = "0xff45475a";
+        "col.active_border" = "0xff45475a";
+        "col.inactive_border" = "0xff1111b";
 
         "col.group_border" = "0xff89dceb";
         "col.group_border_active" = "0xfff9e2af";
@@ -98,7 +98,7 @@
       };
 
       exec-once = [
-        "~/.config/scripts/hyprland/autostart.sh"
+        "~/.config/assets/scripts/hyprland/autostart.sh"
       ];
     };
   };

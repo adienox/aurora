@@ -91,6 +91,7 @@
         "opacity 0.80 0.70,class:^(pavucontrol)$"
         "opacity 0.80 0.70,class:^(yad)$"
         "opacity 0.80 0.70,class:^(polkit-gnome-authentication-agent-1)$"
+        "opacity 0.80 0.70,class:^(io\.bassi\.Amberol)$"
         "opacity 0.80 0.70,title:^(Discord Popout)$"
         "noborder,title:^(Discord Popout)$"
 
@@ -107,7 +108,6 @@
       ];
       layerrule = [
         "blur, notifications"
-        "ignorealpha 0.69, notifications"
         "blur, rofi"
         "ignorealpha 0.5, rofi"
         "blur, gtk-layer-shell"
