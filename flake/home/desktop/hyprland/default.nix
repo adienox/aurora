@@ -10,6 +10,7 @@
     gojq
     xorg.xrandr
     yad
+    xwaylandvideobridge
   ];
 
   fonts.fontconfig.enable = true;

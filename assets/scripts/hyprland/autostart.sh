@@ -7,11 +7,11 @@ kdeconnect-indicator &
 waybar &
 keepassxc -platform xcb &
 udiskie -s &
+xwaylandvideobridge &
 
 ~/.config/assets/scripts/hyprland/battery-status.sh &
 ~/.config/assets/scripts/hyprland/bluetooth-auto-off.sh &
 ~/.config/assets/scripts/hyprland/clipboard.sh &
-~/Documents/xwaylandvideobridge/result/bin/xwaylandvideobridge &
 
 morgen &
 obsidian &
