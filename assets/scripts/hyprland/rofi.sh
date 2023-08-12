@@ -3,7 +3,7 @@
 if [ "$1" == "window" ]; then
     rofi -show window
 elif [ "$1" == "drun" ]; then
-    rofi -show drun -theme-str 'entry {placeholder: "Search..."; placeholder-color: rgba(205, 214, 244, 0.5); cursor: false; }'
+    rofi -show drun
 elif [ "$1" == "emoji" ]; then
     rofi -show emoji -modi emoji -theme-str 'element-icon {size: 0px;}' -emoji-file ~/.config/assets/utils/all_emojis.txt
 elif [ "$1" == "calc" ]; then

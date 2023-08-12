@@ -2,8 +2,9 @@
   background:           rgba(0, 0, 0, 0.7);
   background-selected:  rgba(24, 24, 37, 0.3);
   foreground:           #CDD6F4FF;
-  accent:               #F38BA8FF;
   foreground-selected:  #F38BA8FF;
+  placeholder-color:    rgba(205, 214, 244, 0.5);
+  accent:               #F38BA8FF;
   base:                 #181825FF;
   background-color:     transparent;
 }
@@ -42,6 +43,8 @@ entry {
     margin: 20px 10px 0px 10px;
     padding: 6px;
     text-color: @foreground;
+    placeholder: "Search...";
+    placeholder-color: @placeholder-color;
 }
 
 inputbar {
