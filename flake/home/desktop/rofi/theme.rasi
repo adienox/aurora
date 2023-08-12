@@ -1,5 +1,6 @@
 * {
-  background:           #000000FF;
+  background:           rgba(0, 0, 0, 0.7);
+  background-selected:  rgba(24, 24, 37, 0.3);
   foreground:           #CDD6F4FF;
   accent:               #F38BA8FF;
   foreground-selected:  #F38BA8FF;
@@ -34,7 +35,7 @@ element-icon {
 element selected {
     text-color: @foreground-selected;
     border-radius: 8px;
-    background-color: rgba(24, 24, 37, 0.5);
+    background-color: @background-selected;
 }
 
 entry {
@@ -83,7 +84,7 @@ textbox-prompt-colon {
 }
 
 window {
-    background-color: black / 50%;
+    background-color: @background;
     border-color: @accent;
     border: 0px;
     border-radius: 10px;
