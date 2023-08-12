@@ -26,7 +26,7 @@
       set-option -sa terminal-features ',xterm-kitty:RGB'
       set-option -g status-position top
 
-      bind-key -r w run-shell "tmux neww ~/.config/scripts/weather.sh"
+      bind-key -r w run-shell "tmux neww ~/.config/assets/scripts/weather.sh"
     '';
   };
 }

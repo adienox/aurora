@@ -8,9 +8,9 @@ waybar &
 keepassxc -platform xcb &
 udiskie -s &
 
-~/.config/scripts/hyprland/battery-status.sh &
-~/.config/scripts/hyprland/bluetooth-auto-off.sh &
-~/.config/scripts/hyprland/clipboard.sh &
+~/.config/assets/scripts/hyprland/battery-status.sh &
+~/.config/assets/scripts/hyprland/bluetooth-auto-off.sh &
+~/.config/assets/scripts/hyprland/clipboard.sh &
 ~/Documents/xwaylandvideobridge/result/bin/xwaylandvideobridge &
 
 morgen &

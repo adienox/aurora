@@ -44,7 +44,7 @@
     };
 
     "custom/weather" = {
-      exec = "~/.config/scripts/waybar/weather.sh Kathmandu+Nepal";
+      exec = "~/.config/assets/scripts/waybar/weather.sh Kathmandu+Nepal";
       return-type = "json";
       format = "{}";
       tooltip = true;
@@ -125,7 +125,7 @@
     };
 
     "custom/dunst" = {
-      exec = "~/.config/scripts/waybar/dunst.sh";
+      exec = "~/.config/assets/scripts/waybar/dunst.sh";
       on-click = "dunstctl set-paused toggle";
       restart-interval = 1;
     };

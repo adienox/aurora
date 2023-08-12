@@ -15,7 +15,7 @@ main() {
             break
             ;;
         2)
-            alacritty --class timer,floating -t timer -e ~/.config/scripts/timer.sh
+            alacritty --class timer,floating -t timer -e ~/.config/assets/scripts/timer.sh
             break
             ;;
     esac

@@ -50,7 +50,7 @@
       gp = "git push";
       gs = "git status";
 
-      c = "source ~/.config/scripts/cdier.sh";
+      c = "source ~/.config/assets/scripts/cdier.sh";
       cls = "clear";
       sf = "fc-list | grep -i";
       sudo = "sudo ";

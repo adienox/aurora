@@ -15,22 +15,22 @@
         "$ALT, 2, exec, kitty --title fly_is_kitty pulsemixer"
 
         # Applications
-        "$MOD, W, exec, ~/.config/scripts/hyprland/focus.sh librewolf librewolf"
-        "$MOD, O, exec, ~/.config/scripts/hyprland/focus.sh obsidian obsidian"
-        "$MOD, C, exec, ~/.config/scripts/hyprland/focus.sh Morgen morgen"
-        "$MOD, E, exec, ~/.config/scripts/hyprland/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
-        "$MOD, T, exec, ~/.config/scripts/hyprland/focus.sh Todoist todoist"
+        "$MOD, W, exec, ~/.config/assets/scripts/hyprland/focus.sh librewolf librewolf"
+        "$MOD, O, exec, ~/.config/assets/scripts/hyprland/focus.sh obsidian obsidian"
+        "$MOD, C, exec, ~/.config/assets/scripts/hyprland/focus.sh Morgen morgen"
+        "$MOD, E, exec, ~/.config/assets/scripts/hyprland/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+        "$MOD, T, exec, ~/.config/assets/scripts/hyprland/focus.sh Todoist todoist"
         "$MOD, X, exec, wlogout"
 
         # Rofi
-        "$MOD SHIFT, I, exec, ~/.config/scripts/hyprland/rofi.sh emoji"
-        "$ALT, Space, exec, ~/.config/scripts/hyprland/rofi.sh calc"
-        "$MOD, B, exec, ~/.config/scripts/hyprland/rofi.sh bluetooth"
-        "$MOD, Space, exec, ~/.config/scripts/hyprland/rofi.sh drun"
-        "$ALT, Tab, exec, ~/.config/scripts/hyprland/rofi.sh window"
+        "$MOD SHIFT, I, exec, ~/.config/assets/scripts/hyprland/rofi.sh emoji"
+        "$ALT, Space, exec, ~/.config/assets/scripts/hyprland/rofi.sh calc"
+        "$MOD, B, exec, ~/.config/assets/scripts/hyprland/rofi.sh bluetooth"
+        "$MOD, Space, exec, ~/.config/assets/scripts/hyprland/rofi.sh drun"
+        "$ALT, Tab, exec, ~/.config/assets/scripts/hyprland/rofi.sh window"
 
         # Clipboard
-        "$MOD, V, exec, ~/.config/scripts/rofi/clipboard.sh"
+        "$MOD, V, exec, ~/.config/assets/scripts/rofi/clipboard.sh"
         "$MOD SHIFT, V, exec, cliphist wipe"
 
         # Hyprland Bindings
@@ -39,9 +39,9 @@
         "$MOD, P, pseudo,"
 
         # Screenshot
-        ", Print, exec, ~/.config/scripts/hyprland/screenshot.sh full"
-        "SHIFT, Print, exec, ~/.config/scripts/hyprland/screenshot.sh partial"
-        "$MOD SHIFT, T, exec, ~/.config/scripts/hyprland/screenshot.sh ocr"
+        ", Print, exec, ~/.config/assets/scripts/hyprland/screenshot.sh full"
+        "SHIFT, Print, exec, ~/.config/assets/scripts/hyprland/screenshot.sh partial"
+        "$MOD SHIFT, T, exec, ~/.config/assets/scripts/hyprland/screenshot.sh ocr"
 
         # Move focus with MOD + vim keys
         "$MOD, H, movefocus, l"
@@ -83,8 +83,8 @@
 
         # Misc
         ", F11, exec, hyprctl dispatch fullscreen"
-        "$MOD SHIFT, P, exec, ~/.config/scripts/hyprland/window-pin.sh"
-        "$MOD SHIFT, W, exec, ~/.config/scripts/hyprland/switchwall.sh"
+        "$MOD SHIFT, P, exec, ~/.config/assets/scripts/hyprland/window-pin.sh"
+        "$MOD SHIFT, W, exec, ~/.config/assets/scripts/hyprland/switchwall.sh"
 
         # Group bindings
         "$MOD,g,togglegroup"
@@ -92,16 +92,16 @@
       ];
       bindel = [
         # Brightness Control
-        ", XF86MonBrightnessUp, exec, ~/.config/scripts/hyprland/brightness.sh up"
-        ", XF86MonBrightnessDown, exec, ~/.config/scripts/hyprland/brightness.sh down"
-        "SHIFT, XF86MonBrightnessUp, exec, ~/.config/scripts/hyprland/brightness.sh up1"
-        "SHIFT, XF86MonBrightnessDown, exec, ~/.config/scripts/hyprland/brightness.sh down1"
+        ", XF86MonBrightnessUp, exec, ~/.config/assets/scripts/hyprland/brightness.sh up"
+        ", XF86MonBrightnessDown, exec, ~/.config/assets/scripts/hyprland/brightness.sh down"
+        "SHIFT, XF86MonBrightnessUp, exec, ~/.config/assets/scripts/hyprland/brightness.sh up1"
+        "SHIFT, XF86MonBrightnessDown, exec, ~/.config/assets/scripts/hyprland/brightness.sh down1"
 
         # Audio Control
-        " , XF86AudioMute, exec, ~/.config/scripts/hyprland/volume.sh toggleMute"
+        " , XF86AudioMute, exec, ~/.config/assets/scripts/hyprland/volume.sh toggleMute"
         " , XF86AudioMicMute, exec, pamixer --default-source -t"
-        ", XF86AudioRaiseVolume, exec, ~/.config/scripts/hyprland/volume.sh up"
-        ", XF86AudioLowerVolume, exec, ~/.config/scripts/hyprland/volume.sh down"
+        ", XF86AudioRaiseVolume, exec, ~/.config/assets/scripts/hyprland/volume.sh up"
+        ", XF86AudioLowerVolume, exec, ~/.config/assets/scripts/hyprland/volume.sh down"
       ];
       bindl = [
         # Media Control
