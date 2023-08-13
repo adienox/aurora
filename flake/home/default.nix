@@ -20,7 +20,6 @@
     gnome.gnome-clocks
     gnome.gnome-calculator
     calibre
-    brave
     morgen
     obsidian
     keepassxc
@@ -29,7 +28,6 @@
     libtool
     yt-dlp
     pulsemixer
-    jetbrains.idea-community
     inputs.nh.packages.${pkgs.system}.default
   ];
 

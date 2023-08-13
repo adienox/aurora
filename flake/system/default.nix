@@ -42,6 +42,7 @@ in
   nixpkgs.overlays = [
     (import ./pkgs)
   ];
+
   nix = {
     gc = {
       automatic = true;

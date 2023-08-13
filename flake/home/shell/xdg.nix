@@ -20,6 +20,8 @@ let
     "audio/*" = [ "mpv.desktop" ];
     "video/*" = [ "mpv.dekstop" ];
     "image/*" = [ "imv.desktop" ];
+    "image/png" = [ "imv.desktop" ];
+    "image/jpg" = [ "imv.desktop" ];
     "application/json" = browser;
     "application/pdf" = browser;
     "x-scheme-handler/discord" = [ "discord.desktop" ];

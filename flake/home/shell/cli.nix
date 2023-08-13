@@ -12,7 +12,6 @@
     fd
     ripgrep
     trash-cli
-    zoxide
     fzf
     tldr
 

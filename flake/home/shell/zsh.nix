@@ -51,6 +51,7 @@
       gs = "git status";
 
       c = "source ~/.config/assets/scripts/cdier.sh";
+      rm = "trash";
       cls = "clear";
       sf = "fc-list | grep -i";
       sudo = "sudo ";

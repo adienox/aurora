@@ -18,14 +18,18 @@ power_on() {
 toggle_power() {
     if power_on; then
         bluetoothctl power off
-        sleep 0.2
+        while power_on; do
+            sleep 0.1
+        done
         show_menu
     else
         if rfkill list bluetooth | grep -q 'blocked: yes'; then
             rfkill unblock bluetooth && sleep 3
         fi
         bluetoothctl power on
-        sleep 0.2
+        while ! power_on; do
+            sleep 0.1
+        done
         show_menu
     fi
 }
@@ -113,11 +117,15 @@ device_connected() {
 toggle_connection() {
     if device_connected "$1"; then
         bluetoothctl disconnect "$1"
-        sleep 1.5
+        while device_connected; do
+            sleep 0.1
+        done
         device_menu "$device"
     else
         bluetoothctl connect "$1"
-        sleep 1.5
+        while ! device_connected; do
+            sleep 0.1
+        done
         device_menu "$device"
     fi
 }
@@ -176,7 +184,7 @@ print_status() {
 
         paired_devices_cmd="devices Paired"
         # Check if an outdated version of bluetoothctl is used to preserve backwards compatibility
-        if (( $(echo "$(bluetoothctl version | cut -d ' ' -f 2) < 5.65" | bc -l) )); then
+        if (($(echo "$(bluetoothctl version | cut -d ' ' -f 2) < 5.65" | bc -l))); then
             paired_devices_cmd="paired-devices"
         fi
 
@@ -225,21 +233,21 @@ device_menu() {
 
     # Match chosen option to command
     case "$chosen" in
-        "" | "$divider")
-            echo "No option chosen."
-            ;;
-        "$connected")
-            toggle_connection "$mac"
-            ;;
-        "$paired")
-            toggle_paired "$mac"
-            ;;
-        "$trusted")
-            toggle_trust "$mac"
-            ;;
-        "$goback")
-            show_menu
-            ;;
+    "" | "$divider")
+        echo "No option chosen."
+        ;;
+    "$connected")
+        toggle_connection "$mac"
+        ;;
+    "$paired")
+        toggle_paired "$mac"
+        ;;
+    "$trusted")
+        toggle_trust "$mac"
+        ;;
+    "$goback")
+        show_menu
+        ;;
     esac
 }
 
@@ -266,41 +274,41 @@ show_menu() {
     fi
 
     # Open rofi menu, read chosen option
-    chosen="$(echo -e "$options" | $rofi_command " Bluetooth  ")"
+    chosen="$(echo -e "$options" | $rofi_command "Bluetooth")"
 
     # Match chosen option to command
     case "$chosen" in
-        "" | "$divider")
-            echo "No option chosen."
-            ;;
-        "$power")
-            toggle_power
-            ;;
-        "$scan")
-            toggle_scan
-            ;;
-        "$discoverable")
-            toggle_discoverable
-            ;;
-        "$pairable")
-            toggle_pairable
-            ;;
-        *)
-            device=$(bluetoothctl devices | grep "$chosen")
-            # Open a submenu if a device is selected
-            if [[ $device ]]; then device_menu "$device"; fi
-            ;;
+    "" | "$divider")
+        echo "No option chosen."
+        ;;
+    "$power")
+        toggle_power
+        ;;
+    "$scan")
+        toggle_scan
+        ;;
+    "$discoverable")
+        toggle_discoverable
+        ;;
+    "$pairable")
+        toggle_pairable
+        ;;
+    *)
+        device=$(bluetoothctl devices | grep "$chosen")
+        # Open a submenu if a device is selected
+        if [[ $device ]]; then device_menu "$device"; fi
+        ;;
     esac
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -dmenu $* -p "
+rofi_command="rofi -dmenu $* -p"
 
 case "$1" in
-    --status)
-        print_status
-        ;;
-    *)
-        show_menu
-        ;;
+--status)
+    print_status
+    ;;
+*)
+    show_menu
+    ;;
 esac
