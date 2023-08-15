@@ -26,6 +26,10 @@
 (setq peep-dired-cleanup-on-disable t)
 
 (setq doom-theme 'catppuccin)
+(catppuccin-set-color 'base "#000000") ;; change base to #000000 for the currently active flavor
+(catppuccin-set-color 'mantle "#080808")
+(catppuccin-set-color 'crust "#040404")
+(catppuccin-reload)
 
 (map! :leader
       (:prefix ("e" . "elfeed")
