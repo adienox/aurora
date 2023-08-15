@@ -4,6 +4,10 @@
     enableZshIntegration = true;
   };
 
+  home.packages = with pkgs; [
+    nix-zsh-completions
+  ];
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -73,6 +77,11 @@
       setopt numericglobsort     # sort filenames numerically when it makes sense
       setopt promptsubst         # enable command substitution in prompt
 
+      # run programs that are not in PATH with comma
+      command_not_found_handler() {
+        ${pkgs.comma}/bin/comma "$@"
+      }
+
       alias ..='cd ..'
       alias ...='cd ../..'
       alias ....='cd ../../..'
@@ -104,24 +113,23 @@
           alias tls='tmux list-sessions 2>/dev/null'
       fi
       # runs pfetch if shell is interactive and not inside vscode
-      if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" ]] ; then
-        neofetch
-      fi
+      # if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" ]] ; then
+      #   neofetch
+      # fi
 
       # Vscode support in commandline
       [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+      function zvm_config() {
+        ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+        ZVM_VI_ESCAPE_BINDKEY=jk
+      }
+
+      # Plugins
+      source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
+      source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
     '';
-    zplug = {
-      enable = true;
-      zplugHome = "${config.home.homeDirectory}/.config/zplug";
-      plugins = [
-        {
-          name = "zdharma-continuum/fast-syntax-highlighting";
-        }
-        {
-          name = "MichaelAquilina/zsh-you-should-use";
-        }
-      ];
-    };
   };
 }
