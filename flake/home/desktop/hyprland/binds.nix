@@ -6,7 +6,7 @@
       "$ALT" = "ALT";
       bind = [
         # Kitty
-        "$MOD, RETURN, exec, kitty"
+        "$MOD, RETURN, exec, wezterm"
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
 
         # Alt Kitty
@@ -28,6 +28,7 @@
         "$MOD, B, exec, ~/.config/assets/scripts/hyprland/rofi.sh bluetooth"
         "$MOD, Space, exec, ~/.config/assets/scripts/hyprland/rofi.sh drun"
         "$ALT, Tab, exec, ~/.config/assets/scripts/hyprland/rofi.sh window"
+        "$ALT, P, exec, keepmenu"
 
         # Clipboard
         "$MOD, V, exec, ~/.config/assets/scripts/rofi/clipboard.sh"
