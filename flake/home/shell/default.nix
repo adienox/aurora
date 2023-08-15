@@ -1,11 +1,11 @@
 { config, pkgs, ... }: {
   imports = [
-    ./zoxide.nix
     ./zsh.nix
     ./xdg.nix
     ./cli.nix
     # ./tmux.nix
   ];
+
   home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
 

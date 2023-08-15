@@ -1,16 +1,26 @@
 { config, lib, pkgs, inputs, ... }: {
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
-    brightnessctl
-    udiskie
-    bibata-cursors
-    networkmanagerapplet
-    acpi
-    noto-fonts-cjk-sans
-    gojq
-    xorg.xrandr
-    yad
-    xwaylandvideobridge
+    brightnessctl # Brightness control
+    udiskie # AutoMount disks
+    bibata-cursors # Mouse Cursor
+    networkmanagerapplet # NetworkManager
+    acpi # Battery status
+    gojq # For wallpaper setting utility
+    xorg.xrandr # For wallpaper setting utility
+    yad # Picker
+    xwaylandvideobridge # Xwayland screen share
+    wl-clipboard # Clipboard
+
+    # recorder and screenshot
+    grim
+    slurp
+    wf-recorder
+
+    # Hyprland requirement
+    libsForQt5.qt5.qtwayland
+    qt6.qmake
+    qt6.qtwayland
   ];
 
   fonts.fontconfig.enable = true;

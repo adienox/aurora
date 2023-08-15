@@ -2,28 +2,31 @@
 with lib;
 let
   browser = [ "librewolf.desktop" ];
+  image-viewer = [ "imv.desktop" ];
+  video-player = [ "mpv.desktop" ];
+
   associations = {
+    "text/html" = browser;
     "application/x-extension-htm" = browser;
     "application/x-extension-html" = browser;
     "application/x-extension-shtml" = browser;
     "application/x-extension-xht" = browser;
     "application/x-extension-xhtml" = browser;
     "application/xhtml+xml" = browser;
-    "text/html" = browser;
+    "application/json" = browser;
+    "application/pdf" = browser;
     "x-scheme-handler/about" = browser;
-    "x-scheme-handler/chrome" = [ "chromium-browser.desktop" ];
     "x-scheme-handler/ftp" = browser;
     "x-scheme-handler/http" = browser;
     "x-scheme-handler/https" = browser;
     "x-scheme-handler/unknown" = browser;
+    "x-scheme-handler/chrome" = [ "chromium-browser.desktop" ];
 
-    "audio/*" = [ "mpv.desktop" ];
-    "video/*" = [ "mpv.dekstop" ];
-    "image/*" = [ "imv.desktop" ];
-    "image/png" = [ "imv.desktop" ];
-    "image/jpg" = [ "imv.desktop" ];
-    "application/json" = browser;
-    "application/pdf" = browser;
+    "audio/*" = video-player;
+    "video/*" = video-player;
+    "image/*" = image-viewer;
+    "image/png" = image-viewer;
+    "image/jpg" = image-viewer;
     "x-scheme-handler/discord" = [ "discord.desktop" ];
     "x-scheme-handler/spotify" = [ "spotify.desktop" ];
     "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
@@ -55,16 +58,6 @@ in
     mimeApps = {
       enable = true;
       defaultApplications = associations;
-    };
-
-    desktopEntries.keepassxc = {
-      name = "KeepassXC (XCB)";
-      genericName = "Password Manager";
-      icon = "keepassxc";
-      exec = "keepassxc -platform xcb %f";
-      terminal = false;
-      categories = [ "Utility" "Security" ];
-      mimeType = [ "application/x-keepass2" ];
     };
   };
 }

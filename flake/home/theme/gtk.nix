@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
       size = 24;
     };
     font = {

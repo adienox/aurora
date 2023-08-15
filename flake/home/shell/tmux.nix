@@ -6,11 +6,13 @@
     newSession = true;
     prefix = "C-s";
     shell = "\${pkgs.zsh}/bin/zsh";
+
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.sensible
       tmuxPlugins.catppuccin
     ];
+
     extraConfig = ''
       unbind r
       unbind C-l

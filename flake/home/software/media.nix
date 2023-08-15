@@ -7,7 +7,9 @@
     # audio control
     pavucontrol
     playerctl
+    pulsemixer
     pamixer
+
     # images
     imv
   ];
@@ -17,6 +19,7 @@
       enable = true;
       defaultProfiles = [ "gpu-hq" ];
       scripts = [ pkgs.mpvScripts.mpris ];
+
       bindings = {
         l = "seek 5";
         h = "seek -5";
@@ -26,6 +29,7 @@
         WHEEL_UP = "add volume 5";
         WHEEL_DOWN = "add volume -5";
       };
+
       config = {
         screenshot-template = "~/Pictures/mpvscreenshots/%F (%P) %n";
         ytdl-format = "bestvideo+bestaudio";

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
     ./hyprland
     ./waybar
@@ -8,15 +8,6 @@
     ./swayidle.nix
     ./swww.nix
     ./espanso.nix
-  ];
-
-  home.packages = with pkgs; [
-    wl-clipboard
-    libsForQt5.qt5.qtwayland
-    qt6.qmake
-    qt6.qtwayland
-    grim
-    slurp
   ];
 
   home.sessionVariables = {

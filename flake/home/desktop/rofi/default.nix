@@ -1,15 +1,18 @@
 { config, pkgs, ... }: {
-  # home.packages = [ pkgs.wtype ]; # Auto type for emoji
-  home.packages = [ pkgs.cliphist ];
+  home.packages = with pkgs; [
+    cliphist # Clipboard History
+    keepmenu # Keepass integration
+    wtype # Autotype
+  ];
 
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
     terminal = "kitty";
     font = "Readex Pro 16";
-    plugins = [
-      pkgs.rofi-emoji
-      pkgs.rofi-calc
+    plugins = with pkgs; [
+      rofi-emoji
+      rofi-calc
     ];
 
     theme = ./theme.rasi;
@@ -42,6 +45,26 @@
       kb-remove-word-back = "Control+BackSpace";
     };
   };
+
+  xdg.configFile."Kvantum/config.ini".source =
+    (pkgs.formats.ini { }).generate "config.ini" {
+      dmenu = {
+        dmenu_command = "rofi -l 8 -theme-str 'entry {placeholder: \"\";}'";
+        title_path = false;
+      };
+
+      dmenu_passphrase = {
+        obscure = true;
+        obscure_color = "#222222";
+      };
+
+      database = {
+        database_1 = "~/Documents/vault/armoury.kdbx";
+        pw_cache_period_min = 360;
+        autotype_default = "{USERNAME}{TAB}{PASSWORD}{ENTER}";
+        type_library = "wtype";
+      };
+    };
 }
 
 
