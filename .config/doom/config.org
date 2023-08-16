@@ -106,10 +106,6 @@ Dired is the file manager within Emacs. Doom Emacs does not use ‘SPC d’ for 
 Using catppuccin theme for doom emacs.
 #+begin_src emacs-lisp
 (setq doom-theme 'catppuccin)
-(catppuccin-set-color 'base "#000000") ;; change base to #000000 for the currently active flavor
-(catppuccin-set-color 'mantle "#080808")
-(catppuccin-set-color 'crust "#040404")
-(catppuccin-reload)
 #+end_src
 
 * Elfeed
@@ -166,9 +162,9 @@ Settings related to fonts within Doom Emacs:
 + ‘font-lock-keyword-face’ – for keywords with special significance like ‘setq’ in elisp.
 
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 16)
+(setq doom-font (font-spec :family "CaskaydiaCove NF" :size 16)
       doom-variable-pitch-font (font-spec :family "Readex Pro" :size 16)
-      doom-big-font (font-spec :family "JetBrains Mono Nerd Font" :size 24))
+      doom-big-font (font-spec :family "CaskaydiaCove NF" :size 24))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t

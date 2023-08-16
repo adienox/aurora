@@ -26,10 +26,6 @@
 (setq peep-dired-cleanup-on-disable t)
 
 (setq doom-theme 'catppuccin)
-(catppuccin-set-color 'base "#000000") ;; change base to #000000 for the currently active flavor
-(catppuccin-set-color 'mantle "#080808")
-(catppuccin-set-color 'crust "#040404")
-(catppuccin-reload)
 
 (map! :leader
       (:prefix ("e" . "elfeed")
@@ -55,9 +51,9 @@
               ("C-c C-f" . elfeed-tube-mpv-follow-mode)
               ("C-c C-w" . elfeed-tube-mpv-where)))
 
-(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 16)
+(setq doom-font (font-spec :family "CaskaydiaCove NF" :size 16)
       doom-variable-pitch-font (font-spec :family "Readex Pro" :size 16)
-      doom-big-font (font-spec :family "JetBrains Mono Nerd Font" :size 24))
+      doom-big-font (font-spec :family "CaskaydiaCove NF" :size 24))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
