@@ -35,7 +35,11 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [ nerdfonts font-awesome google-fonts ];
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" ]; })
+      font-awesome
+      google-fonts
+    ];
     fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
   };
 }
