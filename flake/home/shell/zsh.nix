@@ -4,16 +4,14 @@
     enableZshIntegration = true;
   };
 
-  home.packages = with pkgs; [
-    nix-zsh-completions
-  ];
-
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
     autocd = true;
     dotDir = ".config/zsh";
+
+    historySubstringSearch.enable = true;
     history = {
       extended = true;
       ignoreAllDups = true;
@@ -22,10 +20,12 @@
       save = 1000000;
       size = 1000000;
     };
-    historySubstringSearch.enable = true;
+
     localVariables = {
-      FZF_DEFAULT_OPTS = " --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8";
+      FZF_DEFAULT_OPTS =
+        " --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8";
     };
+
     completionInit = ''
       autoload -Uz compinit
       compinit -d ~/.cache/zcompdump
@@ -42,6 +42,7 @@
       zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
       _comp_options+=(globdots)
     '';
+
     shellAliases = {
       waybar_restart = "kill -SIGUSR2 $(pidof waybar)";
 
@@ -60,15 +61,18 @@
       sf = "fc-list | grep -i";
       sudo = "sudo ";
       yt-audio = "yt-dlp -x --audio-format mp3 --audio-quality 0";
-      speedtest = "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
+      speedtest =
+        "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
       v = "emacs";
       cat = "bat";
       wget = "wget -c ";
       grep = "grep --color=auto";
       hw = "hwinfo --short";
       ipa = "ip --brief address";
-      quote = "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
+      quote =
+        "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
     };
+
     initExtra = ''
       setopt interactivecomments # allow comments in interactive mode
       setopt magicequalsubst     # enable filename expansion for arguments of the form 'anything=expression'
@@ -130,6 +134,7 @@
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
+      source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
     '';
   };
 }

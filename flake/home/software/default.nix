@@ -28,7 +28,6 @@
     wezterm
   ];
 
-
   programs = {
     gpg = {
       enable = true;

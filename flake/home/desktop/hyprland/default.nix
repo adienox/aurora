@@ -11,6 +11,7 @@
     yad # Picker
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
+    wlsunset # Screen temp
 
     # recorder and screenshot
     grim
@@ -35,5 +36,6 @@
   };
 
   # start swayidle as part of hyprland, not sway
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
+  systemd.user.services.swayidle.Install.WantedBy =
+    lib.mkForce [ "hyprland-session.target" ];
 }

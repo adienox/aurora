@@ -19,6 +19,7 @@
 
   services.emacs = {
     enable = true;
+    package = pkgs.emacs-gtk;
     client.enable = true;
   };
 }

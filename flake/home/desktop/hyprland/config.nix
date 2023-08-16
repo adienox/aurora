@@ -1,12 +1,14 @@
 { config, pkgs, ... }: {
-  imports = [
-    ./rules.nix
-    ./binds.nix
-  ];
+  imports = [ ./rules.nix ./binds.nix ];
 
   wayland.windowManager.hyprland = {
     settings = {
       monitor = ",preferred,auto,1";
+      exec-once = [
+        "[workspace 3 silent] obsidian"
+        "[workspace 8 silent] morgen"
+        "~/.config/assets/scripts/hyprland/autostart.sh"
+      ];
       input = {
         kb_options = "ctrl:nocaps"; # Swap capsLock with ctrl
         kb_layout = "us";
@@ -96,10 +98,6 @@
         key_press_enables_dpms = true;
         disable_splash_rendering = true;
       };
-
-      exec-once = [
-        "~/.config/assets/scripts/hyprland/autostart.sh"
-      ];
     };
   };
 }
