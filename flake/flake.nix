@@ -29,27 +29,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-db, ... }@inputs:
-    {
-      nixosConfigurations = {
-        anomaly = nixpkgs.lib.nixosSystem {
-          system = "X86_64-linux";
-          modules = [
-            ./system
-            nix-index-db.nixosModules.nix-index
-            # optional to also wrap and install comma
-            { programs.nix-index-database.comma.enable = true; }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                users.nox = { imports = [ ./home ]; };
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
-              };
-            }
-          ];
-        };
+  outputs = { self, nixpkgs, home-manager, nix-index-db, ... }@inputs: {
+    nixosConfigurations = {
+      anomaly = nixpkgs.lib.nixosSystem {
+        system = "X86_64-linux";
+        modules = [
+          ./system
+          # nix db config
+          nix-index-db.nixosModules.nix-index
+          {
+            programs.nix-index-database.comma.enable = true;
+          }
+
+          # home manager config
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              users.nox = { imports = [ ./home ]; };
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }
+        ];
       };
     };
+  };
 }

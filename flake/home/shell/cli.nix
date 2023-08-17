@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   home.packages = with pkgs; [
     # archives
     zip
@@ -14,6 +14,8 @@
     trash-cli
     fzf
     tldr
+    inputs.nh.packages.${pkgs.system}.default
+    yt-dlp
   ];
 
   programs = {
@@ -33,7 +35,6 @@
     };
 
     btop.enable = true;
-
 
     zoxide = {
       enable = true;

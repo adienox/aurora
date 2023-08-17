@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./dunst.nix
     ./discord.nix
@@ -23,8 +23,6 @@
     telegram-desktop
     qpwgraph
     libtool
-    yt-dlp
-    inputs.nh.packages.${pkgs.system}.default
     wezterm
   ];
 
