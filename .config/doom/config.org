@@ -103,7 +103,7 @@ Dired is the file manager within Emacs. Doom Emacs does not use ‘SPC d’ for 
 #+end_src
 
 * Doom Theme
-Using catppuccin theme for doom emacs.
+Using custom catppuccin theme for doom emacs.
 #+begin_src emacs-lisp
 (setq doom-theme 'catppuccin)
 #+end_src
