@@ -27,8 +27,8 @@
 
         border_size = 1;
 
-        "col.active_border" = "0xff45475a";
-        "col.inactive_border" = "0xff1111b";
+        "col.active_border" = "0xff1e1e2e";
+        "col.inactive_border" = "0xff040404";
 
         "col.group_border" = "0xff89dceb";
         "col.group_border_active" = "0xfff9e2af";
@@ -50,19 +50,13 @@
         "col.shadow" = "0x33000000";
         "col.shadow_inactive" = "0x22000000";
 
-        blur = true;
-        blur_size = 6;
-        blur_passes = 4;
-        blur_ignore_opacity = true;
-        blur_new_optimizations = true;
-
-        # blur = {
-        #   enabled = true;
-        #   size = 6; # minimum 1
-        #   passes = 4; # minimum 1, more passes = more resource intensive.
-        #   ignore_opacity = true;
-        #   new_optimizations = true;
-        # };
+        blur = {
+          enabled = true;
+          size = 6; # minimum 1
+          passes = 4; # minimum 1, more passes = more resource intensive.
+          ignore_opacity = true;
+          new_optimizations = true;
+        };
       };
 
       animations = {

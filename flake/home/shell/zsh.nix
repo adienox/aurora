@@ -63,7 +63,7 @@
       yt-audio = "yt-dlp -x --audio-format mp3 --audio-quality 0";
       speedtest =
         "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
-      v = "emacs";
+      v = "nvim";
       cat = "bat";
       wget = "wget -c ";
       grep = "grep --color=auto";

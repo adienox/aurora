@@ -5,8 +5,8 @@
   services.dunst = {
     enable = true;
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "win11-dark";
+      package = pkgs.win11-icon-theme;
     };
     settings = {
       global = {
