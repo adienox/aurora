@@ -93,16 +93,16 @@
       ];
       bindel = [
         # Brightness Control
-        ", XF86MonBrightnessUp, exec, ~/.config/assets/scripts/hyprland/brightness.sh up"
-        ", XF86MonBrightnessDown, exec, ~/.config/assets/scripts/hyprland/brightness.sh down"
-        "SHIFT, XF86MonBrightnessUp, exec, ~/.config/assets/scripts/hyprland/brightness.sh up1"
-        "SHIFT, XF86MonBrightnessDown, exec, ~/.config/assets/scripts/hyprland/brightness.sh down1"
+        ", XF86MonBrightnessUp, exec, swayosd --brightness raise"
+        ", XF86MonBrightnessDown, exec, swayosd --brightness lower"
+        "SHIFT, XF86MonBrightnessUp, exec, swayosd --brightness 1"
+        "SHIFT, XF86MonBrightnessDown, exec, swayosd --brightness -1"
 
         # Audio Control
-        " , XF86AudioMute, exec, ~/.config/assets/scripts/hyprland/volume.sh toggleMute"
-        " , XF86AudioMicMute, exec, pamixer --default-source -t"
-        ", XF86AudioRaiseVolume, exec, ~/.config/assets/scripts/hyprland/volume.sh up"
-        ", XF86AudioLowerVolume, exec, ~/.config/assets/scripts/hyprland/volume.sh down"
+        " , XF86AudioMute, exec, swayosd --output-volume mute-toggle"
+        " , XF86AudioMicMute, exec, swayosd --input-volume mute-toggle"
+        ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
+        ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
       ];
       bindl = [
         # Media Control

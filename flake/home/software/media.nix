@@ -8,7 +8,6 @@
     pavucontrol
     playerctl
     pulsemixer
-    pamixer
 
     # images
     imv

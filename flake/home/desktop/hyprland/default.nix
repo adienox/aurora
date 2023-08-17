@@ -1,7 +1,6 @@
 { config, lib, pkgs, inputs, ... }: {
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
-    brightnessctl # Brightness control
     udiskie # AutoMount disks
     bibata-cursors # Mouse Cursor
     networkmanagerapplet # NetworkManager
@@ -31,7 +30,6 @@
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland = {
       enable = true;
-      hidpi = true;
     };
   };
 
