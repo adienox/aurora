@@ -58,6 +58,11 @@
       jack.enable = true;
     };
 
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="backlight", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
+      ACTION=="add", SUBSYSTEM=="backlight", RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
+    '';
+
     # needed for GNOME services outside of GNOME Desktop
     dbus.packages = [ pkgs.gcr ];
   };
