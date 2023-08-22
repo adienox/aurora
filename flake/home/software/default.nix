@@ -10,7 +10,6 @@
 
   home.packages = with pkgs; [
     brave
-    neovim
     todoist-electron
     amberol
     anki-bin
@@ -22,8 +21,8 @@
     keepassxc
     telegram-desktop
     qpwgraph
-    libtool
     wezterm
+    mindustry-wayland
   ];
 
   programs = {

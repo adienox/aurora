@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    # ./neofetch.nix
+    ./neofetch.nix
     ./cava.nix
     ./kitty.nix
   ];

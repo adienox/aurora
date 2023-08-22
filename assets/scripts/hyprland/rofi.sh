@@ -9,5 +9,7 @@ elif [ "$1" == "emoji" ]; then
 elif [ "$1" == "calc" ]; then
     rofi -show calc -modi calc -theme-str 'mainbox { children: [inputbar, message]; }' -hint-welcome "Pure mathematics is, in its way, the poetry of logical ideas.                 —Albert Einstein"
 elif [ "$1" == "bluetooth" ]; then
-    ~/.config/assets/scripts/rofi/bluetooth.sh
+    $XDG_CONFIG_HOME/assets/scripts/rofi/bluetooth.sh
+elif [ "$1" == "clipboard" ]; then
+    $XDG_CONFIG_HOME/assets/scripts/rofi/clipboard.sh
 fi
