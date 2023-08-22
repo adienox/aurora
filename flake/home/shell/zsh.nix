@@ -116,10 +116,11 @@
       if command -v tmux &> /dev/null; then
           alias tls='tmux list-sessions 2>/dev/null'
       fi
-      # runs pfetch if shell is interactive and not inside vscode
-      # if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" ]] ; then
-      #   neofetch
-      # fi
+
+      # runs fetch if shell is interactive and not inside vscode
+      if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" ]] ; then
+        $XDG_CONFIG_HOME/assets/scripts/fetch.sh
+      fi
 
       # Vscode support in commandline
       [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
