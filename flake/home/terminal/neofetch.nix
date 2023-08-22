@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: {
-  home.packages = [ pkgs.neofetch ];
+  home.packages = with pkgs; [ neofetch imagemagick ];
   home.file.".config/neofetch/config.conf".text = ''
     print_info() {
       info title
@@ -68,7 +68,7 @@
     memory_display="off"
     battery_display="off"
     disk_display="off"
-    image_backend="iterm2"
+    image_backend="kitty"
     image_source="$HOME/Pictures/backgrounds/neofetch-backgrounds/sakura.png"
     ascii_distro="auto"
     ascii_colors=(distro)
