@@ -4,34 +4,40 @@
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
+      "$VIDEODIR" = "$HOME/Videos";
+      "$NOTIFY" = "notify-send -h string:x-canonical-private-synchronouse:hypr-cfg -u low";
+      "$SCRIPTS" = "~/.config/assets/scripts/hyprland";
+      "$TERM" = "wezterm";
+      "$FLOATING_TERM" = "wezterm start --class floating -e";
+
       bind = [
         # Kitty
-        "$MOD, RETURN, exec, wezterm"
+        "$MOD, RETURN, exec, $TERM"
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
 
         # Alt Kitty
-        "$ALT, RETURN, exec, kitty --title fly_is_kitty"
-        "$ALT, 1, exec, kitty --title fly_is_kitty cava"
-        "$ALT, 2, exec, kitty --title fly_is_kitty pulsemixer"
+        "$ALT, RETURN, exec, $FLOATING_TERM zsh"
+        "$ALT, 1, exec, $FLOATING_TERM cava"
+        "$ALT, 2, exec, $FLOATING_TERM pulsemixer"
 
         # Applications
-        "$MOD, W, exec, ~/.config/assets/scripts/hyprland/focus.sh librewolf librewolf"
-        "$MOD, O, exec, ~/.config/assets/scripts/hyprland/focus.sh obsidian obsidian"
-        "$MOD, C, exec, ~/.config/assets/scripts/hyprland/focus.sh Morgen morgen"
-        "$MOD, E, exec, ~/.config/assets/scripts/hyprland/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
-        "$MOD, T, exec, ~/.config/assets/scripts/hyprland/focus.sh Todoist todoist"
-        "$MOD, X, exec, wlogout"
+        "$MOD, W, exec, $SCRIPTS/focus.sh librewolf librewolf"
+        "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
+        "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
+        "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+        "$MOD, T, exec, $SCRIPTS/focus.sh Todoist todoist"
+        "$MOD, X, exec, wlogout -p layer-shell"
 
         # Rofi
-        "$MOD SHIFT, I, exec, ~/.config/assets/scripts/hyprland/rofi.sh emoji"
-        "$ALT, Space, exec, ~/.config/assets/scripts/hyprland/rofi.sh calc"
-        "$MOD, B, exec, ~/.config/assets/scripts/hyprland/rofi.sh bluetooth"
-        "$MOD, Space, exec, ~/.config/assets/scripts/hyprland/rofi.sh drun"
-        "$ALT, Tab, exec, ~/.config/assets/scripts/hyprland/rofi.sh window"
+        "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
         "$ALT, P, exec, keepmenu"
+        "$MOD SHIFT, I, exec, $SCRIPTS/rofi.sh emoji"
+        "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
+        "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
+        "$ALT, Tab, exec, $SCRIPTS/rofi.sh window"
 
         # Clipboard
-        "$MOD, V, exec, ~/.config/assets/scripts/rofi/clipboard.sh"
+        "$MOD, V, exec, $SCRIPTS/rofi.sh clipboard"
         "$MOD SHIFT, V, exec, cliphist wipe"
 
         # Hyprland Bindings
@@ -40,9 +46,15 @@
         "$MOD, P, pseudo,"
 
         # Screenshot
-        ", Print, exec, ~/.config/assets/scripts/hyprland/screenshot.sh full"
-        "SHIFT, Print, exec, ~/.config/assets/scripts/hyprland/screenshot.sh partial"
-        "$MOD SHIFT, T, exec, ~/.config/assets/scripts/hyprland/screenshot.sh ocr"
+        ", Print, exec, $SCRIPTS/screenshot.sh full"
+        "SHIFT, Print, exec, $SCRPITS/screenshot.sh partial"
+        "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr"
+
+        # Recording
+        "$MOD, R, exec, wf-recorder -f $VIDEODIR/$(date +%Y-%m-%d_%H-%M-%S).mp4"
+        "$MOD, R, exec, $NOTIFY 'Recording started'"
+        "$MOD SHIFT, R, exec, killall -s SIGINT wf-recorder"
+        "$MOD SHIFT, R, exec, $NOTIFY 'Recording stopped'"
 
         # Move focus with MOD + vim keys
         "$MOD, H, movefocus, l"
@@ -84,8 +96,9 @@
 
         # Misc
         ", F11, exec, hyprctl dispatch fullscreen"
-        "$MOD SHIFT, P, exec, ~/.config/assets/scripts/hyprland/window-pin.sh"
-        "$MOD SHIFT, W, exec, ~/.config/assets/scripts/hyprland/switchwall.sh"
+        "$MOD SHIFT, P, exec, $SCRIPTS/window-pin.sh"
+        "$MOD SHIFT, W, exec, $SCRIPTS/switchwall.sh"
+        "$MOD, C, exec, hyprctl dispatch centerwindow"
 
         # Group bindings
         "$MOD,g,togglegroup"
@@ -99,8 +112,8 @@
         "SHIFT, XF86MonBrightnessDown, exec, swayosd --brightness -1"
 
         # Audio Control
-        " , XF86AudioMute, exec, swayosd --output-volume mute-toggle"
-        " , XF86AudioMicMute, exec, swayosd --input-volume mute-toggle"
+        ", XF86AudioMute, exec, swayosd --output-volume mute-toggle"
+        ", XF86AudioMicMute, exec, swayosd --input-volume mute-toggle"
         ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
         ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
       ];
@@ -123,6 +136,7 @@
       ];
     };
   };
+
   wayland.windowManager.hyprland.extraConfig = ''
     # will switch to a submap called resize
     bind = $ALT, R, submap, resize

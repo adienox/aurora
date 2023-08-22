@@ -6,17 +6,16 @@
         "float, title:^(fly_is_kitty)$"
         "float, title:^(clock_is_kitty)$"
         "float, title:^(Unlock Database - KeePassXC)$"
-        "float, ^(org\.kde\.polkit-kde-authentication-agent-1)$"
         "float, title:^(firewall-applet)$"
         "float, title:^(all_is_kitty)$"
         "float, title:^(KeePassXC - Browser Access Request)$"
-        "float, ^(blueman-manager)$"
         "float, title:^(Discord Popout)$"
         "float, title:^(Picture in picture)$"
         "float, title:^(Volume Control)$"
         "float, title:^(Picture-in-Picture)$"
         "float, title:^(LibreWolf — Sharing Indicator)$"
         "float, yad"
+        "float, floating"
         "float, udiskie"
         "float, file_progress"
         "float, confirm"
@@ -34,8 +33,10 @@
         "float, file-roller"
         "float, title:DevTools"
         "float, title:wlogout"
+        "float, ^(blueman-manager)$"
         "float, ^(io\.bassi\.Amberol)$"
         "float, ^(org\.gnome\.Calculator)$"
+        "float, ^(org\.kde\.polkit-kde-authentication-agent-1)$"
 
         #Size, Move, and Pin rules
         "pin, title:^(Picture in picture)$"
@@ -74,9 +75,9 @@
         "workspace 8, ^(Morgen)$"
 
         # Fullscreen Rules
-        "fullscreen, ^(obsidian)$"
-        "fullscreen, ^(Todoist)$"
-        "fullscreen, ^(Morgen)$"
+        "fullscreen, obsidian"
+        "fullscreen, Todoist"
+        "fullscreen, Morgen"
 
         # Misc rules
         "idleinhibit focus, mpv"
