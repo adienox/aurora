@@ -13,6 +13,7 @@
       "custom/playerlabel"
     ];
     modules-right = [
+      "custom/recorder"
       "battery"
       "bluetooth"
       "backlight"
@@ -65,6 +66,12 @@
         playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F
       '';
       on-click = "playerctl play-pause";
+    };
+
+    "custom/recorder" = {
+      exec = "~/.config/assets/scripts/waybar/recorder.sh";
+      on-click = "~/.config/assets/scripts/hyprland/screenrecord.sh";
+      restart-interval = 1;
     };
 
     battery = {
@@ -137,7 +144,7 @@
     };
 
     tray = {
-      "spacing" = 11;
+      "spacing" = 12;
     };
   };
 }

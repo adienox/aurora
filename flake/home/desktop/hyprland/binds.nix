@@ -4,7 +4,6 @@
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
-      "$VIDEODIR" = "$HOME/Videos";
       "$NOTIFY" = "notify-send -h string:x-canonical-private-synchronouse:hypr-cfg -u low";
       "$SCRIPTS" = "~/.config/assets/scripts/hyprland";
       "$TERM" = "wezterm";
@@ -51,10 +50,7 @@
         "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr"
 
         # Recording
-        "$MOD, R, exec, wf-recorder -f $VIDEODIR/$(date +%Y-%m-%d_%H-%M-%S).mp4"
-        "$MOD, R, exec, $NOTIFY 'Recording started'"
-        "$MOD SHIFT, R, exec, killall -s SIGINT wf-recorder"
-        "$MOD SHIFT, R, exec, $NOTIFY 'Recording stopped'"
+        "$MOD, R, exec, $SCRIPTS/screenrecord.sh"
 
         # Move focus with MOD + vim keys
         "$MOD, H, movefocus, l"
