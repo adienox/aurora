@@ -3,7 +3,7 @@
 
   environment.systemPackages = with pkgs; [
     iw
-    killall
+    psmisc
     wget
     seatd
     xdg-utils
@@ -13,7 +13,6 @@
     powertop
     polkit_gnome
     python3Full
-    gnome.nautilus
   ];
 
   # Enable adbusers in extragroups for user

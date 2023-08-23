@@ -36,6 +36,7 @@
         "float, ^(blueman-manager)$"
         "float, ^(io\.bassi\.Amberol)$"
         "float, ^(org\.gnome\.Calculator)$"
+        "float, ^(org\.gnome\.clocks)$"
         "float, ^(org\.kde\.polkit-kde-authentication-agent-1)$"
 
         #Size, Move, and Pin rules
@@ -91,6 +92,7 @@
 
         "opacity 0.80 0.70,class:^(pavucontrol)$"
         "opacity 0.80 0.70,class:^(yad)$"
+        "opacity 0.80 0.70,class:^(org\.gnome\.clocks)$"
         "opacity 0.80 0.70,class:^(polkit-gnome-authentication-agent-1)$"
         "opacity 0.80 0.70,class:^(io\.bassi\.Amberol)$"
         "opacity 0.80 0.70,title:^(Discord Popout)$"

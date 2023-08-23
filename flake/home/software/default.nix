@@ -15,6 +15,7 @@
     anki-bin
     gnome.gnome-clocks
     gnome.gnome-calculator
+    gnome.nautilus
     calibre
     morgen
     obsidian
@@ -22,7 +23,6 @@
     telegram-desktop
     qpwgraph
     wezterm
-    mindustry-wayland
   ];
 
   programs = {
