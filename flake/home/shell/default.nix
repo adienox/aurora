@@ -11,7 +11,7 @@
 
     # ~/ Clean-up:
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
-    EDITOR = "code";
+    EDITOR = "nvim";
     BROWSER = "librewolf";
     FLAKE = "/home/nox/aurora/flake";
 
