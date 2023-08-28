@@ -8,7 +8,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    terminal = "kitty";
+    terminal = "wezterm";
     font = "Readex Pro 16";
     plugins = with pkgs; [
       rofi-emoji
@@ -46,7 +46,7 @@
     };
   };
 
-  xdg.configFile."Kvantum/config.ini".source =
+  xdg.configFile."keepmenu/config.ini".source =
     (pkgs.formats.ini { }).generate "config.ini" {
       dmenu = {
         dmenu_command = "rofi -l 8 -theme-str 'entry {placeholder: \"\";}'";

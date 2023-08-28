@@ -4,7 +4,6 @@
       windowrule = [
         # Floating Rules
         "float, title:^(fly_is_kitty)$"
-        "float, title:^(clock_is_kitty)$"
         "float, title:^(Unlock Database - KeePassXC)$"
         "float, title:^(firewall-applet)$"
         "float, title:^(all_is_kitty)$"
@@ -55,9 +54,6 @@
         "size 800 500, title:^(fly_is_kitty)$"
 
         # Animation Rules
-        "animation popin, floating:1"
-        "animation popin, yad"
-        "animation popin, title:^(fly_is_kitty)$"
         "animation popin, title:^(Discord Popout)$"
         "animation popin, title:^(Picture in picture)$"
         "animation popin, title:^(Picture-in-Picture)$"
@@ -79,25 +75,30 @@
         "fullscreen, obsidian"
         "fullscreen, Todoist"
         "fullscreen, Morgen"
-
-        # Misc rules
-        "idleinhibit focus, mpv"
-        "idleinhibit focus, ^(discord)$"
-        "rounding 4, title:^(LibreWolf — Sharing Indicator)$"
       ];
       windowrulev2 = [
+        # Utils
+        "noshadow, floating:0"
+        "noborder, floating:1"
+        "animation popin, floating:1"
+
+        # Idle inhibit rules
         "idleinhibit fullscreen, class:^(librewolf)$"
         "idleinhibit focus, class:^(librewolf)$, title:^(.*YouTube.*)$"
-        "noshadow, floating:0"
+        "idleinhibit focus, class:^(mpv)$"
+        "idleinhibit focus, class:^(discord)$"
 
+        # Opacity Rules
         "opacity 0.80 0.70,class:^(pavucontrol)$"
         "opacity 0.80 0.70,class:^(yad)$"
         "opacity 0.80 0.70,class:^(org\.gnome\.clocks)$"
+        "opacity 0.80 0.70,class:^(org\.gnome\.Nautilus)$"
+        "opacity 0.80 0.70,class:^(org\.telegram\.desktop)$"
+        "opacity 0.80 0.70,class:^(discord)$"
         "opacity 0.80 0.70,class:^(polkit-gnome-authentication-agent-1)$"
         "opacity 0.80 0.70,class:^(io\.bassi\.Amberol)$"
-        "opacity 0.80 0.70,title:^(Discord Popout)$"
-        "noborder,title:^(Discord Popout)$"
 
+        # Wlogout
         "noanim, class:^(wlogout)$, title:^(wlogout)$"
         "noshadow, class:^(wlogout)$, title:^(wlogout)$"
 

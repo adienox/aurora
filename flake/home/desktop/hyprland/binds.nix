@@ -1,12 +1,10 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   wayland.windowManager.hyprland = {
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
-      "$NOTIFY" = "notify-send -h string:x-canonical-private-synchronouse:hypr-cfg -u low";
       "$SCRIPTS" = "~/.config/assets/scripts/hyprland";
-      "$TERM" = "wezterm";
+      "$TERM" = "wezterm start";
       "$FLOATING_TERM" = "wezterm start --class floating -e";
 
       bind = [
@@ -153,5 +151,3 @@
     submap = reset
   '';
 }
-
-
