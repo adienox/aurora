@@ -139,7 +139,7 @@
 
     clock = {
       format = "<span font='12' rise='-500'> </span> {:%H:%M}";
-      format-alt = "<span font='12' rise='-500'> </span> {:%B %d; % Y}";
+      format-alt = "<span font='12' rise='-500'> </span> {:%B %d, %Y}";
       tooltip-format = "<tt>{calendar}</tt>";
     };
 
