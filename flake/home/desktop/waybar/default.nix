@@ -1,8 +1,4 @@
-{ config, pkgs, inputs, ... }:
-let
-  waybar_config = import ./config.nix;
-  waybar_style = import ./style.nix;
-in {
+{ pkgs, ... }: {
   imports = [ ./config.nix ];
 
   home.packages = with pkgs;
@@ -12,7 +8,6 @@ in {
 
   programs.waybar = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
     style = ./style.css;
   };
 }
