@@ -71,6 +71,11 @@
       ipa = "ip --brief address";
       quote =
         "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
+
+      ls = "exa -al --color=always --group-directories-first --icons";
+      la = "exa -a --color=always --group-directories-first --icons";
+      ll = "exa -l --color=always --group-directories-first --icons";
+      lt = "exa -aT --color=always --group-directories-first --icons";
     };
 
     initExtra = ''
@@ -98,14 +103,6 @@
           alias zz='z -'
       fi
 
-      if command -v exa &> /dev/null; then
-          alias ls='exa -al --color=always --group-directories-first --icons'
-          alias la='exa -a --color=always --group-directories-first --icons'
-          alias ll='exa -l --color=always --group-directories-first --icons'
-          alias lt='exa -aT --color=always --group-directories-first --icons'
-          alias l.="exa -a | grep -E '^\.'"
-      fi
-
       if command -v docker &> /dev/null; then
           alias dps='docker ps -a'
           alias dc='docker'
@@ -117,8 +114,8 @@
           alias tls='tmux list-sessions 2>/dev/null'
       fi
 
-      # runs fetch if shell is interactive and not inside vscode
-      if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" ]] ; then
+      # runs fetch if shell is interactive and not inside vscode and nvim
+      if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" && -z "$VIM" ]] ; then
         $XDG_CONFIG_HOME/assets/scripts/fetch.sh
       fi
 
