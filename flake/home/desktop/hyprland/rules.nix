@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
@@ -111,11 +111,16 @@
         "noblur,class:^(xwaylandvideobridge)$"
       ];
       layerrule = [
-        "blur, notifications"
         "blur, rofi"
-        "ignorealpha 0.5, rofi"
+        "ignorezero, rofi"
+        "blur, notifications"
+        "ignorezero, notifications"
         "blur, gtk-layer-shell"
         "ignorezero, gtk-layer-shell"
+        "blur, swaync-control-center"
+        "ignorezero, swaync-control-center"
+        "blur, swaync-notification-window"
+        "ignorezero, swaync-notification-window"
       ];
     };
   };
