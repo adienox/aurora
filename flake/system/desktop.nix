@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -29,9 +29,11 @@
     seahorse.enable = true;
   };
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-  '';
+  services = {
+    logind.extraConfig = ''
+      HandlePowerKey=suspend
+    '';
+  };
 
   fonts = {
     fontDir.enable = true;
