@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ lib, pkgs, inputs, ... }: {
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
     udiskie # AutoMount disks
@@ -17,6 +17,7 @@
     # recorder and screenshot
     grim
     slurp
+    tesseract # ocr
     wf-recorder
 
     # Hyprland requirement
@@ -30,9 +31,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland = {
-      enable = true;
-    };
+    xwayland = { enable = true; };
   };
 
   # start swayidle as part of hyprland, not sway

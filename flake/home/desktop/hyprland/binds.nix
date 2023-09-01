@@ -44,7 +44,7 @@
 
         # Screenshot
         ", Print, exec, $SCRIPTS/screenshot.sh full"
-        "SHIFT, Print, exec, $SCRPITS/screenshot.sh partial"
+        "SHIFT, Print, exec, $SCRIPTS/screenshot.sh partial"
         "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr"
 
         # Recording
