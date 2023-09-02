@@ -113,6 +113,10 @@
       layerrule = [
         "blur, rofi"
         "ignorezero, rofi"
+        "blur, waybar"
+        "ignorezero, waybar"
+        "xray 1, waybar"
+        "ignorealpha 0.69, waybar"
         "blur, notifications"
         "ignorezero, notifications"
         "blur, gtk-layer-shell"
