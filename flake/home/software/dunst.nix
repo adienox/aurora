@@ -1,9 +1,9 @@
-{ pkgs, default, ... }: {
+{ pkgs,... }: {
   # notification daemon
   home.packages = [ pkgs.libnotify ];
 
   services.dunst = {
-    enable = true;
+    enable = false;
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;

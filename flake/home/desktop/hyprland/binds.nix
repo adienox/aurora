@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   wayland.windowManager.hyprland = {
     settings = {
       "$MOD" = "SUPER";
@@ -118,10 +118,10 @@
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
 
-        # DND Toggle
-        "$MOD, N, exec, dunstctl close"
-        "$MOD SHIFT, N, exec, dunstctl close-all"
-        "$MOD SHIFT, D, exec, dunstctl set-paused toggle"
+        # Notification
+        "$MOD, N, exec, swaync-client -t"
+        "$MOD SHIFT, N, exec, swaync-client --close-latest"
+        "$MOD SHIFT, D, exec, swaync-client -d"
       ];
       bindm = [
         # Resize and Move

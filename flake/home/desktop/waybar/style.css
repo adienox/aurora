@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
 }
 
@@ -30,6 +30,7 @@ window#waybar {
 #backlight,
 #pulseaudio,
 #custom-dunst,
+#custom-notification,
 #custom-recorder,
 #clock,
 #tray {
@@ -57,6 +58,7 @@ window#waybar {
 #pulseaudio {
   color: #f9e2af;
 }
+#custom-notification,
 #custom-recorder,
 #custom-dunst {
   color: #f38ba8;

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 notiSound() {
-    if [ "$(dunstctl is-paused)" == 'false' ]; then
+    if [ "$(swaync-client -D)" == 'false' ]; then
         # TODO fix the path
         mpv --no-resume-playback --quiet --keep-open=no $HOME/.config/assets/sounds/notification.mp3
     fi

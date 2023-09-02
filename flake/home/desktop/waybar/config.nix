@@ -4,24 +4,18 @@
     layer = "top";
     height = 38;
     spacing = 4;
-    
-    modules-left = [
-      "hyprland/workspaces"
-      "custom/weather"
-      "hyprland/submap"
-    ];
-    
-    modules-center = [
-      "custom/playerlabel"
-    ];
-    
+
+    modules-left = [ "hyprland/workspaces" "custom/weather" "hyprland/submap" ];
+
+    modules-center = [ "custom/playerlabel" ];
+
     modules-right = [
       "custom/recorder"
       "battery"
       "bluetooth"
       "backlight"
       "pulseaudio"
-      "custom/dunst"
+      "custom/notification"
       "clock"
       "tray"
     ];
@@ -92,22 +86,13 @@
     bluetooth = {
       format = "";
       format-connected = " {device_alias}";
-      format-connected-battery = " {device_alias} {device_battery_percentage}%";
+      format-connected-battery =
+        " {device_alias} {device_battery_percentage}%";
     };
 
     backlight = {
       format = "{icon} {percent}%";
-      format-icons = [
-        ""
-        ""
-        ""
-        ""
-        ""
-        ""
-        ""
-        ""
-        ""
-      ];
+      format-icons = [ "" "" "" "" "" "" "" "" "" ];
     };
 
     pulseaudio = {
@@ -125,11 +110,7 @@
         phone = "";
         portable = "";
         car = "";
-        default = [
-          ""
-          ""
-          ""
-        ];
+        default = [ "" "" "" ];
       };
       on-click-right = "pavucontrol";
     };
@@ -140,15 +121,33 @@
       restart-interval = 1;
     };
 
+    "custom/notification" = {
+      tooltip = false;
+      format = "{icon}";
+      format-icons = {
+        notification = "";
+        none = "";
+        dnd-notification = "";
+        dnd-none = "";
+        inhibited-notification = "";
+        inhibited-none = "";
+        dnd-inhibited-notification = "";
+        dnd-inhibited-none = "";
+      };
+      return-type = "json";
+      exec-if = "which swaync-client";
+      exec = "swaync-client -swb";
+      on-click = "swaync-client -t -sw";
+      on-click-right = "swaync-client -d -sw";
+      escape = true;
+    };
+
     clock = {
       format = "<span font='12' rise='-500'> </span> {:%H:%M}";
       format-alt = "<span font='12' rise='-500'> </span> {:%B %d, %Y}";
       tooltip-format = "<tt>{calendar}</tt>";
     };
 
-    tray = {
-      "spacing" = 12;
-    };
+    tray = { "spacing" = 12; };
   };
 }
-
