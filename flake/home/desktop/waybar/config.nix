@@ -1,17 +1,20 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   programs.waybar.settings.mainBar = {
     position = "top";
     layer = "top";
     height = 38;
     spacing = 4;
+    
     modules-left = [
-      "wlr/workspaces"
+      "hyprland/workspaces"
       "custom/weather"
       "hyprland/submap"
     ];
+    
     modules-center = [
       "custom/playerlabel"
     ];
+    
     modules-right = [
       "custom/recorder"
       "battery"
@@ -23,7 +26,7 @@
       "tray"
     ];
 
-    "wlr/workspaces" = {
+    "hyprland/workspaces" = {
       active-only = false;
       all-outputs = true;
       disable-scroll = false;
