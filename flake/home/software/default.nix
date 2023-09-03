@@ -23,6 +23,9 @@
     telegram-desktop
     qpwgraph
     wezterm
+    qbittorrent
+    ytfzf
+    mindustry-wayland
   ];
 
   programs = {
