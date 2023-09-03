@@ -1,7 +1,6 @@
-{ pkgs, config, ... }:
-# media - control and enjoy audio/video
+{ pkgs, ... }:
 {
-  imports = [ ./rnnoise.nix ./spicetify.nix ];
+  imports = [ ./rnnoise.nix ./spicetify.nix ./newsboat.nix ];
 
   home.packages = with pkgs; [
     # audio control
