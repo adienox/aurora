@@ -6,6 +6,7 @@
     ./git.nix
     ./librewolf.nix
     ./webcord.nix
+    ./xremap.nix
   ];
 
   home.packages = with pkgs; [

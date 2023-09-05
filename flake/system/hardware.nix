@@ -6,6 +6,11 @@
 
   services.blueman.enable = true;
 
+  # settings for xremap to work
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [ "nox" ];
+  users.groups.input.members = [ "nox" ];
+
   # Make sure opengl is enabled
   hardware.opengl = {
     enable = true;

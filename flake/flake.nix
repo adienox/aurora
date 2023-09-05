@@ -27,6 +27,8 @@
     };
 
     ags.url = "github:Aylur/ags";
+    
+    xremap-flake.url = "github:xremap/nix-flake";
 
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
