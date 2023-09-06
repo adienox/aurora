@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   imports = [ ./rules.nix ./binds.nix ];
 
   wayland.windowManager.hyprland = {
@@ -10,7 +10,6 @@
         "~/.config/assets/scripts/hyprland/autostart.sh"
       ];
       input = {
-        kb_options = "ctrl:nocaps"; # Swap capsLock with ctrl
         kb_layout = "us";
 
         follow_mouse = true;

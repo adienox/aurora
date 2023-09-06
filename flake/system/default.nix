@@ -36,7 +36,6 @@ in
     shell = pkgs.zsh;
     extraGroups =
       [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" ];
-    packages = with pkgs; [ ];
   };
 
   nixpkgs.overlays = [
