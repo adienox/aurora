@@ -4,9 +4,24 @@
   font-size: 14px;
 }
 
+window#waybar.floating,
+window#waybar.empty {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+window#waybar.solo {
+  background-color: #000000;
+}
+window#waybar.fullscreen {
+  background: transparent;
+  color: transparent;
+}
+
+window#waybar.org\.wezfurlong\.wezterm,
 window#waybar {
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
+  transition: all 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 .modules-right {
@@ -21,6 +36,7 @@ window#waybar {
 .modules-center {
   margin: 5px;
 }
+
 
 #custom-weather,
 #submap,
@@ -38,9 +54,23 @@ window#waybar {
   border-radius: 4px;
   background-color: #090909;
   font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
   color: #cdd6f4;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+window#waybar.fullscreen #custom-weather,
+window#waybar.fullscreen #submap,
+window#waybar.fullscreen #custom-playerlabel,
+window#waybar.fullscreen #battery,
+window#waybar.fullscreen #bluetooth,
+window#waybar.fullscreen #backlight,
+window#waybar.fullscreen #pulseaudio,
+window#waybar.fullscreen #custom-dunst,
+window#waybar.fullscreen #custom-notification,
+window#waybar.fullscreen #custom-recorder,
+window#waybar.fullscreen #clock,
+window#waybar.fullscreen #tray {
+  background: transparent;
+  color: transparent;
 }
 
 #submap {
@@ -66,38 +96,40 @@ window#waybar {
 #clock {
   color: #94e2d5;
 }
-#tray {
-  color: #a6e3a1;
-}
+
 
 #workspaces button {
   border-radius: 4px;
   margin-left: 4px;
   padding: 2px 8px;
   background-color: #090909;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 2px;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68),
+              background 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  
+}
+
+window#waybar.fullscreen #workspaces button,
+window#waybar.fullscreen #workspaces button label {
+  background: transparent;
+  color: transparent;
 }
 
 #workspaces button label {
   color: #f38ba8;
   font-weight: bold;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active {
   padding: 2px 14px;
   background-color: #f38ba8;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active label {
   color: #11111b;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #custom-playerlabel.Paused {
   color: #f38ba8;
   font-weight: bolder;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  transition: color 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
