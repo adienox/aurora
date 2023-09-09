@@ -24,11 +24,10 @@
         gaps_in = 5;
         gaps_out = 5;
 
-        border_size = 1;
+        border_size = 2;
 
-        "col.active_border" = "0xff1e1e2e";
-        "col.inactive_border" = "0xff040404";
-
+        "col.active_border" = "0xffcba6f7";
+        "col.inactive_border" = "0xff1e1e2e";
         "col.group_border" = "0xff89dceb";
         "col.group_border_active" = "0xfff9e2af";
 
@@ -40,7 +39,6 @@
       decoration = {
         rounding = 10;
         multisample_edges = true;
-        #screen_shader = ~/.config/hypr/shaders/bluefilter.frag
 
         drop_shadow = true;
         shadow_range = 100;
@@ -87,6 +85,7 @@
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         enable_swallow = true;
+        swallow_regex = "^(org\.wezfurlong\.wezterm|floating)$";
         vfr = true;
         key_press_enables_dpms = true;
         disable_splash_rendering = true;

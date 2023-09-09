@@ -79,7 +79,6 @@
       windowrulev2 = [
         # Utils
         "noshadow, floating:0"
-        "noborder, floating:1"
         "animation popin, floating:1"
 
         # Idle inhibit rules
