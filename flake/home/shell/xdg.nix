@@ -1,5 +1,4 @@
-{ lib, config, pkgs, ... }:
-with lib;
+{ config, pkgs, ... }:
 let
   browser = [ "librewolf.desktop" ];
   image-viewer = [ "imv.desktop" ];
@@ -27,6 +26,7 @@ let
     "image/*" = image-viewer;
     "image/png" = image-viewer;
     "image/jpg" = image-viewer;
+    "image/gif" = image-viewer;
     "x-scheme-handler/discord" = [ "discord.desktop" ];
     "x-scheme-handler/spotify" = [ "spotify.desktop" ];
     "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];

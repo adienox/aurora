@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs,... }: {
   imports = [
     ./hyprland
     ./waybar
@@ -7,7 +7,7 @@
     ./rofi
     ./swayidle.nix
     ./swww.nix
-    ./espanso.nix
+    # ./espanso.nix
   ];
 
   home.sessionVariables = {

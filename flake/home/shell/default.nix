@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   imports = [
     ./zsh.nix
     ./xdg.nix
@@ -13,7 +13,7 @@
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
     EDITOR = "nvim";
     BROWSER = "librewolf";
-    FLAKE = "/home/nox/aurora/flake";
+    FLAKE = "$HOME/aurora/flake";
 
     TMUX_TMPDIR = "$XDG_RUNTIME_DIR";
     ANDROID_SDK_HOME = "$XDG_CONFIG_HOME/android";
