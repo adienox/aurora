@@ -88,14 +88,15 @@
         "idleinhibit focus, class:^(discord)$"
 
         # Opacity Rules
-        "opacity 0.80 0.70,class:^(pavucontrol)$"
-        "opacity 0.80 0.70,class:^(yad)$"
-        "opacity 0.80 0.70,class:^(org\.gnome\.clocks)$"
-        "opacity 0.80 0.70,class:^(org\.gnome\.Nautilus)$"
-        "opacity 0.80 0.70,class:^(org\.telegram\.desktop)$"
-        "opacity 0.80 0.70,class:^(discord)$"
-        "opacity 0.80 0.70,class:^(polkit-gnome-authentication-agent-1)$"
-        "opacity 0.80 0.70,class:^(io\.bassi\.Amberol)$"
+        "opacity 0.70, class:^(pavucontrol)$"
+        "opacity 0.70, class:^(yad)$"
+        "opacity 0.70, class:^(Spotify)$"
+        "opacity 0.70, class:^(org\.gnome\.clocks)$"
+        "opacity 0.70, class:^(org\.gnome\.Nautilus)$"
+        "opacity 0.70, class:^(org\.telegram\.desktop)$"
+        "opacity 0.70, class:^(discord)$"
+        "opacity 0.70, class:^(polkit-gnome-authentication-agent-1)$"
+        "opacity 0.70, class:^(io\.bassi\.Amberol)$"
 
         # Wlogout
         "noanim, class:^(wlogout)$, title:^(wlogout)$"

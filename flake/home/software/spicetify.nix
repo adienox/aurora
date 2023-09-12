@@ -37,7 +37,7 @@ in {
       overwriteAssets = true;
       sidebarConfig = true;
     };
-    
+
     colorScheme = "custom";
     customColorScheme = {
       accent = "f38ba8";

@@ -1,10 +1,8 @@
-{ lib, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs;
     [
       ((discord.override {
         nss = pkgs.nss_latest;
-        withOpenASAR = true;
-        withVencord = true;
       }).overrideAttrs (old: {
         libPath = old.libPath + ":${pkgs.libglvnd}/lib";
         nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];

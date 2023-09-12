@@ -18,6 +18,7 @@ window#waybar.fullscreen {
 }
 
 window#waybar.org\.wezfurlong\.wezterm,
+window#waybar.Spotify,
 window#waybar {
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: none;
