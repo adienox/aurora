@@ -2,10 +2,14 @@
   programs.waybar.settings.mainBar = {
     position = "top";
     layer = "top";
-    height = 38;
     spacing = 4;
 
-    modules-left = [ "hyprland/workspaces" "custom/weather" "hyprland/submap" "hyprland/window" ];
+    modules-left = [
+      "hyprland/workspaces"
+      "custom/weather"
+      "hyprland/submap"
+      "hyprland/window"
+    ];
 
     modules-center = [ "custom/playerlabel" ];
 
@@ -57,9 +61,7 @@
       tooltip = false;
     };
 
-    "hyprland/window" = {
-      format = "";
-    };
+    "hyprland/window" = { format = ""; };
 
     "custom/playerlabel" = {
       format = "<span>{}</span>";

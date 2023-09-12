@@ -26,7 +26,7 @@
 
         border_size = 2;
 
-        "col.active_border" = "0xffcba6f7";
+        "col.active_border" = "0xffcba6f7 0xff1e1e2e 0xff1e1e2e 270deg";
         "col.inactive_border" = "0xff1e1e2e";
         "col.group_border" = "0xff89dceb";
         "col.group_border_active" = "0xfff9e2af";

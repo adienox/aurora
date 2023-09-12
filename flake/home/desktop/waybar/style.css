@@ -105,7 +105,6 @@ window#waybar.fullscreen #tray {
   background-color: #090909;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68),
               background 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-  
 }
 
 window#waybar.fullscreen #workspaces button,
