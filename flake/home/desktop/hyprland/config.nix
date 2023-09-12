@@ -1,4 +1,6 @@
-{ ... }: {
+{ config, ... }: let
+  colors = config.colorScheme.colors;
+in  {
   imports = [ ./rules.nix ./binds.nix ];
 
   wayland.windowManager.hyprland = {
@@ -26,10 +28,10 @@
 
         border_size = 2;
 
-        "col.active_border" = "0xffcba6f7 0xff1e1e2e 0xff1e1e2e 270deg";
-        "col.inactive_border" = "0xff1e1e2e";
-        "col.group_border" = "0xff89dceb";
-        "col.group_border_active" = "0xfff9e2af";
+        "col.active_border" = "0xff${colors.base0E} 0xff${colors.base02} 0xff${colors.base02} 270deg";
+        "col.inactive_border" = "0xff${colors.base02}";
+        "col.group_border" = "0xff${colors.base07}";
+        "col.group_border_active" = "0xff${colors.base0C}";
 
         sensitivity = 1.0; # for mouse cursor
 

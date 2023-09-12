@@ -29,6 +29,8 @@
     ags.url = "github:Aylur/ags";
     
     xremap-flake.url = "github:xremap/nix-flake";
+    
+    nix-colors.url = "github:misterio77/nix-colors";
 
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
