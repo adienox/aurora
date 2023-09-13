@@ -7,6 +7,7 @@
     ./librewolf.nix
     ./webcord.nix
     ./xremap.nix
+    ./schizofox.nix
   ];
 
   home.packages = with pkgs; [

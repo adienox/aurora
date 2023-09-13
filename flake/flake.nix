@@ -32,6 +32,8 @@
     
     nix-colors.url = "github:misterio77/nix-colors";
 
+    schizofox.url = "github:schizofox/schizofox";
+
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
