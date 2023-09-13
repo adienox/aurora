@@ -43,7 +43,7 @@
       highlight article ":.*\\(embedded flash\\)$" magenta default     
       
       macro , open-in-browser
-      macro v set browser "setsid -f mpv --quiet" ; open-in-browser ; set browser ${pkgs.xdg-utils}/bin/xdg-open
+      macro v set browser "setsid -f mpv --really-quiet" ; open-in-browser ; set browser ${pkgs.xdg-utils}/bin/xdg-open
     '';
   };
 }

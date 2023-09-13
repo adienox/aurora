@@ -3,6 +3,7 @@
     [
       ((discord.override {
         nss = pkgs.nss_latest;
+        withVencord = true;
       }).overrideAttrs (old: {
         libPath = old.libPath + ":${pkgs.libglvnd}/lib";
         nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
