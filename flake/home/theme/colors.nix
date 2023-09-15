@@ -7,7 +7,7 @@
     author = "https://github.com/catppuccin/catppuccin";
     colors = {
       base00 = "000000"; # base
-      base01 = "020202"; # mantle
+      base01 = "090909"; # mantle
       base02 = "181825"; # surface0
       base03 = "45475a"; # surface1
       base04 = "585b70"; # surface2

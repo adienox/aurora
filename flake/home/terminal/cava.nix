@@ -1,4 +1,6 @@
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: let
+  colors = config.colorScheme.colors;
+in  {
   home.packages = [ pkgs.cava ];
   home.file.".config/cava/config".text = ''
     [general]
@@ -58,21 +60,14 @@
 
     gradient = 1
     gradient_count = 8
-    gradient_color_1 = '#94e2d5'
+    gradient_color_1 = '#${colors.base0C}'
     gradient_color_2 = '#89dceb'
     gradient_color_3 = '#74c7ec'
-    gradient_color_4 = '#89b4fa'
-    gradient_color_5 = '#cba6f7'
+    gradient_color_4 = '#${colors.base0D}'
+    gradient_color_5 = '#${colors.base0E}'
     gradient_color_6 = '#f5c2e7'
     gradient_color_7 = '#eba0ac'
-    gradient_color_8 = '#f38ba8'
-
-    ; gradient_color_1 = '#D5CADE'
-    ; gradient_color_2 = '#DCC7CC'
-    ; gradient_color_3 = '#E8C4AE'
-    ; gradient_color_4 = '#F1C096'
-    ; gradient_color_5 = '#F6BE89'
-    ; gradient_color_6 = '#FDBC78'
+    gradient_color_8 = '#${colors.base08}'
 
     [smoothing]
     ; integral = 77

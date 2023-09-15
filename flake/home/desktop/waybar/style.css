@@ -1,3 +1,5 @@
+@import url("./colors.css");
+
 * {
   font-family: 'Readex Pro', 'Font Awesome 6 Brands', 'Font Awesome 6 Free',
     'Font Awesome 6 Free Solid', 'Noto Sans CJK JP';
@@ -54,9 +56,9 @@ window#waybar {
 #tray {
   padding: 2px 14px;
   border-radius: 4px;
-  background-color: #090909;
+  background-color: @base01;
   font-weight: bold;
-  color: #cdd6f4;
+  color: @base05;
 }
 
 window#waybar.fullscreen #custom-weather,
@@ -76,27 +78,27 @@ window#waybar.fullscreen #tray {
 }
 
 #submap {
-  color: #a6e3a1;
+  color: @base0B;
 }
 #battery {
-  color: #cba6f7;
+  color: @base0E;
 }
 #bluetooth {
-  color: #eba0ac;
+  color: @base0F;
 }
 #backlight {
-  color: #fab387;
+  color: @base09;
 }
 #pulseaudio {
-  color: #f9e2af;
+  color: @base0A;
 }
 #custom-notification,
 #custom-recorder,
 #custom-dunst {
-  color: #f38ba8;
+  color: @base08;
 }
 #clock {
-  color: #94e2d5;
+  color: @base0C;
 }
 
 
@@ -104,7 +106,7 @@ window#waybar.fullscreen #tray {
   border-radius: 4px;
   margin-left: 4px;
   padding: 2px 8px;
-  background-color: #090909;
+  background-color: @base01;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68),
               background 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
@@ -116,21 +118,21 @@ window#waybar.fullscreen #workspaces button label {
 }
 
 #workspaces button label {
-  color: #f38ba8;
+  color: @base08;
   font-weight: bold;
 }
 
 #workspaces button.active {
   padding: 2px 14px;
-  background-color: #f38ba8;
+  background-color: @base08;
 }
 
 #workspaces button.active label {
-  color: #11111b;
+  color: @base00;
 }
 
 #custom-playerlabel.Paused {
-  color: #f38ba8;
+  color: @base08;
   font-weight: bolder;
   transition: color 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }

@@ -1,7 +1,3 @@
 { ... }: {
-  imports = [
-    ./gtk.nix
-    ./qt.nix
-    ./colors.nix
-  ];
+  imports = [ ./gtk.nix ./qt.nix ./colors.nix ];
 }

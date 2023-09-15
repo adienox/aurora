@@ -1,4 +1,6 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, config, lib, inputs, ... }: let
+  colors = config.colorScheme.colors;
+in 
 let spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -14,11 +16,7 @@ in {
     # spicetify-nix
     officialThemes = pkgs.fetchgit {
       url = "https://github.com/spicetify/spicetify-themes";
-      sha256 = "sha256-fnUINAgBCaklVDR2JsyvnN0ekBJ/sOnUNnKStug2txs=";
-    };
-    spicetify-stats = pkgs.fetchgit {
-      url = "https://github.com/harbassan/spicetify-stats";
-      sha256 = "sha256-YyAAaHgHebKrqeoXJMQUs0QQ05bHXPrKeEqlsg6pugU=";
+      sha256 = "sha256-L96pvObgRNjnvbaHM8dXEZaZ0O/AvBOMo6Iom0ZdXbw=";
     };
   in {
     enable = true;
@@ -40,34 +38,26 @@ in {
 
     colorScheme = "custom";
     customColorScheme = {
-      accent = "f38ba8";
-      accent-active = "f38ba8";
-      accent-inactive = "000000";
-      banner = "f38ba8";
-      border-active = "f38ba8";
-      border-inactive = "313244";
-      header = "585b70";
-      highlight = "585b70";
-      main = "000000";
-      notification = "89b4fa";
-      notification-error = "f38ba8";
-      subtext = "a6adc8";
-      text = "cdd6f4";
+      accent = colors.base08;
+      accent-active = colors.base08;
+      accent-inactive = colors.base00;
+      banner = colors.base08;
+      border-active = colors.base08;
+      border-inactive = colors.base02;
+      header = colors.base04;
+      highlight = colors.base04;
+      main = colors.base00;
+      notification = colors.base01;
+      notification-error = colors.base08;
+      subtext = colors.base05;
+      text = colors.base07;
     };
 
     enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
-      new-releases
       marketplace
-      {
-        name = "stats";
-        src = spicetify-stats;
-        appendName = false;
-      }
     ];
 
     enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplayMod
       keyboardShortcut
       hidePodcasts
       shuffle
