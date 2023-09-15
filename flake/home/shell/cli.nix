@@ -13,6 +13,7 @@
     ripgrep
     trash-cli
     fzf
+    eza
     tldr
     inputs.nh.packages.${pkgs.system}.default
     yt-dlp
@@ -41,7 +42,6 @@
       enableZshIntegration = true;
     };
 
-    exa.enable = true;
     ssh.enable = true;
 
     skim = {

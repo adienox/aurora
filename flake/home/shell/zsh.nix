@@ -79,10 +79,10 @@ in  {
       quote =
         "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
 
-      ls = "exa -al --color=always --group-directories-first --icons";
-      la = "exa -a --color=always --group-directories-first --icons";
-      ll = "exa -l --color=always --group-directories-first --icons";
-      lt = "exa -aT --color=always --group-directories-first --icons";
+      ls = "eza -al --color=always --group-directories-first --icons";
+      la = "eza -a --color=always --group-directories-first --icons";
+      ll = "eza -l --color=always --group-directories-first --icons";
+      lt = "eza -aT --color=always --group-directories-first --icons";
     };
 
     initExtra = ''
