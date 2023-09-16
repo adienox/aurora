@@ -1,4 +1,5 @@
-{ stdenv, fetchFromGitHub, gtk3, jdupes, ... }: stdenv.mkDerivation {
+{ stdenv, fetchFromGitHub, gtk3, jdupes, ... }:
+stdenv.mkDerivation {
   pname = "win11-icon-theme";
   version = "2023-05-13";
 

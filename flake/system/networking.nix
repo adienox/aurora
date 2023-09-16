@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
-{
+{ ... }: {
   networking = {
     hostName = "anomaly";
     networkmanager.enable = true;
 
     nameservers = [ "94.140.14.14" "94.140.15.15" "1.1.1.1" ];
-    networkmanager.insertNameservers = [ "94.140.14.14" "94.140.15.15" "1.1.1.1" ];
+    networkmanager.insertNameservers =
+      [ "94.140.14.14" "94.140.15.15" "1.1.1.1" ];
 
     firewall = {
       enable = true;

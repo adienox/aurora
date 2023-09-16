@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -12,7 +12,6 @@
     usbutils
     powertop
     polkit_gnome
-    python3Full
   ];
 
   # Enable adbusers in extragroups for user

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, ... }: {
   hardware.bluetooth = {
     enable = true;
     settings.General.Experimental = true;

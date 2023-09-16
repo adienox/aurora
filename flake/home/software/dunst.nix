@@ -1,4 +1,4 @@
-{ pkgs,... }: {
+{ pkgs, ... }: {
   # notification daemon
   home.packages = [ pkgs.libnotify ];
 

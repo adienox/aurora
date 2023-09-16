@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ neofetch imagemagick ];
   home.file.".config/neofetch/config.conf".text = ''
     print_info() {

@@ -1,9 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 let
   user = "adienox";
   username = "nox";
-in
-{
+in {
   imports = [
     ./desktop.nix
     ./hardware.nix
@@ -38,9 +37,7 @@ in
       [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" ];
   };
 
-  nixpkgs.overlays = [
-    (import ./pkgs)
-  ];
+  nixpkgs.overlays = [ (import ./pkgs) ];
 
   nix = {
     gc = {
