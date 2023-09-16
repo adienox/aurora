@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+  colorlib = import ../../theme/libs.nix lib;
+  colors = config.colorScheme.colors;
+in {
   home.packages = with pkgs; [
     cliphist # Clipboard History
     keepmenu # Keepass integration
@@ -10,10 +14,7 @@
     package = pkgs.rofi-wayland;
     terminal = "wezterm";
     font = "Readex Pro 16";
-    plugins = with pkgs; [
-      rofi-emoji
-      rofi-calc
-    ];
+    plugins = with pkgs; [ rofi-emoji rofi-calc ];
 
     theme = ./theme.rasi;
     extraConfig = {
@@ -22,7 +23,7 @@
       location = 0;
       disable-history = false;
       hide-scrollbar = true;
-      window-format = "\t{t:0}";
+      window-format = "	{t:0}";
       sidebar-mode = true;
       display-drun = "Applications  ";
       display-window = "Tasks  ";
@@ -59,13 +60,23 @@
       };
 
       database = {
-        database_1 = "~/Documents/vault/armoury.kdbx";
+        database_1 = "$XDG_DOCUMENTS_DIR/vault/armoury.kdbx";
         pw_cache_period_min = 360;
         autotype_default = "{USERNAME}{TAB}{PASSWORD}{ENTER}";
         type_library = "wtype";
       };
     };
+    
+  xdg.dataFile."rofi/themes/colors.rasi".text = ''
+    * {
+      background:           ${colorlib.rgba colors.base00 0.7};
+      background-selected:  ${colorlib.rgba colors.base01 0.3};
+      foreground:           #${colors.base05};
+      foreground-selected:  #${colors.base08};
+      placeholder-color:    ${colorlib.rgba colors.base02 0.5};
+      accent:               #${colors.base08};
+      base:                 #${colors.base02};
+      background-color:     transparent;
+    }
+  '';
 }
-
-
-

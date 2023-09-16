@@ -1,13 +1,4 @@
-* {
-  background:           rgba(0, 0, 0, 0.7);
-  background-selected:  rgba(24, 24, 37, 0.3);
-  foreground:           #CDD6F4FF;
-  foreground-selected:  #F38BA8FF;
-  placeholder-color:    rgba(205, 214, 244, 0.5);
-  accent:               #F38BA8FF;
-  base:                 #181825FF;
-  background-color:     transparent;
-}
+@import "colors"
 
 mainbox {
   children: [inputbar, message, listview];

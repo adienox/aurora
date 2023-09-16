@@ -1,4 +1,5 @@
-{ config, ... }: let
+{ config, lib, ... }: let
+  colorlib = import ../../theme/libs.nix lib;
   colors = config.colorScheme.colors;
 in  {
   programs.waybar.settings.mainBar = {
@@ -200,6 +201,8 @@ in  {
       @define-color base0D #${colors.base0D};
       @define-color base0E #${colors.base0E};
       @define-color base0F #${colors.base0F};
+      @define-color background-floating ${colorlib.rgba colors.base00 0.4};
+      @define-color background-regular ${colorlib.rgba colors.base00 0.7};
     '';
   };
 }

@@ -8,11 +8,11 @@
 
 window#waybar.floating,
 window#waybar.empty {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: @background-floating;
 }
 
 window#waybar.solo {
-  background-color: #000000;
+  background-color: @base00;
 }
 window#waybar.fullscreen {
   background: transparent;
@@ -23,7 +23,7 @@ window#waybar.org\.wezfurlong\.wezterm,
 window#waybar.Spotify,
 window#waybar.discord,
 window#waybar {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: @background-regular;
   box-shadow: none;
   transition: all 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
