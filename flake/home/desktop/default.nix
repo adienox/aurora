@@ -5,6 +5,7 @@
     ./gtklock
     ./wlogout
     ./rofi
+    ./swaync
     ./swayidle.nix
     ./swww.nix
     # ./espanso.nix

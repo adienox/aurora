@@ -12,8 +12,6 @@
     wl-clipboard # Clipboard
     wlsunset # Screen temp
 
-    swaynotificationcenter
-
     # recorder and screenshot
     grim
     slurp
