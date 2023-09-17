@@ -1,6 +1,4 @@
-{ pkgs, config, lib, inputs, ... }: let
-  colors = config.colorScheme.colors;
-in 
+{ pkgs, default, lib, inputs, ... }:
 let spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -38,19 +36,19 @@ in {
 
     colorScheme = "custom";
     customColorScheme = {
-      accent = colors.base08;
-      accent-active = colors.base08;
-      accent-inactive = colors.base00;
-      banner = colors.base08;
-      border-active = colors.base08;
-      border-inactive = colors.base02;
-      header = colors.base04;
-      highlight = colors.base04;
-      main = colors.base00;
-      notification = colors.base01;
-      notification-error = colors.base08;
-      subtext = colors.base05;
-      text = colors.base07;
+      accent = default.colors.base08;
+      accent-active = default.colors.base08;
+      accent-inactive = default.colors.base00;
+      banner = default.colors.base08;
+      border-active = default.colors.base08;
+      border-inactive = default.colors.base02;
+      header = default.colors.base04;
+      highlight = default.colors.base04;
+      main = default.colors.base00;
+      notification = default.colors.base01;
+      notification-error = default.colors.base08;
+      subtext = default.colors.base05;
+      text = default.colors.base07;
     };
 
     enabledCustomApps = with spicePkgs.apps; [

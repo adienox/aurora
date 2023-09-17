@@ -1,4 +1,4 @@
-{ ... }: {
+{ default, ... }: {
   imports = [
     ./zsh.nix
     ./xdg.nix
@@ -11,9 +11,9 @@
 
     # ~/ Clean-up:
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
-    EDITOR = "nvim";
-    BROWSER = "librewolf";
-    FLAKE = "$HOME/aurora/flake";
+    EDITOR = default.editor;
+    BROWSER = default.browser;
+    FLAKE = default.files.flake;
 
     TMUX_TMPDIR = "$XDG_RUNTIME_DIR";
     ANDROID_SDK_HOME = "$XDG_CONFIG_HOME/android";

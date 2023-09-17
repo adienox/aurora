@@ -1,5 +1,8 @@
 lib:
 with lib; rec {
+  # convert rrggbb hex to #rrggbb
+  x = c: "#${c}";
+
   # convert rrggbb hex to rgba(r, g, b, a) css
   rgba = c: a:
     let

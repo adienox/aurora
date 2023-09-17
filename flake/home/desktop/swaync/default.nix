@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }:
-let
-  colors = config.colorScheme.colors;
-  colorlib = import ../../theme/libs.nix lib;
-in {
+{ pkgs, default, ... }: {
   home.packages = with pkgs; [ swaynotificationcenter ];
 
   xdg.configFile."swaync/config.json".source =
@@ -46,16 +42,16 @@ in {
 
   xdg.configFile = {
     "swaync/colors.css".text = ''
-      @define-color noti-border-color #${colors.base03};
-      @define-color noti-bg #${colors.base00};
-      @define-color noti-bg-darker #${colors.base01};
-      @define-color noti-bg-hover #${colors.base02};
-      @define-color noti-bg-focus ${colorlib.rgba colors.base02 0.6};
-      @define-color noti-close-bg rgba(255, 255, 255, 0.1);
-      @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
-      @define-color text-color #${colors.base05};
-      @define-color text-color-disabled #${colors.base03};
-      @define-color bg-selected #${colors.base08};
+      @define-color noti-border-color     ${default.xcolors.base03};
+      @define-color noti-bg               ${default.xcolors.base00};
+      @define-color noti-bg-darker        ${default.xcolors.base01};
+      @define-color noti-bg-hover         ${default.xcolors.base02};
+      @define-color noti-bg-focus         ${default.rgba.base02 0.6};
+      @define-color noti-close-bg         rgba(255, 255, 255, 0.1);
+      @define-color noti-close-bg-hover   rgba(255, 255, 255, 0.15);
+      @define-color text-color            ${default.xcolors.base05};
+      @define-color text-color-disabled   ${default.xcolors.base03};
+      @define-color bg-selected           ${default.xcolors.base08};
     '';
   };
 }

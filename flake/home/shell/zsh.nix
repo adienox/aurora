@@ -1,11 +1,9 @@
-{ pkgs,config, ... }: let
-  colors = config.colorScheme.colors;
-in  {
+{ pkgs, default, ... }: {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
   };
-  
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -30,7 +28,7 @@ in  {
 
     localVariables = {
       FZF_DEFAULT_OPTS =
-        " --color=bg+:#${colors.base02},bg:#${colors.base00},spinner:#${colors.base06},hl:#${colors.base08} --color=fg:#${colors.base05},header:#${colors.base08},info:#${colors.base0E},pointer:#${colors.base06} --color=marker:#${colors.base06},fg+:#${colors.base05},prompt:#${colors.base0E},hl+:#${colors.base08}";
+        " --color=bg+:${default.xcolors.base02},bg:${default.xcolors.base00},spinner:${default.xcolors.base06},hl:${default.xcolors.base08} --color=fg:${default.xcolors.base05},header:${default.xcolors.base08},info:${default.xcolors.base0E},pointer:${default.xcolors.base06} --color=marker:${default.xcolors.base06},fg+:${default.xcolors.base05},prompt:${default.xcolors.base0E},hl+:${default.xcolors.base08}";
     };
 
     completionInit = ''
