@@ -1,8 +1,8 @@
 { config, pkgs, ... }: {
   imports = [
     # ./dunst.nix
+    ./media
     ./discord.nix
-    ./media.nix
     ./git.nix
     ./librewolf.nix
     ./webcord.nix

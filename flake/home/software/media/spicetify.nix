@@ -47,7 +47,7 @@ in {
       main = default.colors.base00;
       notification = default.colors.base01;
       notification-error = default.colors.base08;
-      subtext = default.colors.base05;
+      subtext = default.colors.extra04;
       text = default.colors.base07;
     };
 
