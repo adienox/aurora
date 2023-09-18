@@ -1,12 +1,12 @@
 { ... }: {
 
   imports = [
-    ./shell
     ./desktop
     ./editors
+    ./shell
+    ./software
     ./terminal
     ./theme
-    ./software
   ];
 
   home.username = "nox";

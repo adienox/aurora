@@ -3,7 +3,7 @@
   home.packages = [ pkgs.libnotify ];
 
   services.dunst = {
-    enable = false;
+    enable = true;
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;

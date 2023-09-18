@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, default, ... }:
 let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
@@ -22,7 +22,7 @@ in {
       }
     ];
     timeouts = [{
-      timeout = 330;
+      timeout = default.settings.timeout;
       command = suspendScript.outPath;
     }];
   };

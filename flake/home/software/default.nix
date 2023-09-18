@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    ./dunst.nix
+    # ./dunst.nix
     ./discord.nix
     ./media.nix
     ./git.nix
