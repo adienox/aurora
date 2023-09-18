@@ -1,7 +1,22 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, default, ... }: let
+  youtube-icon = pkgs.fetchurl {
+    url = "https://www.youtube.com/s/desktop/dbf5c200/img/favicon_144x144.png";
+    hash = "sha256-lQ5gbLyoWCH7cgoYcy+WlFDjHGbxwB8Xz0G7AZnr9vI=";
+  };
+  aniwave-icon = pkgs.fetchurl {
+    url = "https://s2.bunnycdn.ru/assets/sites/aniwave/favicon1.png";
+    hash = "sha256-MK40CLcyq7CoGbV/38MUz7JEcfVHYEHdBwhDHvuQ9oc=";
+  };
+  brave-icon = pkgs.fetchurl {
+    url = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
+    hash = "sha256-JTD4D98hRLYvlpU6gcaYjJwxpsx8necuBpB5SFgXy+c=";
+  };
+in  {
   programs.firefox = {
     enable = true;
-    profiles.nox = {
+    profiles.${default.firefox.profile} = {
+
+      search.default = "Brave";
 
       search.engines = {
         "Nix Packages" = {
@@ -22,6 +37,51 @@
             "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ "np" ];
         };
+
+        "Youtube" = {
+          urls = [{
+            template = "https://www.youtube.com/results";
+            params = [{
+              name = "search_query";
+              value = "{searchTerms}";
+            }];
+          }];
+
+          icon = youtube-icon;
+          definedAliases = [ "yt" ];
+        };
+
+        "Brave" = {
+          urls = [{
+            template = "https://search.brave.com/search";
+            params = [{
+              name = "q";
+              value = "{searchTerms}";
+            }];
+          }];
+
+          icon = brave-icon;
+          definedAliases = [ "bb" ];
+        };
+
+        "AniWave" = {
+          urls = [{
+            template = "https://aniwave.to/filter";
+            params = [{
+              name = "keyword";
+              value = "{searchTerms}";
+            }];
+          }];
+
+          icon = aniwave-icon;
+          definedAliases = [ "aa" ];
+        };
+        
+        "Bing".metaData.hidden = true;
+        "DuckDuckGo".metaData.hidden = true;
+        "Amazon.com".metaData.hidden = true;
+        "Wikipedia (en)".metaData.hidden = true;
+        "Google".metaData.alias = "gg";
       };
       search.force = true;
 
@@ -30,72 +90,22 @@
         ublock-origin
         darkreader
         youtube-shorts-block
+        dearrow
+        df-youtube
+        enhancer-for-youtube
+        facebook-container
+        multi-account-containers
+        languagetool
+        leechblock-ng
+        search-by-image
+        simple-tab-groups
+        stylus
+        tabliss
+        web-archives
+        wikiwand-wikipedia-modernized
       ];
 
-      settings = {
-        "browser.download.useDownloadDir" = false;
-        "browser.aboutConfig.showWarning" = false;
-        "browser.tabs.firefox-view" = false;
-        "browser.toolbars.bookmarks.visibility" = "never";
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
-        "xpinstall.signatures.required" = false;
-        
-        # Release notes and vendor URLs
-        "app.releaseNotesURL" = "http://127.0.0.1/";
-        "app.vendorURL" = "http://127.0.0.1/";
-        "app.privacyURL" = "http://127.0.0.1/";
-
-        # Disable plugin installer
-        "plugins.hide_infobar_for_missing_plugin" = true;
-        "plugins.hide_infobar_for_outdated_plugin" = true;
-        "plugins.notifyMissingFlash" = false;
-
-        # Speeding it up
-        "network.http.pipelining" = true;
-        "network.http.proxy.pipelining" = true;
-        "network.http.pipelining.maxrequests" = 10;
-        "nglayout.initialpaint.delay" = 0;
-
-        # Isolate cookies, you don't have to delete them every time, duh
-        "privacy.firstparty.isolate" = true;
-
-        # Extensions cannot be updated without permission
-        "extensions.update.enabled" = false;
-
-        # Use LANG environment variable to choose locale
-        "intl.locale.matchOS" = true;
-        
-          # Allow unsigned langpacks
-  "extensions.langpacks.signatures.required" = false;
-
-  # Disable default browser checking.
-  "browser.shell.checkDefaultBrowser" = false;
-
-  # Prevent EULA dialog to popup on first run
-  "browser.EULA.override" = true;
-
-  # Don't disable extensions dropped in to a system
-  # location, or those owned by the application
-  "extensions.autoDisableScopes" = 3;
-
-  # Don't call home for blacklisting
-  "extensions.blocklist.enabled" = false;
-
-  # Disable homecalling
-  "app.update.url" = "http://127.0.0.1/";
-  "startup.homepage_welcome_url" = "";
-  "browser.startup.homepage_override.mstone" = "ignore";
-
-  # Help url
-  "app.support.baseURL" = "http://127.0.0.1/";
-  "app.support.inputURL" = "http://127.0.0.1/";
-  "app.feedback.baseURL" = "http://127.0.0.1/";
-  "browser.uitour.url" = "http://127.0.0.1/";
-  "browser.uitour.themeOrigin" = "http://127.0.0.1/";
-  "plugins.update.url" = "http://127.0.0.1/";
-  "browser.customizemode.tip0.learnMoreUrl" = "http://127.0.0.1/";
-      };
+      settings = import ./settings.nix { inherit default; };
     };
   };
 }

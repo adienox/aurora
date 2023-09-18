@@ -11,7 +11,6 @@
   ];
 
   home.packages = with pkgs; [
-    brave
     todoist-electron
     amberol
     anki-bin

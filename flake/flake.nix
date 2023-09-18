@@ -20,16 +20,21 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags.url = "github:Aylur/ags";
-    
+
     xremap-flake.url = "github:xremap/nix-flake";
-    
+
     nix-colors.url = "github:misterio77/nix-colors";
 
     schizofox.url = "github:schizofox/schizofox";
