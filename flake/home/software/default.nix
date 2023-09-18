@@ -2,9 +2,9 @@
   imports = [
     # ./dunst.nix
     ./media
+    ./browser
     ./discord.nix
     ./git.nix
-    ./librewolf.nix
     ./webcord.nix
     ./xremap.nix
     # ./schizofox.nix
