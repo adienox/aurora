@@ -1,15 +1,15 @@
-{ config, lib, ... }:
-let colorlib = import ./libs.nix lib;
+{ lib, ... }:
+let
+  colorlib = import ./libs.nix lib;
 in rec {
   browser = "librewolf";
   editor = "nvim";
 
-  colors = config.colorScheme.colors;
+  colors = import ./colors.nix;
   xcolors = lib.mapAttrs (name: color: colorlib.x color) colors;
-
-  # NOTE: I have no idea how this works
-  # it correctly passes opacity to colorlib.rgba but I don't know how
   rgba = lib.mapAttrs (_: colorlib.rgba) colors;
+
+  settings = { timeout = 330; };
 
   files = {
     flake = "$HOME/aurora/flake";

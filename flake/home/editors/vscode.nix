@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [ nixpkgs-fmt ];
   programs.vscode = {
     enable = true;

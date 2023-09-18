@@ -1,8 +1,8 @@
-{ config, pkgs, ... }: let
-  colors = config.colorScheme.colors;
-in  {
+{ pkgs, default, ... }: {
+
   home.packages = [ pkgs.cava ];
-  home.file.".config/cava/config".text = ''
+
+  xdg.configFile."cava/config".text = ''
     [general]
     ; mode = normal
     ; framerate = 60
@@ -60,14 +60,14 @@ in  {
 
     gradient = 1
     gradient_count = 8
-    gradient_color_1 = '#${colors.base0C}'
-    gradient_color_2 = '#89dceb'
-    gradient_color_3 = '#74c7ec'
-    gradient_color_4 = '#${colors.base0D}'
-    gradient_color_5 = '#${colors.base0E}'
-    gradient_color_6 = '#f5c2e7'
-    gradient_color_7 = '#eba0ac'
-    gradient_color_8 = '#${colors.base08}'
+    gradient_color_1 = '${default.xcolors.base0C}'
+    gradient_color_2 = '${default.xcolors.extra02}'
+    gradient_color_3 = '${default.xcolors.extra03}'
+    gradient_color_4 = '${default.xcolors.base0D}'
+    gradient_color_5 = '${default.xcolors.base0E}'
+    gradient_color_6 = '${default.xcolors.extra00}'
+    gradient_color_7 = '${default.xcolors.extra01}'
+    gradient_color_8 = '${default.xcolors.base08}'
 
     [smoothing]
     ; integral = 77
@@ -75,7 +75,7 @@ in  {
     ; waves = 0
     ; gravity = 100
     ; ignore = 0
-    noise_reduction = 0.77
+    ; noise_reduction = 0.77
 
 
     [eq]
