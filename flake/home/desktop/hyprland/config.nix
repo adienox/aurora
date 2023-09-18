@@ -26,14 +26,17 @@
 
         border_size = 2;
 
-        "col.active_border" = "0xff${default.colors.base0E} 0xff${default.colors.base02} 0xff${default.colors.base02} 270deg";
+        "col.active_border" =
+          "0xff${default.colors.base0E} 0xff${default.colors.base02} 0xff${default.colors.base02} 270deg";
         "col.inactive_border" = "0xff${default.colors.base02}";
+        
         "col.group_border" = "0xff${default.colors.base07}";
         "col.group_border_active" = "0xff${default.colors.base0C}";
 
         sensitivity = 1.0; # for mouse cursor
 
         no_cursor_warps = true;
+        layout = "dwindle";
       };
 
       decoration = {
@@ -41,9 +44,8 @@
         multisample_edges = true;
 
         drop_shadow = true;
-        shadow_range = 100;
+        shadow_range = 35;
         shadow_render_power = 3;
-        shadow_offset = "0 5";
         "col.shadow" = "0x33000000";
         "col.shadow_inactive" = "0x22000000";
 
@@ -53,6 +55,10 @@
           passes = 4; # minimum 1, more passes = more resource intensive.
           ignore_opacity = true;
           new_optimizations = true;
+          noise = 0.0117;
+          contrast = 1.2;
+          xray = false;
+          brightness = 1;
         };
       };
 
@@ -85,7 +91,7 @@
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         enable_swallow = true;
-        swallow_regex = "^(org\.wezfurlong\.wezterm|floating)$";
+        swallow_regex = "^(org.wezfurlong.wezterm|floating)$";
         vfr = true;
         key_press_enables_dpms = true;
         disable_splash_rendering = true;
