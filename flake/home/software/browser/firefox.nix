@@ -1,4 +1,5 @@
-{ pkgs, inputs, default, ... }: let
+{ pkgs, inputs, default, ... }:
+let
   youtube-icon = pkgs.fetchurl {
     url = "https://www.youtube.com/s/desktop/dbf5c200/img/favicon_144x144.png";
     hash = "sha256-lQ5gbLyoWCH7cgoYcy+WlFDjHGbxwB8Xz0G7AZnr9vI=";
@@ -11,7 +12,7 @@
     url = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
     hash = "sha256-JTD4D98hRLYvlpU6gcaYjJwxpsx8necuBpB5SFgXy+c=";
   };
-in  {
+in {
   programs.firefox = {
     enable = true;
     profiles.${default.firefox.profile} = {
@@ -76,7 +77,7 @@ in  {
           icon = aniwave-icon;
           definedAliases = [ "aa" ];
         };
-        
+
         "Bing".metaData.hidden = true;
         "DuckDuckGo".metaData.hidden = true;
         "Amazon.com".metaData.hidden = true;
@@ -92,20 +93,30 @@ in  {
         youtube-shorts-block
         dearrow
         df-youtube
-        enhancer-for-youtube
         facebook-container
         multi-account-containers
-        languagetool
         leechblock-ng
         search-by-image
         simple-tab-groups
         stylus
-        tabliss
         web-archives
-        wikiwand-wikipedia-modernized
+        clearurls
+        localcdn
+        don-t-fuck-with-paste
+        temporary-containers
+        skip-redirect
+        smart-referer
+        vimium
+        tabcenter-reborn
+        # readwise
+        # imagur
+        # enhancer-for-youtube
+        # languagetool
+        # wikiwand-wikipedia-modernized
       ];
 
       settings = import ./settings.nix { inherit default; };
+      userChrome = import ./userChrome.css;
     };
   };
 }

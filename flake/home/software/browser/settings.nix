@@ -366,6 +366,138 @@
   "browser.toolbars.bookmarks.visibility" = "never";
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
+  "browser.tabs.firefox-view" = false;
+  
+  # Do not tell what plugins do we have enabled: https://mail.mozilla.org/pipermail/firefox-dev/2013-November/001186.html
+  "plugins.enumerable_names" = "";
+  "plugin.state.flash" = 0;
+
+  # Disable sensors
+  "dom.battery.enabled" = false;
+  "device.sensors.enabled" = false;
+  "camera.control.face_detection.enabled" = false;
+  "camera.control.autofocus_moving_callback.enabled" = false;
+  
+  # Don't ping Mozilla for MitM detection, see <https://bugs.torproject.org/32321>
+  "security.certerrors.mitm.priming.enabled" = false;
+  "security.certerrors.recordEventTelemetry" = false;
+
+  # Disable shield/heartbeat
+  "extensions.shield-recipe-client.enabled" = false;
+  "browser.selfsupport.url" = "";
+  
+  # No search suggestions
+  "browser.urlbar.userMadeSearchSuggestionsChoice" = true;
+  
+  # Disable geolocation
+  "geo.enabled" = false;
+  "geo.wifi.uri" = "";
+  "browser.search.geoip.url" = "";
+  "browser.search.geoSpecificDefaults" = false;
+  "browser.search.geoSpecificDefaults.url" = "";
+  "browser.search.modernConfig" = false;
+  
+  # Canvas fingerprint protection
+  "privacy.trackingprotection.cryptomining.enabled" = true;
+  "privacy.trackingprotection.fingerprinting.enabled" = true;
+  
+  # Disable Pocket integration
+  "browser.pocket.enabled" = false;
+  "extensions.pocket.enabled" = false;
+  
+  # Avoid logjam attack
+  "security.ssl3.dhe_rsa_aes_128_sha" = false;
+  "security.ssl3.dhe_rsa_aes_256_sha" = false;
+  "security.ssl3.dhe_dss_aes_128_sha" = false;
+  "security.ssl3.dhe_rsa_des_ede3_sha" = false;
+  "security.ssl3.rsa_des_ede3_sha" = false;
+  
+  # Crypto hardening
+  # https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
+  # General settings
+  "security.tls.unrestricted_rc4_fallback" = false;
+  "security.tls.insecure_fallback_hosts.use_static_list" = false;
+  "security.tls.version.min" = 1;
+  "security.ssl3.rsa_seed_sha" = true;
+  
+  # Disable SSDP
+  "browser.casting.enabled" = false;
+
+  # Disable directory service
+  "social.directories" = "";
+
+  # Don't report TLS errors to Mozilla
+  "security.ssl.errorReporting.enabled" = false;
+  
+  # Disable home snippets
+  "browser.aboutHomeSnippets.updateUrl" = "data:text/html";
+  
+  # PFS url
+  "pfs.datasource.url" = "http://127.0.0.1/";
+  "pfs.filehint.url" = "http://127.0.0.1/";
+
+  # Disable Link to FireFox Marketplace, currently loaded with non-free "apps"
+  "browser.apps.URL" = "";
+
+  # Disable Firefox Hello
+  "loop.enabled" = false;
+  
+    # Services
+  "gecko.handlerService.schemes.mailto.0.name" = "";
+  "gecko.handlerService.schemes.mailto.1.name" = "";
+  "handlerService.schemes.mailto.1.uriTemplate" = "";
+  "gecko.handlerService.schemes.mailto.0.uriTemplate" = "";
+  "browser.contentHandlers.types.0.title" = "";
+  "browser.contentHandlers.types.0.uri" = "";
+  "browser.contentHandlers.types.1.title" = "";
+  "browser.contentHandlers.types.1.uri" = "";
+  "gecko.handlerService.schemes.webcal.0.name" = "";
+  "gecko.handlerService.schemes.webcal.0.uriTemplate" = "";
+  "gecko.handlerService.schemes.irc.0.name" = "";
+  "gecko.handlerService.schemes.irc.0.uriTemplate" = "";
+
+  "font.default.x-western" = "sans-serif";
+
+  "extensions.getAddons.langpacks.url" = "http://127.0.0.1/";
+  "browser.xr.warning.infoURL" = "";
+  
+    # Disable onboarding
+  "browser.onboarding.newtour" = "performance,private,addons,customize,default";
+  "browser.onboarding.updatetour" = "performance,library,singlesearch,customize";
+  "browser.onboarding.enabled" = false;
+  
+  # Disable screenshots extension
+  "extensions.screenshots.disabled" = default.firefox.screenshotsDisabled;
+  
+  # New tab settings
+  "browser.newtabpage.activity-stream.showTopSites" = false;
+  "browser.newtabpage.activity-stream.feeds.snippets" = false;
+  "browser.newtabpage.activity-stream.disableSnippets" = true;
+  "browser.newtabpage.activity-stream.tippyTop.service.endpoint" = "";
+
+  # Enable xrender
+  "gfx.xrender.enabled" = true;
+
+  # Disable push notifications
+  "dom.webnotifications.enabled" = false;
+  "dom.webnotifications.serviceworker.enabled" = false;
+  "dom.push.enabled" = false;
+  
+    # Disable recommended extensions
+  "browser.newtabpage.activity-stream.asrouter.useruser_prefs.cfr" = false;
+  "extensions.htmlaboutaddons.discover.enabled" = false;
+
+  # Disable use of WiFi region/location information
+  "browser.region.network.scan" = false;
+
+  # Disable VPN/mobile promos
+  "browser.contentblocking.report.mobile-ios.url" = "";
+  "browser.contentblocking.report.mobile-android.url" = "";
+  "browser.contentblocking.report.vpn.url" = "";
+  "browser.contentblocking.report.vpn-promo.url" = "";
+  "browser.contentblocking.report.vpn-android.url" = "";
+  "browser.contentblocking.report.vpn-ios.url" = "";
+  "browser.privatebrowsing.promoEnabled" = false;
 
   # [SECTION] BRANDING
   # set librewolf support and releases urls in the UI, so that users land in the proper places.
