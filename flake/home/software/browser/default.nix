@@ -1,9 +1,5 @@
 { pkgs, ... }: {
-  imports = [
-    ./librewolf.nix
-    ./firefox.nix
-    # ./schizofox.nix
-  ];
+  imports = [ ./firefox.nix ];
 
   home.packages = with pkgs; [ brave ];
 }

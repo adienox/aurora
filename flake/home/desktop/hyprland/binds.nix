@@ -1,5 +1,6 @@
 { ... }: {
   wayland.windowManager.hyprland = {
+
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
@@ -19,7 +20,7 @@
         "$ALT, 3, exec, $FLOATING_TERM newsboat"
 
         # Applications
-        "$MOD, W, exec, $SCRIPTS/focus.sh librewolf librewolf"
+        "$MOD, W, exec, $SCRIPTS/focus.sh firefox firefox"
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
@@ -50,6 +51,20 @@
 
         # Recording
         "$MOD, R, exec, $SCRIPTS/screenrecord.sh"
+
+        # Scroll through workspace
+        "SUPER,mouse_down,workspace,e+1"
+        "SUPER,mouse_up,workspace,e-1"
+
+        # Misc
+        ", F11, exec, hyprctl dispatch fullscreen"
+        "$MOD SHIFT, P, exec, $SCRIPTS/window-pin.sh"
+        "$MOD SHIFT, W, exec, $SCRIPTS/switchwall.sh"
+        "$MOD, C, exec, hyprctl dispatch centerwindow"
+
+        # Group bindings
+        "$MOD,g,togglegroup"
+        "$MOD,tab,changegroupactive"
 
         # Move focus with MOD + vim keys
         "$MOD, H, movefocus, l"
@@ -84,21 +99,8 @@
         "$MOD SHIFT, 7, movetoworkspace, 7"
         "$MOD SHIFT, 8, movetoworkspace, 8"
         "$MOD SHIFT, 9, movetoworkspace, 9"
-
-        # Scroll through workspace
-        "SUPER,mouse_down,workspace,e+1"
-        "SUPER,mouse_up,workspace,e-1"
-
-        # Misc
-        ", F11, exec, hyprctl dispatch fullscreen"
-        "$MOD SHIFT, P, exec, $SCRIPTS/window-pin.sh"
-        "$MOD SHIFT, W, exec, $SCRIPTS/switchwall.sh"
-        "$MOD, C, exec, hyprctl dispatch centerwindow"
-
-        # Group bindings
-        "$MOD,g,togglegroup"
-        "$MOD,tab,changegroupactive"
       ];
+
       bindel = [
         # Brightness Control
         ", XF86MonBrightnessUp, exec, swayosd --brightness raise"
@@ -112,6 +114,7 @@
         ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
         ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
       ];
+
       bindl = [
         # Media Control
         ", XF86AudioPlay, exec, playerctl play-pause"
@@ -120,10 +123,11 @@
         ", XF86AudioNext, exec, playerctl next"
 
         # Notification
-        "$MOD, N, exec, swaync-client -t"
-        "$MOD SHIFT, N, exec, swaync-client --close-latest"
+        "$MOD, N, exec, swaync-client --close-latest"
+        "$MOD SHIFT, N, exec, swaync-client -t"
         "$MOD SHIFT, D, exec, swaync-client -d"
       ];
+
       bindm = [
         # Resize and Move
         "$MOD, mouse:272, movewindow"

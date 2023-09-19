@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  browser = [ "librewolf.desktop" ];
+  browser = [ "firefox.desktop" ];
   image-viewer = [ "imv.desktop" ];
   video-player = [ "mpv.desktop" ];
 

@@ -116,7 +116,6 @@ in {
       ];
 
       settings = import ./settings.nix { inherit default; };
-      userChrome = import ./userChrome.css;
     };
   };
 }

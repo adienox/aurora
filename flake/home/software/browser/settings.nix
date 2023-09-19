@@ -367,7 +367,7 @@
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
   "browser.tabs.firefox-view" = false;
-  
+
   # Do not tell what plugins do we have enabled: https://mail.mozilla.org/pipermail/firefox-dev/2013-November/001186.html
   "plugins.enumerable_names" = "";
   "plugin.state.flash" = 0;
@@ -377,7 +377,7 @@
   "device.sensors.enabled" = false;
   "camera.control.face_detection.enabled" = false;
   "camera.control.autofocus_moving_callback.enabled" = false;
-  
+
   # Don't ping Mozilla for MitM detection, see <https://bugs.torproject.org/32321>
   "security.certerrors.mitm.priming.enabled" = false;
   "security.certerrors.recordEventTelemetry" = false;
@@ -385,10 +385,10 @@
   # Disable shield/heartbeat
   "extensions.shield-recipe-client.enabled" = false;
   "browser.selfsupport.url" = "";
-  
+
   # No search suggestions
   "browser.urlbar.userMadeSearchSuggestionsChoice" = true;
-  
+
   # Disable geolocation
   "geo.enabled" = false;
   "geo.wifi.uri" = "";
@@ -396,22 +396,22 @@
   "browser.search.geoSpecificDefaults" = false;
   "browser.search.geoSpecificDefaults.url" = "";
   "browser.search.modernConfig" = false;
-  
+
   # Canvas fingerprint protection
   "privacy.trackingprotection.cryptomining.enabled" = true;
   "privacy.trackingprotection.fingerprinting.enabled" = true;
-  
+
   # Disable Pocket integration
   "browser.pocket.enabled" = false;
   "extensions.pocket.enabled" = false;
-  
+
   # Avoid logjam attack
   "security.ssl3.dhe_rsa_aes_128_sha" = false;
   "security.ssl3.dhe_rsa_aes_256_sha" = false;
   "security.ssl3.dhe_dss_aes_128_sha" = false;
   "security.ssl3.dhe_rsa_des_ede3_sha" = false;
   "security.ssl3.rsa_des_ede3_sha" = false;
-  
+
   # Crypto hardening
   # https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
   # General settings
@@ -419,7 +419,7 @@
   "security.tls.insecure_fallback_hosts.use_static_list" = false;
   "security.tls.version.min" = 1;
   "security.ssl3.rsa_seed_sha" = true;
-  
+
   # Disable SSDP
   "browser.casting.enabled" = false;
 
@@ -428,10 +428,10 @@
 
   # Don't report TLS errors to Mozilla
   "security.ssl.errorReporting.enabled" = false;
-  
+
   # Disable home snippets
   "browser.aboutHomeSnippets.updateUrl" = "data:text/html";
-  
+
   # PFS url
   "pfs.datasource.url" = "http://127.0.0.1/";
   "pfs.filehint.url" = "http://127.0.0.1/";
@@ -441,8 +441,8 @@
 
   # Disable Firefox Hello
   "loop.enabled" = false;
-  
-    # Services
+
+  # Services
   "gecko.handlerService.schemes.mailto.0.name" = "";
   "gecko.handlerService.schemes.mailto.1.name" = "";
   "handlerService.schemes.mailto.1.uriTemplate" = "";
@@ -460,15 +460,16 @@
 
   "extensions.getAddons.langpacks.url" = "http://127.0.0.1/";
   "browser.xr.warning.infoURL" = "";
-  
-    # Disable onboarding
+
+  # Disable onboarding
   "browser.onboarding.newtour" = "performance,private,addons,customize,default";
-  "browser.onboarding.updatetour" = "performance,library,singlesearch,customize";
+  "browser.onboarding.updatetour" =
+    "performance,library,singlesearch,customize";
   "browser.onboarding.enabled" = false;
-  
+
   # Disable screenshots extension
   "extensions.screenshots.disabled" = default.firefox.screenshotsDisabled;
-  
+
   # New tab settings
   "browser.newtabpage.activity-stream.showTopSites" = false;
   "browser.newtabpage.activity-stream.feeds.snippets" = false;
@@ -482,8 +483,8 @@
   "dom.webnotifications.enabled" = false;
   "dom.webnotifications.serviceworker.enabled" = false;
   "dom.push.enabled" = false;
-  
-    # Disable recommended extensions
+
+  # Disable recommended extensions
   "browser.newtabpage.activity-stream.asrouter.useruser_prefs.cfr" = false;
   "extensions.htmlaboutaddons.discover.enabled" = false;
 
@@ -531,10 +532,11 @@
   # we want NTP to display nothing but the search bar without anything distracting.
   # the three prefs below are just for minimalism and they should be easy to revert for users.
   "browser.newtabpage.activity-stream.section.highlights.includeDownloads" =
-    false;
+    default.firefox.newtab.includeDownloads;
   "browser.newtabpage.activity-stream.section.highlights.includeVisited" =
-    false;
-  "browser.newtabpage.activity-stream.feeds.topsites" = false;
+    default.firefox.newtab.includeVisited;
+  "browser.newtabpage.activity-stream.feeds.topsites" =
+    default.firefox.newtab.topSites;
   # hide stories and sponsored content from Firefox Home
   "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
   "browser.newtabpage.activity-stream.showSponsored" = false;
