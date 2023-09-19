@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,40 +29,44 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     xremap-flake.url = "github:xremap/nix-flake";
 
-    nix-colors.url = "github:misterio77/nix-colors";
-
     schizofox.url = "github:schizofox/schizofox";
-
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-db, ... }@inputs: {
-    nixosConfigurations = {
-      anomaly = nixpkgs.lib.nixosSystem {
-        system = "X86_64-linux";
-        modules = [
-          ./system
-          # nix db config
-          nix-index-db.nixosModules.nix-index
-          {
-            programs.nix-index-database.comma.enable = true;
-          }
+  outputs = { nixpkgs, home-manager, nix-index-db, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        config.allowUnfreePredicate = (pkg: true);
+        overlays = [ (import ./system/pkgs) ];
+      };
+    in {
+      nixosConfigurations = {
+        anomaly = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit system; };
 
-          # home manager config
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              users.nox = { imports = [ ./home ]; };
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
-        ];
+          modules = [
+            # system config
+            ./system
+
+            # nix db config
+            nix-index-db.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        nox = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
     };
-  };
 }

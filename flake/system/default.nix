@@ -37,8 +37,6 @@ in {
       [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" ];
   };
 
-  nixpkgs.overlays = [ (import ./pkgs) ];
-
   nix = {
     gc = {
       automatic = true;
