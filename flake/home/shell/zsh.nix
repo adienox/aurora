@@ -135,9 +135,17 @@
       # Plugins
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+      source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+      
+      # press <C-v><UP> and <C-v><DOWN> at your ZSH command line prompt for correct key codes.
+      bindkey '^[OA' history-substring-search-up
+      bindkey '^[OB' history-substring-search-down
+      
+      bindkey -M vicmd 'k' history-substring-search-up
+      bindkey -M vicmd 'j' history-substring-search-down
     '';
   };
 }

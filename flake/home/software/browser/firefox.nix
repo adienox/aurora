@@ -108,6 +108,8 @@ in {
         smart-referer
         vimium
         tabcenter-reborn
+        canvasblocker
+        # fingerprint spoofing
         # readwise
         # imagur
         # enhancer-for-youtube

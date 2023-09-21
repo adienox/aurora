@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   user = "adienox";
   username = "nox";
@@ -44,15 +44,24 @@ in {
       options = "--delete-older-than 7d";
     };
     package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
-    settings.trusted-users = [ "root" "@wheel" ];
+    settings = {
+      warn-dirty = false;
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes"];
+      trusted-users = [ "root" "@wheel" ];
+    };
+    channel.enable = false;
   };
 
   system = {
     stateVersion = "23.05";
     autoUpgrade = {
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
+    enable = true;
+    dates = "04:00";
+    flake = "${config.users.users.nox.home}/aurora/flake";
+    flags = [
+        "--update-input" "nixpkgs" "--commit-lock-file"
+    ];
     };
   };
 }

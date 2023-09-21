@@ -1,4 +1,4 @@
-{
+rec {
   base00 = "000000"; # base
   base01 = "090909"; # mantle
   base02 = "181825"; # surface0
@@ -21,4 +21,8 @@
   extra03 = "74c7ec"; # sapphire
   extra04 = "bac2de"; # subtext1
   extra05 = "a6adc8"; # subtext0
+  extra06 = "6c7086"; # overlay0
+  
+  background = base00;
+  foreground = base05;
 }

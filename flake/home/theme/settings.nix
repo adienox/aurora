@@ -34,8 +34,8 @@ in rec {
   terminal = {
     font = "CaskaydiaCove NF";
     name = "wezterm";
-    opacity = 1.0;
-    size = 9;
+    opacity = 0.7;
+    size = 13;
   };
   
   colors = import ./colors.nix;
