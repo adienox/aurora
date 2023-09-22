@@ -11,7 +11,6 @@
   ];
 
   home.packages = with pkgs; [
-    todoist-electron
     amberol
     anki-bin
     gnome.gnome-clocks
@@ -26,7 +25,6 @@
     wezterm
     qbittorrent
     ytfzf
-    mindustry-wayland
   ];
 
   programs = {
@@ -34,6 +32,8 @@
       enable = true;
       homedir = "${config.xdg.dataHome}/gnupg";
     };
+    nix-index-database.comma.enable = true;
+    nix-index.enable = true;
   };
 
   services = {

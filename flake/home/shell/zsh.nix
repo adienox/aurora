@@ -60,7 +60,6 @@
       gp = "git push";
       gs = "git status";
 
-      c = "source ~/.config/assets/scripts/cdier.sh";
       rm = "trash";
       cls = "clear";
       sf = "fc-list | grep -i";
@@ -76,11 +75,22 @@
       ipa = "ip --brief address";
       quote =
         "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
+      man = "BAT_THEME='default' batman";
 
       ls = "eza -al --color=always --group-directories-first --icons";
       la = "eza -a --color=always --group-directories-first --icons";
       ll = "eza -l --color=always --group-directories-first --icons";
       lt = "eza -aT --color=always --group-directories-first --icons";
+
+      cd = "z";
+      zz = "z -";
+
+      dps = "docker ps -a";
+      dc = "docker";
+      dci = "docker images";
+      dcp = "docker container prune";
+
+      tls = "tmux list-sessions 2>/dev/null";
     };
 
     initExtra = ''
@@ -103,21 +113,8 @@
       alias ......='cd ../../../../..'
       alias tb="curl -F "file=@-" gcg.sh"
 
-      if command -v zoxide &> /dev/null; then
-          alias cd='z'
-          alias zz='z -'
-      fi
-
-      if command -v docker &> /dev/null; then
-          alias dps='docker ps -a'
-          alias dc='docker'
-          alias dci='docker images'
-          alias dcp='docker container prune'
-      fi
-
-      if command -v tmux &> /dev/null; then
-          alias tls='tmux list-sessions 2>/dev/null'
-      fi
+      alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+      alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
       # runs fetch if shell is interactive and not inside vscode and nvim
       if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" && -z "$VIM" ]] ; then
@@ -139,11 +136,11 @@
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
-      
+
       # press <C-v><UP> and <C-v><DOWN> at your ZSH command line prompt for correct key codes.
       bindkey '^[OA' history-substring-search-up
       bindkey '^[OB' history-substring-search-down
-      
+
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
     '';

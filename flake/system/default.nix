@@ -47,21 +47,18 @@ in {
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "@wheel" ];
     };
-    channel.enable = false;
   };
 
   system = {
     stateVersion = "23.05";
     autoUpgrade = {
-    enable = true;
-    dates = "04:00";
-    flake = "${config.users.users.nox.home}/aurora/flake";
-    flags = [
-        "--update-input" "nixpkgs" "--commit-lock-file"
-    ];
+      enable = true;
+      dates = "04:00";
+      flake = "${config.users.users.nox.home}/aurora/flake";
+      flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
     };
   };
 }

@@ -9,7 +9,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     terminal = "wezterm";
-    font = "${default.font.default} 16";
+    font = "${default.settings.font.default} 16";
     plugins = with pkgs; [ rofi-emoji rofi-calc ];
 
     theme = ./theme.rasi;

@@ -115,6 +115,7 @@ in {
         # enhancer-for-youtube
         # languagetool
         # wikiwand-wikipedia-modernized
+        # load progress bar
       ];
 
       settings = import ./settings.nix { inherit default; };

@@ -33,6 +33,7 @@
           hash = "sha256-qMQNJGZImmjrqzy7IiEkY5IhvPAMZpq0W6skLLsng/w=";
         });
       };
+      extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
     };
 
     btop.enable = true;

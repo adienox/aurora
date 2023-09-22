@@ -16,14 +16,6 @@
   programs = {
     hyprland.enable = true;
 
-    command-not-found.enable = false;
-
-    nix-index = {
-      enable = true;
-      enableZshIntegration = true;
-      enableBashIntegration = true;
-    };
-
     # make HM-managed GTK stuff work
     dconf.enable = true;
     seahorse.enable = true;

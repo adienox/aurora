@@ -49,22 +49,14 @@
       nixosConfigurations = {
         anomaly = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system; };
-
-          modules = [
-            # system config
-            ./system
-
-            # nix db config
-            nix-index-db.nixosModules.nix-index
-            { programs.nix-index-database.comma.enable = true; }
-          ];
+          modules = [ ./system ];
         };
       };
 
       homeConfigurations = {
         nox = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home ];
+          modules = [ ./home nix-index-db.hmModules.nix-index ];
           extraSpecialArgs = { inherit inputs; };
         };
       };
