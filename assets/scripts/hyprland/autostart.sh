@@ -4,7 +4,6 @@ hyprctl setcursor 'Bibata-Modern-Ice' 24 &
 nm-applet &
 blueman-applet &
 kdeconnect-indicator &
-keepassxc -platform xcb &
 udiskie -s &
 xwaylandvideobridge &
 waybar &

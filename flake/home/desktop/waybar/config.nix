@@ -199,7 +199,8 @@
       @define-color base0E ${default.xcolors.base0E};
       @define-color base0F ${default.xcolors.base0F};
       @define-color background-floating ${default.rgba.base00 0.4};
-      @define-color background-regular  ${default.rgba.base00 0.7};
+      @define-color background-regular  ${default.rgba.base00 default.settings.floating_opacity};
+      @define-color background-semi-trans  ${default.rgba.base00 default.settings.opacity};
     '';
   };
 }

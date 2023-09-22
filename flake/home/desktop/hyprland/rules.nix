@@ -1,4 +1,4 @@
-{ ... }: {
+{ default, ... }: {
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
@@ -70,6 +70,7 @@
         "workspace 6, ^(Todoist)$"
         "workspace 7, ^(Spotify)$"
         "workspace 8, ^(Morgen)$"
+        "workspace 9, ^(xwaylandvideobridge)$"
 
         # Fullscreen Rules
         "fullscreen, obsidian"
@@ -88,15 +89,13 @@
         "idleinhibit focus, class:^(discord)$"
 
         # Opacity Rules
-        "opacity 0.70, class:^(pavucontrol)$"
-        "opacity 0.70, class:^(yad)$"
-        "opacity 0.70, class:^(Spotify)$"
-        "opacity 0.70, class:^(org\.gnome\.clocks)$"
-        "opacity 0.70, class:^(org\.gnome\.Nautilus)$"
-        "opacity 0.70, class:^(org\.telegram\.desktop)$"
-        "opacity 0.70, class:^(discord)$"
-        "opacity 0.70, class:^(polkit-gnome-authentication-agent-1)$"
-        "opacity 0.70, class:^(io\.bassi\.Amberol)$"
+        "opacity ${default.settings.floating_opacity}, floating:1"
+        
+        "opacity ${default.settings.opacity}, class:^(Spotify)$"
+        "opacity ${default.settings.opacity}, class:^(org\.gnome\.Nautilus)$"
+        "opacity ${default.settings.opacity}, class:^(org\.telegram\.desktop)$"
+        "opacity ${default.settings.opacity}, class:^(discord)$"
+        "opacity ${default.settings.opacity}, class:^(io\.bassi\.Amberol)$"
 
         # Wlogout
         "noanim, class:^(wlogout)$, title:^(wlogout)$"
@@ -113,14 +112,18 @@
       layerrule = [
         "blur, rofi"
         "ignorezero, rofi"
+        
         "blur, waybar"
         "ignorezero, waybar"
         "xray 1, waybar"
         "ignorealpha 0.39, waybar"
+        
         "blur, notifications"
         "ignorezero, notifications"
+        
         "blur, gtk-layer-shell"
         "ignorezero, gtk-layer-shell"
+        
         "blur, swaync-control-center"
         "ignorezero, swaync-control-center"
         "blur, swaync-notification-window"

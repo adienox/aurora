@@ -14,14 +14,19 @@ window#waybar.empty {
 window#waybar.solo {
   background-color: @base00;
 }
+
 window#waybar.fullscreen {
   background: transparent;
   color: transparent;
 }
 
-window#waybar.org\.wezfurlong\.wezterm,
+window#waybar.org\.telegram\.desktop,
 window#waybar.Spotify,
-window#waybar.discord,
+window#waybar.discord {
+  background-color: @background-semi-trans;
+}
+
+window#waybar.org\.wezfurlong\.wezterm,
 window#waybar {
   background-color: @background-regular;
   box-shadow: none;
