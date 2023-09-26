@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  
+
   nixpkgs = {
     config.allowUnfree = true;
     config.allowUnfreePredicate = (pkg: true);
@@ -32,7 +32,13 @@
     enable = true;
     enableCompletion = true;
     enableBashCompletion = true;
+    shellInit = ''
+      export ZDOTDIR="$HOME"/.config/zsh
+    '';
   };
+  
+  # enable zsh autocompletion for system packages (systemd, etc)
+  environment.pathsToLink = [ "/share/zsh" ];
 
   services = {
     gnome.gnome-keyring.enable = true;

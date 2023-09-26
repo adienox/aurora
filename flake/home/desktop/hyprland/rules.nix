@@ -59,11 +59,9 @@
         "animation popin, title:^(Picture-in-Picture)$"
 
         # Workspace Rules
-        "workspace 1, ^(Brave-browser)$"
-        "workspace 1, ^(librewolf)$"
+        "workspace 1, ^(firefox)$"
         "workspace 2, ^(Emacs)$"
         "workspace 2, ^(Code)$"
-        "workspace 3, ^(obsidian)$"
         "workspace 4, ^(calibre-gui)$"
         "workspace 5, ^(discord)$"
         "workspace 5, ^(org\.telegram\.desktop)$"
@@ -74,7 +72,6 @@
 
         # Fullscreen Rules
         "fullscreen, obsidian"
-        "fullscreen, Todoist"
         "fullscreen, Morgen"
       ];
       windowrulev2 = [

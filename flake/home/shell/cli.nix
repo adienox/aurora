@@ -14,7 +14,7 @@
     trash-cli
     fzf
     eza
-    tldr
+    tealdeer
     inputs.nh.packages.${pkgs.system}.default
     yt-dlp
   ];

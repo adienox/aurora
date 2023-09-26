@@ -7,9 +7,6 @@
     LIBSEAT_BACKEND = "logind";
   };
 
-  # enable zsh autocompletion for system packages (systemd, etc)
-  environment.pathsToLink = [ "/share/zsh" ];
-
   # hint electron apps to use wayland:
   #environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
