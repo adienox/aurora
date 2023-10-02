@@ -12,4 +12,6 @@ elif [ "$1" == "bluetooth" ]; then
     $XDG_CONFIG_HOME/assets/scripts/rofi/bluetooth.sh
 elif [ "$1" == "clipboard" ]; then
     $XDG_CONFIG_HOME/assets/scripts/rofi/clipboard.sh
+elif [ "$1" == "obsidian-log" ]; then
+    $XDG_CONFIG_HOME/assets/scripts/rofi/obsidian-log.sh
 fi
