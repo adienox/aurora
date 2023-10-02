@@ -8,7 +8,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    terminal = "wezterm";
+    terminal = default.terminal.name;
     font = "${default.settings.font.default} 16";
     plugins = with pkgs; [ rofi-emoji rofi-calc ];
 
@@ -52,7 +52,6 @@
 
       dmenu_passphrase = {
         obscure = true;
-        obscure_color = "#222222";
       };
 
       database = {
@@ -69,7 +68,7 @@
       background-selected:  ${default.rgba.base01 0.3};
       foreground:           ${default.xcolors.base05};
       foreground-selected:  ${default.xcolors.base08};
-      placeholder-color:    ${default.rgba.base02 0.5};
+      placeholder-color:    ${default.rgba.extra04 0.5};
       accent:               ${default.xcolors.base08};
       base:                 ${default.xcolors.base02};
       background-color:     transparent;

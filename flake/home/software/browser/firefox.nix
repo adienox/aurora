@@ -101,7 +101,6 @@ in {
         stylus
         web-archives
         clearurls
-        localcdn
         don-t-fuck-with-paste
         temporary-containers
         skip-redirect

@@ -32,8 +32,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     xremap-flake.url = "github:xremap/nix-flake";
-
-    schizofox.url = "github:schizofox/schizofox";
   };
 
   outputs = { nixpkgs, home-manager, nix-index-db, ... }@inputs:

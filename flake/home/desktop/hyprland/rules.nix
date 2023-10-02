@@ -68,7 +68,7 @@
         "workspace 6, ^(Todoist)$"
         "workspace 7, ^(Spotify)$"
         "workspace 8, ^(Morgen)$"
-        "workspace 9, ^(xwaylandvideobridge)$"
+        "workspace 8, ^(xwaylandvideobridge)$"
 
         # Fullscreen Rules
         "fullscreen, obsidian"
@@ -87,6 +87,7 @@
 
         # Opacity Rules
         "opacity ${default.settings.floating_opacity}, floating:1"
+        "opacity 1, class:^(floating)$"
         
         "opacity ${default.settings.opacity}, class:^(Spotify)$"
         "opacity ${default.settings.opacity}, class:^(org\.gnome\.Nautilus)$"

@@ -8,7 +8,7 @@ udiskie -s &
 xwaylandvideobridge &
 waybar &
 swaync &
-wlsunset -t 5200 -S 8:00 -s 19:30 &
+wlsunset -t 5000 -S 8:00 -s 19:30 &
 
 ~/.config/assets/scripts/hyprland/battery-status.sh &
 ~/.config/assets/scripts/hyprland/bluetooth-auto-off.sh &

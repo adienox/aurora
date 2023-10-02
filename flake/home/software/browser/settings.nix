@@ -63,19 +63,19 @@
 
   # [SECTION] QUERY STRIPPING
   # currently we set the same query stripping list that brave uses:
-  # https:#github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc#L29
+  # https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc#L29
   "privacy.query_stripping.strip_list" =
     "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid";
   #
   # librewolf specific pref that allows to include the query stripping lists in uBO by default.
   # the asset file is fetched every 7 days.
   # FIX: search
-  #"librewolf.uBO.assetsBootstrapLocation" = "https:#gitlab.com/librewolf-community/browser/source/-/raw/main/assets/uBOAssets.json";
+  #"librewolf.uBO.assetsBootstrapLocation" = "https://gitlab.com/librewolf-community/browser/source/-/raw/main/assets/uBOAssets.json";
 
   # [SECTION] LOGGING
   # these prefs are off by default in the official Mozilla builds,
   # so it only makes sense that we also disable them.
-  # See https:#gitlab.com/librewolf-community/settings/-/issues/240
+  # See https://gitlab.com/librewolf-community/settings/-/issues/240
   "browser.dom.window.dump.enabled" = false;
   "devtools.console.stdout.chrome" = false;
 
@@ -114,8 +114,8 @@
   "network.dns.disablePrefetch" = true; # disable dns prefetching
   #
   # librewolf does not use DoH, but it can be enabled with the following prefs:
-  # "network.trr.mode" = 2;
-  # "network.trr.uri" = "https:#dns.quad9.net/dns-query";
+  "network.trr.mode" = default.firefox.dns.mode;
+  "network.trr.uri" = default.firefox.dns.uri;
   # 
   # the possible modes are:
   # 0 = default
@@ -144,16 +144,21 @@
     true; # prevents rfp from breaking AMO
   "browser.display.use_system_colors" = false; # default, except Win
 
+  # Canvas fingerprint protection
+  "privacy.trackingprotection.cryptomining.enabled" = true;
+  "privacy.trackingprotection.fingerprinting.enabled" = true;
+
   # increase the size of new RFP windows for better usability, while still using a rounded value.
   # if the screen resolution is lower it will stretch to the biggest possible rounded value.
   # also, expose hidden letterboxing pref but do not enable it for now.
 
   "privacy.window.maxInnerWidth" = 1600;
   "privacy.window.maxInnerHeight" = 900;
-  "privacy.resistFingerprinting.letterboxing" = false;
+  "privacy.resistFingerprinting.letterboxing" =
+    default.firefox.features.letterboxing;
 
   # [SECTION] WEBGL #
-  "webgl.disabled" = default.firefox.webglDisabled;
+  "webgl.disabled" = default.firefox.features.webglDisabled;
 
   # [CATEGORY] SECURITY #
 
@@ -224,9 +229,17 @@
   # [SECTION] LOCATION
   # replace google with mozilla as the default geolocation provide and prevent use of OS location services
   "geo.provider.network.url" =
-    "https:#location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
   "geo.provider.use_gpsd" = false; # [LINUX]
   "geo.provider.use_geoclue" = false; # [LINUX]
+
+  # Disable geolocation
+  "geo.enabled" = false;
+  "geo.wifi.uri" = "";
+  "browser.search.geoip.url" = "";
+  "browser.search.geoSpecificDefaults" = false;
+  "browser.search.geoSpecificDefaults.url" = "";
+  "browser.search.modernConfig" = false;
 
   # [SECTION] LANGUAGE
   # show language as en-US for all users, regardless of their OS language and browser language.
@@ -255,7 +268,7 @@
   "browser.search.update" = false;
 
   # the pref disables the whole feature and hide it from the ui
-  # (as noted in https:#bugzilla.mozilla.org/show_bug.cgi?id=1755057).
+  # (as noted in https://bugzilla.mozilla.org/show_bug.cgi?id=1755057).
   # this also includes the best match feature, as it is part of firefox suggest.
 
   "browser.urlbar.quicksuggest.enabled" = false;
@@ -294,7 +307,7 @@
 
   # [SECTION] USER INSTALLED
   # extensions are allowed to operate on restricted domains, while their scope
-  # is set to profile+applications (https:#mike.kaply.com/2012/02/21/understanding-add-on-scopes/).
+  # is set to profile+applications (https://mike.kaply.com/2012/02/21/understanding-add-on-scopes/).
   # an installation prompt should always be displayed.
   "extensions.webextensions.restrictedDomains" = "";
   "extensions.enabledScopes" = 5; # hidden
@@ -333,7 +346,7 @@
 
   # [SECTION] SYNC
   # this pref fully controls the feature, including its ui.
-  "identity.fxaccounts.enabled" = default.firefox.account;
+  "identity.fxaccounts.enabled" = default.firefox.features.account;
 
   # [SECTION] LOCKWISE
   # disable the default password manager built into the browser, including its autofill
@@ -358,14 +371,14 @@
   # [SECTION] OTHERS #
   "webchannel.allowObject.urlWhitelist" = ""; # remove web channel whitelist
   "services.settings.server" =
-    "https:#%.invalid"; # set the remote settings URL (REMOTE_SETTINGS_SERVER_URL in the code)
+    "https://%.invalid"; # set the remote settings URL (REMOTE_SETTINGS_SERVER_URL in the code)
 
   # [CATEGORY] UI #
 
   # [SECTION] NICE TO HAVE
   "browser.toolbars.bookmarks.visibility" = "never";
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-  "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2";
+  "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2,1.3,1.4,1.5";
   "browser.tabs.firefox-view" = false;
 
   # Do not tell what plugins do we have enabled: https://mail.mozilla.org/pipermail/firefox-dev/2013-November/001186.html
@@ -388,18 +401,6 @@
 
   # No search suggestions
   "browser.urlbar.userMadeSearchSuggestionsChoice" = true;
-
-  # Disable geolocation
-  "geo.enabled" = false;
-  "geo.wifi.uri" = "";
-  "browser.search.geoip.url" = "";
-  "browser.search.geoSpecificDefaults" = false;
-  "browser.search.geoSpecificDefaults.url" = "";
-  "browser.search.modernConfig" = false;
-
-  # Canvas fingerprint protection
-  "privacy.trackingprotection.cryptomining.enabled" = true;
-  "privacy.trackingprotection.fingerprinting.enabled" = true;
 
   # Disable Pocket integration
   "browser.pocket.enabled" = false;
@@ -468,7 +469,8 @@
   "browser.onboarding.enabled" = false;
 
   # Disable screenshots extension
-  "extensions.screenshots.disabled" = default.firefox.screenshotsDisabled;
+  "extensions.screenshots.disabled" =
+    default.firefox.features.screenshotsDisabled;
 
   # New tab settings
   "browser.newtabpage.activity-stream.showTopSites" = false;
@@ -502,17 +504,17 @@
 
   # [SECTION] BRANDING
   # set librewolf support and releases urls in the UI, so that users land in the proper places.
-  "app.support.baseURL" = "https:#support.librewolf.net/";
+  "app.support.baseURL" = "https://support.librewolf.net/";
   "browser.search.searchEnginesURL" =
-    "https:#librewolf.net/docs/faq/#how-do-i-add-a-search-engine";
+    "https://librewolf.net/docs/faq/#how-do-i-add-a-search-engine";
   "browser.geolocation.warning.infoURL" =
-    "https:#librewolf.net/docs/faq/#how-do-i-enable-location-aware-browsing";
-  "app.feedback.baseURL" = "https:#librewolf.net/#questions";
-  "app.releaseNotesURL" = "https:#gitlab.com/librewolf-community/browser";
+    "https://librewolf.net/docs/faq/#how-do-i-enable-location-aware-browsing";
+  "app.feedback.baseURL" = "https://librewolf.net/#questions";
+  "app.releaseNotesURL" = "https://gitlab.com/librewolf-community/browser";
   "app.releaseNotesURL.aboutDialog" =
-    "https:#gitlab.com/librewolf-community/browser";
-  "app.update.url.details" = "https:#gitlab.com/librewolf-community/browser";
-  "app.update.url.manual" = "https:#gitlab.com/librewolf-community/browser";
+    "https://gitlab.com/librewolf-community/browser";
+  "app.update.url.details" = "https://gitlab.com/librewolf-community/browser";
+  "app.update.url.manual" = "https://gitlab.com/librewolf-community/browser";
 
   # [SECTION] FIRST LAUNCH
   # disable what's new and ui tour on first start and updates. the browser

@@ -27,7 +27,7 @@
         border_size = 2;
 
         "col.active_border" =
-          "0xff${default.colors.base0E} 0xff${default.colors.base02} 0xff${default.colors.base02} 270deg";
+          "0xff${default.colors.base0E} 0xff${default.colors.base02} 0xff${default.colors.base02} 0xff${default.colors.base0E} 215deg";
         "col.inactive_border" = "0xff${default.colors.base02}";
         
         "col.group_border" = "0xff${default.colors.base07}";
@@ -51,8 +51,8 @@
 
         blur = {
           enabled = true;
-          size = 6; # minimum 1
-          passes = 4; # minimum 1, more passes = more resource intensive.
+          size = 8; # minimum 1
+          passes = 2; # minimum 1, more passes = more resource intensive.
           ignore_opacity = true;
           new_optimizations = true;
           noise = 0.0117;
