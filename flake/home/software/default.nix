@@ -25,6 +25,7 @@
     wezterm
     qbittorrent
     ytfzf
+    ollama
   ];
 
   programs = {

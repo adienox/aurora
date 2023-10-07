@@ -6,7 +6,6 @@
       monitor = ",preferred,auto,1";
       exec-once = [
         "[workspace 3 silent] obsidian"
-        "[workspace 8 silent] morgen"
         "~/.config/assets/scripts/hyprland/autostart.sh"
       ];
       input = {
@@ -87,7 +86,6 @@
       };
 
       misc = {
-        focus_on_activate = true;
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         enable_swallow = true;

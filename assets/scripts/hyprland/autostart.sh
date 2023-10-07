@@ -5,7 +5,6 @@ nm-applet &
 blueman-applet &
 kdeconnect-indicator &
 udiskie -s &
-xwaylandvideobridge &
 waybar &
 swaync &
 wlsunset -t 5000 -S 8:00 -s 19:30 &

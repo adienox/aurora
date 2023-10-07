@@ -19,7 +19,7 @@
     };
 
     theme = {
-      name = "Catppuccin-Mocha-Standard-Red-dark";
+      name = "Catppuccin-Mocha-Standard-Red-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "red" ];
         tweaks = [ "black" "rimless" ];
