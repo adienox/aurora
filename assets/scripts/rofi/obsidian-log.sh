@@ -4,7 +4,7 @@ file=$(date +'%Y-%m-%d.md')
 path="$XDG_DOCUMENTS_DIR/Knowledge Garden/Cards/Temporal/Daily"
 template="$XDG_DOCUMENTS_DIR/Knowledge Garden/Extras/Templates/Temporal/Daily.md"
 
-log=$(rofi -dmenu -p "Log" -mesg "<span color='#a6e3a1'><i>Your future self will be proud of you for doing this today!</i></span>" -markup -theme-str 'listview { enabled: false;}')
+log=$(rofi -dmenu -p "Log  " -mesg "<span color='#a6e3a1'><i>Your future self will be proud of you for doing this today!</i></span>" -markup -theme-str 'listview { enabled: false;}')
 
 # Check if the path exists, and if not, exit
 if [ ! -d "$path" ]; then
@@ -19,5 +19,7 @@ if [ ! -f "$file" ]; then
     cp $template $file
 fi
 
-echo -e "\n- $log" >> $file
-sed -i -e '/^# Tasks$/!b;:a;$!{N;ba;}' -e 's/\(.*\)\n\(.*\)/\2\n\1/' $file
+if [ -n "$log" ]; then
+  echo -e -n "\n- $log" >> $file
+  sed -i -e '/^# Tasks$/!b;:a;$!{N;ba;}' -e 's/\(.*\)\n\(.*\)/\2\n\1/' $file
+fi

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SCRIPTS="$XDG_CONFIG_HOME/assets/scripts/rofi"
+
 if [ "$1" == "window" ]; then
     rofi -show window
 elif [ "$1" == "drun" ]; then
@@ -9,9 +11,11 @@ elif [ "$1" == "emoji" ]; then
 elif [ "$1" == "calc" ]; then
     rofi -show calc -modi calc -theme-str 'mainbox { children: [inputbar, message]; }' -hint-welcome "Pure mathematics is, in its way, the poetry of logical ideas.                 —Albert Einstein"
 elif [ "$1" == "bluetooth" ]; then
-    $XDG_CONFIG_HOME/assets/scripts/rofi/bluetooth.sh
+    $SCRIPTS/bluetooth.sh
 elif [ "$1" == "clipboard" ]; then
-    $XDG_CONFIG_HOME/assets/scripts/rofi/clipboard.sh
+    $SCRIPTS/clipboard.sh
 elif [ "$1" == "obsidian-log" ]; then
-    $XDG_CONFIG_HOME/assets/scripts/rofi/obsidian-log.sh
+    $SCRIPTS/obsidian-log.sh
+elif [ "$1" == "obsidian-log-with-screenshot" ]; then
+    $SCRIPTS/obsidian-log-with-screenshot.sh
 fi
