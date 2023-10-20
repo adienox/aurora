@@ -15,7 +15,7 @@ elif [ "$1" == "bluetooth" ]; then
 elif [ "$1" == "clipboard" ]; then
     $SCRIPTS/clipboard.sh
 elif [ "$1" == "obsidian-log" ]; then
-    $SCRIPTS/obsidian-log.sh
+    $SCRIPTS/obsidian-log
 elif [ "$1" == "obsidian-log-with-screenshot" ]; then
     $SCRIPTS/obsidian-log-with-screenshot.sh
 fi

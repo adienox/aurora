@@ -8,6 +8,7 @@
     ./swaync
     ./swayidle.nix
     ./swww.nix
+    ./valent.nix
     # ./espanso.nix
   ];
 

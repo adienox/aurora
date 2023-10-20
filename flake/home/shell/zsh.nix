@@ -51,7 +51,7 @@
     shellAliases = {
       waybar_restart = "kill -SIGUSR2 $(pidof waybar)";
 
-      p = "ipython - -no-banner - -no-confirm-exit";
+      p = "ipython --no-banner --no-confirm-exit";
       psv = "source ./venv/bin/activate";
       pcv = "python - m venv venv";
 
@@ -105,6 +105,8 @@
       command_not_found_handler() {
         ${pkgs.comma}/bin/comma "$@"
       }
+      
+      eval "$(direnv hook zsh)"
 
       alias ..='cd ..'
       alias ...='cd ../..'

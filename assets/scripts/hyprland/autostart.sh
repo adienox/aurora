@@ -3,7 +3,7 @@
 hyprctl setcursor 'Bibata-Modern-Ice' 24 &
 nm-applet &
 blueman-applet &
-kdeconnect-indicator &
+# kdeconnect-indicator &
 udiskie -s &
 waybar &
 swaync &

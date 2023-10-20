@@ -46,10 +46,10 @@
 
     syncthing.enable = true;
 
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
+    # kdeconnect = {
+    #   enable = true;
+    #   indicator = true;
+    # };
 
     swayosd = {
       enable = true;

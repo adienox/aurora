@@ -3,6 +3,7 @@
 
   services.xremap = {
     withHypr = true;
+    watch = true;
     yamlConfig = ''
       modmap:
         - name: main remaps
