@@ -28,9 +28,6 @@
         "col.active_border" =
           "0xff${default.colors.base0E} 0xff${default.colors.base02} 0xff${default.colors.base02} 0xff${default.colors.base0E} 215deg";
         "col.inactive_border" = "0xff${default.colors.base02}";
-        
-        "col.group_border" = "0xff${default.colors.base07}";
-        "col.group_border_active" = "0xff${default.colors.base0C}";
 
         sensitivity = 1.0; # for mouse cursor
 
@@ -40,7 +37,6 @@
 
       decoration = {
         rounding = 10;
-        multisample_edges = true;
 
         drop_shadow = true;
         shadow_range = 35;

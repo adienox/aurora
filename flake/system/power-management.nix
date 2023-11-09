@@ -5,7 +5,7 @@ let
     "pci/devices/0000:00:00.2" # IOMMU
     "pci/devices/0000:00:01.0" # Renoir PCIe Dummy Host Bridge
     "pci/devices/0000:00:02.0" # Renoir PCIe Dummy Host Bridge
-    "pci/devices/0000:00:08.0" # Renoir PCIe Dummy Host Bridge
+    # "pci/devices/0000:00:08.0" # Renoir PCIe Dummy Host Bridge
     "pci/devices/0000:00:14.0" # FCH SMBus Controller
     "pci/devices/0000:00:14.3" # FCH LPC bridge
     "pci/devices/0000:00:18.0" # Renoir Function 0
@@ -22,7 +22,7 @@ let
     "pci/devices/0000:04:00.0" # Wifi
     "pci/devices/0000:05:00.0" # VGA controller
     "pci/devices/0000:05:00.2" # Encryption controller
-    "pci/devices/0000:05:00.3" # Renoir/Cezanne USB 3.1
+    # "pci/devices/0000:05:00.3" # Renoir/Cezanne USB 3.1
     "pci/devices/0000:05:00.5" # Audio co-processor
     "pci/devices/0000:05:00.6" # Audio controller
     "pci/devices/0000:06:00.0" # FCH SATA Controller [AHCI mode]

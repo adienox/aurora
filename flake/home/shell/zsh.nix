@@ -74,7 +74,7 @@
       hw = "hwinfo --short";
       ipa = "ip --brief address";
       quote =
-        "curl -s 'https://api.quotable.io/quotes/random?tags=technology,famous-quotes' | gojq -r '.[0].content, .[0].author'";
+        "curl -s 'https://api.quotable.io/quotes/random?tags=technology|famous-quotes|wisdom|success|courage|creativity&limit=1' | gojq -r '.[0].content, .[0].author'";
       man = "BAT_THEME='default' batman";
 
       ls = "eza -al --color=always --group-directories-first --icons";

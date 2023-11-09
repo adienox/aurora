@@ -30,9 +30,9 @@
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
         "$ALT, P, exec, keepmenu"
-        "$MOD SHIFT, O, exec, $SCRIPTS/rofi.sh obsidian-log"
-        "$MOD $ALT, O, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
-        "$MOD SHIFT, I, exec, $SCRIPTS/rofi.sh emoji"
+        ", Insert, exec, $SCRIPTS/rofi.sh obsidian-log"
+        "SHIFT, Insert, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
+        "$MOD, E, exec, $SCRIPTS/rofi.sh emoji"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
         "$ALT, Tab, exec, $SCRIPTS/rofi.sh window"

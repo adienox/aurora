@@ -8,7 +8,6 @@ in {
     ./hardware.nix
     ./hardware-configuration.nix
     ./networking.nix
-    ./power-management.nix
     ./security.nix
     ./software.nix
   ];

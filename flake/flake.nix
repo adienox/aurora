@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    pipewire-378.url = "github:nixos/nixpkgs/3c15feef7770eb5500a4b8792623e2d6f598c9c1";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -40,13 +41,12 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        config.allowUnfreePredicate = (pkg: true);
         overlays = [ (import ./system/pkgs) ];
       };
     in {
       nixosConfigurations = {
         anomaly = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system; };
+          specialArgs = { inherit system inputs; };
           modules = [ ./system ];
         };
       };

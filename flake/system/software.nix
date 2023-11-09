@@ -17,6 +17,7 @@
     usbutils
     powertop
     polkit_gnome
+    libcamera
   ];
 
   # Enable adbusers in extragroups for user

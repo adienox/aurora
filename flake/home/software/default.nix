@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     amberol
+    todoist
     anki-bin
     gnome.gnome-clocks
     gnome.gnome-calculator
@@ -26,6 +27,7 @@
     qbittorrent
     ytfzf
     ollama
+    maestral
   ];
 
   programs = {

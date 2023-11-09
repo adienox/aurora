@@ -54,4 +54,16 @@
       @define-color bg-selected           ${default.xcolors.base08};
     '';
   };
+  
+  systemd.user.services.swaync = {
+    Unit = {
+      Description = "Wayland notification center";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.swaynotificationcenter}/bin/swaync";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }

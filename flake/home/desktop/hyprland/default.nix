@@ -35,4 +35,17 @@
   # start swayidle as part of hyprland, not sway
   systemd.user.services.swayidle.Install.WantedBy =
     lib.mkForce [ "hyprland-session.target" ];
+    
+    
+  systemd.user.services.wlsunset = {
+    Unit = {
+      Description = "NightTemp";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 5000 -S 8:00 -s 19:30";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 }
