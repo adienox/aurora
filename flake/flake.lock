@@ -28,11 +28,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1698405643,
-        "narHash": "sha256-IgZCsgsbj3eUichnjLHDuF7g1rLOJnT1EP0kTQ3Kwls=",
+        "lastModified": 1699663647,
+        "narHash": "sha256-x0Bi+f01y8Yofw+Cm7K/rsYX04Klj7PDvWlQM64vEcQ=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "27653ecfedaa664705e520ed7703bcb54a010ab5",
+        "rev": "7335db8dca868b929a86ae9f5bcb62e355d8f9be",
         "type": "gitlab"
       },
       "original": {
@@ -47,11 +47,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1693611461,
-        "narHash": "sha256-aPODl8vAgGQ0ZYFIRisxYG5MOGSkIczvu2Cd8Gb9+1Y=",
+        "lastModified": 1698579227,
+        "narHash": "sha256-KVWjFZky+gRuWennKsbo6cWyo7c/z/VgCte5pR9pEKg=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "7f53fdb7bdc5bb237da7fefef12d099e4fd611ca",
+        "rev": "f76e870d64779109e41370848074ac4eaa1606ec",
         "type": "github"
       },
       "original": {
@@ -118,11 +118,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698392685,
-        "narHash": "sha256-yx/sbRneR2AfSAeAMqUu0hoVJdjh+qhl/7dkirp8yo8=",
+        "lastModified": 1699663185,
+        "narHash": "sha256-hI3CZPINBWstkMN+ptyzWibw5eRtFCiEvO7zR61bGBs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1369d2cefb6f128c30e42fabcdebbacc07e18b3f",
+        "rev": "691cbcc03af6ad1b5384c0e0e0b5f2298f58c5ce",
         "type": "github"
       },
       "original": {
@@ -158,11 +158,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1698407117,
-        "narHash": "sha256-3X8R+N43YscAEbx+IrhaGNfM3yK+uxjTGuLv9VB82NY=",
+        "lastModified": 1699713437,
+        "narHash": "sha256-+kumHVySVgToQCZCINhpwp8Ixwskl+ub7bZyGzJ6wko=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "4a4e13f8acedd2dc44236deed13fd47096cbe508",
+        "rev": "9be6fbf5eae8c4b902b818881a4dc34f87bb630d",
         "type": "github"
       },
       "original": {
@@ -273,11 +273,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698045010,
-        "narHash": "sha256-jqGzR+REGYKYrpgTlVZeKqcpBSmQxrapkcWxCBh/Ebs=",
+        "lastModified": 1698826948,
+        "narHash": "sha256-Th05oofIIhsN2bmJNsb0Xev3+RJgtk8stjHZX9EdWA0=",
         "owner": "viperML",
         "repo": "nh",
-        "rev": "385e537de3c833dc4cc2ee7522b1852b030cbe06",
+        "rev": "23d21975231d569afbe3973eb19d955c650f8f08",
         "type": "github"
       },
       "original": {
@@ -308,11 +308,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1697946153,
-        "narHash": "sha256-7k7qIwWLaYPgQ4fxmEdew3yCffhK6rM4I4Jo3X/79DA=",
+        "lastModified": 1699156599,
+        "narHash": "sha256-Qk9ZE/pG9lNIGUVNArJxL0Hc0Soa92eQPPIhcDwWinU=",
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "rev": "5a2006282caaf32663cdcd582c5b18809c7d7d8d",
+        "rev": "5388a4002179d6778d212dc2fdcc7ac3fdbd5b65",
         "type": "github"
       },
       "original": {
@@ -340,11 +340,11 @@
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
-        "lastModified": 1693471703,
-        "narHash": "sha256-0l03ZBL8P1P6z8MaSDS/MvuU8E75rVxe5eE1N6gxeTo=",
+        "lastModified": 1696019113,
+        "narHash": "sha256-X3+DKYWJm93DRSdC5M6K5hLqzSya9BjibtBsuARoPco=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3e52e76b70d5508f3cec70b882a29199f4d1ee85",
+        "rev": "f5892ddac112a1e9b3612c39af1b72987ee5783a",
         "type": "github"
       },
       "original": {
@@ -504,11 +504,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1693075322,
-        "narHash": "sha256-O/qmWiE23pzYMSKNhA74jfY1D5TyiJrHx35PYkRx9Gs=",
+        "lastModified": 1699641410,
+        "narHash": "sha256-VODkkFwJLU4DG/Fp1CMmoa9RXta/1ovH/gV0oK97N3A=",
         "owner": "the-argus",
         "repo": "spicetify-nix",
-        "rev": "78495ade242ad155942c2e33e3930e4a05963f13",
+        "rev": "cc8bc5afb755a94e65cf9a516ed56922fd2a44bc",
         "type": "github"
       },
       "original": {
