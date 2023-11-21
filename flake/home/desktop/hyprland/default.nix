@@ -11,6 +11,7 @@
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
     wlsunset # Screen temp
+    sox
 
     # recorder and screenshot
     grim

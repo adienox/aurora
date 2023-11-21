@@ -9,11 +9,11 @@
       "$FLOATING_TERM" = "wezterm start --class floating -e";
 
       bind = [
-        # Kitty
+        # Term
         "$MOD, RETURN, exec, $TERM"
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
 
-        # Alt Kitty
+        # Alt Term
         "$ALT, RETURN, exec, $FLOATING_TERM zsh"
         "$ALT, 1, exec, $FLOATING_TERM cava"
         "$ALT, 2, exec, $FLOATING_TERM pulsemixer"
@@ -24,7 +24,8 @@
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
-        "$MOD, T, exec, $SCRIPTS/focus.sh Todoist todoist"
+        "$MOD, T, exec, $SCRIPTS/focus.sh Todoist todoist-electron"
+        "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
 
         # Rofi
@@ -127,7 +128,7 @@
         # Notification
         "$MOD, N, exec, swaync-client --close-latest"
         "$MOD SHIFT, N, exec, swaync-client -t"
-        "$MOD SHIFT, D, exec, swaync-client -d"
+        "$MOD SHIFT, D, exec, $SCRIPTS/dnd.sh"
       ];
 
       bindm = [

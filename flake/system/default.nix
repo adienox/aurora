@@ -10,6 +10,7 @@ in {
     ./networking.nix
     ./security.nix
     ./software.nix
+    ./power-management.nix
   ];
 
   boot = {

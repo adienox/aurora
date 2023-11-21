@@ -6,6 +6,8 @@
       monitor = ",preferred,auto,1";
       exec-once = [
         "[workspace 3 silent] obsidian"
+        "[workspace 6 silent] todoist"
+        "[workspace 8 silent] morgen"
         "~/.config/assets/scripts/hyprland/autostart.sh"
       ];
       input = {

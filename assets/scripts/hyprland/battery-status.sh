@@ -3,7 +3,7 @@
 notiSound() {
     if [ "$(swaync-client -D)" == 'false' ]; then
         # TODO fix the path
-        mpv --no-resume-playback --quiet --keep-open=no $HOME/.config/assets/sounds/notification.mp3
+        play -q $XDG_CONFIG_HOME/assets/sounds/notification.mp3
     fi
 }
 

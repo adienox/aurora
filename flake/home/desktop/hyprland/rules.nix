@@ -69,6 +69,7 @@
         "workspace 7, ^(Spotify)$"
         "workspace 8, ^(Morgen)$"
         "workspace 8, ^(xwaylandvideobridge)$"
+        "workspace 9, ^(org\.rncbc\.qpwgraph)$"
 
         # Fullscreen Rules
         "fullscreen, obsidian"
