@@ -14,7 +14,7 @@ in {
     # spicetify-nix
     officialThemes = pkgs.fetchgit {
       url = "https://github.com/spicetify/spicetify-themes";
-      sha256 = "sha256-udfdPEwruIStQJ6OQY2bvtkdjdi4/XFKQueM2cWSWa8=";
+      sha256 = "sha256-PHEpYG/q9VBKxGNY1LZpTlJuoI2FsD77epWltj/Rb5w=";
     };
   in {
     enable = true;

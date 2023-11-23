@@ -3,4 +3,5 @@ self: super: {
   win11-icon-theme = self.callPackage ./win11-icon-theme { };
   udiskie = self.callPackage ./udiskie { };
   todoist-electron = self.callPackage ./todoist-electron { };
+  nvchad = self.callPackage ./nvchad { };
 }

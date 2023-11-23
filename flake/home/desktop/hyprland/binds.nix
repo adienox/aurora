@@ -33,7 +33,7 @@
         "$ALT, P, exec, keepmenu"
         ", Insert, exec, $SCRIPTS/rofi.sh obsidian-log"
         "SHIFT, Insert, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
-        "$MOD, E, exec, $SCRIPTS/rofi.sh emoji"
+        "$MOD, I, exec, $SCRIPTS/rofi.sh emoji"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
         "$ALT, Tab, exec, $SCRIPTS/rofi.sh window"
