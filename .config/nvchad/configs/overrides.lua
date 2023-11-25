@@ -72,8 +72,7 @@ M.mason = {
     "prettier",
 
     -- nix stuff
-    "nil",
-    "rnix-lsp"
+    -- installed using nix duh! (also cause couldn't figure out how to make cargo work)
   },
 }
 

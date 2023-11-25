@@ -85,10 +85,10 @@
       cd = "z";
       zz = "z -";
 
-      dps = "docker ps -a";
-      dc = "docker";
-      dci = "docker images";
-      dcp = "docker container prune";
+      # dps = "docker ps -a";
+      # dc = "docker";
+      # dci = "docker images";
+      # dcp = "docker container prune";
 
       tls = "tmux list-sessions 2>/dev/null";
     };

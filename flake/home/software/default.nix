@@ -24,10 +24,7 @@
     keepassxc
     telegram-desktop
     qpwgraph
-    wezterm
     qbittorrent
-    ytfzf
-    ollama
     maestral
   ];
 

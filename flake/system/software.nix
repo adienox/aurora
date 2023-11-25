@@ -37,9 +37,14 @@
       export ZDOTDIR="$HOME"/.config/zsh
     '';
   };
-  
+
   # enable zsh autocompletion for system packages (systemd, etc)
   environment.pathsToLink = [ "/share/zsh" ];
+
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
 
   services = {
     gnome.gnome-keyring.enable = true;
@@ -59,6 +64,7 @@
       enable = true;
       locate = pkgs.mlocate;
       localuser = null;
+      interval = "hourly";
     };
     pipewire = {
       enable = true;
