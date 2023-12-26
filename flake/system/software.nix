@@ -18,6 +18,7 @@
     powertop
     polkit_gnome
     libcamera
+    docker-compose
   ];
 
   # Enable adbusers in extragroups for user

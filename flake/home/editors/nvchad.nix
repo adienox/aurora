@@ -12,5 +12,6 @@
     gcc
     gnumake
     fzf
+    deno
   ];
 }

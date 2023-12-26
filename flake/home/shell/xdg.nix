@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  browser = [ "firefox.desktop" ];
+  browser = [ "vivaldi-stable.desktop" ];
   image-viewer = [ "imv.desktop" ];
   video-player = [ "mpv.desktop" ];
 

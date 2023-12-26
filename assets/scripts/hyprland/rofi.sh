@@ -18,4 +18,6 @@ elif [ "$1" == "obsidian-log" ]; then
     $SCRIPTS/obsidian-log
 elif [ "$1" == "obsidian-log-with-screenshot" ]; then
     $SCRIPTS/obsidian-log-with-screenshot.sh
+elif [ "$1" == "rofi-beats" ]; then
+    $SCRIPTS/rofi-beats.sh
 fi

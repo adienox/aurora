@@ -1,5 +1,5 @@
 { pkgs, default, ... }: {
-  home.packages = with pkgs; [ swaynotificationcenter ];
+  home.packages = with pkgs; [ swaynotificationcenter libnotify ];
 
   xdg.configFile."swaync/config.json".source =
     (pkgs.formats.json { }).generate "config.json" {

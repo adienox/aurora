@@ -20,7 +20,7 @@
         "$ALT, 3, exec, $FLOATING_TERM newsboat"
 
         # Applications
-        "$MOD, W, exec, $SCRIPTS/focus.sh firefox firefox"
+        "$MOD, W, exec, $SCRIPTS/focus.sh Vivaldi-stable vivaldi"
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
@@ -30,6 +30,7 @@
 
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
+        "$MOD, Y, exec, $SCRIPTS/rofi.sh rofi-beats"
         "$ALT, P, exec, keepmenu"
         "CTRL, code:47, exec, $SCRIPTS/rofi.sh obsidian-log"
         "SHIFT, Insert, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
@@ -128,7 +129,7 @@
         # Notification
         "$MOD, N, exec, swaync-client --close-latest"
         "$MOD SHIFT, N, exec, swaync-client -t"
-        "$MOD SHIFT, D, exec, $SCRIPTS/dnd.sh"
+        "$MOD SHIFT, D, exec, swaync-client -d"
       ];
 
       bindm = [

@@ -34,7 +34,7 @@ in {
     description = user;
     shell = pkgs.zsh;
     extraGroups =
-      [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" "docker" ];
+      [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" "docker" "wireshark" ];
   };
 
   nix = {

@@ -26,6 +26,9 @@
     qpwgraph
     qbittorrent
     maestral
+    vivaldi
+    koreader
+    wireshark
   ];
 
   programs = {

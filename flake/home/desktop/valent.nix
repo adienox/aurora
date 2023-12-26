@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages = [ pkgs.valent ];
 
   systemd.user.services.valent = {
