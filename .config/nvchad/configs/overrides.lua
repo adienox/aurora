@@ -68,12 +68,16 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
+    "eslint-lsp",
     "typescript-language-server",
-    "deno",
-    "prettier",
+    "tailwindcss-language-server",
+    "prettierd",
 
     -- nix stuff
     -- installed using nix duh! (also cause couldn't figure out how to make cargo work)
+    
+    -- python stuff
+    "pyright",
   },
 }
 
