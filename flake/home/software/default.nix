@@ -5,7 +5,7 @@
     ./browser
     ./discord.nix
     ./git.nix
-    ./webcord.nix
+    # ./webcord.nix
     ./xremap.nix
     # ./schizofox.nix
   ];

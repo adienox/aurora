@@ -9,7 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-31.url = "github:nixos/nixpkgs/90e85bc7c1a6fc0760a94ace129d3a1c61c3d035";
+    hyprland-31.url =
+      "github:nixos/nixpkgs/90e85bc7c1a6fc0760a94ace129d3a1c61c3d035";
 
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";

@@ -33,8 +33,16 @@ in {
     isNormalUser = true;
     description = user;
     shell = pkgs.zsh;
-    extraGroups =
-      [ "networkmanager" "wheel" "video" "audio" "adbusers" "input" "docker" "wireshark" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "adbusers"
+      "input"
+      "docker"
+      "wireshark"
+    ];
   };
 
   nix = {

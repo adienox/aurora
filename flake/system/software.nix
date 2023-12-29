@@ -19,6 +19,9 @@
     polkit_gnome
     libcamera
     docker-compose
+    neovim
+    git
+    ntfs3g
   ];
 
   # Enable adbusers in extragroups for user
