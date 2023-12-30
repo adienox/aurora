@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./firefox.nix ];
+  # imports = [ ./firefox.nix ];
 
-  home.packages = with pkgs; [ brave ];
+  home.packages = with pkgs; [ vivaldi ];
 }

@@ -45,6 +45,8 @@
   # enable zsh autocompletion for system packages (systemd, etc)
   environment.pathsToLink = [ "/share/zsh" ];
 
+  services.cron = { enable = true; };
+
   virtualisation.docker = {
     enable = true;
     autoPrune.enable = true;

@@ -105,7 +105,7 @@
       command_not_found_handler() {
         ${pkgs.comma}/bin/comma "$@"
       }
-      
+
       eval "$(direnv hook zsh)"
 
       alias ..='cd ..'

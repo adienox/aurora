@@ -1,27 +1,27 @@
 { lib, ... }:
 let colorlib = import ./libs.nix lib;
 in rec {
-  browser = "librewolf";
+  browser = "vivaldi-stable";
   editor = "nvim";
 
   firefox = {
     profile = "nox";
     userAgent =
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
-      
+
     features = {
       account = true;
       webglDisabled = true;
       screenshotsDisabled = false;
       letterboxing = false;
     };
-    
+
     newtab = {
       includeDownloads = false;
       includeVisited = false;
       topSites = true;
     };
-    
+
     dns = {
       mode = 2;
       uri = "https://dns.quad9.net/dns-query";

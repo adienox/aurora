@@ -1,4 +1,4 @@
-{ default, ... }: {
+{ config, default, ... }: {
   imports = [
     ./zsh.nix
     ./xdg.nix
@@ -16,17 +16,17 @@
     FLAKE = default.files.flake;
 
     TMUX_TMPDIR = "$XDG_RUNTIME_DIR";
-    ANDROID_SDK_HOME = "$XDG_CONFIG_HOME/android";
-    ANSIBLE_CONFIG = "$XDG_CONFIG_HOME/ansible/ansible.cfg";
-    UNISON = "$XDG_DATA_HOME/unison";
-    MBSYNCRC = "$XDG_CONFIG_HOME/mbsync/config";
-    ELECTRUMDIR = "$XDG_DATA_HOME/electrum";
+    ANDROID_SDK_HOME = "${config.xdg.configHome}/android";
+    ANSIBLE_CONFIG = "${config.xdg.configHome}/ansible/ansible.cfg";
+    UNISON = "${config.xdg.dataHome}/unison";
+    MBSYNCRC = "${config.xdg.configHome}/mbsync/config";
+    ELECTRUMDIR = "${config.xdg.dataHome}/electrum";
 
-    CARGO_HOME = "$XDG_DATA_HOME/cargo";
-    GOPATH = "$XDG_DATA_HOME/go";
-    GOMODCACHE = "$XDG_CACHE_HOME/go/mod";
-    PYTHONSTARTUP = "$XDG_CONFIG_HOME/python/pythonrc";
-    IPYTHONDIR = "$XDG_CONFIG_HOME/ipython";
-    SQLITE_HISTORY = "$XDG_DATA_HOME/sqlite_history";
+    CARGO_HOME = "${config.xdg.dataHome}/cargo";
+    GOPATH = "${config.xdg.dataHome}/go";
+    GOMODCACHE = "${config.xdg.cacheHome}/go/mod";
+    PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc";
+    IPYTHONDIR = "${config.xdg.configHome}/ipython";
+    SQLITE_HISTORY = "${config.xdg.dataHome}/sqlite_history";
   };
 }

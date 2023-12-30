@@ -64,4 +64,11 @@
       hash = "sha256-KnXUnp2sAolP7XOpNhX2g8m26josrqfTycPIBifS90Y=";
     };
   };
+
+  xdg.configFile = {
+    "python/pythonrc".text = ''
+      import readline
+      readline.write_history_file = lambda *args: None
+    '';
+  };
 }

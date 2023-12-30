@@ -8,6 +8,7 @@
     gojq # For wallpaper setting utility
     xorg.xrandr # For wallpaper setting utility
     yad # Picker
+    gnome.zenity # Another picker
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
     wlsunset # Screen temp
@@ -36,8 +37,7 @@
   # start swayidle as part of hyprland, not sway
   systemd.user.services.swayidle.Install.WantedBy =
     lib.mkForce [ "hyprland-session.target" ];
-    
-    
+
   systemd.user.services.wlsunset = {
     Unit = {
       Description = "NightTemp";

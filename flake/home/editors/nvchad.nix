@@ -10,13 +10,22 @@
     rnix-lsp
     nixfmt
 
-    prettierd
-    ripgrep
-    nodejs
+    # python stuff
     python3
+    nodePackages.pyright
+    mypy
+    ruff
+    black
+
+    # web-dev stuff
+    prettierd
+    nodePackages.typescript-language-server
+    nodejs
+
+    # needed for best functioning of nvim
+    ripgrep
     gcc
     gnumake
     fzf
-    nodePackages.typescript-language-server
   ];
 }
