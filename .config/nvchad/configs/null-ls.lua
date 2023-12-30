@@ -25,6 +25,11 @@ local opts = {
 
 		-- Nix
 		format.nixfmt,
+
+		-- Python
+		format.black,
+		lint.mypy,
+		lint.ruff,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
