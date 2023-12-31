@@ -17,7 +17,6 @@
     tealdeer
     inputs.nh.packages.${pkgs.system}.default
     yt-dlp
-    direnv
   ];
 
   programs = {

@@ -29,10 +29,9 @@ let
     "image/gif" = image-viewer;
     "x-scheme-handler/discord" = [ "discord.desktop" ];
     "x-scheme-handler/spotify" = [ "spotify.desktop" ];
-    "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
+    "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
   };
-in
-{
+in {
   home.packages = [ pkgs.xdg-utils ];
 
   xdg = {

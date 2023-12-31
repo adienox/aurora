@@ -49,10 +49,9 @@
         blur = {
           enabled = true;
           size = 8; # minimum 1
-          passes = 2; # minimum 1, more passes = more resource intensive.
+          passes = 3; # minimum 1, more passes = more resource intensive.
           ignore_opacity = true;
           new_optimizations = true;
-          noise = 0.0117;
           contrast = 1.2;
           xray = false;
           brightness = 1;

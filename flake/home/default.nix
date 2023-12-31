@@ -10,5 +10,5 @@
   nixpkgs.config.allowUnfree = true;
 
   #FIXME: Remove this once its fixed
-  nixpkgs.config.permittedInsecurePackages = [ "electron-22.3.27" ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 }
