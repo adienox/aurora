@@ -53,7 +53,7 @@
 
       p = "ipython --no-banner --no-confirm-exit";
       psv = "source ./venv/bin/activate";
-      pcv = "python - m venv venv";
+      pcv = "python -m venv venv";
 
       gc = "git commit -m";
       ga = "git add";
@@ -90,6 +90,11 @@
       # dci = "docker images";
       # dcp = "docker container prune";
 
+      dv-create =
+        "nix flake init --template github:cachix/devenv && direnv allow";
+      dv-create-py =
+        "nix flake init --template github:cachix/devenv && python -m venv venv && echo 'source venv/bin/activate' >> .envrc && direnv allow";
+
       tls = "tmux list-sessions 2>/dev/null";
     };
 
@@ -105,8 +110,6 @@
       command_not_found_handler() {
         ${pkgs.comma}/bin/comma "$@"
       }
-
-      eval "$(direnv hook zsh)"
 
       alias ..='cd ..'
       alias ...='cd ../..'

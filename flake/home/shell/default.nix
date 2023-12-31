@@ -3,11 +3,15 @@
     ./zsh.nix
     ./xdg.nix
     ./cli.nix
+    ./direnv.nix
     # ./tmux.nix
   ];
 
   home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+
+    # Reducing direnv logs
+    DIRENV_LOG_FORMAT = "";
 
     # ~/ Clean-up:
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
