@@ -30,6 +30,9 @@ local opts = {
 		format.black,
 		lint.mypy,
 		lint.ruff,
+
+		-- Shell
+		format.shfmt,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

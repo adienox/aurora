@@ -13,6 +13,7 @@
     # python stuff
     python3
     nodePackages.pyright
+    python311Packages.ipython
     mypy
     ruff
     black
@@ -21,6 +22,11 @@
     prettierd
     nodePackages.typescript-language-server
     nodejs
+
+    # shell stuff
+    nodePackages.bash-language-server
+    shellcheck
+    shfmt
 
     # needed for best functioning of nvim
     ripgrep
