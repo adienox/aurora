@@ -42,6 +42,11 @@ local plugins = {
 		opts = overrides.colorizer,
 	},
 
+	{
+		"nvim-telescope/telescope.nvim",
+		opts = overrides.telescope,
+	},
+
 	-- Plugins
 	{
 		"max397574/better-escape.nvim",
@@ -80,6 +85,12 @@ local plugins = {
 			},
 			config = true,
 		},
+	},
+
+	-- git blame
+	{
+		"f-person/git-blame.nvim",
+		event = "VeryLazy",
 	},
 
 	{
