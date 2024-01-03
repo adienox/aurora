@@ -2,7 +2,6 @@
 
 notiSound() {
 	if [ "$(swaync-client -D)" == 'false' ]; then
-		# TODO fix the path
 		play -q "$XDG_CONFIG_HOME"/assets/sounds/notification.mp3
 	fi
 }
@@ -14,9 +13,10 @@ while true; do
 	if [[ ($battery_level -ge 100) && ($adapter == 'on-line') ]]; then
 		notify-send "Battery Full" "Level: ${battery_level}%"
 		notiSound
+		sleep 300
 	elif [[ ($battery_level -le 20) && ($adapter == 'off-line') ]]; then
 		notify-send --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%"
 		notiSound
+		sleep 120
 	fi
-	sleep 120
 done
