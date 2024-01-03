@@ -16,6 +16,9 @@
     ZELLIJ_AUTO_ATTACH = "true";
     ZELLIJ_AUTO_EXIT = "true";
 
+    SUDO_ASKPASS =
+      "${config.xdg.configHome}/assets/scripts/utils/zenity_askpass.sh";
+
     ANDROID_SDK_HOME = "${config.xdg.configHome}/android";
     ANSIBLE_CONFIG = "${config.xdg.configHome}/ansible/ansible.cfg";
     UNISON = "${config.xdg.dataHome}/unison";
