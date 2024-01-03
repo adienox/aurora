@@ -9,6 +9,8 @@
     enableZshIntegration = true;
   };
 
+  programs.zellij.enable = true;
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -52,6 +54,7 @@
       waybar_restart = "kill -SIGUSR2 $(pidof waybar)";
 
       p = "ipython --no-banner --no-confirm-exit";
+      py = "python";
       psv = "source ./venv/bin/activate";
       pcv = "python -m venv venv";
 
@@ -98,6 +101,10 @@
       tls = "tmux list-sessions 2>/dev/null";
     };
 
+    envExtra = ''
+      alias zrf="zellij run -f --"
+    '';
+
     initExtra = ''
       setopt interactivecomments # allow comments in interactive mode
       setopt magicequalsubst     # enable filename expansion for arguments of the form 'anything=expression'
@@ -123,7 +130,8 @@
 
       # runs fetch if shell is interactive and not inside vscode and nvim
       if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" && -z "$VIM" ]] ; then
-        $XDG_CONFIG_HOME/assets/scripts/fetch.sh
+        #$XDG_CONFIG_HOME/assets/scripts/fetch.sh
+        pfetch
       fi
 
       # Vscode support in commandline
@@ -148,6 +156,21 @@
 
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
+
+      if [[ $TERM == "xterm-256color" ]]; then
+        if [[ -z "$ZELLIJ" ]]; then
+          if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+              zellij attach -c
+          else
+              zellij
+          fi
+
+          if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+              exit
+          fi
+        fi
+      fi
+
     '';
   };
 }

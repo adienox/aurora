@@ -11,7 +11,7 @@
             CapsLock:
               held: leftctrl
               alone: esc
-              alone_timeout_millis: 150
+              alone_timeout_millis: 350
     '';
   };
 }

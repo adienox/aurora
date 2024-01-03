@@ -42,7 +42,7 @@
 
   xdg.configFile = {
     "swaync/colors.css".text = ''
-      @define-color noti-border-color     ${default.xcolors.base03};
+      @define-color noti-border-color     ${default.xcolors.base02};
       @define-color noti-bg               ${default.xcolors.base00};
       @define-color noti-bg-darker        ${default.xcolors.base01};
       @define-color noti-bg-hover         ${default.xcolors.base02};
@@ -54,7 +54,7 @@
       @define-color bg-selected           ${default.xcolors.base08};
     '';
   };
-  
+
   systemd.user.services.swaync = {
     Unit = {
       Description = "Wayland notification center";

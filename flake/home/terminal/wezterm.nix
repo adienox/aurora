@@ -95,10 +95,10 @@
         scrollback_lines = 10000,
         
         window_padding = {
-          left = 25,
-          right = 25,
-          top = 25,
-          bottom = 25,
+          left = 5,
+          right = 5,
+          top = 5,
+          bottom = 5,
         },
         
         enable_wayland = true,
@@ -109,57 +109,6 @@
         window_close_confirmation = "NeverPrompt",
 
         disable_default_key_bindings = true,
-        keys = {
-          {
-            key = "q",
-            mods = "CTRL",
-            action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
-          },
-          {
-            key = "v",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action({ PasteFrom = "Clipboard" }),
-          },
-          {
-            key = "c",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action({ CopyTo = "ClipboardAndPrimarySelection" }),
-          },
-          {
-            key = [[\]],
-            mods = "CTRL|ALT",
-            action = wezterm.action({
-              SplitHorizontal = { domain = "CurrentPaneDomain" },
-            }),
-          },
-          {
-            key = [[\]],
-            mods = "CTRL",
-            action = wezterm.action({
-              SplitVertical = { domain = "CurrentPaneDomain" },
-            }),
-          },
-          {
-            key = "h",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action({ ActivatePaneDirection = "Left" }),
-          },
-          {
-            key = "l",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action({ ActivatePaneDirection = "Right" }),
-          },
-          {
-            key = "k",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action({ ActivatePaneDirection = "Up" }),
-          },
-          {
-            key = "j",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action({ ActivatePaneDirection = "Down" }),
-          },
-        },
       }
     '';
   };

@@ -93,6 +93,7 @@
 
     bluetooth = {
       format = "";
+      on-click = "blueman-manager";
       format-connected = " {device_alias}";
       format-connected-battery =
         " {device_alias} {device_battery_percentage}%";
@@ -161,11 +162,11 @@
         on-scroll = 1;
         on-click-right = "mode";
         format = {
-          months =    "<span color='${default.xcolors.base07}'><b>{}</b></span>";
-          days =      "<span color='${default.xcolors.base05}'><b>{}</b></span>";
-          weeks =     "<span color='${default.xcolors.base0C}'><b>W{}</b></span>";
-          weekdays =  "<span color='${default.xcolors.base0A}'><b>{}</b></span>";
-          today =     "<span color='${default.xcolors.base08}'><b>{}</b></span>";
+          months = "<span color='${default.xcolors.base07}'><b>{}</b></span>";
+          days = "<span color='${default.xcolors.base05}'><b>{}</b></span>";
+          weeks = "<span color='${default.xcolors.base0C}'><b>W{}</b></span>";
+          weekdays = "<span color='${default.xcolors.base0A}'><b>{}</b></span>";
+          today = "<span color='${default.xcolors.base08}'><b>{}</b></span>";
         };
       };
       actions = {
@@ -199,8 +200,12 @@
       @define-color base0E ${default.xcolors.base0E};
       @define-color base0F ${default.xcolors.base0F};
       @define-color background-floating ${default.rgba.base00 0.4};
-      @define-color background-regular  ${default.rgba.base00 default.settings.floating_opacity};
-      @define-color background-semi-trans  ${default.rgba.base00 default.settings.opacity};
+      @define-color background-regular  ${
+        default.rgba.base00 default.settings.floating_opacity
+      };
+      @define-color background-semi-trans  ${
+        default.rgba.base00 default.settings.opacity
+      };
     '';
   };
 }

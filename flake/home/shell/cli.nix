@@ -6,6 +6,7 @@
     unrar
 
     # utils
+    pfetch
     file
     du-dust
     duf

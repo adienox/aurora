@@ -29,6 +29,7 @@
     shfmt
 
     # needed for best functioning of nvim
+    tree-sitter
     ripgrep
     gcc
     gnumake

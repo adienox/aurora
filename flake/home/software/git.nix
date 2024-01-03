@@ -7,5 +7,6 @@
       init.defaultBranch = "main";
       pull.rebase = false;
     };
+    ignores = [ ".env" "*~" "*.swp" ];
   };
 }
