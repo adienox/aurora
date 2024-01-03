@@ -2,6 +2,42 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = require("custom.configs.noice"),
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			{
+				"rcarriga/nvim-notify",
+				opts = {
+					background_colour = "#000000",
+					render = "compact",
+				},
+			},
+		},
+	},
+
+	{
+		"phaazon/hop.nvim",
+		event = "BufEnter",
+		opts = {},
+	},
+
+	{
+		"RRethy/vim-illuminate",
+		event = "BufEnter",
+		config = function()
+			require("illuminate").configure({
+				providers = {
+					"lsp",
+					"treesitter",
+					"regex",
+				},
+				min_count_to_highlight = 2,
+			})
+		end,
+	},
 
 	-- format & linting
 	{
@@ -47,32 +83,29 @@ local plugins = {
 		opts = overrides.telescope,
 	},
 
+	{
+		"hrsh7th/nvim-cmp",
+		opts = overrides.cmp,
+	},
+
 	-- Plugins
 	{
 		"max397574/better-escape.nvim",
 		event = "InsertEnter",
-		config = function()
-			require("better_escape").setup()
-		end,
+		opts = {},
 	},
 
 	{
 		"kylechui/nvim-surround",
-		event = "VeryLazy",
+		event = "BufEnter",
 		ft = { "markdown", "lua", "javascript", "typescript", "typescriptreact", "javascriptreact", "html", "css" },
-		config = function()
-			require("nvim-surround").setup({})
-		end,
+		opts = {},
 	},
 
 	{
 		"folke/twilight.nvim",
-		event = "VeryLazy",
+		event = "BufEnter",
 		ft = { "markdown", "lua", "javascript", "typescript", "typescriptreact", "javascriptreact", "html", "css" },
-		treesitter = true,
-		dimming = {
-			alpha = 0.25,
-		},
 	},
 
 	{
@@ -90,7 +123,7 @@ local plugins = {
 	-- git blame
 	{
 		"f-person/git-blame.nvim",
-		event = "VeryLazy",
+		event = "BufEnter",
 	},
 
 	{
@@ -107,7 +140,7 @@ local plugins = {
 
 	{
 		"mbbill/undotree",
-		event = "VeryLazy",
+		event = "BufEnter",
 	},
 
 	{
@@ -118,27 +151,22 @@ local plugins = {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
+		event = "BufEnter",
 		opts = {},
-		event = "VeryLazy",
 	},
 
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
 		event = "BufEnter",
+		opts = {},
 	},
 
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		event = "BufEnter",
 		opts = {},
-		event = "BufEnter",
-	},
-
-	{
-		"tpope/vim-surround",
-		event = "BufEnter",
 	},
 
 	{

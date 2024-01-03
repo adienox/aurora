@@ -4,8 +4,9 @@ local M = {}
 M.general = {
 	n = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
-		["<leader>fs"] = { ":w<CR>", "Write file" },
-		["<leader>q"] = { ":q<CR>", "Quit" },
+		[":"] = { ":!", "enter filter mode", opts = { nowait = true } },
+		["<leader>fs"] = { "<cmd> w <cr>", "Write file" },
+		["<leader>q"] = { "<cmd> q <cr>", "Quit" },
 
 		-- Navigation
 		["H"] = { "^", "Move to start of line", opts = { nowait = true } },
@@ -15,15 +16,18 @@ M.general = {
 		["x"] = { '"_x', "x without copy" },
 
 		-- window
-		["<leader>wv"] = { ":vsplit<CR>", "Vertical Split" },
-		["<leader>ws"] = { ":split<CR>", "Horizontal Split" },
-		["<leader>wc"] = { ":close<CR>", "Close current window" },
+		["<leader>wv"] = { "<cmd> vsplit <cr>", "Vertical Split" },
+		["<leader>ws"] = { "<cmd> split <cr>", "Horizontal Split" },
+		["<leader>wc"] = { "<cmd> close <cr>", "Close current window" },
 
 		-- apps
-		["<leader>ou"] = { ":UndotreeToggle<CR>", "UndoTree" },
+		["<leader>ou"] = { "<cmd> UndotreeToggle <cr>", "UndoTree" },
 
 		-- git
-		["<leader>gg"] = { ":Neogit<CR>", "Neogit" },
+		["<leader>gg"] = { "<cmd> Neogit <cr>", "Neogit" },
+
+		-- hop
+		["f"] = { "<cmd> HopWord <cr>", "Hop to a word" },
 	},
 	i = {
 		["jk"] = { "<Esc>", "jk for Esc", opts = { nowait = true } },
@@ -32,20 +36,26 @@ M.general = {
 
 M.nvimtree = {
 	n = {
-		-- toggle
-		["<leader>e"] = { ":NvimTreeToggle<CR>", "toggle nvimtree" },
+		["<leader>e"] = { "<cmd> NvimTreeToggle <cr>", "toggle nvimtree" },
 	},
 }
 
 M.twilight = {
 	n = {
-		["<leader>tw"] = { ":Twilight<cr>", "toggle twilight" },
+		["<leader>tw"] = { "<cmd> Twilight <cr>", "toggle twilight" },
+	},
+}
+
+M.telescope = {
+	n = {
+		["<leader>ft"] = { "<cmd> TodoTelescope <cr>", "Todo Telescope" },
+		["<leader>fn"] = { "<cmd> Telescope notify <cr>", "Notification List" },
 	},
 }
 
 M.trouble = {
 	n = {
-		["<leader>tt"] = { ":TroubleToggle<cr>", "toggle twilight" },
+		["<leader>tt"] = { "<cmd> TroubleToggle <cr>", "toggle twilight" },
 	},
 }
 
