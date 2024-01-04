@@ -25,6 +25,10 @@ local plugins = {
 	},
 
 	{
+		"nvim-telescope/telescope-ui-select.nvim",
+	},
+
+	{
 		"RRethy/vim-illuminate",
 		event = "BufEnter",
 		config = function()

@@ -10,9 +10,18 @@ M.telescope = {
 			},
 		},
 	},
+
+	extensions_list = { "ui-select" },
+
+	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({}),
+		},
+	},
 }
 
 M.treesitter = {
+	auto_install = true,
 	ensure_installed = {
 		"vim",
 		"lua",

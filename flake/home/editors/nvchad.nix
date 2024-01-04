@@ -9,6 +9,7 @@
     # nix stuff
     rnix-lsp
     nixfmt
+    nil
 
     # python stuff
     python3
@@ -17,6 +18,7 @@
     mypy
     ruff
     black
+    isort
 
     # web-dev stuff
     prettierd

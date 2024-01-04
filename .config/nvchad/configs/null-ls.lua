@@ -28,6 +28,7 @@ local opts = {
 
 		-- Python
 		format.black,
+		format.isort,
 		lint.mypy,
 		lint.ruff,
 
