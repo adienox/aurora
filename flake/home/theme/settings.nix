@@ -39,8 +39,8 @@ in rec {
     opacity = "0.8";
     font = {
       default = "Readex Pro";
-      monospace = "CaskaydiaCove NF";
-      size = 11;
+      monospace = "JetBrainsMono Nerd Font";
+      size = 14;
     };
   };
 
@@ -50,7 +50,7 @@ in rec {
   };
 
   terminal = {
-    font = "CaskaydiaCove NF";
+    font = "JetBrainsMono Nerd Font";
     name = "wezterm";
     opacity = 0.7;
     size = 13;

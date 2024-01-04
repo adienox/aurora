@@ -107,16 +107,16 @@
 
       bindel = [
         # Brightness Control
-        ", XF86MonBrightnessUp, exec, swayosd --brightness raise"
-        ", XF86MonBrightnessDown, exec, swayosd --brightness lower"
-        "SHIFT, XF86MonBrightnessUp, exec, swayosd --brightness 1"
-        "SHIFT, XF86MonBrightnessDown, exec, swayosd --brightness -1"
+        ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+        ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+        "SHIFT, XF86MonBrightnessUp, exec, swayosd-client --brightness 1"
+        "SHIFT, XF86MonBrightnessDown, exec, swayosd-client --brightness -1"
 
         # Audio Control
-        ", XF86AudioMute, exec, swayosd --output-volume mute-toggle"
-        ", XF86AudioMicMute, exec, swayosd --input-volume mute-toggle"
-        ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
-        ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
+        ", XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle"
+        ", XF86AudioMicMute, exec, swayosd-client --input-volume=mute-toggle"
+        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume=raise --max-volume=150"
+        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume=lower --max-volume=150"
       ];
 
       bindl = [

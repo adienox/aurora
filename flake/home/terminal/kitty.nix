@@ -1,9 +1,9 @@
-{ ... }: {
+{ default, ... }: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "${default.terminal.font}";
       size = 13;
     };
     theme = "Catppuccin-Mocha";
@@ -35,13 +35,11 @@
       confirm_os_window_close = 0;
       hide_window_decorations = true;
       tab_bar_style = "powerline";
-      background_opacity = "0.6";
+      background_opacity = "0.7";
       term = "xterm-kitty";
 
       background = "#000000";
     };
-    keybindings = {
-      "f1" = "debug_config";
-    };
+    keybindings = { "f1" = "debug_config"; };
   };
 }

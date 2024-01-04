@@ -109,6 +109,18 @@
         window_close_confirmation = "NeverPrompt",
 
         disable_default_key_bindings = true,
+        keys = {
+          {
+            key = "v",
+            mods = "CTRL|SHIFT",
+            action = wezterm.action({ PasteFrom = "Clipboard" }),
+          },
+          {
+            key = "c",
+            mods = "CTRL|SHIFT",
+            action = wezterm.action({ CopyTo = "ClipboardAndPrimarySelection" }),
+          },
+        },
       }
     '';
   };

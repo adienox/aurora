@@ -52,10 +52,5 @@
     #   enable = true;
     #   indicator = true;
     # };
-
-    swayosd = {
-      enable = true;
-      maxVolume = 150;
-    };
   };
 }

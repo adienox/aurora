@@ -7,8 +7,7 @@
     ./rofi
     ./swaync
     ./swayidle.nix
-    ./swww.nix
-    ./valent.nix
+    ./services.nix
     # ./espanso.nix
   ];
 
