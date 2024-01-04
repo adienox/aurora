@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 
-from io import TextIOWrapper
+import datetime
+import shutil
 import subprocess
 import sys
-import shutil
-import datetime
+from io import TextIOWrapper
 
 daily_folder = "/home/nox/Documents/Knowledge-Garden/Cards/Temporal/Daily/"
 daily_template = (
