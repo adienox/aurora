@@ -10,37 +10,34 @@ local plugins = {
 			"MunifTanjim/nui.nvim",
 			{
 				"rcarriga/nvim-notify",
-				opts = {
-					background_colour = "#000000",
-					render = "compact",
-				},
+				config = function()
+					dofile(vim.g.base46_cache .. "notify")
+					require("notify").setup({
+						background_colour = "#000000",
+						render = "compact",
+					})
+				end,
 			},
 		},
 	},
 
 	{
-		"phaazon/hop.nvim",
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("custom.configs.chat-gpt")
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	},
+
+	{
+		"folke/flash.nvim",
 		event = "BufEnter",
 		opts = {},
-	},
-
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-	},
-
-	{
-		"RRethy/vim-illuminate",
-		event = "BufEnter",
-		config = function()
-			require("illuminate").configure({
-				providers = {
-					"lsp",
-					"treesitter",
-					"regex",
-				},
-				min_count_to_highlight = 2,
-			})
-		end,
 	},
 
 	-- format & linting
@@ -90,6 +87,17 @@ local plugins = {
 	{
 		"hrsh7th/nvim-cmp",
 		opts = overrides.cmp,
+	},
+
+	{
+		"folke/which-key.nvim",
+		config = function(_, opts)
+			require("which-key").setup(opts)
+			require("custom.configs.which-key")
+		end,
+		setup = function()
+			require("core.utils").load_mappings("whichkey")
+		end,
 	},
 
 	-- Plugins
@@ -156,21 +164,68 @@ local plugins = {
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
 		event = "BufEnter",
-		opts = {},
+		opts = {
+			theme = "catppuccin",
+		},
 	},
 
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		event = "BufEnter",
-		opts = {},
+		config = function()
+			dofile(vim.g.base46_cache .. "todo")
+			require("todo-comments").setup()
+		end,
 	},
 
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = "TroubleToggle",
+		config = function()
+			dofile(vim.g.base46_cache .. "trouble")
+			require("trouble").setup()
+		end,
+	},
+
+	{
+		"phaazon/hop.nvim",
 		event = "BufEnter",
-		opts = {},
+		config = function()
+			dofile(vim.g.base46_cache .. "hop")
+			require("hop").setup()
+		end,
+	},
+
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufEnter",
+		config = function()
+			dofile(vim.g.base46_cache .. "rainbowdelimiters")
+		end,
+	},
+
+	{
+		"RRethy/vim-illuminate",
+		event = "BufEnter",
+		config = function()
+			require("illuminate").configure({
+				providers = {
+					"lsp",
+					"treesitter",
+					"regex",
+				},
+				filetypes_denylist = {
+					"dirbuf",
+					"dirvish",
+					"fugitive",
+					"NvimTree",
+					"NeogitStatus",
+				},
+				min_count_to_highlight = 2,
+			})
+		end,
 	},
 
 	{
@@ -181,6 +236,10 @@ local plugins = {
 			"typescript",
 			"typescriptreact",
 		},
+	},
+
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
 	},
 }
 

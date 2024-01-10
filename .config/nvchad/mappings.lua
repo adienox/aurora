@@ -1,6 +1,12 @@
 ---@type MappingsTable
 local M = {}
 
+M.disabled = {
+	n = {
+		["<leader>cm"] = "",
+	},
+}
+
 M.general = {
 	n = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -14,6 +20,8 @@ M.general = {
 
 		-- utilities
 		["x"] = { '"_x', "x without copy" },
+		["f"] = { "<cmd> HopWord <cr>", "Hop to a word" },
+		["<leader>n"] = { "<cmd> NoiceDismiss <cr>", "Dismiss Notifications" },
 
 		-- window
 		["<leader>wv"] = { "<cmd> vsplit <cr>", "Vertical Split" },
@@ -25,12 +33,33 @@ M.general = {
 
 		-- git
 		["<leader>gg"] = { "<cmd> Neogit <cr>", "Neogit" },
-
-		-- hop
-		["f"] = { "<cmd> HopWord <cr>", "Hop to a word" },
+		["<leader>gm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
 	},
 	i = {
 		["jk"] = { "<Esc>", "jk for Esc", opts = { nowait = true } },
+	},
+}
+
+M.flash = {
+	n = {
+		["<leader>lf"] = {
+			function()
+				require("flash").jump()
+			end,
+			"Flash Jump",
+		},
+		["<leader>lt"] = {
+			function()
+				require("flash").treesitter()
+			end,
+			"Flash Treesitter",
+		},
+		["<leader>lr"] = {
+			function()
+				require("flash").treesitter_search()
+			end,
+			"Flash Treesitter Search",
+		},
 	},
 }
 
@@ -55,7 +84,7 @@ M.telescope = {
 
 M.trouble = {
 	n = {
-		["<leader>tt"] = { "<cmd> TroubleToggle <cr>", "toggle twilight" },
+		["<leader>tt"] = { "<cmd> TroubleToggle <cr>", "toggle trouble" },
 	},
 }
 

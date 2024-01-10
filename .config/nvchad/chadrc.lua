@@ -8,7 +8,10 @@ M.ui = {
 	theme = "catppuccin",
 	transparency = true,
 
+	extended_integrations = { "trouble", "hop", "todo", "notify", "rainbowdelimiters" },
+
 	hl_override = highlights.override,
+	hl_add = highlights.add,
 
 	statusline = {
 		theme = "minimal", -- default/vscode/vscode_colored/minimal
