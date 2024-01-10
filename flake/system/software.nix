@@ -12,7 +12,6 @@
     wget
     seatd
     xdg-utils
-    auto-cpufreq
     pciutils
     usbutils
     powertop
@@ -30,6 +29,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    settings = { max-cache-ttl = 86400; };
   };
 
   environment.shells = with pkgs; [ zsh ];
@@ -45,6 +45,9 @@
   # enable zsh autocompletion for system packages (systemd, etc)
   environment.pathsToLink = [ "/share/zsh" ];
 
+  # setting the ~/.local/bin to be in path for every user
+  environment.localBinInPath = true;
+
   services.cron = { enable = true; };
 
   virtualisation.docker = {
@@ -55,12 +58,20 @@
   services = {
     gnome.gnome-keyring.enable = true;
     dbus.enable = true;
-    auto-cpufreq.enable = true;
     openssh.enable = true;
     udisks2.enable = true;
     gvfs.enable = true; # Nautilus Trash
     gnome.sushi.enable = true; # Nautilus file preview
     fstrim.enable = true; # For SSD/NVME
+
+    tlp = {
+      settings = {
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      };
+    };
 
     xserver = {
       layout = "us";

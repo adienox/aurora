@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [ swww swayosd valent ];
+  home.packages = with pkgs; [ swww swayosd valent brightnessctl ];
 
   systemd.user.services.swww = {
     Unit = {

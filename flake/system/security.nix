@@ -44,9 +44,13 @@
 
   security = {
     polkit.enable = true;
-    pam.services.gtklock.text = ''
-      auth include login
-    '';
+    pam.services.gtklock = {
+      text = ''
+        auth include login
+        auth optional pam_gnupg.so
+      '';
+      gnupg.enable = true;
+    };
     sudo.extraConfig = ''
       Defaults env_reset,pwfeedback
     '';

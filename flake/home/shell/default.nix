@@ -6,6 +6,7 @@
     EDITOR = default.editor;
     BROWSER = default.browser;
     FLAKE = default.files.flake;
+    KEEPASSDB = default.files.keepass;
 
     ZELLIJ_AUTO_ATTACH = "true";
     ZELLIJ_AUTO_EXIT = "true";

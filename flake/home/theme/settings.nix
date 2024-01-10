@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 let colorlib = import ./libs.nix lib;
 in rec {
   browser = "vivaldi-stable";
@@ -40,13 +40,13 @@ in rec {
     font = {
       default = "Readex Pro";
       monospace = "JetBrainsMono Nerd Font";
-      size = 14;
+      size = 12;
     };
   };
 
   files = {
-    flake = "$HOME/aurora/flake";
-    keepass = "/home/nox/Documents/vault/armoury.kdbx";
+    flake = "${config.home.homeDirectory}/aurora/flake";
+    keepass = "${config.home.homeDirectory}/Documents/vault/armoury.kdbx";
   };
 
   terminal = {
