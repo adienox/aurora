@@ -18,5 +18,7 @@ while true; do
 		notify-send --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%"
 		notiSound
 		sleep 120
+	else
+		sleep 300
 	fi
 done
