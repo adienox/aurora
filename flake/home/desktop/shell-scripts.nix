@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   battery-status = (pkgs.writeShellApplication {
     name = "battery-status";
@@ -13,11 +13,20 @@ let
     ];
     text = builtins.readFile ../../../assets/scripts/hyprland/battery-status.sh;
   });
+
   bluetooth-auto-off = (pkgs.writeShellApplication {
     name = "bluetooth-auto-off";
     runtimeInputs = with pkgs; [ coreutils gawk bluez ];
     text =
       builtins.readFile ../../../assets/scripts/hyprland/bluetooth-auto-off.sh;
+  });
+
+  auto-stats = (pkgs.writeShellApplication {
+    name = "auto-stats-wrapper";
+    runtimeInputs = with pkgs; [ python3 rofi-wayland ];
+    text = ''
+      python3 ${config.xdg.configHome}/assets/scripts/rofi/auto-stats.py
+    '';
   });
 in {
   systemd.user.services = {
@@ -43,6 +52,26 @@ in {
         Restart = "on-failure";
       };
       Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    auto-stats = {
+      Unit = {
+        Description = "Auto ask for stats used in obsidian daily log";
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${auto-stats}/bin/auto-stats-wrapper";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
+  systemd.user.timers = {
+    auto-stats = {
+      Unit = { Description = "Run auto-stats every 20 mins"; };
+      Timer = { OnCalendar = "*-*-* 05..20:00/20"; };
+      Install.WantedBy = [ "timers.target" ];
     };
   };
 }
