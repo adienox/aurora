@@ -4,7 +4,6 @@
     udiskie # AutoMount disks
     bibata-cursors # Mouse Cursor
     networkmanagerapplet # NetworkManager
-    acpi # Battery status
     gojq # For wallpaper setting utility
     xorg.xrandr # For wallpaper setting utility
     yad # Picker
@@ -12,7 +11,6 @@
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
     wlsunset # Screen temp
-    sox
 
     # recorder and screenshot
     grim

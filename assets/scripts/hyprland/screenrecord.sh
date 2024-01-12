@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-VIDEO="$XDG_VIDEOS_DIR/$(date +%Y-%m-%d_%H-%M-%S).mp4"
+VIDEO="$XDG_VIDEOS_DIR/recordings/$(date +%Y-%m-%d_%H-%M-%S).mp4"
 
 fuser -sk -SIGINT "$0"
 test "$1" = off && exit 0

@@ -8,6 +8,7 @@
     ./swaync
     ./swayidle.nix
     ./services.nix
+    ./shell-scripts.nix
     # ./espanso.nix
   ];
 
