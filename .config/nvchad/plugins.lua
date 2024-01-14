@@ -64,6 +64,18 @@ local plugins = {
 
   -- Plugins
   {
+    "Lilja/zellij.nvim",
+    event = "VeryLazy",
+    opts = {
+      vimTmuxNavigatorKeybinds = true, -- Will set keybinds like <C-h> to left
+    },
+  },
+
+  {
+    "zane-/howdoi.nvim",
+  },
+
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = require("custom.configs.noice"),

@@ -11,10 +11,13 @@ M.telescope = {
     },
   },
 
-  extensions_list = { "ui-select" },
+  extensions_list = { "ui-select", "howdoi" },
 
   extensions = {
     ["ui-select"] = {
+      require("telescope.themes").get_dropdown({}),
+    },
+    ["howdoi"] = {
       require("telescope.themes").get_dropdown({}),
     },
   },
