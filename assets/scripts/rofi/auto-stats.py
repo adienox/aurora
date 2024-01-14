@@ -67,7 +67,7 @@ def update_stat(key: str, value: int):
             for line in lines
         ]
 
-        f.write("\n".join(lines))
+        f.write("\n".join(lines).strip())
         f.truncate()
 
 

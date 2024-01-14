@@ -10,7 +10,6 @@ daily_folder = "/home/nox/Documents/Knowledge-Garden/Cards/Temporal/Daily/"
 daily_template = (
     "/home/nox/Documents/Knowledge-Garden/Extras/Templates/Temporal/Daily.md"
 )
-daily_format = "yyyy-MM-dd"
 
 # Define the shell command
 command = 'rofi -dmenu -p "Log  " -mesg "<span color=\'#a6e3a1\'><i>Your future self will be proud of you for doing this today!</i></span>" -markup -theme-str "listview {enabled: false;}"'

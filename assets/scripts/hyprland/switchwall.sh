@@ -12,8 +12,8 @@ if [ "$imgpath" == '' ]; then
 	exit 0
 fi
 
-rm $XDG_CACHE_HOME/background
-ln -s $imgpath $XDG_CACHE_HOME/background
+rm "$XDG_CACHE_HOME"/background
+ln -s "$imgpath" "$XDG_CACHE_HOME"/background
 
 # Change swww wallpaper
 swww img "$imgpath" --transition-step 230 --transition-fps 60 \

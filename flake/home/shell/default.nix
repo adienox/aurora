@@ -33,5 +33,8 @@
     SQLITE_HISTORY = "${config.xdg.dataHome}/sqlite_history";
 
     GOMODCACHE = "${config.xdg.cacheHome}/go/mod";
+
+    FZF_DEFAULT_OPTS =
+      " --color=bg+:${default.xcolors.base02},spinner:${default.xcolors.base06},hl:${default.xcolors.base08} --color=fg:${default.xcolors.base05},header:${default.xcolors.base08},info:${default.xcolors.base0E},pointer:${default.xcolors.base06} --color=marker:${default.xcolors.base06},fg+:${default.xcolors.base05},prompt:${default.xcolors.base0E},hl+:${default.xcolors.base08}";
   };
 }

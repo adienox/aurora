@@ -28,11 +28,6 @@
       size = 1000000;
     };
 
-    localVariables = {
-      FZF_DEFAULT_OPTS =
-        " --color=bg+:${default.xcolors.base02},bg:${default.xcolors.base00},spinner:${default.xcolors.base06},hl:${default.xcolors.base08} --color=fg:${default.xcolors.base05},header:${default.xcolors.base08},info:${default.xcolors.base0E},pointer:${default.xcolors.base06} --color=marker:${default.xcolors.base06},fg+:${default.xcolors.base05},prompt:${default.xcolors.base0E},hl+:${default.xcolors.base08}";
-    };
-
     completionInit = ''
       autoload -Uz compinit
       compinit -d ~/.cache/zcompdump
@@ -88,6 +83,8 @@
       cd = "z";
       zz = "z -";
 
+      jq = "gojq";
+
       # dps = "docker ps -a";
       # dc = "docker";
       # dci = "docker images";
@@ -96,9 +93,10 @@
       dv-create =
         "nix flake init --template github:cachix/devenv && direnv allow";
       dv-create-py =
-        "nix flake init --template github:cachix/devenv && python -m venv venv && echo 'source venv/bin/activate' >> .envrc && direnv allow";
+        "nix flake init --template github:cachix/devenv && echo 'layout python' >> .envrc && direnv allow";
 
       tls = "tmux list-sessions 2>/dev/null";
+      zls = "zellij ls";
     };
 
     envExtra = ''
@@ -160,11 +158,10 @@
       if [[ $TERM == "xterm-256color" ]]; then
         if [[ -z "$ZELLIJ" ]]; then
           if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-              zellij attach -c
+              zellij-attach.sh
           else
               zellij
           fi
-
           if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
               exit
           fi
