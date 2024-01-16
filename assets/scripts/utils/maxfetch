@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+unicode=" "
+
+_black=$(tput setaf 0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+_white=$(tput setaf 7)
+_bright=$(tput bold)
+normal=$(tput sgr0)
+_underline=$(tput smul)
+
+# Function to round a floating-point number to the nearest integer
+function round() {
+	printf "%.0f" "$1"
+}
+
+# Get the uptime in seconds
+uptime_seconds=$(round "$(awk '{print $1}' /proc/uptime)")
+
+# Calculate days, hours, and minutes using awk for floating-point arithmetic
+days=$((uptime_seconds / 86400))
+hours=$((uptime_seconds % 86400 / 3600))
+minutes=$((uptime_seconds % 3600 / 60))
+
+# Format the output
+up="${days}d ${hours}h ${minutes}m"
+
+pkgs=$(nix-store --query --requisites /run/current-system | wc -l)
+shell="${SHELL##*/}"
+
+fetch() {
+	echo " ╭─────────────╮ "
+	echo " │  ${red} ${normal} user    │ ${red}$(whoami)${normal}"
+	echo " │  ${yellow} ${normal} distro  │ ${yellow}$(sed -nE "s@PRETTY_NAME=\"([^\"]*)\"@\1@p" /etc/os-release)${normal} "
+	echo " │  ${green} ${normal} kernel  │ ${green}$(uname -r)${normal} "
+	echo " │  ${cyan}󱂬 ${normal} de/wm   │ ${cyan}$XDG_CURRENT_DESKTOP${normal} "
+	echo " │  ${blue} ${normal} uptime  │ ${blue}${up}${normal} "
+	echo " │  ${magenta} ${normal} shell   │ ${magenta}${shell}${normal} "
+	echo " │  ${red}󰏖 ${normal} pkgs    │ ${red}${pkgs}${normal} "
+	echo " ├─────────────┤ "
+	echo " │  ${_white}  ${normal}colors  │${_white}$unicode${normal}${red}$unicode${normal}${yellow}$unicode${normal}${green}$unicode${normal}${cyan}$unicode${normal}${blue}$unicode${normal}${magenta}$unicode${normal}${_black}$unicode${normal}"
+	echo " ╰─────────────╯ "
+}
+
+fetch && exit 0
