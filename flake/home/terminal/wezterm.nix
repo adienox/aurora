@@ -98,7 +98,7 @@
           left = 5,
           right = 5,
           top = 5,
-          bottom = 5,
+          bottom = 0,
         },
         
         enable_wayland = true,

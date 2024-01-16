@@ -1,4 +1,4 @@
-{ pkgs, default, ... }: {
+{ pkgs, ... }: {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -129,7 +129,7 @@
       # runs fetch if shell is interactive and not inside vscode and nvim
       if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" && -z "$VIM" ]] ; then
         #$XDG_CONFIG_HOME/assets/scripts/fetch.sh
-        pfetch
+        maxfetch
       fi
 
       # Vscode support in commandline

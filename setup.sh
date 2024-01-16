@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 if [ ! -d "$XDG_CONFIG_HOME/assets" ]; then
-	ln -s ./assets "$XDG_CONFIG_HOME"/assets
+	ln -s $(pwd)/assets "$XDG_CONFIG_HOME"/assets
 fi
 
 if [ ! -d "$HOME/.local/bin" ]; then
-	ln -s ./assets/scripts/utils "$HOME"/.local/bin
+	ln -s $(pwd)/assets/scripts/utils "$HOME"/.local/bin
 fi
 
 if [ ! -d "$XDG_PICTURES_DIR/backgrounds" ]; then
-	ln -s ./assets/backgrounds "$XDG_PICTURES_DIR"/backgrounds
+	ln -s $(pwd)/assets/backgrounds "$XDG_PICTURES_DIR"/backgrounds
 fi
 
 if [ ! -f "$XDG_CACHE_HOME/background" ]; then
@@ -17,12 +17,16 @@ if [ ! -f "$XDG_CACHE_HOME/background" ]; then
 fi
 
 if [ ! -d "$XDG_CONFIG_HOME/doom" ]; then
-	ln -s ./.config/doom "$XDG_CONFIG_HOME"/doom
+	ln -s $(pwd)/.config/doom "$XDG_CONFIG_HOME"/doom
+fi
+
+if [ ! -d "$XDG_CONFIG_HOME/zellij" ]; then
+	ln -s $(pwd)/.config/zellij "$XDG_CONFIG_HOME"/zellij
 fi
 
 if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
 	git clone https://github.com/NvChad/NvChad "$XDG_CONFIG_HOME"/nvim --depth 1
-	ln -s ./.config/nvchad "$XDG_CONFIG_HOME"/nvim/lua/custom
+	ln -s $(pwd)/.config/nvchad "$XDG_CONFIG_HOME"/nvim/lua/custom
 fi
 
 echo "Run nixos-rebuild switch --flake .#anomaly to setup os"
