@@ -28,6 +28,14 @@ let
       python3 ${config.xdg.configHome}/assets/scripts/rofi/auto-stats.py
     '';
   });
+
+  auto-stats-processor = (pkgs.writeShellApplication {
+    name = "auto-stats-processor-wrapper";
+    runtimeInputs = with pkgs; [ python3 ];
+    text = ''
+      python3 ${config.xdg.configHome}/assets/scripts/rofi/auto-stats-processor.py
+    '';
+  });
 in {
   systemd.user.services = {
     battery-status = {
@@ -65,12 +73,33 @@ in {
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
+
+    auto-stats-processor = {
+      Unit = {
+        Description = "Process auto-stats used in obsidian daily log";
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${auto-stats-processor}/bin/auto-stats-processor-wrapper";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
   };
 
   systemd.user.timers = {
     auto-stats = {
       Unit = { Description = "Run auto-stats every 20 mins"; };
-      Timer = { OnCalendar = "*-*-* 05..20:00/20"; };
+      Timer = { OnCalendar = "*-*-* 05..19:00/20"; };
+      Install.WantedBy = [ "timers.target" ];
+    };
+
+    auto-stats-processor = {
+      Unit = { Description = "Process the auto-stats for the day"; };
+      Timer = {
+        OnCalendar = "*-*-* 20:05";
+        Persistent = true;
+      };
       Install.WantedBy = [ "timers.target" ];
     };
   };

@@ -24,7 +24,6 @@
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
-        "$MOD, T, exec, $SCRIPTS/focus.sh Todoist todoist-electron"
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
 
@@ -35,6 +34,7 @@
         "CTRL, code:47, exec, $SCRIPTS/rofi.sh obsidian-log"
         "SHIFT, Insert, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
         "$MOD, I, exec, $SCRIPTS/rofi.sh emoji"
+        "$MOD, T, exec, $SCRIPTS/rofi.sh todoist"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
         "$ALT, Tab, exec, $SCRIPTS/rofi.sh window"
