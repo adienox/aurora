@@ -7,12 +7,12 @@
     BROWSER = default.browser;
     FLAKE = default.files.flake;
     KEEPASSDB = default.files.keepass;
+    SUDO_ASKPASS =
+      "${config.xdg.configHome}/assets/scripts/utils/zenity-askpass.sh";
 
+    # Zellij attach variables
     ZELLIJ_AUTO_ATTACH = "true";
     ZELLIJ_AUTO_EXIT = "true";
-
-    SUDO_ASKPASS =
-      "${config.xdg.configHome}/assets/scripts/utils/zenity_askpass.sh";
 
     # Reducing direnv logs
     DIRENV_LOG_FORMAT = "";

@@ -4,7 +4,9 @@ import shutil
 import subprocess
 
 stats_file = "/home/nox/Documents/Knowledge-Garden/Extras/stats.md"
-stats_template = "/home/nox/Documents/Knowledge-Garden/Extras/Templates/stats.md"
+stats_template = (
+    "/home/nox/Documents/Knowledge-Garden/Extras/Templates/stats-template.md"
+)
 
 # List of stats to ask and questions associated with them in dict
 stats = {
