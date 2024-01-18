@@ -9,8 +9,6 @@ let
           format_right "{datetime}"
           format_space ""
           
-          hide_frame_for_single_pane "true"
-
           mode_normal        ""
           mode_locked        "#[fg=${default.xcolors.base08}] {name}"
           mode_resize        "#[fg=${default.xcolors.base08}] {name}"
