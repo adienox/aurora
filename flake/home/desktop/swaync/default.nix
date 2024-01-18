@@ -18,18 +18,13 @@
       transition-time = 200;
       script-fail-notify = true;
 
-      widgets = [ "title" "dnd" "mpris" "notifications" ];
+      widgets = [ "title" "notifications" "mpris" ];
 
       widget-config = {
         title = {
           text = "Notifications";
           clear-all-button = true;
           button-text = "Clear All";
-        };
-        dnd = { text = "Do Not Disturb"; };
-        label = {
-          max-lines = 5;
-          text = "Label Text";
         };
         mpris = {
           image-size = 96;
@@ -50,6 +45,7 @@
       @define-color noti-close-bg         rgba(255, 255, 255, 0.1);
       @define-color noti-close-bg-hover   rgba(255, 255, 255, 0.15);
       @define-color text-color            ${default.xcolors.base05};
+      @define-color text-color-sub        ${default.xcolors.extra05};
       @define-color text-color-disabled   ${default.xcolors.base03};
       @define-color bg-selected           ${default.xcolors.base08};
     '';
