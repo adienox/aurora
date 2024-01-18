@@ -35,6 +35,9 @@ def open_file(file: str) -> TextIOWrapper:
 
 def cleanup(stat: str) -> str:
     data = stat.split(" ")
+    if data[0] == "**amazing**::":
+        return stat
+
     num_of_stats = max(1, len(data) - 1)
     total = round(sum([int(d) for d in data[1:]]) / num_of_stats)
 
@@ -52,8 +55,12 @@ def update_daily_note(stats: list[str]):
 
     total = 0
     for stat in stats:
-        [stat_heading, stat_value] = stat.split(" ")
-        total += int(stat_value)
+        if not stat.startswith("**amazing**::"):
+            [stat_heading, stat_value] = stat.split(" ")
+            total += int(stat_value)
+        else:
+            stat_heading = "**amazing**::"
+
         stat_heading_index = file_content.index(stat_heading)
         file_content[stat_heading_index] = stat
 
