@@ -97,7 +97,7 @@ in {
     auto-stats-processor = {
       Unit = { Description = "Process the auto-stats for the day"; };
       Timer = {
-        OnCalendar = "*-*-* 20:05";
+        OnCalendar = "*-*-* 19:55";
         Persistent = true;
       };
       Install.WantedBy = [ "timers.target" ];

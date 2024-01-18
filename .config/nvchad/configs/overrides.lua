@@ -78,7 +78,7 @@ local function my_on_attach(bufnr)
 
   vim.keymap.set("n", "L", api.tree.change_root_to_node, opts("CD"))
   vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
-  vim.keymap.set("n", "h", api.tree.change_root_to_parent, opts("Up"))
+  vim.keymap.set("n", "H", api.tree.change_root_to_parent, opts("Up"))
 
   vim.keymap.set("n", "<C-r>", api.tree.reload, opts("Refresh"))
   vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))

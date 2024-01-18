@@ -21,6 +21,7 @@ window#waybar.fullscreen {
 }
 
 window#waybar.org\.telegram\.desktop,
+window#waybar.org\.gnome\.Nautilus,
 window#waybar.Spotify,
 window#waybar.discord {
   background-color: @background-semi-trans;
