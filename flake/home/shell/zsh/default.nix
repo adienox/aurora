@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   xdg.configFile."zsh/modules/termsupport.zsh".source = ./termsupport.zsh;
 
   programs.zsh = {
@@ -137,6 +137,7 @@
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
+      source ${config.xdg.configHome}/zsh/modules/termsupport.zsh
 
       # press <C-v><UP> and <C-v><DOWN> at your ZSH command line prompt for correct key codes.
       bindkey '^[OA' history-substring-search-up
