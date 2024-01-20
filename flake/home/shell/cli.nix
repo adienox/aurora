@@ -21,6 +21,24 @@
   ];
 
   programs = {
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        nix_shell = {
+          impure_msg = "[impure](bold red)";
+          pure_msg = "[pure](bold green)";
+          unknown_msg = "[unknown](bold yellow)";
+          format = "via [ $state( \\($name\\))](bold blue) ";
+        };
+      };
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     bat = {
       enable = true;
       config = {

@@ -1,15 +1,5 @@
 { pkgs, ... }: {
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.zellij.enable = true;
+  xdg.configFile."zsh/modules/termsupport.zsh".source = ./termsupport.zsh;
 
   programs.zsh = {
     enable = true;
