@@ -22,6 +22,7 @@
     telegram-desktop
     qpwgraph
     qbittorrent
+    maestral
   ];
 
   programs = {

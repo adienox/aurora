@@ -6,5 +6,5 @@
   ];
 
   # useful packages
-  home.packages = with pkgs; [ python311Packages.howdoi ];
+  home.packages = with pkgs; [ python311Packages.howdoi poetry ];
 }

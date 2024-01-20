@@ -41,7 +41,8 @@ window#waybar {
 
 .modules-left {
   margin: 5px;
-  margin-left: 1px; /*Offset for workspace button margin left*/
+  margin-left: 1px;
+  /*Offset for workspace button margin left*/
 }
 
 .modules-center {
@@ -86,23 +87,29 @@ window#waybar.fullscreen #tray {
 #submap {
   color: @base0B;
 }
+
 #battery {
   color: @base0E;
 }
+
 #bluetooth {
   color: @base0F;
 }
+
 #backlight {
   color: @base09;
 }
+
 #pulseaudio {
   color: @base0A;
 }
+
 #custom-notification,
 #custom-recorder,
 #custom-dunst {
   color: @base08;
 }
+
 #clock {
   color: @base0C;
 }

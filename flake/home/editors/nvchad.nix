@@ -23,12 +23,16 @@
     # web-dev stuff
     prettierd
     nodePackages.typescript-language-server
-    nodejs
+    vscode-langservers-extracted
+    emmet-ls
 
     # shell stuff
     nodePackages.bash-language-server
     shellcheck
     shfmt
+
+    # db stuff
+    sqlite
 
     # needed for best functioning of nvim
     tree-sitter
