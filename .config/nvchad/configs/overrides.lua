@@ -40,6 +40,9 @@ M.treesitter = {
     "bash",
     "regex",
   },
+  highlight = {
+    enable = true,
+  },
   indent = {
     enable = true,
     -- disable = {

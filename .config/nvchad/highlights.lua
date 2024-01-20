@@ -6,19 +6,29 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-	Comment = {
-		italic = true,
-	},
-	NvDashAscii = {
-		bg = "none",
-		fg = "red",
-	},
-	NvDashButtons = {
-		bg = "none",
-	},
-	CmpDoc = {
-		bg = "none",
-	},
+  Comment = {
+    italic = true,
+  },
+  NvDashAscii = {
+    bg = "none",
+    fg = "red",
+  },
+  NvDashButtons = {
+    bg = "none",
+  },
+  CmpDoc = {
+    bg = "none",
+  },
+  markdownBold = {
+    bg = "none",
+    fg = "red",
+    bold = true,
+  },
+  markdownItalic = {
+    bg = "none",
+    fg = "green",
+    italic = true,
+  },
 }
 
 M.add = {}

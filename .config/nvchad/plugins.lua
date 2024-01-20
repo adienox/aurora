@@ -64,6 +64,46 @@ local plugins = {
 
   -- Plugins
   {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      {
+        "tpope/vim-dadbod",
+        lazy = true,
+      },
+      {
+        "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql", "plsql" },
+        lazy = true,
+      },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+      vim.g.db_ui_use_nvim_notify = 1
+    end,
+  },
+
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    event = {
+      "BufReadPre " .. vim.fn.expand("~") .. "/Documents/Knowledge-Garden/**.md",
+      "BufNewFile " .. vim.fn.expand("~") .. "/Documents/Knowledge-Garden/**.md",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = require("custom.configs.obsidian"),
+  },
+
+  {
     "Lilja/zellij.nvim",
     event = "VeryLazy",
     opts = {
