@@ -6,7 +6,7 @@ if [[ -z "$ZELLIJ_SESSIONS" ]]; then
 	zellij a -c "main"
 fi
 
-output=$(echo "$ZELLIJ_SESSIONS" | fzf --ansi --prompt="Session: " --print-query)
+output=$(printf "$ZELLIJ_SESSIONS\nclear-all" | fzf --ansi --prompt="Session: " --print-query)
 
 read -r -d " " search_query match_item <<<"$output"
 
@@ -16,4 +16,9 @@ else
 	session="$search_query"
 fi
 
-zellij a -c "$session"
+if [[ "$session" == "clear-all" ]]; then
+	zellij da -y
+	zellij a -c "main"
+else
+	zellij a -c "$session"
+fi
