@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     cliphist # Clipboard History
     keepmenu # Keepass integration
-    wtype # Autotype
   ];
 
   programs.rofi = {
@@ -46,19 +45,20 @@
   xdg.configFile."keepmenu/config.ini".source =
     (pkgs.formats.ini { }).generate "config.ini" {
       dmenu = {
-        dmenu_command = "rofi -l 8 -theme-str 'entry {placeholder: \"\";}'";
+        dmenu_command = "rofi -i -l 8";
         title_path = false;
+        pinentry = "pinentry-gnome3";
       };
 
-      dmenu_passphrase = {
-        obscure = true;
-      };
+      dmenu_passphrase = { obscure = true; };
 
       database = {
         database_1 = default.files.keepass;
         pw_cache_period_min = 360;
-        autotype_default = "{USERNAME}{TAB}{PASSWORD}{ENTER}";
-        type_library = "wtype";
+        autotype_default =
+          "{USERNAME}{DELAY 200}{TAB}{DELAY 200}{PASSWORD}{ENTER}";
+        type_library =
+          "pynput"; # pynput to resolve the weird issue with wtype parsing ^z in password
       };
     };
 

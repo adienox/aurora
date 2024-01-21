@@ -23,6 +23,7 @@
     qpwgraph
     qbittorrent
     maestral
+    pinentry.gnome3
   ];
 
   programs = {
