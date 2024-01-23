@@ -58,9 +58,6 @@ in {
       "vm.laptop_mode" = 5;
     };
   };
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="${pkgs.iw}/bin/iw dev $name set power_save on"
-  '';
 
   services = {
     udev.extraRules = ''
