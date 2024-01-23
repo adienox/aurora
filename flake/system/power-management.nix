@@ -61,5 +61,21 @@ in {
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="${pkgs.iw}/bin/iw dev $name set power_save on"
   '';
+
+  services = {
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="${pkgs.iw}/bin/iw dev $name set power_save on"
+    '';
+    tlp = {
+      settings = {
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      };
+    };
+  };
+  powerManagement = { powertop.enable = true; };
+
   systemd.tmpfiles.rules = pciRules ++ scsiRules;
 }
