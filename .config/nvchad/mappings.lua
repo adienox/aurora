@@ -32,8 +32,7 @@ M.general = {
     ["<leader>ou"] = { "<cmd> UndotreeToggle <cr>", "UndoTree" },
 
     -- git
-    ["<leader>gg"] = { "<cmd> Neogit <cr>", "Neogit" },
-    ["<leader>gm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gg"] = { "<cmd> LazyGit <cr>", "Open LazyGit TUI" },
   },
   i = {
     ["jk"] = { "<Esc>", "jk for Esc", opts = { nowait = true } },
