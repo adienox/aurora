@@ -3,6 +3,7 @@ import os
 import random
 import shutil
 import subprocess
+from datetime import datetime
 
 stats_file = "/home/nox/Documents/Knowledge-Garden/Extras/stats.md"
 stats_template = (
@@ -24,28 +25,37 @@ stats = {
 }
 
 
-def get_command(key: str, message: str) -> str:
+def get_command(key: str, message: str, **kwargs) -> str:
     theme_str = '-theme-str "listview {enabled: false;}"'
-    return f'rofi -dmenu -p "{key.title()}  " -mesg "<span color=\'#a6e3a1\'><i>{message}</i></span>" -markup {theme_str}'
+    command = f'rofi -dmenu -p "{key.title()}  " -mesg "<span color=\'#a6e3a1\'><i>{message}</i></span>" -markup {theme_str}'
+    pre_fill = kwargs.get("pre_fill", None)
+    if pre_fill:
+        return command + f' -filter "{pre_fill} "'
+    else:
+        return command
 
 
 def select_key() -> str:
     with open(stats_file) as f:
-        lines = f.read().split("\n")[:-1]
+        stats_keys = list(stats.keys())[:-1]
+        lines = f.read().split("\n")[: len(stats_keys)]
         f.seek(0)
 
         items_per_stat = [len(line.split(" ")) - 1 for line in lines]
-
-        stats_keys = list(stats.keys())[:-1]
 
         stat_to_choose = items_per_stat.index(min(items_per_stat))
 
         return stats_keys[stat_to_choose]
 
 
-def check_amazing_filled() -> bool:
+def check_stat_filled(stat_name: str) -> bool:
     with open(stats_file) as f:
-        stat = f.read().split("\n").pop()
+        file_content = f.read().split("\n")
+        try:
+            stat_line = file_content.index(f"**{stat_name}**::")
+        except ValueError:
+            return True
+        stat = file_content[stat_line]
         f.seek(0)
         return len(stat) > 15
 
@@ -90,7 +100,7 @@ def get_amazing_value() -> str:
     # use rofi to get the stat
     key = "amazing"
     message = stats[key]
-    command = get_command(key, message)
+    command = get_command(key, message, pre_fill="I'm amazing because")
 
     while True:
         try:
@@ -100,7 +110,7 @@ def get_amazing_value() -> str:
         except ValueError:
             continue
 
-        if log:
+        if len(log) > 25:
             break
 
     return log
@@ -111,11 +121,18 @@ def main():
     if not os.path.exists(stats_file):
         shutil.copy2(stats_template, stats_file)
 
-    amazing_filled = check_amazing_filled()
-    print(amazing_filled)
+    current_time = datetime.now().hour
 
-    chance = random.choice(range(1, 25))
-    if not amazing_filled and chance == 10:
+    amazing_filled = check_stat_filled("amazing")
+    workout_filled = check_stat_filled("Exercise")
+
+    if not workout_filled:
+        selected_key = "Exercise"
+        # value = get_workout_value()
+
+    # increasing the chance to ask the auto stat as day proceeds
+    chance = random.choice(range(1, 22 - current_time))
+    if not amazing_filled and chance == 1:
         selected_key = "amazing"
         value = get_amazing_value()
     else:

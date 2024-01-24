@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -33,15 +34,20 @@ def open_file(file: str) -> TextIOWrapper:
         sys.exit()
 
 
+def end_with_number(text: str) -> bool:
+    return bool(re.search(r"\d$", text))
+
+
 def cleanup(stat: str) -> str:
-    data = stat.split(" ")
-    if data[0] == "**amazing**::":
+    [heading, values] = stat.split(" ", 1)
+    if not end_with_number(values):
         return stat
+    split_values = values.split(" ")
 
-    num_of_stats = max(1, len(data) - 1)
-    total = round(sum([int(d) for d in data[1:]]) / num_of_stats)
+    num_of_stats = max(1, len(split_values))
+    total = round(sum([int(value) for value in split_values]) / num_of_stats)
 
-    return f"{data[0]} {total}"
+    return f"{heading} {total}"
 
 
 def update_daily_note(stats: list[str]):
@@ -54,12 +60,14 @@ def update_daily_note(stats: list[str]):
     today_file.seek(0)
 
     total = 0
+    stat_without_numeric_value = 0
     for stat in stats:
-        if not stat.startswith("**amazing**::"):
+        if end_with_number(stat):
             [stat_heading, stat_value] = stat.split(" ")
             total += int(stat_value)
         else:
-            stat_heading = "**amazing**::"
+            stat_heading = stat.split(" ", 1)[0]
+            stat_without_numeric_value += 1
 
         stat_heading_index = file_content.index(stat_heading)
         file_content[stat_heading_index] = stat
@@ -67,7 +75,7 @@ def update_daily_note(stats: list[str]):
     overall_heading = "**overall**::"
     file_content[
         file_content.index(overall_heading)
-    ] = f"{overall_heading} {round(total / len(stats))}"
+    ] = f"{overall_heading} {round(total / (len(stats) - stat_without_numeric_value))}"
 
     writable_file_content = "\n".join(file_content).strip()
 
