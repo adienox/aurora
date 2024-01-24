@@ -14,7 +14,6 @@
     ripgrep
     trash-cli
     fzf
-    eza
     tealdeer
     inputs.nh.packages.${pkgs.system}.default
     yt-dlp
@@ -81,10 +80,8 @@
       enable = true;
       enableZshIntegration = true;
       defaultCommand = "rg --files --hidden";
-      changeDirWidgetOptions = [
-        "--preview 'eza --icons --git --color always -T -L 3 {} | head -200'"
-        "--exact"
-      ];
+      changeDirWidgetOptions =
+        [ "--preview 'lsd --git --tree --depth 3 | head -200'" "--exact" ];
     };
 
     lazygit = {
