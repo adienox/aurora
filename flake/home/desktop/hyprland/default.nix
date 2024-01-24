@@ -10,7 +10,6 @@
     gnome.zenity # Another picker
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
-    wlsunset # Screen temp
 
     # recorder and screenshot
     grim
@@ -28,7 +27,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland-31.legacyPackages.${pkgs.system}.hyprland;
     xwayland = { enable = true; };
   };
 

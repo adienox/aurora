@@ -1,5 +1,13 @@
 { config, default, ... }: {
-  imports = [ ./zsh ./xdg.nix ./cli.nix ./direnv.nix ./tmux.nix ./zellij.nix ];
+  imports = [
+    ./zsh
+    ./xdg.nix
+    ./cli.nix
+    ./direnv.nix
+    ./tmux.nix
+    ./zellij.nix
+    ./lsd.nix
+  ];
 
   home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
