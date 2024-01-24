@@ -1,6 +1,11 @@
 #! /usr/bin/env bash
 
 apikey="$XDG_DATA_HOME/secrets/openaigptkey.gpg"
+directory="$XDG_DATA_HOME/secrets"
+
+if [ ! -d "$directory" ]; then
+	mkdir -p "$directory"
+fi
 
 if [ -e "$apikey" ]; then
 	gpg -d "$apikey"
