@@ -19,13 +19,7 @@ in {
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 3;
-      grub = {
-        enable = true;
-        devices = [ "nodev" ];
-        useOSProber = false;
-        efiSupport = true;
-        configurationLimit = 5;
-      };
+      systemd-boot.enable = true;
     };
   };
 
