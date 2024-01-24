@@ -37,6 +37,19 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      colors = {
+        spinner = default.xcolors.base06;
+        hl = default.xcolors.base08;
+        fg = default.xcolors.base05;
+        header = default.xcolors.base08;
+        info = default.xcolors.base0E;
+        pointer = default.xcolors.base06;
+        marker = default.xcolors.base06;
+        prompt = default.xcolors.base0E;
+        "bg+" = default.xcolors.base02;
+        "fg+" = default.xcolors.base05;
+        "hl+" = default.xcolors.base08;
+      };
     };
 
     bat = {
@@ -78,16 +91,16 @@
       enable = true;
       settings = {
         gui.theme = {
-          activeBorderColor = [ "${default.xcolors.base0E}" "bold" ];
-          inactiveBorderColor = [ "${default.xcolors.extra05}" ];
-          optionsTextColor = [ "${default.xcolors.base0D}" ];
-          selectedLineBgColor = [ "${default.xcolors.base02}" ];
-          selectedRangeBgColor = [ "${default.xcolors.base02}" ];
-          cherryPickedCommitBgColor = [ "${default.xcolors.base03}" ];
-          cherryPickedCommitFgColor = [ "${default.xcolors.base08}" ];
-          unstagedChangesColor = [ "${default.xcolors.base08}" ];
-          defaultFgColor = [ "${default.xcolors.base05}" ];
-          searchingActiveBorderColor = [ "${default.xcolors.base0A}" ];
+          activeBorderColor = [ default.xcolors.base0E "bold" ];
+          inactiveBorderColor = [ default.xcolors.extra05 ];
+          optionsTextColor = [ default.xcolors.base0D ];
+          selectedLineBgColor = [ default.xcolors.base02 ];
+          selectedRangeBgColor = [ default.xcolors.base02 ];
+          cherryPickedCommitBgColor = [ default.xcolors.base03 ];
+          cherryPickedCommitFgColor = [ default.xcolors.base08 ];
+          unstagedChangesColor = [ default.xcolors.base08 ];
+          defaultFgColor = [ default.xcolors.base05 ];
+          searchingActiveBorderColor = [ default.xcolors.base0A ];
         };
       };
     };

@@ -34,7 +34,8 @@
 
     GOMODCACHE = "${config.xdg.cacheHome}/go/mod";
 
-    FZF_DEFAULT_OPTS =
-      " --color=bg+:${default.xcolors.base02},spinner:${default.xcolors.base06},hl:${default.xcolors.base08} --color=fg:${default.xcolors.base05},header:${default.xcolors.base08},info:${default.xcolors.base0E},pointer:${default.xcolors.base06} --color=marker:${default.xcolors.base06},fg+:${default.xcolors.base05},prompt:${default.xcolors.base0E},hl+:${default.xcolors.base08}";
+    SKIM_DEFAULT_OPTIONS = ''
+      $SKIM_DEFAULT_OPTIONS 
+      --color=fg:${default.xcolors.base05},matched:${default.xcolors.base02},matched_bg:${default.xcolors.base0F},current:${default.xcolors.base05},current_bg:${default.xcolors.base03},current_match:${default.xcolors.base00},current_match_bg:${default.xcolors.base06},spinner:${default.xcolors.base0B},info:${default.xcolors.base0E},prompt:${default.xcolors.base0D},cursor:${default.xcolors.base08},selected:${default.xcolors.extra01},header:${default.xcolors.base0C},border:${default.xcolors.extra06}'';
   };
 }
