@@ -7,6 +7,7 @@
     ./tmux.nix
     ./zellij.nix
     ./lsd.nix
+    ./starship.nix
   ];
 
   home.sessionVariables = {
