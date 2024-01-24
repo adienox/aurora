@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, default, ... }: {
   home.packages = with pkgs; [
     # archives
     zip
@@ -72,6 +72,24 @@
         "--preview 'eza --icons --git --color always -T -L 3 {} | head -200'"
         "--exact"
       ];
+    };
+
+    lazygit = {
+      enable = true;
+      settings = {
+        gui.theme = {
+          activeBorderColor = [ "${default.xcolors.base0E}" "bold" ];
+          inactiveBorderColor = [ "${default.xcolors.extra05}" ];
+          optionsTextColor = [ "${default.xcolors.base0D}" ];
+          selectedLineBgColor = [ "${default.xcolors.base02}" ];
+          selectedRangeBgColor = [ "${default.xcolors.base02}" ];
+          cherryPickedCommitBgColor = [ "${default.xcolors.base03}" ];
+          cherryPickedCommitFgColor = [ "${default.xcolors.base08}" ];
+          unstagedChangesColor = [ "${default.xcolors.base08}" ];
+          defaultFgColor = [ "${default.xcolors.base05}" ];
+          searchingActiveBorderColor = [ "${default.xcolors.base0A}" ];
+        };
+      };
     };
   };
 
