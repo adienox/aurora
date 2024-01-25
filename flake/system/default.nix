@@ -22,6 +22,7 @@ in {
       timeout = 3;
       systemd-boot.enable = true;
     };
+    plymouth = { enable = true; };
   };
 
   users.users.${username} = {
