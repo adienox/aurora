@@ -65,5 +65,6 @@
       .envrc: 󰒓
     extension:
       nix: 
+      gpg: 󰦝
   '';
 }
