@@ -10,12 +10,13 @@ in {
     ./networking.nix
     ./security.nix
     ./software.nix
+    ./nvidia.nix
     ./power-management.nix
+    ./amd.nix
   ];
 
   boot = {
     kernelModules = [ "amdgpu" ];
-    kernelParams = [ "module_blacklist=nvidia" ];
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 3;

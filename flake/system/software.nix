@@ -62,7 +62,6 @@
     udisks2.enable = true;
     gvfs.enable = true; # Nautilus Trash
     gnome.sushi.enable = true; # Nautilus file preview
-    fstrim.enable = true; # For SSD/NVME
 
     tlp = {
       settings = {

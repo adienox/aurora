@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   pciRules = map (e: "w /sys/bus/${e}/power/control - - - - auto") [
     "pci/devices/0000:00:00.0" # Root Complex
@@ -16,7 +16,6 @@ let
     "pci/devices/0000:00:18.5" # Renoir Function 5
     "pci/devices/0000:00:18.6" # Renoir Function 6
     "pci/devices/0000:00:18.7" # Renoir Function 7
-    "pci/devices/0000:01:00.0" # Nvidia GPU
     "pci/devices/0000:02:00.0" # Non-Volatile Memory Controller
     "pci/devices/0000:03:00.0" # Ethernet
     "pci/devices/0000:04:00.0" # Wifi
@@ -38,13 +37,14 @@ let
       "host1" # Sata link power management Host1
     ];
 in {
-  # Power Management
-  # Disable Watchdogs [[https://wiki.archlinux.org/title/Improving_performance#Watchdogs][Blacklist SP5100]] [[https://wiki.archlinux.org/title/Power_management#Disabling_NMI_watchdog][NMI Watchdog]]
-  # Enabling powersave on [[https://wiki.archlinux.org/title/Power_management#Network_interfaces][network interfaces]]
-  # Enabling powersave on [[https://wiki.archlinux.org/title/Power_management#Intel_wireless_cards_(iwlwifi)][Iwlwifi]]
-  # Enabling powersave on [[https://wiki.archlinux.org/title/Power_management#Audio][Audio]]
-  # Enabling powersave on pci devices [[https://github.com/NixOS/nixpkgs/issues/211345#issuecomment-1397825573][Github Issue]]
-  # Increasing virtual memory [[https://wiki.archlinux.org/title/Power_management#Writeback_Time][Writeback time]]
+  # Disable Watchdogs 
+  # https://wiki.archlinux.org/title/Improving_performance#Watchdogs 
+  # https://wiki.archlinux.org/title/Power_management#Disabling_NMI_watchdog
+  # Enabling powersave on https://wiki.archlinux.org/title/Power_management#Network_interfaces
+  # Enabling powersave on https://wiki.archlinux.org/title/Power_management#Intel_wireless_cards_(iwlwifi)
+  # Enabling powersave on https://wiki.archlinux.org/title/Power_management#Audio
+  # Enabling powersave on pci devices https://github.com/NixOS/nixpkgs/issues/211345#issuecomment-1397825573
+  # Increasing virtual memory https://wiki.archlinux.org/title/Power_management#Writeback_Time
   boot = {
     extraModprobeConfig = ''
       options iwlwifi power_save=1
@@ -57,22 +57,16 @@ in {
       "vm.dirty_writeback_centisecs" = 1500;
       "vm.laptop_mode" = 5;
     };
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
   services = {
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="${pkgs.iw}/bin/iw dev $name set power_save on"
     '';
-    tlp = {
-      settings = {
-        CPU_BOOST_ON_AC = 1;
-        CPU_BOOST_ON_BAT = 0;
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      };
-    };
+    tlp.enable = true;
   };
-  powerManagement = { powertop.enable = true; };
 
-  systemd.tmpfiles.rules = pciRules ++ scsiRules;
+  # systemd.tmpfiles.rules = pciRules ++ scsiRules;
 }
