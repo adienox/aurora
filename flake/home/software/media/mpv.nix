@@ -3,7 +3,13 @@
     mpv = {
       enable = true;
       defaultProfiles = [ "gpu-hq" ];
-      scripts = [ pkgs.mpvScripts.mpris ];
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        sponsorblock
+        thumbfast
+        webtorrent-mpv-hook
+        uosc
+      ];
 
       bindings = {
         l = "seek 5";
@@ -27,6 +33,8 @@
         keep-open = true;
         cursor-autohide-fs-only = true;
         cursor-autohide = 1000;
+        osc = "no";
+        osd-bar = "no";
       };
     };
   };
