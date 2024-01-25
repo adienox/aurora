@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DATE=$(date +%Y%m%d_%H%M%S)
+DATE=$(date +%Y-%m-%dT%H:%M:%S)
 FULLPATH="$HOME/Pictures/Screenshots/$DATE.png"
 
 if [ "$1" == 'full' ]; then
