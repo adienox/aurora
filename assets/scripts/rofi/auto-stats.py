@@ -5,10 +5,8 @@ import shutil
 import subprocess
 from datetime import datetime
 
-stats_file = "/home/nox/Documents/Knowledge-Garden/Extras/stats.md"
-stats_template = (
-    "/home/nox/Documents/Knowledge-Garden/Extras/Templates/stats-template.md"
-)
+stats_file = "/home/nox/Documents/garden/Extras/Temp Files/daily-stats.md"
+stats_template = "/home/nox/Documents/garden/Extras/Templates/Temporal/stats.md"
 
 # List of stats to ask and questions associated with them in dict
 stats = {

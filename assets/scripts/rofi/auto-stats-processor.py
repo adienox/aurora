@@ -4,16 +4,10 @@ import shutil
 import subprocess
 import sys
 from datetime import datetime
-from io import TextIOWrapper
 
-stats_file = "/home/nox/Documents/Knowledge-Garden/Extras/stats.md"
-stats_template = (
-    "/home/nox/Documents/Knowledge-Garden/Extras/Templates/stats-template.md"
-)
-daily_folder = "/home/nox/Documents/Knowledge-Garden/Cards/Temporal/Daily/"
-daily_template = (
-    "/home/nox/Documents/Knowledge-Garden/Extras/Templates/Temporal/Daily.md"
-)
+stats_file = "/home/nox/Documents/garden/Extras/Temp Files/daily-stats.md"
+stats_template = "/home/nox/Documents/garden/Extras/Templates/Temporal/stats.md"
+stats_folder = "/home/nox/Documents/garden/Cards/Temporal/Stats/"
 
 
 def error_send(error: str) -> None:
@@ -21,78 +15,62 @@ def error_send(error: str) -> None:
     sys.exit(error)
 
 
-def open_file(file: str) -> TextIOWrapper:
-    try:
-        data = open(file, "r+")
-        return data
-    except FileNotFoundError:
-        shutil.copy(daily_template, file)
-        data = open(file, "r+")
-        return data
-    except Exception as error:
-        error_send(str(error))
-        sys.exit()
-
-
 def end_with_number(text: str) -> bool:
     return bool(re.search(r"\d$", text))
 
 
-def cleanup(stat: str) -> str:
-    [heading, values] = stat.split(" ", 1)
+def value_aggrigation(stat: str) -> str:
+    if stat == "":
+        return stat
+
+    [heading, values] = stat.split("::", 1)
+
     if not end_with_number(values):
         return stat
-    split_values = values.split(" ")
+
+    split_values = values.strip().split(" ")
 
     num_of_stats = max(1, len(split_values))
     total = round(sum([int(value) for value in split_values]) / num_of_stats)
 
-    return f"{heading} {total}"
+    return f"{heading}:: {total}"
 
 
-def update_daily_note(stats: list[str]):
-    # Getting date
-    date = datetime.now().strftime("%Y-%m-%d.md")
-
-    # opening, reading, and putting the file pointer at the start
-    today_file = open_file(daily_folder + date)
-    file_content = today_file.read().split("\n")
-    today_file.seek(0)
+def cleanup_stats(lines: list[str]) -> list[str]:
+    stats = [value_aggrigation(line) for line in lines]
 
     total = 0
     stat_without_numeric_value = 0
     for stat in stats:
         if end_with_number(stat):
-            [stat_heading, stat_value] = stat.split(" ")
+            stat_value = stat.split("::")[1]
             total += int(stat_value)
         else:
-            stat_heading = stat.split(" ", 1)[0]
             stat_without_numeric_value += 1
 
-        stat_heading_index = file_content.index(stat_heading)
-        file_content[stat_heading_index] = stat
-
     overall_heading = "**overall**::"
-    file_content[
-        file_content.index(overall_heading)
+    stats[
+        stats.index(overall_heading)
     ] = f"{overall_heading} {round(total / (len(stats) - stat_without_numeric_value))}"
 
-    writable_file_content = "\n".join(file_content).strip()
+    return stats
 
-    # writing the file content to file
-    today_file.write(writable_file_content)
-    today_file.truncate()
-    today_file.close()
+
+def write_daily_stat(lines: list[str]) -> None:
+    file_name = datetime.now().strftime("%Y-%m-%d-stats.md")
+    with open(os.path.join(stats_folder, file_name), "w") as f:
+        f.write("\n".join(lines).strip())
 
 
 def main():
     # check if stats file exists
     if os.path.exists(stats_file):
+        lines = []
         with open(stats_file) as f:
             lines = f.read().split("\n")
-            lines = [cleanup(line) for line in lines]
 
-            update_daily_note(lines)
+        cleaned_lines = cleanup_stats(lines)
+        write_daily_stat(cleaned_lines)
 
     shutil.copy(stats_template, stats_file)
 
