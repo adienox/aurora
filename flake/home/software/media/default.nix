@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./rnnoise.nix ./newsboat.nix ./mpv.nix ];
+  imports = [ ./rnnoise.nix ./newsboat.nix ./mpv.nix ./mopidy.nix ];
 
   home.packages = with pkgs; [
     # audio control

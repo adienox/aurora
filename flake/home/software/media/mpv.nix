@@ -23,7 +23,7 @@
 
       config = {
         screenshot-template = "~/Pictures/mpvscreenshots/%F (%P) %n";
-        ytdl-format = "bestvideo+bestaudio";
+        ytdl-format = "bestvideo[height<=1080]+bestaudio/best[height<=1080]";
         save-position-on-quit = true;
         cache = "yes";
         demuxer-max-bytes = "800M";
