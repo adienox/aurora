@@ -30,6 +30,12 @@
       (nerdfonts.override {
         fonts = [ "CascadiaCode" "JetBrainsMono" "FantasqueSansMono" ];
       })
+      (pkgs.fetchzip {
+        url =
+          "https://github.com/vercel/geist-font/releases/download/1.1.0/Geist.Mono.zip";
+        hash = "sha256-8I4O2+bJAlUiDIhbyXzAcwXP5qpmHoh4IfrFio7IZN8=";
+        stripRoot = false;
+      })
       font-awesome
       google-fonts
     ];
