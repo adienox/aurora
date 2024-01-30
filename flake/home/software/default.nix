@@ -24,6 +24,7 @@
     qbittorrent
     maestral
     pinentry.gnome3
+    mov-cli
   ];
 
   programs = {

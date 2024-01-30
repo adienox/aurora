@@ -1,16 +1,16 @@
-{ lib, python3, fetchFromGitHub, mpv }:
-
+{ lib, python3, fetchPypi, mpv }:
 python3.pkgs.buildPythonPackage rec {
-  pname = "mov-cli";
+  pname = "mov_cli";
   version = "1.5.7";
   format = "pyproject";
 
-  src = fetchFromGitHub {
-    owner = "mov-cli";
-    repo = "mov-cli";
-    rev = version;
-    sha256 = "sha256-WhoP4FcoO9+O9rfpC3oDQkVIpVOqxfdLRygHgf1O01g=";
+  src = fetchPypi {
+    inherit pname version;
+    hash = "sha256-B9cN51NZ0i8VUA8uQsqj7FJe2+zo3nYbG2c5npBrw60=";
   };
+
+  patches = [ ./requirements.patch ];
+
   makeWrapperArgs = [ "--prefix" "PATH" ":" "${lib.getBin mpv}/bin" ];
 
   propagatedBuildInputs = with python3.pkgs; [
@@ -22,13 +22,7 @@ python3.pkgs.buildPythonPackage rec {
     click
     beautifulsoup4
     colorama
+    six
+    tldextract
   ];
-
-  meta = with lib; {
-    homepage = "https://github.com/mov-cli/mov-cli";
-    description = "A cli tool to browse and watch movies";
-    license = licenses.gpl3Only;
-    maintainers = with maintainers; [ baitinq ];
-    mainProgram = "mov-cli";
-  };
 }

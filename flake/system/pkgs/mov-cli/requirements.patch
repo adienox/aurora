@@ -1,13 +1,18 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index d7b33a9..1f8b7bb 100644
+index d7b33a9..da4b965 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -15,7 +15,7 @@ repository = "https://github.com/mov-cli/mov-cli"
+@@ -15,11 +15,11 @@ repository = "https://github.com/mov-cli/mov-cli"
  [tool.poetry.dependencies]
  python = "^3.9"
  beautifulsoup4 = "^4.11.2"
 -httpx = "^0.24.0"
-+httpx = "^0.25.0"
++httpx = ">=0.24.0"
  pycryptodome = "^3.17"
  six = "^1.16.0"
  krfzf-py = ">=0.0.4,<0.0.7"
+-tldextract = "^3.4.3"
++tldextract = ">=3.4.3"
+ 
+ [build-system]
+ requires = ["poetry-core"]
