@@ -22,7 +22,7 @@ rec {
   extra04 = "bac2de"; # subtext1
   extra05 = "a6adc8"; # subtext0
   extra06 = "6c7086"; # overlay0
-  
+
   background = base00;
   foreground = base05;
 }
