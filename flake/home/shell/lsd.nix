@@ -66,5 +66,6 @@
     extension:
       nix: 
       gpg: 󰦝
+      md : 󰍔
   '';
 }
