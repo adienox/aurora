@@ -16,7 +16,9 @@ def error_send(error: str) -> None:
 
 
 def valid_num_values(text: str) -> bool:
-    # pattern to check if the text only contains numbers
+    if text.strip() == "":
+        return False
+    # pattern to check if the text contains anything except numbers
     pattern = re.compile(r"^(?!\d+$).+")
     result = pattern.search(text.replace(" ", ""))
 
@@ -29,7 +31,7 @@ def value_aggrigation(stat: str) -> str:
 
     [heading, values] = stat.split("::", 1)
 
-    if not valid_num_values(values):
+    if not valid_num_values(values.strip()):
         return stat
 
     split_values = values.strip().split(" ")
@@ -46,9 +48,9 @@ def cleanup_stats(lines: list[str]) -> list[str]:
     total = 0
     stat_without_numeric_value = 0
     for stat in stats:
-        if valid_num_values(stat):
-            stat_value = stat.split("::")[1]
-            total += int(stat_value)
+        value = stat.split("::")[1]
+        if valid_num_values(value):
+            total += int(value)
         else:
             stat_without_numeric_value += 1
 
