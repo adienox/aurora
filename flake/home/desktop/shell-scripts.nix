@@ -36,6 +36,14 @@ let
       python3 ${config.xdg.configHome}/assets/scripts/rofi/auto-stats-processor.py
     '';
   });
+
+  play-with-mpv = (pkgs.writeShellApplication {
+    name = "play-with-mpv-wrapper";
+    runtimeInputs = with pkgs; [ yt-dlp mpv ];
+    text = ''
+      ${pkgs.play-with-mpv}/bin/play-with-mpv
+    '';
+  });
 in {
   systemd.user.services = {
     battery-status = {
@@ -81,6 +89,18 @@ in {
       };
       Service = {
         ExecStart = "${auto-stats-processor}/bin/auto-stats-processor-wrapper";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    play-with-mpv = {
+      Unit = {
+        Description = "Server component for play-with-mpv extension";
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${play-with-mpv}/bin/play-with-mpv-wrapper";
         Restart = "on-failure";
       };
       Install.WantedBy = [ "graphical-session.target" ];
