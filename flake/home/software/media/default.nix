@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./rnnoise.nix ./newsboat.nix ./mpv.nix ./mopidy.nix ];
+  imports = [ ./rnnoise.nix ./newsboat.nix ./mpv.nix ];
 
   home.packages = with pkgs; [
     # audio control
@@ -8,6 +8,8 @@
     pulsemixer
 
     youtube-music
+    ani-cli
+    mov-cli
 
     # images
     imv
