@@ -28,7 +28,7 @@ local writeYoutubeNote = function(text, filename, timeInSeconds, noteTitle)
 	local title = mp.get_property("media-title")
 	local date = os.date("%Y-%m-%d")
 
-	local timestamp = source .. "?t=" .. timeInSeconds
+	local timestamp = source .. "&t=" .. timeInSeconds .. "s"
 	local highlight = string.format("\n\n[View Highlight](%s)\n\n---\n", timestamp)
 
 	local noteFile = utils.join_path(noteDir, noteTitle .. ".md")
@@ -141,7 +141,7 @@ local setNoteTitle = function()
 
 	input.get_user_input(function(title, err)
 		if err then
-			title = filename
+			return
 		end
 		mp.set_property("pause", "no")
 
@@ -150,7 +150,17 @@ local setNoteTitle = function()
 		-- Close the file when you're done with it
 		file:close()
 		takeNote(filename, propertyFile)
-	end, { request_text = "Enter note title:", default_input = filename, cursor_pos = filename:find("$") })
+	end, {
+		request_text = "Enter note title:",
+		default_input = function()
+			if isYoutubeVideo(filename) then
+				return mp.get_property("media-title")
+			else
+				return filename
+			end
+		end,
+		cursor_pos = filename:find("$"),
+	})
 end
 
 local updateNoteTitle = function()
