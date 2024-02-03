@@ -14,7 +14,8 @@ daily_template = "/home/nox/Documents/garden/Extras/Templates/Temporal/daily.md"
 command = 'rofi -dmenu -p "Log  " -mesg "<span color=\'#a6e3a1\'><i>Your future self will be proud of you for doing this today!</i></span>" -markup -theme-str "listview {enabled: false;}"'
 
 gratitudes = ["grateful", "kudos", "appreciate"]
-meals = ["breakfast", "lunch", "dinner", "meal"]
+meals = ["breakfast", "lunch", "dinner", "meal", "snacks"]
+workouts = ["gym", "exercise", "workout", "pushups"]
 
 
 def check_keywords(text: str, keywords: list[str]) -> bool:
@@ -67,6 +68,8 @@ def add_to_log(log: str) -> None:
         list_type = "- [g]"
     elif check_keywords(log, meals):
         list_type = "- [m]"
+    elif check_keywords(log, workouts):
+        list_type = "- [w]"
     else:
         list_type = "-"
 
