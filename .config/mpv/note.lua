@@ -6,6 +6,10 @@ local md5 = require("md5")
 
 local noteDir = "/home/nox/Documents/garden/Cards/"
 
+local trimWhitespace = function(str)
+	return str:gsub("^%s*(.-)%s*$", "%1")
+end
+
 local isYoutubeVideo = function(filename)
 	local pattern = "watch%?v=%w+"
 
@@ -23,9 +27,9 @@ local fileExists = function(filePath)
 end
 
 local writeYoutubeNote = function(text, filename, timeInSeconds, noteTitle)
-	local author = mp.get_property("metadata/by-key/uploader")
+	local author = trimWhitespace(mp.get_property("metadata/by-key/uploader"))
 	local source = "https://www.youtube.com/" .. filename
-	local title = mp.get_property("media-title")
+	local title = trimWhitespace(mp.get_property("media-title"))
 	local date = os.date("%Y-%m-%d")
 
 	local timestamp = source .. "&t=" .. timeInSeconds .. "s"
@@ -48,7 +52,7 @@ local writeYoutubeNote = function(text, filename, timeInSeconds, noteTitle)
 		file:write(string.format('author: "[[%s]]"\n', author))
 		file:write('tags: "#youtube"\n')
 		file:write(string.format("source: %s\n", source))
-		file:write(string.format('date: "[[%s]]"\n', date))
+		file:write(string.format("date: %s\n", date))
 		file:write("---\n")
 		file:write("# Highlights\n")
 
@@ -82,9 +86,8 @@ local writeLocalFileNote = function(text, filename, timeInSeconds, noteTitle)
 
 		file:write("---\n")
 		file:write(string.format("title: %s\n", noteTitle))
-		file:write(string.format('author: "[[%s]]"\n', author))
 		file:write('tags: "#video"\n')
-		file:write(string.format('date: "[[%s]]"\n', date))
+		file:write(string.format("date: %s\n", date))
 		file:write("---\n")
 		file:write("# Highlights\n")
 
@@ -139,6 +142,12 @@ local setNoteTitle = function()
 		return
 	end
 
+	if isYoutubeVideo(filename) then
+		media_title = mp.get_property("media-title")
+	else
+		media_title = filename
+	end
+
 	input.get_user_input(function(title, err)
 		if err then
 			return
@@ -152,14 +161,8 @@ local setNoteTitle = function()
 		takeNote(filename, propertyFile)
 	end, {
 		request_text = "Enter note title:",
-		default_input = function()
-			if isYoutubeVideo(filename) then
-				return mp.get_property("media-title")
-			else
-				return filename
-			end
-		end,
-		cursor_pos = filename:find("$"),
+		default_input = media_title,
+		cursor_pos = media_title:find("$"),
 	})
 end
 
@@ -172,6 +175,10 @@ local updateNoteTitle = function()
 
 	if isYoutubeVideo(filename) then
 		filename = mp.get_property("media-title")
+	end
+
+	if fileExists(propertyFile) then
+		filename = getNoteTitle(propertyFile)
 	end
 
 	input.get_user_input(function(title, err)
