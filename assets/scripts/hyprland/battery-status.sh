@@ -10,11 +10,7 @@ while true; do
 	battery_level=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	adapter=$(acpi -a | awk '{print $3}')
 
-	if [[ ($battery_level -ge 100) && ($adapter == 'on-line') ]]; then
-		notify-send "Battery Full" "Level: ${battery_level}%"
-		notiSound
-		sleep 300
-	elif [[ ($battery_level -le 20) && ($adapter == 'off-line') ]]; then
+	if [[ ($battery_level -le 20) && ($adapter == 'off-line') ]]; then
 		notify-send --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%"
 		notiSound
 		sleep 120

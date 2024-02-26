@@ -88,6 +88,10 @@ window#waybar.fullscreen #tray {
   color: @base0B;
 }
 
+#custom-playerlabel {
+  background: transparent;
+}
+
 #battery {
   color: @base0E;
 }
@@ -97,7 +101,7 @@ window#waybar.fullscreen #tray {
 }
 
 #backlight {
-  color: @base09;
+  color: @base07;
 }
 
 #pulseaudio {
@@ -119,9 +123,7 @@ window#waybar.fullscreen #tray {
   margin-left: 4px;
   padding: 2px 8px;
   background-color: @base01;
-  transition:
-    all 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68),
-    background 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  transition: all 0.25s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 window#waybar.fullscreen #workspaces button,
@@ -131,13 +133,14 @@ window#waybar.fullscreen #workspaces button label {
 }
 
 #workspaces button label {
-  color: @base08;
+  color: @accent;
   font-weight: bold;
+  transition: all 0.25s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active {
   padding: 2px 14px;
-  background-color: @base08;
+  background-color: @accent;
 }
 
 #workspaces button.active label {
@@ -145,7 +148,7 @@ window#waybar.fullscreen #workspaces button label {
 }
 
 #custom-playerlabel.Paused {
-  color: @base08;
+  color: @accent;
   font-weight: bolder;
   transition: color 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }

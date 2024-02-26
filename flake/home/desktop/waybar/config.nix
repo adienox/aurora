@@ -4,12 +4,8 @@
     layer = "top";
     spacing = 4;
 
-    modules-left = [
-      "hyprland/workspaces"
-      "custom/weather"
-      "hyprland/submap"
-      "hyprland/window"
-    ];
+    modules-left =
+      [ "hyprland/workspaces" "hyprland/submap" "hyprland/window" ];
 
     modules-center = [ "custom/playerlabel" ];
 
@@ -17,7 +13,6 @@
       "custom/recorder"
       "battery"
       "bluetooth"
-      "backlight"
       "pulseaudio"
       "custom/notification"
       "clock"
@@ -68,7 +63,7 @@
       return-type = "json";
       max-length = 48;
       exec = ''
-        playerctl -a metadata --format '{"text": "{{artist}} - {{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F
+        playerctl -a metadata --format '{"text": "{{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F
       '';
       on-click = "playerctl play-pause";
     };
@@ -87,6 +82,7 @@
       format = "<span font='14' rise='-2000'>{icon}</span> {capacity}%";
       format-charging = " {capacity}%";
       format-plugged = " {capacity}%";
+      format-full = "";
       format-alt = "{icon} {time}";
       format-icons = [ "" "" "" "" "" ];
     };
@@ -105,13 +101,10 @@
     };
 
     pulseaudio = {
-      format = "<span font = '12' rise='-1000'>{icon}</span> {volume}%";
-      format-alt = "{format_source}";
+      format = "{icon}";
       format-bluetooth = "{icon}  {volume}%";
       format-bluetooth-muted = "{icon}  ";
       format-muted = "";
-      format-source = " {volume}%";
-      format-source-muted = "";
       format-icons = {
         headphone = "";
         hands-free = "";
@@ -121,6 +114,11 @@
         car = "";
         default = [ "" "" "" ];
       };
+      reverse-mouse-scrolling = true;
+      reverse-scrolling = true;
+      on-click = "swayosd-client --output-volume=mute-toggle";
+      on-scroll-up = "swayosd-client --output-volume=raise --max-volume=150";
+      on-scroll-down = "swayosd-client --output-volume=lower --max-volume=150";
       on-click-right = "pavucontrol";
     };
 
@@ -199,6 +197,7 @@
       @define-color base0D ${default.xcolors.base0D};
       @define-color base0E ${default.xcolors.base0E};
       @define-color base0F ${default.xcolors.base0F};
+      @define-color accent ${default.xcolors.accent};
       @define-color background-floating ${default.rgba.base00 0.4};
       @define-color background-regular  ${
         default.rgba.base00 default.settings.floating_opacity

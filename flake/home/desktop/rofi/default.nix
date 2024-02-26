@@ -67,9 +67,9 @@
       background:           ${default.rgba.base00 0.7};
       background-selected:  ${default.rgba.base01 0.3};
       foreground:           ${default.xcolors.base05};
-      foreground-selected:  ${default.xcolors.base08};
+      foreground-selected:  ${default.xcolors.accent};
       placeholder-color:    ${default.rgba.extra04 0.5};
-      accent:               ${default.xcolors.base08};
+      accent:               ${default.xcolors.accent};
       base:                 ${default.xcolors.base02};
       background-color:     transparent;
     }

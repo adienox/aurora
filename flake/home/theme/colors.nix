@@ -25,5 +25,5 @@ rec {
 
   background = base00;
   foreground = base05;
-  accent = base08;
+  accent = base09;
 }
