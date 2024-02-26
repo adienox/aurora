@@ -30,6 +30,7 @@
         cursor-autohide = 1000;
         osc = "no";
         osd-bar = "no";
+        script-opts = "ytdl_hook-ytdl_path=${pkgs.yt-dlp}/bin/yt-dlp";
         border = "no";
       };
     };

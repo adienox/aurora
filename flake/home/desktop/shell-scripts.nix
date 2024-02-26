@@ -110,13 +110,13 @@ in {
   systemd.user.timers = {
     auto-stats = {
       Unit = { Description = "Run auto-stats every 20 mins"; };
-      Timer = { OnCalendar = "*-*-* 05..19:00/20"; };
+      Timer = { OnCalendar = "*-*-* 06..17:00/20"; };
       Install.WantedBy = [ "timers.target" ];
     };
 
     auto-stats-processor = {
       Unit = { Description = "Process the auto-stats for the day"; };
-      Timer = { OnCalendar = "*-*-* 19:55"; };
+      Timer = { OnCalendar = "*-*-* 18:30"; };
       Install.WantedBy = [ "timers.target" ];
     };
   };

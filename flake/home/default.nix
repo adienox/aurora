@@ -10,5 +10,6 @@
   nixpkgs.config.allowUnfree = true;
 
   #FIXME: Remove this once its fixed
-  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  nixpkgs.config.permittedInsecurePackages =
+    [ "freeimage-unstable-2021-11-01" "electron-25.9.0" ];
 }

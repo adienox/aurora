@@ -36,7 +36,7 @@ in {
 
     colorScheme = "custom";
     customColorScheme = {
-      accent = default.colors.base08;
+      accent = default.colors.accent;
       accent-active = default.colors.base08;
       accent-inactive = default.colors.base00;
       banner = default.colors.base08;
@@ -51,9 +51,7 @@ in {
       text = default.colors.base07;
     };
 
-    enabledCustomApps = with spicePkgs.apps; [
-      marketplace
-    ];
+    enabledCustomApps = with spicePkgs.apps; [ marketplace ];
 
     enabledExtensions = with spicePkgs.extensions; [
       keyboardShortcut

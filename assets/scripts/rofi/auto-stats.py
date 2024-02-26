@@ -122,14 +122,14 @@ def main():
     current_time = datetime.now().hour
 
     amazing_filled = check_stat_filled("amazing")
-    workout_filled = check_stat_filled("Exercise")
+    # workout_filled = check_stat_filled("Exercise")
 
-    if not workout_filled:
-        selected_key = "Exercise"
-        # value = get_workout_value()
+    # if not workout_filled:
+    #     selected_key = "Exercise"
+    # value = get_workout_value()
 
     # increasing the chance to ask the auto stat as day proceeds
-    chance = random.choice(range(1, 22 - current_time))
+    chance = random.choice(range(1, 20 - current_time))
     if not amazing_filled and chance == 1:
         selected_key = "amazing"
         value = get_amazing_value()

@@ -7,7 +7,7 @@ from datetime import datetime
 
 stats_file = "/home/nox/Documents/garden/Extras/Temp Files/daily-stats.md"
 stats_template = "/home/nox/Documents/garden/Extras/Templates/Temporal/stats.md"
-stats_folder = "/home/nox/Documents/garden/Cards/Temporal/Stats/"
+stats_folder = "/home/nox/Documents/garden/Cards/Temporal/"
 
 
 def error_send(error: str) -> None:
@@ -63,7 +63,7 @@ def cleanup_stats(lines: list[str]) -> list[str]:
 
 
 def write_daily_stat(lines: list[str]) -> None:
-    file_name = datetime.now().strftime("%Y-%m-%d-stats.md")
+    file_name = datetime.now().strftime("%Y/Daily/%m/Stats/%Y-%m-%d-stats.md")
     with open(os.path.join(stats_folder, file_name), "w") as f:
         f.write("\n".join(lines).strip())
 

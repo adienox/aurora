@@ -11,7 +11,7 @@
 
   home.packages = with pkgs; [
     amberol
-    todoist
+    ticktick
     anki-bin
     gnome.gnome-clocks
     gnome.gnome-calculator
