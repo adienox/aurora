@@ -102,18 +102,10 @@
 
     pulseaudio = {
       format = "{icon}";
-      format-bluetooth = "{icon}  {volume}%";
-      format-bluetooth-muted = "{icon}  ";
+      format-bluetooth = " {icon}";
+      format-bluetooth-muted = " ";
       format-muted = "";
-      format-icons = {
-        headphone = "";
-        hands-free = "";
-        headset = "";
-        phone = "";
-        portable = "";
-        car = "";
-        default = [ "" "" "" ];
-      };
+      format-icons = { default = [ "" "" "" ]; };
       reverse-mouse-scrolling = true;
       reverse-scrolling = true;
       on-click = "swayosd-client --output-volume=mute-toggle";

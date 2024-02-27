@@ -10,6 +10,8 @@
     gnome.zenity # Another picker
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
+    ianny
+    hypridle
 
     # recorder and screenshot
     grim
@@ -27,8 +29,9 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland-31.legacyPackages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland = { enable = true; };
+    plugins = [ inputs.hycov.packages.${pkgs.system}.hycov ];
   };
 
   # start swayidle as part of hyprland, not sway

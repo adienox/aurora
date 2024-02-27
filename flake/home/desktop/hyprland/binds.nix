@@ -9,6 +9,7 @@
       "$FLOATING_TERM" = "wezterm start --class floating -e";
 
       bind = [
+
         # Term
         "$MOD, RETURN, exec, $TERM"
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
@@ -34,10 +35,9 @@
         "CTRL, code:47, exec, $SCRIPTS/rofi.sh obsidian-log"
         "SHIFT, Insert, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
         "$MOD, I, exec, $SCRIPTS/rofi.sh emoji"
-        "$MOD, T, exec, $SCRIPTS/rofi.sh todoist"
+        "$MOD, T, exec, ticktick"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
-        "$ALT, Tab, exec, $SCRIPTS/rofi.sh window"
 
         # Clipboard
         "$MOD, V, exec, $SCRIPTS/rofi.sh clipboard"
@@ -70,11 +70,14 @@
         "$MOD,g,togglegroup"
         "$MOD,tab,changegroupactive"
 
+        # toggle overview 
+        "$MOD, tab, hycov:toggleoverview"
+
         # Move focus with MOD + vim keys
-        "$MOD, H, movefocus, l"
-        "$MOD, J, movefocus, d"
-        "$MOD, K, movefocus, u"
-        "$MOD, L, movefocus, r"
+        "$MOD, H, hycov:movefocus, l"
+        "$MOD, J, hycov:movefocus, d"
+        "$MOD, K, hycov:movefocus, u"
+        "$MOD, L, hycov:movefocus, r"
 
         # Move window with MOD + vim keys
         "$MOD SHIFT, H, movewindow, l"

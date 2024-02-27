@@ -12,11 +12,9 @@
   home.packages = with pkgs; [
     amberol
     ticktick
-    anki-bin
     gnome.gnome-clocks
     gnome.gnome-calculator
     gnome.nautilus
-    morgen
     obsidian
     keepassxc
     telegram-desktop
