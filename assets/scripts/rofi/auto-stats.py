@@ -1,9 +1,7 @@
 #! /usr/bin/env python3
 import os
-import random
 import shutil
 import subprocess
-from datetime import datetime
 
 stats_file = "/home/nox/Documents/garden/Extras/Temp Files/daily-stats.md"
 stats_template = "/home/nox/Documents/garden/Extras/Templates/Temporal/stats.md"
@@ -19,7 +17,6 @@ stats = {
     "discipline": "Are you doing what you are supposed to?",
     "mood": "How good do you feel?",
     "uniqueness": "How unique is the current moment?",
-    "amazing": "Why are you amazing?",
 }
 
 
@@ -35,7 +32,7 @@ def get_command(key: str, message: str, **kwargs) -> str:
 
 def select_key() -> str:
     with open(stats_file) as f:
-        stats_keys = list(stats.keys())[:-1]
+        stats_keys = list(stats.keys())
         lines = f.read().split("\n")[: len(stats_keys)]
         f.seek(0)
 
@@ -44,18 +41,6 @@ def select_key() -> str:
         stat_to_choose = items_per_stat.index(min(items_per_stat))
 
         return stats_keys[stat_to_choose]
-
-
-def check_stat_filled(stat_name: str) -> bool:
-    with open(stats_file) as f:
-        file_content = f.read().split("\n")
-        try:
-            stat_line = file_content.index(f"**{stat_name}**::")
-        except ValueError:
-            return True
-        stat = file_content[stat_line]
-        f.seek(0)
-        return len(stat) > 15
 
 
 def get_stat_value(key: str) -> int:
@@ -94,48 +79,13 @@ def update_stat(key: str, value: int | str):
         f.truncate()
 
 
-def get_amazing_value() -> str:
-    # use rofi to get the stat
-    key = "amazing"
-    message = stats[key]
-    command = get_command(key, message, pre_fill="I'm amazing because")
-
-    while True:
-        try:
-            log = subprocess.run(
-                command, shell=True, capture_output=True, text=True
-            ).stdout.strip()
-        except ValueError:
-            continue
-
-        if len(log) > 25:
-            break
-
-    return log
-
-
 def main():
     # check if stats file exists
     if not os.path.exists(stats_file):
         shutil.copy2(stats_template, stats_file)
 
-    current_time = datetime.now().hour
-
-    amazing_filled = check_stat_filled("amazing")
-    # workout_filled = check_stat_filled("Exercise")
-
-    # if not workout_filled:
-    #     selected_key = "Exercise"
-    # value = get_workout_value()
-
-    # increasing the chance to ask the auto stat as day proceeds
-    chance = random.choice(range(1, 20 - current_time))
-    if not amazing_filled and chance == 1:
-        selected_key = "amazing"
-        value = get_amazing_value()
-    else:
-        selected_key = select_key()
-        value = get_stat_value(selected_key)
+    selected_key = select_key()
+    value = get_stat_value(selected_key)
     update_stat(selected_key, value)
 
 
