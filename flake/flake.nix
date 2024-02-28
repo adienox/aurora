@@ -9,9 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-31.url =
-      "github:nixos/nixpkgs/90e85bc7c1a6fc0760a94ace129d3a1c61c3d035";
-
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,12 +31,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/hyprland";
+
+    hyprlock.url = "github:hyprwm/hyprlock";
+
+    hypridle.url = "github:hyprwm/hypridle";
+
+    hycov = {
+      url = "github:DreamMaoMao/hycov";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     xremap-flake.url = "github:xremap/nix-flake";
   };
 
-  outputs = { nixpkgs, home-manager, nix-index-db, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -58,7 +64,12 @@
       homeConfigurations = {
         nox = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home nix-index-db.hmModules.nix-index ];
+          modules = [
+            ./home
+            inputs.nix-index-db.hmModules.nix-index
+            inputs.hyprlock.homeManagerModules.hyprlock
+            inputs.hypridle.homeManagerModules.hypridle
+          ];
           extraSpecialArgs = { inherit inputs; };
         };
       };

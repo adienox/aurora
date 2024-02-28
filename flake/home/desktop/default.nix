@@ -2,14 +2,13 @@
   imports = [
     ./hyprland
     ./waybar
-    ./gtklock
     ./wlogout
     ./rofi
     ./swaync
-    ./swayidle.nix
+    ./hyprlock.nix
+    ./hypridle.nix
     ./services.nix
     ./shell-scripts.nix
-    # ./espanso.nix
   ];
 
   home.sessionVariables = {

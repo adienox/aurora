@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
   imports = [ ./config.nix ];
   home.packages = with pkgs; [
     udiskie # AutoMount disks
@@ -10,8 +10,7 @@
     gnome.zenity # Another picker
     xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
-    ianny
-    hypridle
+    ianny # tells you to take breaks
 
     # recorder and screenshot
     grim
@@ -33,8 +32,4 @@
     xwayland = { enable = true; };
     plugins = [ inputs.hycov.packages.${pkgs.system}.hycov ];
   };
-
-  # start swayidle as part of hyprland, not sway
-  systemd.user.services.swayidle.Install.WantedBy =
-    lib.mkForce [ "hyprland-session.target" ];
 }

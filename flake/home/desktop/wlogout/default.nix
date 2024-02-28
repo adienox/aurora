@@ -7,7 +7,7 @@
     layout = [
       {
         label = "lock";
-        action = "gtklock -d";
+        action = "hyprlock";
         text = "lock";
         keybind = "l";
       }
