@@ -3,8 +3,17 @@
     enable = true;
     settings = {
       date = "+%d %b %Y";
-      ignore-globs =
-        [ ".nix-profile" ".nix-defexpr" ".zshenv" ".pki" ".devenv" ".direnv" ];
+      ignore-globs = [
+        ".nix-profile"
+        ".nix-defexpr"
+        ".zshenv"
+        ".pki"
+        ".devenv"
+        ".direnv"
+        ".ssh"
+        ".local"
+        ".cache"
+      ];
       display = "almost-all";
       size = "short";
       sorting.dir-grouping = "first";
