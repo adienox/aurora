@@ -50,11 +50,11 @@ local writeYoutubeNote = function(text, filename, timeInSeconds, noteTitle)
 		file:write("---\n")
 		file:write(string.format("title: %s\n", title))
 		file:write(string.format('author: "[[%s]]"\n', author))
-		file:write('tags: "#youtube"\n')
+		file:write("tags: video\n")
 		file:write(string.format("source: %s\n", source))
 		file:write(string.format("date: %s\n", date))
 		file:write("---\n")
-		file:write("# Highlights\n")
+		file:write("## Highlights\n")
 
 		-- Write text to the file
 		file:write("\n**Note**:: " .. text)
