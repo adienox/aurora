@@ -57,7 +57,7 @@
       nixosConfigurations = {
         anomaly = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system inputs; };
-          modules = [ ./system ];
+          modules = [ ./system inputs.nh.nixosModules.default ];
         };
       };
 
