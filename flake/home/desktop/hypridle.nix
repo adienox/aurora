@@ -13,6 +13,14 @@ let
     ];
     text = builtins.readFile ../../../assets/scripts/hyprland/fade.sh;
   });
+
+  suspend-script = pkgs.writeShellScript "suspend-script" ''
+    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
+    # only suspend if audio isn't running
+    if [ $? == 1 ]; then
+      ${pkgs.systemd}/bin/systemctl suspend
+    fi
+  '';
 in {
   services.hypridle = {
     enable = true;
@@ -21,12 +29,16 @@ in {
     listeners = [
       {
         timeout = 300;
-        onTimeout = "${brightness-fade}/bin/brightness-fade";
-        onResume = "${brightness-fade}/bin/brightness-fade";
+        onTimeout = "${brightness-fade}/bin/brightness-fade fade";
+        onResume = "${brightness-fade}/bin/brightness-fade resume";
       }
       {
         timeout = 500;
         onTimeout = hyprlock;
+      }
+      {
+        timeout = 600;
+        onTimeout = "${suspend-script}/bin/suspend-script";
       }
     ];
   };
