@@ -1,4 +1,4 @@
-{ pkgs, inputs, default, ... }: {
+{ pkgs, default, ... }: {
   home.packages = with pkgs; [
     # archives
     zip
@@ -15,12 +15,10 @@
     trash-cli
     fzf
     tealdeer
-    inputs.nh.packages.${pkgs.system}.default
     yt-dlp
   ];
 
   programs = {
-
     fzf = {
       enable = true;
       enableZshIntegration = true;

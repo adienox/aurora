@@ -60,9 +60,9 @@ in {
     stateVersion = "23.05";
     autoUpgrade = {
       enable = true;
-      dates = "04:00";
+      dates = "09:00";
       flake = "${config.users.users.nox.home}/aurora/flake";
-      flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+      flags = [ "--update-input" "nixpkgs" "--commit-lock-file" "-L" ];
     };
   };
 }
