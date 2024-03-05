@@ -70,29 +70,29 @@ in {
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    auto-stats = {
-      Unit = {
-        Description = "Auto ask for stats used in obsidian daily log";
-        PartOf = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${auto-stats}/bin/auto-stats-wrapper";
-        Restart = "on-failure";
-      };
-      Install.WantedBy = [ "graphical-session.target" ];
-    };
-
-    auto-stats-processor = {
-      Unit = {
-        Description = "Process auto-stats used in obsidian daily log";
-        PartOf = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${auto-stats-processor}/bin/auto-stats-processor-wrapper";
-        Restart = "on-failure";
-      };
-      Install.WantedBy = [ "graphical-session.target" ];
-    };
+    # auto-stats = {
+    #   Unit = {
+    #     Description = "Auto ask for stats used in obsidian daily log";
+    #     PartOf = [ "graphical-session.target" ];
+    #   };
+    #   Service = {
+    #     ExecStart = "${auto-stats}/bin/auto-stats-wrapper";
+    #     Restart = "on-failure";
+    #   };
+    #   Install.WantedBy = [ "graphical-session.target" ];
+    # };
+    #
+    # auto-stats-processor = {
+    #   Unit = {
+    #     Description = "Process auto-stats used in obsidian daily log";
+    #     PartOf = [ "graphical-session.target" ];
+    #   };
+    #   Service = {
+    #     ExecStart = "${auto-stats-processor}/bin/auto-stats-processor-wrapper";
+    #     Restart = "on-failure";
+    #   };
+    #   Install.WantedBy = [ "graphical-session.target" ];
+    # };
 
     play-with-mpv = {
       Unit = {
@@ -107,17 +107,17 @@ in {
     };
   };
 
-  systemd.user.timers = {
-    auto-stats = {
-      Unit = { Description = "Run auto-stats every 20 mins"; };
-      Timer = { OnCalendar = "*-*-* 06..17:00/20"; };
-      Install.WantedBy = [ "timers.target" ];
-    };
-
-    auto-stats-processor = {
-      Unit = { Description = "Process the auto-stats for the day"; };
-      Timer = { OnCalendar = "*-*-* 18:30"; };
-      Install.WantedBy = [ "timers.target" ];
-    };
-  };
+  # systemd.user.timers = {
+  #   auto-stats = {
+  #     Unit = { Description = "Run auto-stats every 20 mins"; };
+  #     Timer = { OnCalendar = "*-*-* 06..17:00/20"; };
+  #     Install.WantedBy = [ "timers.target" ];
+  #   };
+  #
+  #   auto-stats-processor = {
+  #     Unit = { Description = "Process the auto-stats for the day"; };
+  #     Timer = { OnCalendar = "*-*-* 18:30"; };
+  #     Install.WantedBy = [ "timers.target" ];
+  #   };
+  # };
 }
