@@ -1,4 +1,4 @@
-{ ... }: {
+{ default, ... }: {
   wayland.windowManager.hyprland = {
 
     settings = {
@@ -32,8 +32,6 @@
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
         "$MOD, Y, exec, $SCRIPTS/rofi.sh rofi-beats"
         "$ALT, P, exec, keepmenu"
-        "CTRL, code:47, exec, $SCRIPTS/rofi.sh obsidian-log"
-        "SHIFT, Insert, exec, $SCRIPTS/rofi.sh obsidian-log-with-screenshot"
         "$MOD, I, exec, $SCRIPTS/rofi.sh emoji"
         "$MOD, T, exec, ticktick"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
@@ -50,8 +48,8 @@
 
         # Screenshot
         ", Print, exec, $SCRIPTS/screenshot.sh full"
-        "SHIFT, Print, exec, $SCRIPTS/screenshot.sh partial"
-        "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr"
+        "SHIFT, Print, exec, $SCRIPTS/screenshot.sh partial ${default.colors.accent}"
+        "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr ${default.colors.accent}"
 
         # Recording
         "$MOD, R, exec, $SCRIPTS/screenrecord.sh"
