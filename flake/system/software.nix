@@ -78,13 +78,13 @@
       };
     };
 
-    xserver = {
+    xserver.xkb = {
       layout = "us";
-      xkbVariant = "";
+      variant = "";
     };
     locate = {
       enable = true;
-      locate = pkgs.mlocate;
+      package = pkgs.mlocate;
       localuser = null;
       interval = "hourly";
     };

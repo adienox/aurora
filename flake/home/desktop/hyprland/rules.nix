@@ -33,10 +33,10 @@
         "float, title:DevTools"
         "float, title:wlogout"
         "float, ^(blueman-manager)$"
-        "float, ^(io\.bassi\.Amberol)$"
-        "float, ^(org\.gnome\.Calculator)$"
-        "float, ^(org\.gnome\.clocks)$"
-        "float, ^(org\.kde\.polkit-kde-authentication-agent-1)$"
+        "float, ^(io.bassi.Amberol)$"
+        "float, ^(org.gnome.Calculator)$"
+        "float, ^(org.gnome.clocks)$"
+        "float, ^(org.kde.polkit-kde-authentication-agent-1)$"
 
         #Size, Move, and Pin rules
         "pin, title:^(Picture in picture)$"
@@ -64,12 +64,12 @@
         "workspace 2, ^(Code)$"
         "workspace 4, ^(calibre-gui)$"
         "workspace 5, ^(discord)$"
-        "workspace 5, ^(org\.telegram\.desktop)$"
+        "workspace 5 silent, ^(org.telegram.desktop)$"
         "workspace 6, ^(Todoist)$"
         "workspace 7, ^(Spotify)$"
         "workspace 8, ^(Morgen)$"
         "workspace 8, ^(xwaylandvideobridge)$"
-        "workspace 9, ^(org\.rncbc\.qpwgraph)$"
+        "workspace 9, ^(org.rncbc.qpwgraph)$"
 
         # Fullscreen Rules
         "fullscreen, obsidian"
@@ -89,12 +89,12 @@
         # Opacity Rules
         "opacity ${default.settings.floating_opacity}, floating:1"
         "opacity 1, class:^(floating)$"
-        
+
         "opacity ${default.settings.opacity}, class:^(Spotify)$"
-        "opacity ${default.settings.opacity}, class:^(org\.gnome\.Nautilus)$"
-        "opacity ${default.settings.opacity}, class:^(org\.telegram\.desktop)$"
+        "opacity ${default.settings.opacity}, class:^(org.gnome.Nautilus)$"
+        "opacity ${default.settings.opacity}, class:^(org.telegram.desktop)$"
         "opacity ${default.settings.opacity}, class:^(discord)$"
-        "opacity ${default.settings.opacity}, class:^(io\.bassi\.Amberol)$"
+        "opacity ${default.settings.opacity}, class:^(io.bassi.Amberol)$"
 
         # Wlogout
         "noanim, class:^(wlogout)$, title:^(wlogout)$"
@@ -111,18 +111,18 @@
       layerrule = [
         "blur, rofi"
         "ignorezero, rofi"
-        
+
         "blur, waybar"
         "ignorezero, waybar"
         "xray 1, waybar"
         "ignorealpha 0.39, waybar"
-        
+
         "blur, notifications"
         "ignorezero, notifications"
-        
+
         "blur, gtk-layer-shell"
         "ignorezero, gtk-layer-shell"
-        
+
         "blur, swaync-control-center"
         "ignorezero, swaync-control-center"
         "blur, swaync-notification-window"
