@@ -62,7 +62,7 @@ in {
       enable = true;
       dates = "09:00";
       flake = "${config.users.users.nox.home}/aurora/flake";
-      flags = [ "--update-input" "nixpkgs" "--commit-lock-file" "-L" ];
+      flags = [ "--update-input" "nixpkgs" "-L" ];
     };
   };
 }
