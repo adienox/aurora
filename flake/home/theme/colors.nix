@@ -26,4 +26,5 @@ rec {
   background = base00;
   foreground = base05;
   accent = base09;
+  accenthue = "23";
 }
