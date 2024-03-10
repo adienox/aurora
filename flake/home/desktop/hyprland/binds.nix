@@ -5,8 +5,8 @@
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
       "$SCRIPTS" = "~/.config/assets/scripts/hyprland";
-      "$TERM" = "wezterm start";
-      "$FLOATING_TERM" = "wezterm start --class floating -e";
+      "$TERM" = "kitty";
+      "$FLOATING_TERM" = "kitty --class floating -e";
 
       bind = [
 
@@ -60,6 +60,8 @@
 
         # Misc
         ", F11, exec, hyprctl dispatch fullscreen"
+        "$MOD SHIFT, F, exec, hyprctl dispatch fullscreen"
+        ", F9, exec, pkill waybar || waybar"
         "$MOD SHIFT, P, exec, $SCRIPTS/window-pin.sh"
         "$MOD SHIFT, W, exec, $SCRIPTS/switchwall.sh"
         "$MOD, C, exec, hyprctl dispatch centerwindow"
