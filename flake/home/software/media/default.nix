@@ -7,7 +7,6 @@
     playerctl
     pulsemixer
 
-    youtube-music
     ani-cli
     mov-cli
 

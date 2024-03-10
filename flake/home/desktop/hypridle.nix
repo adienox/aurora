@@ -38,7 +38,7 @@ in {
       }
       {
         timeout = 600;
-        onTimeout = "${suspend-script}/bin/suspend-script";
+        onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
       }
     ];
   };

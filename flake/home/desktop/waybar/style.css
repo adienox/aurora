@@ -32,7 +32,7 @@ window#waybar.kitty,
 window#waybar {
   background-color: @background-regular;
   box-shadow: none;
-  transition: all 0.15s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .modules-right {
