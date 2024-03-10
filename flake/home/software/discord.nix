@@ -26,7 +26,7 @@
 
     /* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
 
-    @import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css); /* Apple emoji */
+    @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css"); /* Apple emoji */
     @import url("https://refact0r.github.io/midnight-discord/midnight.css");
 
     /* customize things here */
@@ -43,14 +43,14 @@
       --idle-indicator: ${default.xcolors.base0A}; /* change to #f0b232 for default yellow */
 
       /* accent colors */
-      --accent-1: hsl(343, 84%, 81%); /* links */
-      --accent-2: hsl(343, 84%, 81%); /* general unread/mention elements */
-      --accent-3: hsl(343, 84%, 81%); /* accent buttons */
-      --accent-4: hsl(343, 70%, 73%); /* accent buttons when hovered */
-      --accent-5: hsl(343, 55%, 65%); /* accent buttons when clicked */
-      --mention: hsla(343, 70%, 71%, 0.1); /* mentions & mention messages */
+      --accent-1: hsl(${default.colors.accenthue}, 84%, 81%); /* links */
+      --accent-2: hsl(${default.colors.accenthue}, 84%, 81%); /* general unread/mention elements */
+      --accent-3: hsl(${default.colors.accenthue}, 84%, 81%); /* accent buttons */
+      --accent-4: hsl(${default.colors.accenthue}, 70%, 73%); /* accent buttons when hovered */
+      --accent-5: hsl(${default.colors.accenthue}, 55%, 65%); /* accent buttons when clicked */
+      --mention: hsla(${default.colors.accenthue}, 70%, 71%, 0.1); /* mentions & mention messages */
       --mention-hover: hsla(
-        343,
+        ${default.colors.accenthue},
         70%,
         71%,
         0.05
