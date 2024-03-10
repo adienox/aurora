@@ -37,11 +37,6 @@
 
     hypridle.url = "github:hyprwm/hypridle";
 
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     xremap-flake.url = "github:xremap/nix-flake";
   };
 

@@ -68,14 +68,11 @@
         "$MOD,g,togglegroup"
         "$MOD,tab,changegroupactive"
 
-        # toggle overview 
-        "$MOD, tab, hycov:toggleoverview"
-
         # Move focus with MOD + vim keys
-        "$MOD, H, hycov:movefocus, l"
-        "$MOD, J, hycov:movefocus, d"
-        "$MOD, K, hycov:movefocus, u"
-        "$MOD, L, hycov:movefocus, r"
+        "$MOD, H, movefocus, l"
+        "$MOD, J, movefocus, d"
+        "$MOD, K, movefocus, u"
+        "$MOD, L, movefocus, r"
 
         # Move window with MOD + vim keys
         "$MOD SHIFT, H, movewindow, l"
