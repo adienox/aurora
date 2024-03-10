@@ -112,6 +112,11 @@
         "blur, rofi"
         "ignorezero, rofi"
 
+        "animation popin 50%, rofi"
+        "animation slide, waybar"
+        "noanim, swww"
+        "blur, logout_dialog"
+
         "blur, waybar"
         "ignorezero, waybar"
         "xray 1, waybar"
