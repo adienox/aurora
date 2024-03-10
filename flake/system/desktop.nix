@@ -38,6 +38,7 @@
       })
       font-awesome
       google-fonts
+      apple-fonts
     ];
     fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
   };

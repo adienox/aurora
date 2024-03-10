@@ -4,4 +4,5 @@ self: super: {
   udiskie = self.callPackage ./udiskie { };
   anipy-cli = self.callPackage ./anipy-cli { };
   mov-cli = self.callPackage ./mov-cli { };
+  apple-fonts = self.callPackage ./fonts/apple-fonts.nix { };
 }
