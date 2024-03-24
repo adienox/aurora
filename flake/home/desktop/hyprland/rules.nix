@@ -82,7 +82,7 @@
 
         # Idle inhibit rules
         "idleinhibit fullscreen, class:^(librewolf)$"
-        "idleinhibit focus, class:^(librewolf)$, title:^(.*YouTube.*)$"
+        "idleinhibit focus, class:^(ticktick)$"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit focus, class:^(discord)$"
 

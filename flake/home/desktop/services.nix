@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [ swww swayosd valent brightnessctl ];
+  home.packages = with pkgs; [ swww dcnnt swayosd brightnessctl ];
 
   systemd.user.services = {
     swww = {
@@ -28,17 +28,17 @@
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    valent = {
-      Unit = {
-        Description = "GTK KdeConnect";
-        PartOf = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.valent}/bin/valent --gapplication-service";
-        Restart = "on-failure";
-      };
-      Install.WantedBy = [ "graphical-session.target" ];
-    };
+    # valent = {
+    #   Unit = {
+    #     Description = "GTK KdeConnect";
+    #     PartOf = [ "graphical-session.target" ];
+    #   };
+    #   Service = {
+    #     ExecStart = "${pkgs.valent}/bin/valent --gapplication-service";
+    #     Restart = "on-failure";
+    #   };
+    #   Install.WantedBy = [ "graphical-session.target" ];
+    # };
 
     wlsunset = {
       Unit = {

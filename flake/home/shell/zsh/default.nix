@@ -143,7 +143,7 @@
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
 
-      if [[ $TERM == "xterm-256color" ]]; then
+      if [[ $TERM == "xterm-kitty" ]]; then
         if [[ -z "$ZELLIJ" ]]; then
           if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
               zellij-attach.sh

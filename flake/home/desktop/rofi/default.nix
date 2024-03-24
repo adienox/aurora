@@ -1,4 +1,4 @@
-{ pkgs, default, ... }: {
+{ pkgs, default, inputs, ... }: {
   home.packages = with pkgs; [
     cliphist # Clipboard History
     keepmenu # Keepass integration
@@ -6,7 +6,8 @@
 
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = inputs.rofi-1751.legacyPackages.${pkgs.system}.rofi-wayland;
+    # package = pkgs.rofi-wayland;
     terminal = default.terminal.name;
     font = "${default.settings.font.default} 16";
     plugins = with pkgs; [ rofi-emoji rofi-calc ];

@@ -22,6 +22,8 @@
     git
     ntfs3g
   ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Enable adbusers in extragroups for user
   programs.adb.enable = true;
@@ -68,6 +70,7 @@
     udisks2.enable = true;
     gvfs.enable = true; # Nautilus Trash
     gnome.sushi.enable = true; # Nautilus file preview
+    upower.enable = true;
 
     tlp = {
       settings = {

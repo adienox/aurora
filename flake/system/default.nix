@@ -11,7 +11,6 @@ in {
     ./security.nix
     ./software.nix
     ./nvidia.nix
-    ./power-management.nix
     ./amd.nix
   ];
 
@@ -30,6 +29,7 @@ in {
     description = user;
     shell = pkgs.zsh;
     extraGroups = [
+      "vboxusers"
       "networkmanager"
       "wheel"
       "video"

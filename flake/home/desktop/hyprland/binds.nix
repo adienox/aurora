@@ -23,17 +23,20 @@
         # Applications
         "$MOD, W, exec, $SCRIPTS/focus.sh Vivaldi-stable vivaldi"
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
+        ", Delete, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
+        "SHIFT, Delete, exec, wlogout -p layer-shell"
+        "$MOD, T, exec, $SCRIPTS/focus.sh ticktick ticktick"
+        ", Insert, exec, $SCRIPTS/focus.sh ticktick ticktick"
 
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
         "$MOD, Y, exec, $SCRIPTS/rofi.sh rofi-beats"
         "$ALT, P, exec, keepmenu"
         "$MOD, I, exec, $SCRIPTS/rofi.sh emoji"
-        "$MOD, T, exec, ticktick"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
 
@@ -45,14 +48,6 @@
         "$MOD SHIFT, Q, killactive, "
         "$MOD, F, togglefloating, "
         "$MOD, P, pseudo,"
-
-        # Screenshot
-        ", Print, exec, $SCRIPTS/screenshot.sh full"
-        "SHIFT, Print, exec, $SCRIPTS/screenshot.sh partial ${default.colors.accent}"
-        "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr ${default.colors.accent}"
-
-        # Recording
-        "$MOD, R, exec, $SCRIPTS/screenrecord.sh"
 
         # Scroll through workspace
         "SUPER,mouse_down,workspace,e+1"
@@ -112,11 +107,27 @@
         "SHIFT, XF86MonBrightnessUp, exec, swayosd-client --brightness 1"
         "SHIFT, XF86MonBrightnessDown, exec, swayosd-client --brightness -1"
 
+        # Weird keybindings to make my keybord knob function
+        "SHIFT, XF86AudioRaiseVolume, exec, swayosd-client --brightness raise"
+        "SHIFT, XF86AudioLowerVolume, exec, swayosd-client --brightness lower"
+        "SHIFT, XF86AudioMute, exec, swayosd-client --input-volume=mute-toggle"
+
         # Audio Control
         ", XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle"
         ", XF86AudioMicMute, exec, swayosd-client --input-volume=mute-toggle"
         ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume=raise --max-volume=150"
         ", XF86AudioLowerVolume, exec, swayosd-client --output-volume=lower --max-volume=150"
+
+        # Screenshot
+        ", Print, exec, $SCRIPTS/screenshot.sh full"
+        ", Prior, exec, $SCRIPTS/screenshot.sh full"
+        "SHIFT, Print, exec, $SCRIPTS/screenshot.sh partial ${default.colors.accent}"
+        "SHIFT, Prior, exec, $SCRIPTS/screenshot.sh partial ${default.colors.accent}"
+        "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr ${default.colors.accent}"
+
+        # Recording
+        "$MOD, R, exec, $SCRIPTS/screenrecord.sh"
+        "$MOD, Prior, exec, $SCRIPTS/screenrecord.sh"
       ];
 
       bindl = [

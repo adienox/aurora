@@ -1,4 +1,4 @@
-{ pkgs, default, ... }: {
+{ pkgs, inputs, default, ... }: {
   home.packages = with pkgs;
     [
       ((discord.override {

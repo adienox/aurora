@@ -104,7 +104,7 @@
 
       {
         text = ''
-          <i><span foreground="##ffffff99">See you on the other side...</span></i>'';
+          <i><span foreground="##ffffff99">be present, be still, for it can be the last thing you ever experience</span></i>'';
         font_size = 14;
         font_family = "SF Pro Display";
 

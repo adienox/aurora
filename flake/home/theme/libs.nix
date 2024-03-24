@@ -3,6 +3,29 @@ with lib; rec {
   # convert rrggbb hex to #rrggbb
   x = c: "#${c}";
 
+  # convert rrggbb to hsl hue
+  #FIXME: probably seems ot work but says value coersion error as the c seems to passed in as a function
+  hue = c:
+    let
+      r = toString (hexToDec (__substring 0 2 c));
+      g = toString (hexToDec (__substring 2 2 c));
+      b = toString (hexToDec (__substring 4 2 c));
+      cmax = lib.max [ r g b ];
+      cmin = lib.min [ r g b ];
+      delta = cmax - cmin;
+
+      calc = if delta == 0 then
+        0
+      else if cmax == r then
+        let d = g - b; in if d == 0 then 0 else d * 6 / delta
+      else if cmax == g then
+        (b - r) / delta + 2
+      else
+        (r - g) / delta + 4;
+
+      res = toString (if calc < 0 then calc * 60 + 360 else calc * 60);
+    in res;
+
   # convert rrggbb hex to rgba(r, g, b, a) css
   rgba = c: a:
     let

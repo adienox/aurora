@@ -7,7 +7,6 @@
     stylua
 
     # nix stuff
-    rnix-lsp
     nixfmt
     nil
 

@@ -94,5 +94,16 @@
         disable_hyprland_logo = true;
       };
     };
+    # extraConfig = ''
+    #   device {
+    #     name = ite-tech.-inc.-ite-device(8910)-keyboard
+    #     enabled = false
+    #   }
+    #
+    #   device {
+    #     name = ite-tech.-inc.-ite-device(8910)-wireless-radio-control
+    #     enabled = false
+    #   }
+    # '';
   };
 }

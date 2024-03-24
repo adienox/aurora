@@ -4,7 +4,9 @@
     ./waybar
     ./wlogout
     ./rofi
-    ./swaync
+    # ./swaync
+    ./mako.nix
+    ./ags.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./services.nix
@@ -28,6 +30,21 @@
       onChange = "${pkgs.fontconfig}/bin/fc-cache -f";
     };
   };
+
+  xdg.configFile."io.github.zefr0x.ianny/config.toml".source =
+    (pkgs.formats.toml { }).generate "config.toml" {
+      timer = {
+        idle_timeout = 240;
+        short_break_timeout = 300;
+        long_break_timeout = 1000;
+        short_break_duration = 10;
+        long_break_duration = 60;
+      };
+      notification = {
+        show_progress_bar = true;
+        minimum_update_delay = 1;
+      };
+    };
 
   # fake a tray to let apps start
   # https://github.com/nix-community/home-manager/issues/2064

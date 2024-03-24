@@ -43,13 +43,13 @@
         pager = "less -FR";
         theme = "Catppuccin-mocha";
       };
-      # themes = {
-      #   Catppuccin-mocha = builtins.readFile (pkgs.fetchurl {
-      #     url =
-      #       "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme";
-      #     hash = "sha256-qMQNJGZImmjrqzy7IiEkY5IhvPAMZpq0W6skLLsng/w=";
-      #   });
-      # };
+      themes = {
+        Catppuccin-mocha = builtins.readFile (pkgs.fetchurl {
+          url =
+            "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme";
+          hash = "sha256-W8J3+5g+k1/DfYvkRClXIUEPNYlnSDQ3pWS9tV7IZqE=";
+        });
+      };
       extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
     };
 
