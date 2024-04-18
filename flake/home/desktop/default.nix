@@ -4,9 +4,7 @@
     ./waybar
     ./wlogout
     ./rofi
-    # ./swaync
     ./mako.nix
-    ./ags.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./services.nix

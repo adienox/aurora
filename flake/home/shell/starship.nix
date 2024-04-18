@@ -23,14 +23,6 @@
         style = "bold ${default.xcolors.base07}";
       };
 
-      directory.substitutions = {
-        "~" = "󰋞";
-        "Documents" = " ";
-        "Downloads" = " ";
-        "Music" = " ";
-        "Pictures" = " ";
-      };
-
       character = {
         success_symbol =
           "[ ](bold ${default.xcolors.base0D})[ ➜](bold ${default.xcolors.base0B})";

@@ -89,6 +89,7 @@
         # Opacity Rules
         "opacity ${default.settings.floating_opacity}, floating:1"
         "opacity 1, class:^(floating)$"
+        "opacity 0.9, class:^(obsidian)$"
 
         "opacity ${default.settings.opacity}, class:^(Spotify)$"
         "opacity ${default.settings.opacity}, class:^(org.gnome.Nautilus)$"

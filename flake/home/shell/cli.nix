@@ -47,7 +47,7 @@
         Catppuccin-mocha = builtins.readFile (pkgs.fetchurl {
           url =
             "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme";
-          hash = "sha256-W8J3+5g+k1/DfYvkRClXIUEPNYlnSDQ3pWS9tV7IZqE=";
+          hash = "sha256-F4jRaI6KKFvj9GQTjwQFpROJXEVWs47HsTbDVy8px0Q=";
         });
       };
       extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];

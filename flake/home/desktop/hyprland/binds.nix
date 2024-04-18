@@ -28,9 +28,7 @@
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
-        "SHIFT, Delete, exec, wlogout -p layer-shell"
-        "$MOD, T, exec, $SCRIPTS/focus.sh ticktick ticktick"
-        ", Insert, exec, $SCRIPTS/focus.sh ticktick ticktick"
+        "SHIFT, Insert, exec, $SCRIPTS/focus.sh ticktick ticktick"
 
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
@@ -39,6 +37,8 @@
         "$MOD, I, exec, $SCRIPTS/rofi.sh emoji"
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
+        "$ALT, N, exec, $SCRIPTS/rofi.sh media-log"
+        ", Insert, exec, $SCRIPTS/rofi.sh task"
 
         # Clipboard
         "$MOD, V, exec, $SCRIPTS/rofi.sh clipboard"

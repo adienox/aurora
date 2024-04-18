@@ -32,7 +32,7 @@ keybinds clear-defaults=true {
         bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
-        bind "f" { ToggleFocusFullscreen; TogglePaneFrames; SwitchToMode "Normal"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
@@ -197,6 +197,7 @@ plugins {
 
 theme "default"
 
+pane_frames false
 session_serialization true
 pane_viewport_serialization true
 scrollback_lines_to_serialize 0

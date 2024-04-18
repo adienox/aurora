@@ -10,6 +10,8 @@
   ];
 
   home.packages = with pkgs; [
+    calibre
+    morgen
     amberol
     ticktick
     gnome.gnome-clocks
@@ -20,7 +22,6 @@
     telegram-desktop
     qpwgraph
     qbittorrent
-    maestral
   ];
 
   programs = {

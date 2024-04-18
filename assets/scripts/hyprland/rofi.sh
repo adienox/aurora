@@ -20,6 +20,8 @@ elif [ "$1" == "obsidian-log-with-screenshot" ]; then
 	"$SCRIPTS"/obsidian-log-with-screenshot.sh
 elif [ "$1" == "rofi-beats" ]; then
 	"$SCRIPTS"/rofi-beats.sh
-elif [ "$1" == "todoist" ]; then
-	"$SCRIPTS"/todoist-task.sh
+elif [ "$1" == "task" ]; then
+	"$SCRIPTS"/task.sh
+elif [ "$1" == "media-log" ]; then
+	"$SCRIPTS"/obsidian-media-log.py
 fi
