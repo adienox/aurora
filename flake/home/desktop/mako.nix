@@ -4,12 +4,13 @@
   services.mako = {
     enable = true;
     font = default.settings.font.default;
+    sort = "+time";
     margin = "10,10,0";
     padding = "10";
     borderSize = 2;
     borderRadius = 6;
     defaultTimeout = 10000;
-    groupBy = "summary";
+    groupBy = "body";
     # iconPath = "${config.gtk.iconTheme.package}/share/icons/Papirus-Dark";
 
     backgroundColor = default.xcolors.background;

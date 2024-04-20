@@ -21,20 +21,10 @@ let
       builtins.readFile ../../../assets/scripts/hyprland/bluetooth-auto-off.sh;
   });
 
-  auto-stats = (pkgs.writeShellApplication {
-    name = "auto-stats-wrapper";
-    runtimeInputs = with pkgs; [ python3 rofi-wayland ];
-    text = ''
-      python3 ${config.xdg.configHome}/assets/scripts/rofi/auto-stats.py
-    '';
-  });
-
-  auto-stats-processor = (pkgs.writeShellApplication {
-    name = "auto-stats-processor-wrapper";
-    runtimeInputs = with pkgs; [ python3 ];
-    text = ''
-      python3 ${config.xdg.configHome}/assets/scripts/rofi/auto-stats-processor.py
-    '';
+  mako-reload = (pkgs.writeShellApplication {
+    name = "mako-reload";
+    runtimeInputs = with pkgs; [ mako libnotify ];
+    text = builtins.readFile ../../../assets/scripts/utils/mako-reload.sh;
   });
 
   play-with-mpv = (pkgs.writeShellApplication {
@@ -70,30 +60,6 @@ in {
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    # auto-stats = {
-    #   Unit = {
-    #     Description = "Auto ask for stats used in obsidian daily log";
-    #     PartOf = [ "graphical-session.target" ];
-    #   };
-    #   Service = {
-    #     ExecStart = "${auto-stats}/bin/auto-stats-wrapper";
-    #     Restart = "on-failure";
-    #   };
-    #   Install.WantedBy = [ "graphical-session.target" ];
-    # };
-    #
-    # auto-stats-processor = {
-    #   Unit = {
-    #     Description = "Process auto-stats used in obsidian daily log";
-    #     PartOf = [ "graphical-session.target" ];
-    #   };
-    #   Service = {
-    #     ExecStart = "${auto-stats-processor}/bin/auto-stats-processor-wrapper";
-    #     Restart = "on-failure";
-    #   };
-    #   Install.WantedBy = [ "graphical-session.target" ];
-    # };
-
     play-with-mpv = {
       Unit = {
         Description = "Server component for play-with-mpv extension";
@@ -105,19 +71,28 @@ in {
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
+
+    mako-reload = {
+      Unit = {
+        Description = "Mako config reloader";
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${mako-reload}/bin/mako-reload";
+        Type = "oneshot";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
   };
 
-  # systemd.user.timers = {
-  #   auto-stats = {
-  #     Unit = { Description = "Run auto-stats every 20 mins"; };
-  #     Timer = { OnCalendar = "*-*-* 06..17:00/20"; };
-  #     Install.WantedBy = [ "timers.target" ];
-  #   };
-  #
-  #   auto-stats-processor = {
-  #     Unit = { Description = "Process the auto-stats for the day"; };
-  #     Timer = { OnCalendar = "*-*-* 18:30"; };
-  #     Install.WantedBy = [ "timers.target" ];
-  #   };
-  # };
+  systemd.user.paths = {
+    mako-reload = {
+      Unit = {
+        Description = "Mako config reloader";
+        PartOf = [ "graphical-session.target" ];
+      };
+      Path = { PathModified = "%h/.config/mako/config"; };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+  };
 }
