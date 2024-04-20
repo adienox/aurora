@@ -22,11 +22,6 @@
     rofi-1751.url =
       "github:nixos/nixpkgs/58ae79ea707579c40102ddf62d84b902a987c58b";
 
-    nh = {
-      url = "github:viperML/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,7 +55,7 @@
       nixosConfigurations = {
         anomaly = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit system inputs; };
-          modules = [ ./system inputs.nh.nixosModules.default ];
+          modules = [ ./system ];
         };
       };
 

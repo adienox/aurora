@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     calibre
+    anki-bin
     morgen
     amberol
     ticktick

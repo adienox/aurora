@@ -28,7 +28,7 @@
   # Enable adbusers in extragroups for user
   programs.adb.enable = true;
 
-  nh = {
+  programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";

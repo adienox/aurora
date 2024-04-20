@@ -88,14 +88,25 @@
 
         # Opacity Rules
         "opacity ${default.settings.floating_opacity}, floating:1"
-        "opacity 1, class:^(floating)$"
-        "opacity 0.9, class:^(obsidian)$"
 
         "opacity ${default.settings.opacity}, class:^(Spotify)$"
         "opacity ${default.settings.opacity}, class:^(org.gnome.Nautilus)$"
         "opacity ${default.settings.opacity}, class:^(org.telegram.desktop)$"
         "opacity ${default.settings.opacity}, class:^(discord)$"
         "opacity ${default.settings.opacity}, class:^(io.bassi.Amberol)$"
+
+        "opacity 1, class:^(floating)$"
+        "opacity 1, class:^(Vivaldi-stable)$"
+
+        "opacity 0.9, class:^(obsidian)$"
+        "opacity 0.9, class:^(ticktick)$"
+        "opacity 0.9, class:^(Anki)$"
+
+        "tile, class:^(Vivaldi-stable)$"
+        "float, class:^(Anki)$, title:^(Add)$"
+        "center, class:^(Anki)$, title:^(Add)$"
+        "float, class:^(Anki)$, title:^(Preferences)$"
+        "center, class:^(Anki)$, title:^(Preferences)$"
 
         # Wlogout
         "noanim, class:^(wlogout)$, title:^(wlogout)$"
