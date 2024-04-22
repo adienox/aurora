@@ -20,6 +20,13 @@ window#waybar.fullscreen {
   color: transparent;
 }
 
+window#waybar.Anki,
+window#waybar.calibre-gui,
+window#waybar.ticktick,
+window#waybar.obsidian {
+  background-color: @background-semi-trans-9;
+}
+
 window#waybar.org\.telegram\.desktop,
 window#waybar.org\.gnome\.Nautilus,
 window#waybar.Spotify,

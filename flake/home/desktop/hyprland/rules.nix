@@ -85,6 +85,7 @@
         "idleinhibit focus, class:^(ticktick)$"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit focus, class:^(discord)$"
+        "idleinhibit focus, class:^(Vivaldi-stable)$, title:(.*)(- Youtube)(.*)$"
 
         # Opacity Rules
         "opacity ${default.settings.floating_opacity}, floating:1"
@@ -101,6 +102,7 @@
         "opacity 0.9, class:^(obsidian)$"
         "opacity 0.9, class:^(ticktick)$"
         "opacity 0.9, class:^(Anki)$"
+        "opacity 0.9, class:^(calibre-gui)$"
 
         "tile, class:^(Vivaldi-stable)$"
         "float, class:^(Anki)$, title:^(Add)$"

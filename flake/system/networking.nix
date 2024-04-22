@@ -9,9 +9,15 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts =
-        [ 22000 8080 9090 5050 4040 5040 ]; # needed for syncthing
-      allowedUDPPorts = [ 9090 ];
+      allowedTCPPorts = [
+        22000 # syncthing
+        8080 # anki
+        9090 # calibre
+        5050
+        4040
+        5040
+      ];
+      allowedUDPPorts = [ 8080 9090 ];
       allowedTCPPortRanges = [{
         from = 1714;
         to = 1764;

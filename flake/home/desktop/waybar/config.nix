@@ -197,6 +197,7 @@
       @define-color background-semi-trans  ${
         default.rgba.base00 default.settings.opacity
       };
+      @define-color background-semi-trans-9 ${default.rgba.base00 0.9};
     '';
   };
 }

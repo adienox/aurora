@@ -1,4 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  custom_mech = pkgs.python311Packages.mechanize.overridePythonAttrs
+    (old: { doCheck = false; });
+  custom_calibre = pkgs.calibre.override (old: {
+    python3Packages = old.python3Packages // { mechanize = custom_mech; };
+  });
+in {
   imports = [
     ./media
     ./browser
@@ -10,9 +17,8 @@
   ];
 
   home.packages = with pkgs; [
-    calibre
+    custom_calibre
     anki-bin
-    morgen
     amberol
     ticktick
     gnome.gnome-clocks
