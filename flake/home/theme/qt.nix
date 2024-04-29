@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     (catppuccin-kvantum.override {
-      accent = "Red";
+      accent = "Peach";
       variant = "Mocha";
     })
   ];
@@ -18,6 +18,6 @@
 
   xdg.configFile."Kvantum/kvantum.kvconfig".source =
     (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
-      General.Theme = "Catppuccin-Mocha-Red";
+      General.theme = "Catppuccin-Mocha-Peach";
     };
 }

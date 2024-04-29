@@ -98,6 +98,7 @@
 
         "opacity 1, class:^(floating)$"
         "opacity 1, class:^(Vivaldi-stable)$"
+        "opacity 1, class:^(discord), fullscreen:1"
 
         "opacity 0.9, class:^(obsidian)$"
         "opacity 0.9, class:^(ticktick)$"

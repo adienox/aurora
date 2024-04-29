@@ -1,23 +1,16 @@
-{ config, pkgs, ... }:
-let
-  custom_mech = pkgs.python311Packages.mechanize.overridePythonAttrs
-    (old: { doCheck = false; });
-  custom_calibre = pkgs.calibre.override (old: {
-    python3Packages = old.python3Packages // { mechanize = custom_mech; };
-  });
-in {
+{ config, pkgs, ... }: {
   imports = [
     ./media
     ./browser
     ./discord.nix
     ./git.nix
     ./xremap.nix
-    ./webcord.nix
+    # ./webcord.nix
     # ./dunst.nix
   ];
 
   home.packages = with pkgs; [
-    custom_calibre
+    calibre
     anki-bin
     amberol
     ticktick
