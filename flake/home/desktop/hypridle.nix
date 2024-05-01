@@ -15,7 +15,7 @@ let
   });
 
   suspend-script = pkgs.writeShellScript "suspend-script" ''
-    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
+    ${pkgs.playerctl}/bin/playerctl -a metadata -f "{{status}}" | ${pkgs.ripgrep}/bin/rg "Playing"
     # only suspend if audio isn't running
     if [ $? == 1 ]; then
       ${pkgs.systemd}/bin/systemctl suspend
@@ -38,7 +38,8 @@ in {
       }
       {
         timeout = 600;
-        onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+        # onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+        onTimeout = "${suspend-script}";
       }
     ];
   };
