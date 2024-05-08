@@ -11,7 +11,7 @@ M.telescope = {
     },
   },
 
-  extensions_list = { "ui-select", "howdoi" },
+  extensions_list = { "ui-select" },
 
   extensions = {
     ["ui-select"] = {

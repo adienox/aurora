@@ -94,7 +94,7 @@
 
       /* direct messages moon icon */
       /* change to block to show, none to hide */
-      --discord-icon: none; /* discord icon */
+      --discord-icon: block; /* discord icon */
       --moon-icon: none; /* moon icon */
       --moon-icon-url: none; /* custom icon url */
       --moon-icon-size: auto;

@@ -24,6 +24,7 @@
     nodePackages.typescript-language-server
     vscode-langservers-extracted
     emmet-ls
+    tailwindcss-language-server
 
     # shell stuff
     nodePackages.bash-language-server

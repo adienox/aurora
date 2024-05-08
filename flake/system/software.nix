@@ -2,7 +2,6 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    config.allowUnfreePredicate = (pkg: true);
     overlays = [ (import ./pkgs) ];
   };
 

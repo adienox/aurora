@@ -4,7 +4,7 @@ local input = require("user-input-module")
 local utils = require("mp.utils")
 local md5 = require("md5")
 
-local noteDir = "/home/nox/Documents/garden/Cards/"
+local noteDir = "/home/nox/Documents/gardner/Sources/Media/"
 
 local trimWhitespace = function(str)
 	return str:gsub("^%s*(.-)%s*$", "%1")
@@ -49,10 +49,10 @@ local writeYoutubeNote = function(text, filename, timeInSeconds, noteTitle)
 
 		file:write("---\n")
 		file:write(string.format("title: %s\n", title))
+		file:write("tags: note/🪨\n")
 		file:write(string.format('author: "[[%s]]"\n', author))
-		file:write("tags: video\n")
 		file:write(string.format("source: %s\n", source))
-		file:write(string.format("date: %s\n", date))
+		file:write(string.format("created: %s\n", date))
 		file:write("---\n")
 		file:write("## Highlights\n")
 

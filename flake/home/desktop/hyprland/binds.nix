@@ -29,6 +29,7 @@
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
         "SHIFT, Insert, exec, $SCRIPTS/focus.sh ticktick ticktick"
+        ", XF86Calculator, exec, gnome-calculator"
 
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
