@@ -275,10 +275,18 @@ local plugins = {
 
   {
     "windwp/nvim-ts-autotag",
+    event = "BufEnter",
+    config = true,
   },
 
   {
     "nvim-telescope/telescope-ui-select.nvim",
+  },
+
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    config = true,
   },
 }
 
