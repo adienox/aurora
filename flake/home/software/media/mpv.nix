@@ -43,6 +43,9 @@
     "mpv/scripts/sponsorblock.lua".source =
       "${pkgs.mpvScripts.sponsorblock}/share/mpv/scripts/sponsorblock.lua";
 
+    "mpv/script-opts/sponsorblock.conf".text =
+      "skip_categories=sponsor,intro,outro,interaction,selfpromo,filler";
+
     "mpv/scripts/thumbfast.lua".source =
       "${pkgs.mpvScripts.thumbfast}/share/mpv/scripts/thumbfast.lua";
 

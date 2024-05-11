@@ -90,8 +90,10 @@
         enable_swallow = true;
         vfr = true;
         key_press_enables_dpms = true;
+        mouse_move_enables_dpms = true;
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
+        hide_cursor_on_key_press = true;
       };
     };
     # extraConfig = ''

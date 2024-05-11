@@ -62,9 +62,10 @@
         "workspace 1, ^(firefox)$"
         "workspace 2, ^(Emacs)$"
         "workspace 2, ^(Code)$"
+        "workspace 4, ^(mpv)$"
         "workspace 4, ^(calibre-gui)$"
         "workspace 5, ^(discord)$"
-        "workspace 5 silent, ^(org.telegram.desktop)$"
+        "workspace 5, ^(org.telegram.desktop)$"
         "workspace 6, ^(Todoist)$"
         "workspace 7, ^(Spotify)$"
         "workspace 8, ^(Morgen)$"
@@ -73,6 +74,7 @@
 
         # Fullscreen Rules
         "fullscreen, obsidian"
+        "fullscreen, ^(mpv)$"
         "fullscreen, Morgen"
       ];
       windowrulev2 = [
