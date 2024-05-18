@@ -7,9 +7,6 @@
     playerctl
     pulsemixer
 
-    ani-cli
-    mov-cli
-
     # images
     imv
   ];

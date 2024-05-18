@@ -143,18 +143,18 @@
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
 
-      if [[ $TERM == "xterm-kitty" ]]; then
-        if [[ -z "$ZELLIJ" ]]; then
-          if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-              zellij-attach.sh
-          else
-              zellij
-          fi
-          if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
-              exit
-          fi
-        fi
-      fi
+      # if [[ $TERM == "xterm-kitty" ]]; then
+      #   if [[ -z "$ZELLIJ" ]]; then
+      #     if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+      #         zellij-attach.sh
+      #     else
+      #         zellij
+      #     fi
+      #     if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+      #         exit
+      #     fi
+      #   fi
+      # fi
 
     '';
   };

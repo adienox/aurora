@@ -94,6 +94,8 @@
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
         hide_cursor_on_key_press = true;
+        new_window_takes_over_fullscreen = true;
+        initial_workspace_tracking = 0;
       };
     };
     # extraConfig = ''

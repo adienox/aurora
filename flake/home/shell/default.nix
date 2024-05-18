@@ -4,7 +4,6 @@
     ./xdg.nix
     ./cli.nix
     ./direnv.nix
-    ./tmux.nix
     ./zellij.nix
     ./lsd.nix
     ./starship.nix

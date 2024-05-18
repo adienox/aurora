@@ -4,6 +4,7 @@
     zip
     unzip
     unrar
+    tmux
 
     # utils
     pfetch

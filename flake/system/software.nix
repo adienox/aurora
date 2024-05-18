@@ -21,8 +21,6 @@
     git
     ntfs3g
   ];
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Enable adbusers in extragroups for user
   programs.adb.enable = true;

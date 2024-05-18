@@ -3,12 +3,10 @@
 
   home.packages = with pkgs; [
     # lua stuff
-    lua-language-server
     stylua
 
     # nix stuff
     nixfmt
-    nil
 
     # python stuff
     python3
@@ -21,13 +19,9 @@
 
     # web-dev stuff
     prettierd
-    nodePackages.typescript-language-server
-    vscode-langservers-extracted
     emmet-ls
-    tailwindcss-language-server
 
     # shell stuff
-    nodePackages.bash-language-server
     shellcheck
     shfmt
 
