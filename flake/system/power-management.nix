@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   pciRules = map (e: "w /sys/bus/${e}/power/control - - - - auto") [
     "pci/devices/0000:00:00.0" # Root Complex
     "pci/devices/0000:00:00.2" # IOMMU
@@ -31,14 +34,13 @@ let
     "usb/devices/3-3" # USB device 3-3
     "usb/devices/3-4" # ITE device
   ];
-  scsiRules = map (e:
-    "w /sys/class/scsi_host/${e}/link_power_management_policy - - - - med_power_with_dipm") [
-      "host0" # Sata link power management Host0
-      "host1" # Sata link power management Host1
-    ];
+  scsiRules = map (e: "w /sys/class/scsi_host/${e}/link_power_management_policy - - - - med_power_with_dipm") [
+    "host0" # Sata link power management Host0
+    "host1" # Sata link power management Host1
+  ];
 in {
-  # Disable Watchdogs 
-  # https://wiki.archlinux.org/title/Improving_performance#Watchdogs 
+  # Disable Watchdogs
+  # https://wiki.archlinux.org/title/Improving_performance#Watchdogs
   # https://wiki.archlinux.org/title/Power_management#Disabling_NMI_watchdog
   # Enabling powersave on https://wiki.archlinux.org/title/Power_management#Network_interfaces
   # Enabling powersave on https://wiki.archlinux.org/title/Power_management#Intel_wireless_cards_(iwlwifi)
@@ -57,8 +59,8 @@ in {
       "vm.dirty_writeback_centisecs" = 1500;
       "vm.laptop_mode" = 5;
     };
-    kernelModules = [ "acpi_call" ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    kernelModules = ["acpi_call"];
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   };
 
   services = {
@@ -68,5 +70,5 @@ in {
     tlp.enable = true;
   };
 
-  # systemd.tmpfiles.rules = pciRules ++ scsiRules;
+  systemd.tmpfiles.rules = pciRules ++ scsiRules;
 }

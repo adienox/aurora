@@ -30,7 +30,6 @@ minutes=$((uptime_seconds % 3600 / 60))
 # Format the output
 up="${days}d ${hours}h ${minutes}m"
 
-pkgs=$(nix-store --query --requisites /run/current-system | wc -l)
 shell="${SHELL##*/}"
 
 fetch() {
@@ -41,7 +40,6 @@ fetch() {
 	echo " │  ${cyan}󱂬 ${normal} de/wm   │ ${cyan}$XDG_CURRENT_DESKTOP${normal} "
 	echo " │  ${blue} ${normal} uptime  │ ${blue}${up}${normal} "
 	echo " │  ${magenta} ${normal} shell   │ ${magenta}${shell}${normal} "
-	echo " │  ${red}󰏖 ${normal} pkgs    │ ${red}${pkgs}${normal} "
 	echo " ├─────────────┤ "
 	echo " │  ${_white}  ${normal}colors  │${_white}$unicode${normal}${red}$unicode${normal}${yellow}$unicode${normal}${green}$unicode${normal}${cyan}$unicode${normal}${blue}$unicode${normal}${magenta}$unicode${normal}${_black}$unicode${normal}"
 	echo " ╰─────────────╯ "

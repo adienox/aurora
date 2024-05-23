@@ -15,25 +15,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zjstatus = { url = "github:dj95/zjstatus"; };
+    discord-43.url = "github:nixos/nixpkgs/a343533bccc62400e8a9560423486a3b6c11a23b";
 
-    discord-43.url =
-      "github:nixos/nixpkgs/a343533bccc62400e8a9560423486a3b6c11a23b";
-
-    rofi-1751.url =
-      "github:nixos/nixpkgs/58ae79ea707579c40102ddf62d84b902a987c58b";
+    rofi-1751.url = "github:nixos/nixpkgs/58ae79ea707579c40102ddf62d84b902a987c58b";
 
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ags.url = "github:Aylur/ags";
 
     hyprland.url = "github:hyprwm/hyprland";
 
@@ -44,33 +33,36 @@
     xremap-flake.url = "github:xremap/nix-flake";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = [ (import ./system/pkgs) ];
-      };
-    in {
-      nixosConfigurations = {
-        anomaly = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system inputs; };
-          modules = [ ./system ];
-        };
-      };
-
-      homeConfigurations = {
-        nox = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home
-            inputs.nix-index-db.hmModules.nix-index
-            inputs.hyprlock.homeManagerModules.hyprlock
-            inputs.hypridle.homeManagerModules.hypridle
-          ];
-          extraSpecialArgs = { inherit inputs; };
-        };
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [(import ./system/pkgs)];
+    };
+  in {
+    nixosConfigurations = {
+      anomaly = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit system inputs;};
+        modules = [./system];
       };
     };
+
+    homeConfigurations = {
+      nox = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home
+          inputs.nix-index-db.hmModules.nix-index
+          inputs.hyprlock.homeManagerModules.hyprlock
+          inputs.hypridle.homeManagerModules.hypridle
+        ];
+        extraSpecialArgs = {inherit inputs;};
+      };
+    };
+  };
 }

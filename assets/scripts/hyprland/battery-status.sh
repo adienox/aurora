@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 notiSound() {
-	if [ "$(swaync-client -D)" == 'false' ]; then
-		play -q "$XDG_CONFIG_HOME"/assets/sounds/notification.mp3
-	fi
+	play -q "$XDG_CONFIG_HOME"/assets/sounds/notification.mp3
 }
 
 while true; do

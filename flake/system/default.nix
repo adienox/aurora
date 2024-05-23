@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   user = "adienox";
   username = "nox";
 in {
@@ -12,16 +15,17 @@ in {
     ./software.nix
     ./nvidia.nix
     ./amd.nix
+    ./power-management.nix
   ];
 
   boot = {
-    kernelModules = [ "amdgpu" ];
+    kernelModules = ["amdgpu"];
     loader = {
       efi.canTouchEfiVariables = true;
       timeout = 3;
       systemd-boot.enable = true;
     };
-    plymouth = { enable = true; };
+    plymouth = {enable = true;};
   };
 
   users.users.${username} = {
@@ -52,8 +56,8 @@ in {
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "@wheel" ];
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "@wheel"];
     };
   };
 
@@ -63,7 +67,7 @@ in {
       enable = true;
       dates = "09:00";
       flake = "${config.users.users.nox.home}/aurora/flake";
-      flags = [ "--update-input" "nixpkgs" "-L" ];
+      flags = ["--update-input" "nixpkgs" "-L"];
     };
   };
 }

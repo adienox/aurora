@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   xdg.configFile."zsh/modules/termsupport.zsh".source = ./termsupport.zsh;
 
   programs.zsh = {
@@ -12,7 +16,7 @@
     history = {
       extended = true;
       ignoreAllDups = true;
-      ignorePatterns = [ "rm *" "pkill *" ];
+      ignorePatterns = ["rm *" "pkill *"];
       path = "$ZDOTDIR/.zsh_history";
       save = 1000000;
       size = 1000000;
@@ -22,26 +26,23 @@
       autoload -Uz compinit
       compinit -d ~/.cache/zcompdump
       zstyle ":completion:*:*:*:*:*" menu select
-      zstyle ":completion:*" auto-description "specify: %d"
-      zstyle ":completion:*" completer _expand _complete
       zstyle ":completion:*" list-colors ""
-      zstyle ": completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+      zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
       zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
-      zstyle ":completion:*" rehash true
-      zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
-      zstyle ":completion:*" use-compctl false
-      zstyle ":completion:*" verbose true
-      zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
       _comp_options+=(globdots)
     '';
 
     shellAliases = {
-      waybar_restart = "kill -SIGUSR2 $(pidof waybar)";
-
       p = "ipython --no-banner --no-confirm-exit";
       py = "python";
       psv = "source ./venv/bin/activate";
       pcv = "python -m venv venv";
+
+      v = "nvim";
+      vo = "nvim \"+Telescope find_files\"";
+
+      tls = "tmux list-sessions 2>/dev/null";
+      tn = "tmux new -A -s \"home 🏡\"";
 
       gc = "git commit -m";
       ga = "git add";
@@ -53,16 +54,12 @@
       sf = "fc-list | grep -i";
       sudo = "sudo ";
       yt-audio = "yt-dlp -x --audio-format mp3 --audio-quality 0";
-      speedtest =
-        "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
-      v = "nvim";
+      speedtest = "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
       cat = "bat";
       wget = "wget -c ";
       grep = "grep --color=auto";
       hw = "hwinfo --short";
       ipa = "ip --brief address";
-      quote =
-        "curl -s 'https://api.quotable.io/quotes/random?tags=technology|famous-quotes|wisdom|success|courage|creativity&limit=1' | gojq -r '.[0].content, .[0].author'";
       man = "BAT_THEME='default' batman";
 
       ls = "lsd -l";
@@ -77,18 +74,11 @@
       # dci = "docker images";
       # dcp = "docker container prune";
 
-      dv-create =
-        "nix flake init --template github:cachix/devenv && direnv allow";
-      dv-create-py =
-        "nix flake init --template github:cachix/devenv && echo 'layout python' >> .envrc && direnv allow";
+      dv-create = "nix flake init --template github:cachix/devenv && direnv allow";
+      dv-create-py = "nix flake init --template github:cachix/devenv && echo 'layout python' >> .envrc && direnv allow";
 
-      tls = "tmux list-sessions 2>/dev/null";
       zls = "zellij ls";
     };
-
-    envExtra = ''
-      alias zrf="zellij run -f --"
-    '';
 
     initExtra = ''
       setopt interactivecomments # allow comments in interactive mode
@@ -142,20 +132,6 @@
 
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
-
-      # if [[ $TERM == "xterm-kitty" ]]; then
-      #   if [[ -z "$ZELLIJ" ]]; then
-      #     if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-      #         zellij-attach.sh
-      #     else
-      #         zellij
-      #     fi
-      #     if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
-      #         exit
-      #     fi
-      #   fi
-      # fi
-
     '';
   };
 }

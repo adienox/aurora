@@ -1,10 +1,14 @@
-{ config, default, ... }: {
+{
+  config,
+  default,
+  ...
+}: {
   imports = [
     ./zsh
     ./xdg.nix
     ./cli.nix
     ./direnv.nix
-    ./zellij.nix
+    # ./zellij.nix
     ./lsd.nix
     ./starship.nix
   ];
@@ -15,8 +19,7 @@
     BROWSER = default.browser;
     FLAKE = default.files.flake;
     KEEPASSDB = default.files.keepass;
-    SUDO_ASKPASS =
-      "${config.xdg.configHome}/assets/scripts/utils/zenity-askpass.sh";
+    SUDO_ASKPASS = "${config.xdg.configHome}/assets/scripts/utils/zenity-askpass.sh";
 
     # Zellij attach variables
     ZELLIJ_AUTO_ATTACH = "true";

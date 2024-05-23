@@ -57,8 +57,7 @@
       database = {
         database_1 = default.files.keepass;
         pw_cache_period_min = 360;
-        autotype_default =
-          "{USERNAME}{DELAY 200}{TAB}{DELAY 200}{PASSWORD}{ENTER}";
+        autotype_default = "{USERNAME}{DELAY 300}{TAB}{DELAY 300}{PASSWORD}";
         type_library =
           "pynput"; # pynput to resolve the weird issue with wtype parsing ^z in password
       };

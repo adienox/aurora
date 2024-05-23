@@ -1,18 +1,26 @@
-{ pkgs, inputs, default, ... }: {
-  home.packages = with pkgs;
-    [
-      ((discord.override {
-        nss = pkgs.nss_latest;
-        withVencord = true;
-      }).overrideAttrs (old: {
-        libPath = old.libPath + ":${pkgs.libglvnd}/lib";
-        nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
-
-        postFixup = ''
-          wrapProgram $out/opt/Discord/Discord --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland}}"
-        '';
-      }))
-    ];
+{
+  pkgs,
+  inputs,
+  default,
+  ...
+}: {
+  home.packages = with pkgs; [
+    # ((inputs.discord-43.legacyPackages.${pkgs.system}.discord.override {
+    #   nss = pkgs.nss_latest;
+    #   withVencord = false;
+    # }).overrideAttrs (old: {
+    #   libPath = old.libPath + ":${pkgs.libglvnd}/lib";
+    #   nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
+    #
+    #   postFixup = ''
+    #     wrapProgram $out/opt/Discord/Discord --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland}}"
+    #   '';
+    # }))
+    (inputs.discord-43.legacyPackages.${pkgs.system}.discord.override {
+      nss = pkgs.nss_latest;
+      withVencord = true;
+    })
+  ];
 
   xdg.configFile."Vencord/themes/custom.css".text = ''
     /**

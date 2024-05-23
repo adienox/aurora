@@ -1,12 +1,16 @@
-{ pkgs, ... }: {
-  programs.neovim = { enable = true; };
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  programs.neovim = {enable = true;};
 
   home.packages = with pkgs; [
     # lua stuff
     stylua
 
     # nix stuff
-    nixfmt
+    alejandra
 
     # python stuff
     python3
