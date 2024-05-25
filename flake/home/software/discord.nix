@@ -5,17 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    # ((inputs.discord-43.legacyPackages.${pkgs.system}.discord.override {
-    #   nss = pkgs.nss_latest;
-    #   withVencord = false;
-    # }).overrideAttrs (old: {
-    #   libPath = old.libPath + ":${pkgs.libglvnd}/lib";
-    #   nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.makeWrapper ];
-    #
-    #   postFixup = ''
-    #     wrapProgram $out/opt/Discord/Discord --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland}}"
-    #   '';
-    # }))
+    #NOTE: you need to lauch unmodified discord first before launching with vencord else things break!
     (inputs.discord-43.legacyPackages.${pkgs.system}.discord.override {
       nss = pkgs.nss_latest;
       withVencord = true;
@@ -25,14 +15,10 @@
   xdg.configFile."Vencord/themes/custom.css".text = ''
     /**
      * @name midnight (catppuccin)
-     * @description A darkened discord theme. Based on catppuccin theme (https://github.com/catppuccin/catppuccin).
      * @author refact0r
      * @version 1.6.2
      * @source https://github.com/refact0r/midnight-discord
-     * @authorId 508863359777505290
     */
-
-    /* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
 
     @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css"); /* Apple emoji */
     @import url("https://refact0r.github.io/midnight-discord/midnight.css");
@@ -112,13 +98,6 @@
       --login-bg-filter: none; /* login background artwork */
       --green-to-accent-3-filter: none; /* add friend page explore icon */
       --blurple-to-accent-3-filter: none; /* add friend page school icon */
-    }
-
-    /* catppuccin icon */
-    .childWrapper__01b9c:has(> svg:not(.favoriteIcon_adf80e)) {
-      background: url("https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png");
-      background-color: transparent !important;
-      background-size: cover;
     }
   '';
 }

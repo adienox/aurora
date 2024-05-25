@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs = {
     mpv = {
       enable = true;
-      defaultProfiles = [ "gpu-hq" ];
+      defaultProfiles = ["gpu-hq"];
 
       bindings = {
         l = "seek 5";
@@ -37,36 +37,29 @@
   };
 
   xdg.configFile = {
-    "mpv/scripts/mpris.so".source =
-      "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
+    "mpv/scripts/mpris.so".source = "${pkgs.mpvScripts.mpris}/share/mpv/scripts/mpris.so";
 
-    "mpv/scripts/sponsorblock.lua".source =
-      "${pkgs.mpvScripts.sponsorblock}/share/mpv/scripts/sponsorblock.lua";
+    "mpv/scripts/sponsorblock.lua".source = "${pkgs.mpvScripts.sponsorblock}/share/mpv/scripts/sponsorblock.lua";
 
-    "mpv/script-opts/sponsorblock.conf".text =
-      "skip_categories=sponsor,intro,outro,interaction,selfpromo,filler";
+    "mpv/script-opts/sponsorblock.conf".text = "skip_categories=sponsor,intro,outro,interaction,selfpromo,filler";
 
-    "mpv/scripts/thumbfast.lua".source =
-      "${pkgs.mpvScripts.thumbfast}/share/mpv/scripts/thumbfast.lua";
+    "mpv/scripts/thumbfast.lua".source = "${pkgs.mpvScripts.thumbfast}/share/mpv/scripts/thumbfast.lua";
 
-    "mpv/scripts/uosc".source =
-      "${pkgs.mpvScripts.uosc}/share/mpv/scripts/uosc";
+    #NOTE: You need to manuall install fonts for the time being by going to https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip
+    "mpv/scripts/uosc".source = "${pkgs.mpvScripts.uosc}/share/mpv/scripts/uosc";
 
     "mpv/scripts/user-input.lua".source = pkgs.fetchurl {
-      url =
-        "https://raw.githubusercontent.com/CogentRedTester/mpv-user-input/40a9fa59d37d7532c055e5c831c1f2b61c6ee741/user-input.lua";
+      url = "https://raw.githubusercontent.com/CogentRedTester/mpv-user-input/40a9fa59d37d7532c055e5c831c1f2b61c6ee741/user-input.lua";
       hash = "sha256-a0Wfu+qibYQ+AVEqdsOD+wa0DWtb3/HMTdPF2gTeKNA=";
     };
 
     "mpv/script-modules/user-input-module.lua".source = pkgs.fetchurl {
-      url =
-        "https://raw.githubusercontent.com/CogentRedTester/mpv-user-input/40a9fa59d37d7532c055e5c831c1f2b61c6ee741/user-input-module.lua";
+      url = "https://raw.githubusercontent.com/CogentRedTester/mpv-user-input/40a9fa59d37d7532c055e5c831c1f2b61c6ee741/user-input-module.lua";
       hash = "sha256-qUIA73xU0KWdDAnY69ArwMc80SL5D0qKym7fZK/L+2Y=";
     };
 
     "mpv/script-modules/md5.lua".source = pkgs.fetchurl {
-      url =
-        "https://raw.githubusercontent.com/kikito/md5.lua/4b5ce0cc277a5972aa3f5161d950f809c2c62bab/md5.lua";
+      url = "https://raw.githubusercontent.com/kikito/md5.lua/4b5ce0cc277a5972aa3f5161d950f809c2c62bab/md5.lua";
       hash = "sha256-ZLkMRdfvNkNW+l82VcN+Ws08zXioCNWKlg768zt0lls=";
     };
   };
