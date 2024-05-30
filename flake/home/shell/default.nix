@@ -8,7 +8,6 @@
     ./xdg.nix
     ./cli.nix
     ./direnv.nix
-    # ./zellij.nix
     ./lsd.nix
     ./starship.nix
   ];
@@ -20,10 +19,6 @@
     FLAKE = default.files.flake;
     KEEPASSDB = default.files.keepass;
     SUDO_ASKPASS = "${config.xdg.configHome}/assets/scripts/utils/zenity-askpass.sh";
-
-    # Zellij attach variables
-    ZELLIJ_AUTO_ATTACH = "true";
-    ZELLIJ_AUTO_EXIT = "true";
 
     # Reducing direnv logs
     DIRENV_LOG_FORMAT = "";
@@ -48,5 +43,7 @@
     SKIM_DEFAULT_OPTIONS = ''
       $SKIM_DEFAULT_OPTIONS 
       --color=fg:${default.xcolors.base05},matched:${default.xcolors.base02},matched_bg:${default.xcolors.base0F},current:${default.xcolors.base05},current_bg:${default.xcolors.base03},current_match:${default.xcolors.base00},current_match_bg:${default.xcolors.base06},spinner:${default.xcolors.base0B},info:${default.xcolors.base0E},prompt:${default.xcolors.base0D},cursor:${default.xcolors.base08},selected:${default.xcolors.extra01},header:${default.xcolors.base0C},border:${default.xcolors.extra06}'';
+
+    NIXPKGS_ALLOW_UNFREE = 1;
   };
 }

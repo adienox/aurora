@@ -1,6 +1,5 @@
-{ default, ... }: {
+{default, ...}: {
   wayland.windowManager.hyprland = {
-
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
@@ -9,7 +8,6 @@
       "$FLOATING_TERM" = "kitty --class floating -e";
 
       bind = [
-
         # Term
         "$MOD, RETURN, exec, $TERM"
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
@@ -21,7 +19,7 @@
         "$ALT, 3, exec, $FLOATING_TERM newsboat"
 
         # Applications
-        "$MOD, W, exec, $SCRIPTS/focus.sh Vivaldi-stable vivaldi"
+        "$MOD, W, exec, $SCRIPTS/focus.sh firefox firefox"
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
         ", Delete, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"

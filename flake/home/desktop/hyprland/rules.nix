@@ -1,4 +1,4 @@
-{ default, ... }: {
+{default, ...}: {
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
@@ -84,6 +84,7 @@
 
         # Idle inhibit rules
         "idleinhibit fullscreen, class:^(librewolf)$"
+        "idleinhibit fullscreen, class:^(firefox)$"
         "idleinhibit focus, class:^(ticktick)$"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit focus, class:^(discord)$"

@@ -1,8 +1,11 @@
-{ config, pkgs, ... }:
-let
-  browser = [ "vivaldi-stable.desktop" ];
-  image-viewer = [ "imv.desktop" ];
-  video-player = [ "mpv.desktop" ];
+{
+  config,
+  pkgs,
+  ...
+}: let
+  browser = ["firefox.desktop"];
+  image-viewer = ["imv.desktop"];
+  video-player = ["mpv.desktop"];
 
   associations = {
     "text/html" = browser;
@@ -19,7 +22,7 @@ let
     "x-scheme-handler/http" = browser;
     "x-scheme-handler/https" = browser;
     "x-scheme-handler/unknown" = browser;
-    "x-scheme-handler/chrome" = [ "chromium-browser.desktop" ];
+    "x-scheme-handler/chrome" = ["chromium-browser.desktop"];
 
     "audio/*" = video-player;
     "video/*" = video-player;
@@ -27,12 +30,12 @@ let
     "image/png" = image-viewer;
     "image/jpg" = image-viewer;
     "image/gif" = image-viewer;
-    "x-scheme-handler/discord" = [ "discord.desktop" ];
-    "x-scheme-handler/spotify" = [ "spotify.desktop" ];
-    "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+    "x-scheme-handler/discord" = ["discord.desktop"];
+    "x-scheme-handler/spotify" = ["spotify.desktop"];
+    "x-scheme-handler/tg" = ["org.telegram.desktop.desktop"];
   };
 in {
-  home.packages = [ pkgs.xdg-utils ];
+  home.packages = [pkgs.xdg-utils];
 
   xdg = {
     enable = true;

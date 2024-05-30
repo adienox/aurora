@@ -2,8 +2,14 @@
   pkgs,
   inputs,
   default,
+  lib,
   ...
 }: {
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord-0.0.43"
+    ];
+
   home.packages = with pkgs; [
     #NOTE: you need to lauch unmodified discord first before launching with vencord else things break!
     (inputs.discord-43.legacyPackages.${pkgs.system}.discord.override {

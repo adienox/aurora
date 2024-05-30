@@ -1,13 +1,16 @@
-{ config, lib, ... }:
-let colorlib = import ./libs.nix lib;
+{
+  config,
+  lib,
+  ...
+}: let
+  colorlib = import ./libs.nix lib;
 in rec {
-  browser = "vivaldi-stable";
+  browser = "firefox";
   editor = "nvim";
 
   firefox = {
     profile = "nox";
-    userAgent =
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
+    userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
 
     features = {
       account = true;
@@ -29,7 +32,7 @@ in rec {
       # 1 = browser picks faster
       # 2 = DoH with system dns fallback
       # 3 = DoH without fallback
-      # 5 = DoH is off, default currently
+      # 5 = DoH is off
     };
   };
 
@@ -51,7 +54,7 @@ in rec {
 
   terminal = {
     font = "JetBrainsMono Nerd Font";
-    name = "wezterm";
+    name = "kitty";
     opacity = 0.7;
     size = 13;
   };
