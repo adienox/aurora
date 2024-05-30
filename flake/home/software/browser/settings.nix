@@ -1,18 +1,4 @@
-{ default, ... }: {
-  # INDEX
-  # the file is organized in categories, and each one has a number of sections:
-
-  # PRIVACY [ISOLATION, SANITIZING, CACHE AND STORAGE, HISTORY AND SESSION RESTORE, QUERY STRIPPING]
-  # NETWORKING [HTTPS, REFERERS, WEBRTC, PROXY, DNS, PREFETCHING AND SPECULATIVE CONNECTIONS]
-  # FINGERPRINTING [RFP, WEBGL]
-  # SECURITY [SITE ISOLATION, CERTIFICATES, TLS/SSL, PERMISSIONS, SAFE BROWSING, OTHERS]
-  # REGION [LOCATION, LANGUAGE]
-  # BEHAVIOR [DRM, SEARCH AND URLBAR, DOWNLOADS, AUTOPLAY, POP-UPS AND WINDOWS, MOUSE]
-  # EXTENSIONS [USER INSTALLED, SYSTEM, EXTENSION FIREWALL]
-  # BUILT-IN FEATURES [UPDATER, SYNC, LOCKWISE, CONTAINERS, DEVTOOLS, OTHERS]
-  # UI [BRANDING, HANDLERS, FIRST LAUNCH, NEW TAB PAGE, ABOUT, RECOMMENDED]
-  # TELEMETRY
-
+{default, ...}: {
   # [CATEGORY] PRIVACY #
 
   # [SECTION] ISOLATION
@@ -23,7 +9,7 @@
   # 4. stricter policies for xorigin referrers
   # 5. dFPI specific cookie cleaning mechanism
   # 6. query stripping
-  # 
+  #
   # the desired category must be set with pref() otherwise it won't stick.
   # the UI that allows to change mode manually is hidden.
   "browser.contentblocking.category" = "strict";
@@ -32,7 +18,7 @@
   "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" =
     false;
 
-  # [SECTION] SANITIZING 
+  # [SECTION] SANITIZING
   # all the cleaning prefs true by default except for siteSetting and offlineApps,
   # which is what we want. users should set manual exceptions in the UI if there
   # are cookies they want to keep.
@@ -64,8 +50,7 @@
   # [SECTION] QUERY STRIPPING
   # currently we set the same query stripping list that brave uses:
   # https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc#L29
-  "privacy.query_stripping.strip_list" =
-    "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid";
+  "privacy.query_stripping.strip_list" = "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid";
   #
   # librewolf specific pref that allows to include the query stripping lists in uBO by default.
   # the asset file is fetched every 7 days.
@@ -116,7 +101,7 @@
   # librewolf does not use DoH, but it can be enabled with the following prefs:
   "network.trr.mode" = default.firefox.dns.mode;
   "network.trr.uri" = default.firefox.dns.uri;
-  # 
+  #
   # the possible modes are:
   # 0 = default
   # 1 = browser picks faster
@@ -137,7 +122,7 @@
 
   # [SECTION] RFP
   # librewolf should stick to RFP for fingerprinting. we should not set prefs that interfere with it
-  # and disabling API for no good reason will be counter productive, so it should also be avoided.  
+  # and disabling API for no good reason will be counter productive, so it should also be avoided.
   "privacy.resistFingerprinting" = true;
   # rfp related settings
   "privacy.resistFingerprinting.block_mozAddonManager" =
@@ -194,8 +179,7 @@
   # [SECTION] PERMISSIONS #
   "permissions.delegation.enabled" =
     false; # force permission request to show real origin
-  "permissions.manager.defaultsUrl" =
-    ""; # revoke special permissions for some mozilla domains
+  "permissions.manager.defaultsUrl" = ""; # revoke special permissions for some mozilla domains
 
   # [SECTION] SAFE BROWSING
   # disable safe browsing, including the fetch of updates. reverting the 7 prefs below
@@ -228,8 +212,7 @@
 
   # [SECTION] LOCATION
   # replace google with mozilla as the default geolocation provide and prevent use of OS location services
-  "geo.provider.network.url" =
-    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+  "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
   "geo.provider.use_gpsd" = false; # [LINUX]
   "geo.provider.use_geoclue" = false; # [LINUX]
 
@@ -255,8 +238,7 @@
 
   # [SECTION] DRM #
   "media.eme.enabled" = false; # master switch for drm content
-  "media.gmp-manager.url" =
-    "data:text/plain,"; # prevent checks for plugin updates when drm is disabled
+  "media.gmp-manager.url" = "data:text/plain,"; # prevent checks for plugin updates when drm is disabled
   # disable the widevine and the openh264 plugins
   "media.gmp-provider.enabled" = false;
   "media.gmp-gmpopenh264.enabled" = false;
@@ -277,7 +259,7 @@
 
   # [SECTION] DOWNLOADS
   # user interaction should always be required for downloads, as a way to enhance security by asking
-  # the user to specific a certain save location. 
+  # the user to specific a certain save location.
   "browser.download.useDownloadDir" = false;
   "browser.download.autohideButton" =
     false; # do not hide download button automatically
@@ -363,15 +345,15 @@
   "privacy.userContext.ui.enabled" = true;
 
   # [SECTION] DEVTOOLS
-  # disable remote debugging.
+  # enable remote debugging.
   "devtools.debugger.remote-enabled" =
-    false; # default, but subject to branding so keep it
+    true; # default, but subject to branding so keep it
+  "devtools.chrome.enabled" = true;
   "devtools.selfxss.count" = 0; # required for devtools console to work
 
   # [SECTION] OTHERS #
   "webchannel.allowObject.urlWhitelist" = ""; # remove web channel whitelist
-  "services.settings.server" =
-    "https://%.invalid"; # set the remote settings URL (REMOTE_SETTINGS_SERVER_URL in the code)
+  "services.settings.server" = "https://%.invalid"; # set the remote settings URL (REMOTE_SETTINGS_SERVER_URL in the code)
 
   # [CATEGORY] UI #
 
@@ -464,8 +446,7 @@
 
   # Disable onboarding
   "browser.onboarding.newtour" = "performance,private,addons,customize,default";
-  "browser.onboarding.updatetour" =
-    "performance,library,singlesearch,customize";
+  "browser.onboarding.updatetour" = "performance,library,singlesearch,customize";
   "browser.onboarding.enabled" = false;
 
   # Disable screenshots extension
@@ -505,14 +486,11 @@
   # [SECTION] BRANDING
   # set librewolf support and releases urls in the UI, so that users land in the proper places.
   "app.support.baseURL" = "https://support.librewolf.net/";
-  "browser.search.searchEnginesURL" =
-    "https://librewolf.net/docs/faq/#how-do-i-add-a-search-engine";
-  "browser.geolocation.warning.infoURL" =
-    "https://librewolf.net/docs/faq/#how-do-i-enable-location-aware-browsing";
+  "browser.search.searchEnginesURL" = "https://librewolf.net/docs/faq/#how-do-i-add-a-search-engine";
+  "browser.geolocation.warning.infoURL" = "https://librewolf.net/docs/faq/#how-do-i-enable-location-aware-browsing";
   "app.feedback.baseURL" = "https://librewolf.net/#questions";
   "app.releaseNotesURL" = "https://gitlab.com/librewolf-community/browser";
-  "app.releaseNotesURL.aboutDialog" =
-    "https://gitlab.com/librewolf-community/browser";
+  "app.releaseNotesURL.aboutDialog" = "https://gitlab.com/librewolf-community/browser";
   "app.update.url.details" = "https://gitlab.com/librewolf-community/browser";
   "app.update.url.manual" = "https://gitlab.com/librewolf-community/browser";
 
@@ -547,8 +525,7 @@
   "browser.newtabpage.activity-stream.feeds.telemetry" = false;
   "browser.newtabpage.activity-stream.telemetry" = false;
   # hide stories UI in about:preferences#home, empty highlights list
-  "browser.newtabpage.activity-stream.feeds.section.topstories.options" =
-    ''{"hidden":true}'';
+  "browser.newtabpage.activity-stream.feeds.section.topstories.options" = ''{"hidden":true}'';
   "browser.newtabpage.activity-stream.default.sites" = "";
 
   # [SECTION] ABOUT
@@ -612,4 +589,163 @@
   # disable captive portal
   "network.captive-portal-service.enabled" = false;
   "captivedetect.canonicalURL" = "";
+
+  # smooth scrolling
+  # based on natural smooth scrolling v2 by aveyo
+  "apz.allow_zooming" = true; # true
+  "apz.force_disable_desktop_zooming_scrollbars" = false; # false
+  "apz.paint_skipping.enabled" = true; # true
+  "apz.windows.use_direct_manipulation" = true; # true
+  "dom.event.wheel-deltaMode-lines.always-disabled" = true; # false
+  "general.smoothScroll.currentVelocityWeighting" = "0.12"; # "0.25" <- 1. If scroll too slow, set to "0.15"
+  "general.smoothScroll.durationToIntervalRatio" = 1000; # 200
+  "general.smoothScroll.lines.durationMaxMS" = 100; # 150
+  "general.smoothScroll.lines.durationMinMS" = 0; # 150
+  "general.smoothScroll.mouseWheel.durationMaxMS" = 100; # 200
+  "general.smoothScroll.mouseWheel.durationMinMS" = 0; # 50
+  "general.smoothScroll.mouseWheel.migrationPercent" = 100; # 100
+  "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS" = 12; # 120
+  "general.smoothScroll.msdPhysics.enabled" = true; # false
+  "general.smoothScroll.msdPhysics.motionBeginSpringConstant" = 200; # 1250
+  "general.smoothScroll.msdPhysics.regularSpringConstant" = 200; # 1000
+  "general.smoothScroll.msdPhysics.slowdownMinDeltaMS" = 10; # 12
+  "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio" = "1.20"; # "1.3"
+  "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 1000; # 2000
+  "general.smoothScroll.other.durationMaxMS" = 100; # 150
+  "general.smoothScroll.other.durationMinMS" = 0; # 150
+  "general.smoothScroll.pages.durationMaxMS" = 100; # 150
+  "general.smoothScroll.pages.durationMinMS" = 0; # 150
+  "general.smoothScroll.pixels.durationMaxMS" = 100; # 150
+  "general.smoothScroll.pixels.durationMinMS" = 0; # 150
+  "general.smoothScroll.scrollbars.durationMaxMS" = 100; # 150
+  "general.smoothScroll.scrollbars.durationMinMS" = 0; # 150
+  "general.smoothScroll.stopDecelerationWeighting" = "0.6"; # "0.4"
+  "layers.async-pan-zoom.enabled" = true; # true
+  "layout.css.scroll-behavior.spring-constant" = "250.0"; # "250.0"
+  "mousewheel.acceleration.factor" = 3; # 10
+  "mousewheel.acceleration.start" = -1; # -1
+  "mousewheel.default.delta_multiplier_x" = 100; # 100
+  "mousewheel.default.delta_multiplier_y" = 100; # 100
+  "mousewheel.default.delta_multiplier_z" = 100; # 100
+  "mousewheel.min_line_scroll_amount" = 0; # 5
+  "mousewheel.system_scroll_override.enabled" = true; # true <- 2. If scroll too fast, set to false
+  "mousewheel.system_scroll_override_on_root_content.enabled" = false; # true
+  "mousewheel.transaction.timeout" = 1500; # 1500
+  "toolkit.scrollbox.horizontalScrollDistance" = 4; # 5
+  "toolkit.scrollbox.verticalScrollDistance" = 3; # 3
+
+  # lepton
+  "userChrome.icon.panel_full" = true;
+  "userChrome.padding.panel" = false;
+  "userChrome.centered.urlbar" = true;
+  "userChrome.centered.bookmarkbar" = true;
+  "userChrome.theme.transparent.menu" = true;
+  "userChrome.padding.urlbar" = false;
+  "browser.tabs.cardPreview.enabled" = false;
+
+  # fastfox.js
+
+  # PREF: notification interval (in microseconds) to avoid layout thrashing
+  # When Firefox is loading a page, it periodically reformats or "reflows" the page as it loads. The page displays new elements every 0.12 seconds by default. These redraws increase the total page load time.
+  # The default value provides good incremental display of content without causing an increase in page load time.
+  # [NOTE] Lowering the interval will increase responsiveness but also increase the total load time.
+  # [WARNING] If this value is set below 1/10 of a second, it starts to impact page load performance.
+  # [EXAMPLE] 100000 = .10s = 100 reflows/second
+  # [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
+  # [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
+  # [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
+  "content.notify.interval" = 100000; # (.10s); default=120000 (.12s)
+
+  # PREF: GPU-accelerated Canvas2D
+  # Use gpu-canvas instead of to skia-canvas.
+  # [WARNING] May cause issues on some Windows machines using integrated GPUs [2] [3]
+  # Add to your overrides if you have a dedicated GPU.
+  # [NOTE] Higher values will use more memory.
+  # [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
+  # [2] https://github.com/yokoffing/Betterfox/issues/153
+  # [3] https://github.com/yokoffing/Betterfox/issues/198
+  #user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+  "gfx.canvas.accelerated.cache-items" = 4096; # default=2048; alt=8192
+  "gfx.canvas.accelerated.cache-size" = 512; # default=256; alt=1024
+  "gfx.content.skia-font-cache-size" = 20; # default=5; Chrome=20
+  # [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
+
+  # PREF: compression level for cached JavaScript bytecode [FF102+]
+  # [1] https://github.com/yokoffing/Betterfox/issues/247
+  # 0 = do not compress (default)
+  # 1 = minimal compression
+  # 9 = maximal compression
+  "browser.cache.jsbc_compression_level" = 3;
+
+  # PREF: adjust video buffering periods when not using MSE (in seconds)
+  # [NOTE] Does not affect videos over 720p since they use DASH playback [1]
+  # [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
+  "media.cache_readahead_limit" = 7200; # 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+  "media.cache_resume_threshold" = 3600; # 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
+
+  # PREF: image cache
+  #"image.cache.size", 5242880); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
+  "image.mem.decode_bytes_at_a_time" = 32768; # default=16384; alt=65536; chunk size for calls to the image decoders
+
+  # PREF: increase the absolute number of HTTP connections
+  # [1] https://kb.mozillazine.org/Network.http.max-connections
+  # [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
+  # [3] https://www.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
+  "network.http.max-connections" = 1800; # default=900
+  "network.http.max-persistent-connections-per-server" = 10; # default=6; download connections; anything above 10 is excessive
+  "network.http.max-urgent-start-excessive-connections-per-host" = 5; # default=3
+  "network.http.max-persistent-connections-per-proxy" = 48; # default=32
+  #"network.websocket.max-connections"= 200; // DEFAULT
+
+  # PREF: pacing requests [FF23+]
+  # Controls how many HTTP requests are sent at a time.
+  # Pacing HTTP requests can have some benefits= such as reducing network congestion,
+  # improving web page loading speed= and avoiding server overload.
+  # Pacing requests adds a slight delay between requests to throttle them.
+  # If you have a fast machine and internet connection= disabling pacing
+  # may provide a small speed boost when loading pages with lots of requests.
+  # false=Firefox will send as many requests as possible without pacing
+  # true=Firefox will pace requests (default
+  "network.http.pacing.requests.enabled" = false;
+  "network.http.pacing.requests.min-parallelism" = 10; # default=6
+  "network.http.pacing.requests.burst" = 14; # default=10
+
+  # PREF: increase DNS cache
+  # [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
+  "network.dnsCacheEntries" = 1000; # default=400
+
+  # PREF: adjust DNS expiration time
+  # [ABOUT] about:networking#dns
+  # [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
+  "network.dnsCacheExpiration" = 3600; # keep entries for 1 hour
+  #"network.dnsCacheExpirationGracePeriod"= 240; // default=60; cache DNS entries for 4 minutes after they expire
+
+  # PREF: increase TLS token caching
+  "network.ssl_tokens_cache_capacity" = 10240; # default=2048; more TLS token caching (fast reconnects)
+
+  # PREF: DNS prefetching <link rel="dns-prefetch">
+  # Used for cross-origin connections to provide small performance improvements.
+  # Disable DNS prefetching to prevent Firefox from proactively resolving
+  # hostnames for other domains linked on a page. This may eliminate
+  # unnecessary DNS lookups= but can increase latency when following external links.
+  # [1] https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html
+  # [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
+  # [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
+  # [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+  # [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935
+  "network.dns.disablePrefetchFromHTTPS" = true; # (FF127+ false)
+
+  # PREF: CSS Masonry Layout [NIGHTLY]
+  # [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
+  "layout.css.grid-template-masonry-value.enabled" = true;
+
+  # PREF: Prioritized Task Scheduling API [NIGHTLY]
+  # [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+  # [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+  "dom.enable_web_task_scheduling" = true;
+
+  # PREF: HTML Sanitizer API [NIGHTLY]
+  # [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
+  # [2] https://caniuse.com/mdn-api_sanitizer
+  "dom.security.sanitizer.enabled" = true;
 }

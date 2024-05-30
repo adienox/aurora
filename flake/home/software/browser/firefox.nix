@@ -1,5 +1,9 @@
-{ pkgs, inputs, default, ... }:
-let
+{
+  pkgs,
+  inputs,
+  default,
+  ...
+}: let
   youtube-icon = pkgs.fetchurl {
     url = "https://www.youtube.com/s/desktop/dbf5c200/img/favicon_144x144.png";
     hash = "sha256-lQ5gbLyoWCH7cgoYcy+WlFDjHGbxwB8Xz0G7AZnr9vI=";
@@ -16,66 +20,85 @@ in {
   programs.firefox = {
     enable = true;
     profiles.${default.firefox.profile} = {
-
-      search.default = "Brave";
+      search = {
+        default = "Brave";
+        force = true;
+      };
 
       search.engines = {
         "Nix Packages" = {
-          urls = [{
-            template = "https://search.nixos.org/packages";
-            params = [
-              {
-                name = "type";
-                value = "packages";
-              }
-              {
-                name = "query";
-                value = "{searchTerms}";
-              }
-            ];
-          }];
-          icon =
-            "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "np" ];
+          urls = [
+            {
+              template = "https://search.nixos.org/packages";
+              params = [
+                {
+                  name = "type";
+                  value = "packages";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = ["np"];
         };
 
         "Youtube" = {
-          urls = [{
-            template = "https://www.youtube.com/results";
-            params = [{
-              name = "search_query";
-              value = "{searchTerms}";
-            }];
-          }];
+          urls = [
+            {
+              template = "https://www.youtube.com/results";
+              params = [
+                {
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
 
           icon = youtube-icon;
-          definedAliases = [ "yt" ];
+          definedAliases = ["yt"];
         };
 
         "Brave" = {
-          urls = [{
-            template = "https://search.brave.com/search";
-            params = [{
-              name = "q";
-              value = "{searchTerms}";
-            }];
-          }];
+          urls = [
+            {
+              template = "https://search.brave.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "summary";
+                  value = "1";
+                }
+              ];
+            }
+          ];
 
           icon = brave-icon;
-          definedAliases = [ "bb" ];
+          definedAliases = ["bb"];
         };
 
         "AniWave" = {
-          urls = [{
-            template = "https://aniwave.to/filter";
-            params = [{
-              name = "keyword";
-              value = "{searchTerms}";
-            }];
-          }];
+          urls = [
+            {
+              template = "https://aniwave.to/filter";
+              params = [
+                {
+                  name = "keyword";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
 
           icon = aniwave-icon;
-          definedAliases = [ "aa" ];
+          definedAliases = ["aa"];
         };
 
         "Bing".metaData.hidden = true;
@@ -84,7 +107,6 @@ in {
         "Wikipedia (en)".metaData.hidden = true;
         "Google".metaData.alias = "gg";
       };
-      search.force = true;
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         sponsorblock
@@ -94,7 +116,6 @@ in {
         dearrow
         df-youtube
         facebook-container
-        multi-account-containers
         leechblock-ng
         search-by-image
         simple-tab-groups
@@ -106,18 +127,19 @@ in {
         skip-redirect
         smart-referer
         vimium
-        tabcenter-reborn
         canvasblocker
+        enhancer-for-youtube
+        redirector
+        # tabcenter-reborn
+        # multi-account-containers
+        # wikiwand-wikipedia-modernized
         # fingerprint spoofing
         # readwise
         # imagur
-        # enhancer-for-youtube
-        # languagetool
-        # wikiwand-wikipedia-modernized
         # load progress bar
       ];
 
-      settings = import ./settings.nix { inherit default; };
+      settings = import ./settings.nix {inherit default;};
     };
   };
 }
