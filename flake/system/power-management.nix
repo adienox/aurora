@@ -7,8 +7,13 @@
     "pci/devices/0000:00:00.0" # Root Complex
     "pci/devices/0000:00:00.2" # IOMMU
     "pci/devices/0000:00:01.0" # Renoir PCIe Dummy Host Bridge
+    "pci/devices/0000:00:01.1" # Renoir PCIe GPP Bridge
     "pci/devices/0000:00:02.0" # Renoir PCIe Dummy Host Bridge
+    "pci/devices/0000:00:02.1" # Renoir/Cezanne PCIe GPP Bridge
+    "pci/devices/0000:00:02.2" # Renoir/Cezanne PCIe GPP Bridge
     "pci/devices/0000:00:08.0" # Renoir PCIe Dummy Host Bridge
+    "pci/devices/0000:00:08.1" # Renoir Internal PCIe GPP Bridge to Bus
+    "pci/devices/0000:00:08.2" # Renoir Internal PCIe GPP Bridge to Bus
     "pci/devices/0000:00:14.0" # FCH SMBus Controller
     "pci/devices/0000:00:14.3" # FCH LPC bridge
     "pci/devices/0000:00:18.0" # Renoir Function 0
