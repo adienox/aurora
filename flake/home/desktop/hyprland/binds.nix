@@ -9,7 +9,7 @@
 
       bind = [
         # Term
-        "$MOD, RETURN, exec, $TERM"
+        "$MOD, RETURN, exec, $TERM --start-as=fullscreen"
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
 
         # Alt Term
@@ -132,6 +132,7 @@
       bindl = [
         # Media Control
         ", XF86AudioPlay, exec, playerctl play-pause"
+        ", Next, exec, playerctl play-pause"
         ", XF86AudioStop, exec, playerctl play-stop"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"

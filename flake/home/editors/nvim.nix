@@ -14,7 +14,7 @@
 
     # python stuff
     python3
-    nodePackages.pyright
+    # nodePackages.pyright
     python311Packages.ipython
     mypy
     ruff
@@ -24,6 +24,8 @@
     # web-dev stuff
     prettierd
     emmet-ls
+    vscode-langservers-extracted
+    tailwindcss-language-server
 
     # shell stuff
     shellcheck

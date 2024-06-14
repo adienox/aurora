@@ -19,6 +19,11 @@
 in {
   programs.firefox = {
     enable = true;
+
+    nativeMessagingHosts = with pkgs; [
+      kdePackages.kdeconnect-kde
+    ];
+
     profiles.${default.firefox.profile} = {
       search = {
         default = "Brave";
@@ -114,7 +119,7 @@ in {
         darkreader
         youtube-shorts-block
         dearrow
-        df-youtube
+        youtube-recommended-videos
         facebook-container
         leechblock-ng
         search-by-image
@@ -123,16 +128,16 @@ in {
         web-archives
         clearurls
         don-t-fuck-with-paste
-        temporary-containers
-        skip-redirect
         smart-referer
         vimium
         canvasblocker
         enhancer-for-youtube
         redirector
+        wikiwand-wikipedia-modernized
+        # temporary-containers
+        # skip-redirect
         # tabcenter-reborn
         # multi-account-containers
-        # wikiwand-wikipedia-modernized
         # fingerprint spoofing
         # readwise
         # imagur

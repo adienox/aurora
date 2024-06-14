@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./media
     ./browser
@@ -41,5 +45,6 @@
     };
 
     syncthing.enable = true;
+    kdeconnect.enable = true;
   };
 }

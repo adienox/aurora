@@ -2,48 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  pciRules = map (e: "w /sys/bus/${e}/power/control - - - - auto") [
-    "pci/devices/0000:00:00.0" # Root Complex
-    "pci/devices/0000:00:00.2" # IOMMU
-    "pci/devices/0000:00:01.0" # Renoir PCIe Dummy Host Bridge
-    "pci/devices/0000:00:01.1" # Renoir PCIe GPP Bridge
-    "pci/devices/0000:00:02.0" # Renoir PCIe Dummy Host Bridge
-    "pci/devices/0000:00:02.1" # Renoir/Cezanne PCIe GPP Bridge
-    "pci/devices/0000:00:02.2" # Renoir/Cezanne PCIe GPP Bridge
-    "pci/devices/0000:00:08.0" # Renoir PCIe Dummy Host Bridge
-    "pci/devices/0000:00:08.1" # Renoir Internal PCIe GPP Bridge to Bus
-    "pci/devices/0000:00:08.2" # Renoir Internal PCIe GPP Bridge to Bus
-    "pci/devices/0000:00:14.0" # FCH SMBus Controller
-    "pci/devices/0000:00:14.3" # FCH LPC bridge
-    "pci/devices/0000:00:18.0" # Renoir Function 0
-    "pci/devices/0000:00:18.1" # Renoir Function 1
-    "pci/devices/0000:00:18.2" # Renoir Function 2
-    "pci/devices/0000:00:18.3" # Renoir Function 3
-    "pci/devices/0000:00:18.4" # Renoir Function 4
-    "pci/devices/0000:00:18.5" # Renoir Function 5
-    "pci/devices/0000:00:18.6" # Renoir Function 6
-    "pci/devices/0000:00:18.7" # Renoir Function 7
-    "pci/devices/0000:02:00.0" # Non-Volatile Memory Controller
-    "pci/devices/0000:03:00.0" # Ethernet
-    "pci/devices/0000:04:00.0" # Wifi
-    "pci/devices/0000:05:00.0" # VGA controller
-    "pci/devices/0000:05:00.2" # Encryption controller
-    "pci/devices/0000:05:00.3" # Renoir/Cezanne USB 3.1
-    "pci/devices/0000:05:00.5" # Audio co-processor
-    "pci/devices/0000:05:00.6" # Audio controller
-    "pci/devices/0000:06:00.0" # FCH SATA Controller [AHCI mode]
-    "pci/devices/0000:06:00.1" # FCH SATA Controller [AHCI mode]
-    "pci/devices/0000:06:00.0/ata1" # FCH SATA Controller [AHCI mode]
-    "pci/devices/0000:06:00.1/ata2" # FCH SATA Controller [AHCI mode]
-    "usb/devices/3-3" # USB device 3-3
-    "usb/devices/3-4" # ITE device
-  ];
-  scsiRules = map (e: "w /sys/class/scsi_host/${e}/link_power_management_policy - - - - med_power_with_dipm") [
-    "host0" # Sata link power management Host0
-    "host1" # Sata link power management Host1
-  ];
-in {
+}: {
   # Disable Watchdogs
   # https://wiki.archlinux.org/title/Improving_performance#Watchdogs
   # https://wiki.archlinux.org/title/Power_management#Disabling_NMI_watchdog
@@ -60,7 +19,6 @@ in {
       blacklist sp5100_tco
     '';
     kernel.sysctl = {
-      "kernel.nmi_watchdog" = 0;
       "vm.dirty_writeback_centisecs" = 1500;
       "vm.laptop_mode" = 5;
     };
@@ -72,8 +30,39 @@ in {
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="${pkgs.iw}/bin/iw dev $name set power_save on"
     '';
-    tlp.enable = true;
-  };
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_HWP_DYN_BOOST_ON_AC = 1;
+        CPU_HWP_DYN_BOOST_ON_BAT = 0;
 
-  systemd.tmpfiles.rules = pciRules ++ scsiRules;
+        RADEON_DPM_PERF_LEVEL_ON_AC = "auto";
+        RADEON_DPM_PERF_LEVEL_ON_BAT = "auto";
+        RADEON_DPM_STATE_ON_AC = "balanced";
+        RADEON_DPM_STATE_ON_BAT = "battery";
+
+        PLATFORM_PROFILE_ON_AC = "balanced";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+        RUNTIME_PM_ON_AC = "auto";
+        RUNTIME_PM_ON_BAT = "auto";
+
+        MEM_SLEEP_ON_AC = "deep";
+        MEM_SLEEP_ON_BAT = "deep";
+        SATA_LINKPWR_ON_AC = "med_power_with_dipm";
+        SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
+
+        NMI_WATCHDOG = 0;
+        WOL_DISABLE = "Y";
+        WIFI_PWR_ON_AC = "on";
+        WIFI_PWR_ON_BAT = "on";
+        DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi";
+      };
+    };
+  };
 }

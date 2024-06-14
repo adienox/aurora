@@ -1,4 +1,4 @@
-{ default, ... }: {
+{default, ...}: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
@@ -30,6 +30,10 @@
       # Terminal Bell
       enable_audio_bell = false;
 
+      # Remote control
+      allow_remote_control = "socket-only";
+      listen_on = "unix:/tmp/kitty";
+
       # Window Settings
       window_padding_width = 4;
       confirm_os_window_close = 0;
@@ -40,6 +44,6 @@
 
       background = "#000000";
     };
-    keybindings = { "f1" = "debug_config"; };
+    keybindings = {"f1" = "debug_config";};
   };
 }

@@ -1,5 +1,9 @@
-{ pkgs, inputs, ... }: {
-  imports = [ ./config.nix ];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [./config.nix];
   home.packages = with pkgs; [
     udiskie # AutoMount disks
     bibata-cursors # Mouse Cursor
@@ -10,7 +14,7 @@
     gnome.zenity # Another picker
     # xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
-    ianny # tells you to take breaks
+    # ianny # tells you to take breaks
 
     # recorder and screenshot
     grim
@@ -29,6 +33,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland = { enable = true; };
+    xwayland = {enable = true;};
   };
 }

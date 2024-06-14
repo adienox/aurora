@@ -60,6 +60,7 @@
 
         # Workspace Rules
         "workspace 1, ^(firefox)$"
+        "workspace 2, ^(kitty)$"
         "workspace 2, ^(Emacs)$"
         "workspace 2, ^(Code)$"
         "workspace 4, ^(mpv)$"
@@ -81,6 +82,9 @@
         # Utils
         "noshadow, floating:0"
         "animation popin, floating:1"
+
+        # centering
+        "center, class:^(firefox)$, title:^(Enter name of file to save to…)$"
 
         # Idle inhibit rules
         "idleinhibit fullscreen, class:^(librewolf)$"
