@@ -128,14 +128,15 @@ in {
         web-archives
         clearurls
         don-t-fuck-with-paste
-        smart-referer
         vimium
         canvasblocker
         enhancer-for-youtube
         redirector
         wikiwand-wikipedia-modernized
+        skip-redirect
+        bitwarden
+        #smart-referer
         # temporary-containers
-        # skip-redirect
         # tabcenter-reborn
         # multi-account-containers
         # fingerprint spoofing

@@ -21,13 +21,15 @@
         # Applications
         "$MOD, W, exec, $SCRIPTS/focus.sh firefox firefox"
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
-        ", Delete, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
         "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
-        "SHIFT, Insert, exec, $SCRIPTS/focus.sh ticktick ticktick"
+
+        ", XF86Mail, exec, $SCRIPTS/rofi.sh task"
         ", XF86Calculator, exec, gnome-calculator"
+        ", XF86HomePage, exec, $SCRIPTS/focus.sh obsidian obsidian"
+        "SHIFT, XF86Mail, exec, $SCRIPTS/focus.sh ticktick ticktick"
 
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"
@@ -37,7 +39,6 @@
         "$MOD, Space, exec, $SCRIPTS/rofi.sh drun"
         "$ALT, Space, exec, $SCRIPTS/rofi.sh calc"
         "$ALT, N, exec, $SCRIPTS/rofi.sh media-log"
-        ", Insert, exec, $SCRIPTS/rofi.sh task"
 
         # Clipboard
         "$MOD, V, exec, $SCRIPTS/rofi.sh clipboard"
@@ -118,10 +119,8 @@
         ", XF86AudioLowerVolume, exec, swayosd-client --output-volume=lower --max-volume=150"
 
         # Screenshot
-        ", Print, exec, $SCRIPTS/screenshot.sh full"
-        ", Prior, exec, $SCRIPTS/screenshot.sh full"
+        ", Print, exec, $SCRIPTS/screenshot.sh full ${default.colors.accent}"
         "SHIFT, Print, exec, $SCRIPTS/screenshot.sh partial ${default.colors.accent}"
-        "SHIFT, Prior, exec, $SCRIPTS/screenshot.sh partial ${default.colors.accent}"
         "$MOD SHIFT, T, exec, $SCRIPTS/screenshot.sh ocr ${default.colors.accent}"
 
         # Recording

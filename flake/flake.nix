@@ -34,6 +34,7 @@
     hyprlock.url = "github:hyprwm/hyprlock";
 
     hypridle.url = "github:hyprwm/hypridle";
+    catppuccin.url = "github:catppuccin/nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
   };
@@ -53,7 +54,9 @@
     nixosConfigurations = {
       anomaly = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit system inputs;};
-        modules = [./system];
+        modules = [
+          ./system
+        ];
       };
     };
 
@@ -65,6 +68,7 @@
           inputs.nix-index-db.hmModules.nix-index
           inputs.hyprlock.homeManagerModules.hyprlock
           inputs.hypridle.homeManagerModules.hypridle
+          inputs.catppuccin.homeManagerModules.catppuccin
         ];
         extraSpecialArgs = {inherit inputs;};
       };

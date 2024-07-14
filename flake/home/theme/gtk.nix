@@ -1,4 +1,9 @@
-{ config, pkgs, default, ... }: {
+{
+  config,
+  pkgs,
+  default,
+  ...
+}: {
   gtk = {
     enable = true;
 
@@ -18,18 +23,25 @@
       package = pkgs.win11-icon-theme;
     };
 
-    theme = {
-      name = "Catppuccin-Mocha-Standard-Peach-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "peach" ];
-        tweaks = [ "black" "rimless" ];
-        variant = "mocha";
-      };
+    catppuccin = {
+      enable = true;
+      accent = "peach";
+      tweaks = ["black" "rimless"];
+      flavor = "mocha";
     };
+
+    # theme = {
+    #   name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    #   package = pkgs.catppuccin-gtk.override {
+    #     accents = [ "peach" ];
+    #     tweaks = [ "black" "rimless" ];
+    #     variant = "mocha";
+    #   };
+    # };
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = true; };
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = true; };
+    gtk3.extraConfig = {gtk-application-prefer-dark-theme = true;};
+    gtk4.extraConfig = {gtk-application-prefer-dark-theme = true;};
   };
 }

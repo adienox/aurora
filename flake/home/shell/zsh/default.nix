@@ -24,7 +24,13 @@
 
     completionInit = ''
       autoload -Uz compinit
-      compinit -d ~/.cache/zcompdump
+      if [[ -n $(print ~/.cache/zcompdump(Nmh+24)) ]]; then
+        # Regenerate completions because the dump file hasn't been modified within the last 24 hours
+        compinit -d ~/.cache/zcompdump
+      else
+        # Reuse the existing completions file
+        compinit -C -d ~/.cache/zcompdump
+      fi
       zstyle ":completion:*:*:*:*:*" menu select
       zstyle ":completion:*" list-colors ""
       zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -104,13 +110,10 @@
       alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
       # runs fetch if shell is interactive and not inside vscode and nvim
-      if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" && -z "$VIM" ]] ; then
-        #$XDG_CONFIG_HOME/assets/scripts/fetch.sh
-        maxfetch
-      fi
-
-      # Vscode support in commandline
-      [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+      # if [[ $- == *i* && "$TERM_PROGRAM" != "vscode" && -z "$VIM" ]] ; then
+      #   #$XDG_CONFIG_HOME/assets/scripts/fetch.sh
+      #   maxfetch
+      # fi
 
       function zvm_config() {
         ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -119,10 +122,8 @@
 
       # Plugins
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
-      source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      source ${pkgs.zsh-autopair}/share/zsh/zsh-autopair/autopair.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
       source ${config.xdg.configHome}/zsh/modules/termsupport.zsh
 

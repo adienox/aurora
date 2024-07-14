@@ -1,4 +1,7 @@
 {default, ...}: {
+  # Auto enable extensions to make it easier to install from nixos
+  "extensions.autoDisableScopes" = 0;
+
   # [CATEGORY] PRIVACY #
 
   # [SECTION] ISOLATION
@@ -634,12 +637,15 @@
   "toolkit.scrollbox.horizontalScrollDistance" = 4; # 5
   "toolkit.scrollbox.verticalScrollDistance" = 3; # 3
 
+  "layout.css.color-mix.enabled" = true;
+  "layout.css.light-dark.enabled" = true;
+  "layout.css.has-selector.enabled" = true;
+
   # lepton
   "userChrome.icon.panel_full" = true;
   "userChrome.padding.panel" = false;
   "userChrome.centered.urlbar" = true;
   "userChrome.centered.bookmarkbar" = true;
-  "userChrome.theme.transparent.menu" = true;
   "userChrome.padding.urlbar" = false;
   "browser.tabs.cardPreview.enabled" = false;
 

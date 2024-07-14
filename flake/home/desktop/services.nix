@@ -42,6 +42,17 @@
     #   };
     #   Install.WantedBy = ["graphical-session.target"];
     # };
+    # tmux = {
+    #   Unit = {
+    #     Description = "Start tmux in detached session";
+    #   };
+    #   Service = {
+    #     ExecStart = "${pkgs.tmux}/bin/tmux new-session -s 'home 🏡' -d";
+    #     ExecStop = "${pkgs.tmux}/bin/tmux kill-session -t 'home 🏡'";
+    #     Type = "forking";
+    #   };
+    #   Install.WantedBy = ["graphical-session.target"];
+    # };
 
     wlsunset = {
       Unit = {

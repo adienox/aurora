@@ -7,6 +7,11 @@
 in rec {
   browser = "firefox";
   editor = "nvim";
+  catppuccin = {
+    flavor = "mocha";
+    accent = "peach";
+    enable = true;
+  };
 
   firefox = {
     profile = "nox";

@@ -4,7 +4,9 @@ DATE=$(date +%Y-%m-%dT%H:%M:%S)
 FULLPATH="$HOME/Pictures/Screenshots/$DATE.png"
 
 if [ "$1" == 'full' ]; then
-	grim "$FULLPATH"
+
+	grim "$FULLPATH" &
+	timeout 0.15s slurp -w 0 -b "#$2""33"
 	wl-copy <"$FULLPATH"
 elif [ "$1" == 'partial' ]; then
 	grim -g "$(slurp -w 0 -b "#$2""33")" "$FULLPATH"

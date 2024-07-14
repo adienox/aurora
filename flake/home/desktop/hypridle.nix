@@ -1,8 +1,11 @@
-{ pkgs, inputs, ... }:
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   hyprlock = "${inputs.hyprlock.packages.${pkgs.system}.hyprlock}/bin/hyprlock";
 
-  brightness-fade = (pkgs.writeShellApplication {
+  brightness-fade = pkgs.writeShellApplication {
     name = "brightness-fade";
     runtimeInputs = with pkgs; [
       coreutils
@@ -12,12 +15,12 @@ let
       ripgrep
     ];
     text = builtins.readFile ../../../assets/scripts/hyprland/fade.sh;
-  });
+  };
 
   suspend-script = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.playerctl}/bin/playerctl -a metadata -f "{{status}}" | ${pkgs.ripgrep}/bin/rg "Playing"
-    # only suspend if audio isn't running
-    if [ $? == 1 ]; then
+    # only suspend if audio isn't running and no other user is logged in
+    if [ $? == 1 ] && [ "$(who | wc -l)" -eq 1 ]; then
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
