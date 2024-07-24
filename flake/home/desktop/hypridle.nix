@@ -1,9 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
-  hyprlock = "${inputs.hyprlock.packages.${pkgs.system}.hyprlock}/bin/hyprlock";
+{pkgs, ...}: let
+  hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
 
   brightness-fade = pkgs.writeShellApplication {
     name = "brightness-fade";
@@ -27,23 +23,26 @@
 in {
   services.hypridle = {
     enable = true;
-    beforeSleepCmd = hyprlock;
-    lockCmd = hyprlock;
-    listeners = [
-      {
-        timeout = 300;
-        onTimeout = "${brightness-fade}/bin/brightness-fade fade";
-        onResume = "${brightness-fade}/bin/brightness-fade resume";
-      }
-      {
-        timeout = 500;
-        onTimeout = hyprlock;
-      }
-      {
-        timeout = 600;
-        # onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
-        onTimeout = "${suspend-script}";
-      }
-    ];
+    settings = {
+      before_sleep_cmd = hyprlock;
+      after_sleep_cmd = hyprlock;
+      lock_cmd = hyprlock;
+      listener = [
+        {
+          timeout = 300;
+          onTimeout = "${brightness-fade}/bin/brightness-fade fade";
+          onResume = "${brightness-fade}/bin/brightness-fade resume";
+        }
+        {
+          timeout = 500;
+          onTimeout = hyprlock;
+        }
+        {
+          timeout = 600;
+          # onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+          onTimeout = "${suspend-script}";
+        }
+      ];
+    };
   };
 }

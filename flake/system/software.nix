@@ -97,11 +97,6 @@
     dbus.packages = [pkgs.gcr];
   };
 
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";

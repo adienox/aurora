@@ -1,7 +1,7 @@
 {default, ...}: {
   programs.kitty = {
     enable = true;
-    shellIntegration.enableZshIntegration = true;
+    # shellIntegration.enableZshIntegration = true;
     font = {
       name = "${default.terminal.font}";
       size = 13;

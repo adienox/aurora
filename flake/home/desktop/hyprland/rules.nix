@@ -107,7 +107,7 @@
         "opacity 1, class:^(Vivaldi-stable)$"
         "opacity 1, class:^(discord), fullscreen:1"
 
-        "opacity 0.9, class:^(obsidian)$"
+        "opacity 0.8, class:^(obsidian)$"
         "opacity 0.9, class:^(ticktick)$"
         "opacity 0.9, class:^(Anki)$"
         "opacity 0.9, class:^(calibre-gui)$"

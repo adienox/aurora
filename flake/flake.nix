@@ -31,9 +31,6 @@
 
     hyprland.url = "github:hyprwm/hyprland";
 
-    hyprlock.url = "github:hyprwm/hyprlock";
-
-    hypridle.url = "github:hyprwm/hypridle";
     catppuccin.url = "github:catppuccin/nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
@@ -66,8 +63,6 @@
         modules = [
           ./home
           inputs.nix-index-db.hmModules.nix-index
-          inputs.hyprlock.homeManagerModules.hyprlock
-          inputs.hypridle.homeManagerModules.hypridle
           inputs.catppuccin.homeManagerModules.catppuccin
         ];
         extraSpecialArgs = {inherit inputs;};

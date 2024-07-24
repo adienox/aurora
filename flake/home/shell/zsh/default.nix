@@ -23,14 +23,14 @@
     };
 
     completionInit = ''
-      autoload -Uz compinit
-      if [[ -n $(print ~/.cache/zcompdump(Nmh+24)) ]]; then
-        # Regenerate completions because the dump file hasn't been modified within the last 24 hours
-        compinit -d ~/.cache/zcompdump
-      else
-        # Reuse the existing completions file
-        compinit -C -d ~/.cache/zcompdump
-      fi
+      # autoload -Uz compinit
+      # if [[ -n $(print ~/.cache/zcompdump(Nmh+24)) ]]; then
+      #   # Regenerate completions because the dump file hasn't been modified within the last 24 hours
+      #   compinit -d ~/.cache/zcompdump
+      # else
+      #   # Reuse the existing completions file
+      #   compinit -C -d ~/.cache/zcompdump
+      # fi
       zstyle ":completion:*:*:*:*:*" menu select
       zstyle ":completion:*" list-colors ""
       zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -115,15 +115,9 @@
       #   maxfetch
       # fi
 
-      function zvm_config() {
-        ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-        ZVM_VI_ESCAPE_BINDKEY=jk
-      }
-
       # Plugins
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
       source ${config.xdg.configHome}/zsh/modules/termsupport.zsh
 

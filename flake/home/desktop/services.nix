@@ -60,7 +60,7 @@
         PartOf = ["graphical-session.target"];
       };
       Service = {
-        ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 5000 -S 8:00 -s 19:00";
+        ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 4000 -S 8:00 -s 19:00";
         Restart = "on-failure";
       };
       Install.WantedBy = ["graphical-session.target"];
