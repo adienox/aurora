@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   battery-status = pkgs.writeShellApplication {
     name = "battery-status";
     runtimeInputs = with pkgs; [
@@ -21,12 +17,6 @@
     runtimeInputs = with pkgs; [coreutils gawk bluez];
     text =
       builtins.readFile ../../../assets/scripts/hyprland/bluetooth-auto-off.sh;
-  };
-
-  mako-reload = pkgs.writeShellApplication {
-    name = "mako-reload";
-    runtimeInputs = with pkgs; [mako libnotify];
-    text = builtins.readFile ../../../assets/scripts/utils/mako-reload.sh;
   };
 
   play-with-mpv = pkgs.writeShellApplication {
@@ -71,29 +61,6 @@ in {
         ExecStart = "${play-with-mpv}/bin/play-with-mpv-wrapper";
         Restart = "on-failure";
       };
-      Install.WantedBy = ["graphical-session.target"];
-    };
-
-    mako-reload = {
-      Unit = {
-        Description = "Mako config reloader";
-        PartOf = ["graphical-session.target"];
-      };
-      Service = {
-        ExecStart = "${mako-reload}/bin/mako-reload";
-        Type = "oneshot";
-      };
-      Install.WantedBy = ["graphical-session.target"];
-    };
-  };
-
-  systemd.user.paths = {
-    mako-reload = {
-      Unit = {
-        Description = "Mako config reloader";
-        PartOf = ["graphical-session.target"];
-      };
-      Path = {PathModified = "%h/.config/mako/config";};
       Install.WantedBy = ["graphical-session.target"];
     };
   };
