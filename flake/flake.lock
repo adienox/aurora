@@ -453,16 +453,18 @@
       },
       "locked": {
         "lastModified": 1721831547,
-        "narHash": "sha256-fk3jKPXAKq0uyrXXbNnGWOA/i60O+KOtj5d7sQAN6Dw=",
-        "owner": "hyprwm",
-        "repo": "hyprland",
+        "narHash": "sha256-ueSN0oXsQ9aqA8CGBaJULXxYWap8Zchdp8wzgWTzQe4=",
+        "ref": "refs/heads/main",
         "rev": "8d3920c882f0587c5b3224135f668dce8bb0b04f",
-        "type": "github"
+        "revCount": 4973,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/hyprwm/Hyprland?ref=v0.41.2"
       },
       "original": {
-        "owner": "hyprwm",
-        "repo": "hyprland",
-        "type": "github"
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/hyprwm/Hyprland?ref=v0.41.2"
       }
     },
     "hyprland-protocols": {

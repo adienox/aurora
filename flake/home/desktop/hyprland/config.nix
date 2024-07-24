@@ -1,5 +1,5 @@
-{ default, ... }: {
-  imports = [ ./rules.nix ./binds.nix ];
+{default, ...}: {
+  imports = [./rules.nix ./binds.nix];
 
   wayland.windowManager.hyprland = {
     settings = {
@@ -28,14 +28,16 @@
 
         border_size = 2;
 
-        "col.active_border" =
-          "0xff${default.colors.base0E} 0xff${default.colors.base0C} 45deg";
+        "col.active_border" = "0xff${default.colors.base0E} 0xff${default.colors.base0C} 45deg";
         "col.inactive_border" = "0xff${default.colors.base02}";
 
         sensitivity = 1.0; # for mouse cursor
 
-        no_cursor_warps = true;
         layout = "dwindle";
+      };
+      cursor = {
+        no_warps = true;
+        hide_on_key_press = true;
       };
 
       decoration = {
@@ -93,7 +95,6 @@
         mouse_move_enables_dpms = true;
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
-        hide_cursor_on_key_press = true;
         new_window_takes_over_fullscreen = true;
         initial_workspace_tracking = 0;
       };

@@ -29,7 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland?ref=v0.41.2";
+      submodules = true;
+    };
 
     catppuccin.url = "github:catppuccin/nix";
 
