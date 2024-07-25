@@ -5,20 +5,16 @@
   lib,
   ...
 }: {
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "discord-0.0.43"
-    ];
-
   home.packages = with pkgs; [
+    vesktop
     #NOTE: you need to lauch unmodified discord first before launching with vencord else things break!
-    (inputs.discord-43.legacyPackages.${pkgs.system}.discord.override {
-      nss = pkgs.nss_latest;
-      withVencord = true;
-    })
+    # (pkgs.discord.override {
+    #   nss = pkgs.nss_latest;
+    #   withVencord = true;
+    # })
   ];
 
-  xdg.configFile."Vencord/themes/custom.css".text = ''
+  xdg.configFile."vesktop/themes/custom.css".text = ''
     /**
      * @name midnight (catppuccin)
      * @author refact0r
