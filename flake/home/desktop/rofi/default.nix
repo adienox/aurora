@@ -1,4 +1,9 @@
-{ pkgs, default, inputs, ... }: {
+{
+  pkgs,
+  default,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     cliphist # Clipboard History
     keepmenu # Keepass integration
@@ -7,11 +12,12 @@
 
   programs.rofi = {
     enable = true;
+    catppuccin.enable = false;
     package = inputs.rofi-1751.legacyPackages.${pkgs.system}.rofi-wayland;
     # package = pkgs.rofi-wayland;
     terminal = default.terminal.name;
     font = "${default.settings.font.default} 16";
-    plugins = with pkgs; [ rofi-emoji rofi-calc ];
+    plugins = with pkgs; [rofi-emoji rofi-calc];
 
     theme = ./theme.rasi;
     extraConfig = {
@@ -44,24 +50,22 @@
     };
   };
 
-  xdg.configFile."keepmenu/config.ini".source =
-    (pkgs.formats.ini { }).generate "config.ini" {
-      dmenu = {
-        dmenu_command = "rofi -i -l 8";
-        title_path = false;
-        pinentry = "pinentry-gnome3";
-      };
-
-      dmenu_passphrase = { obscure = true; };
-
-      database = {
-        database_1 = default.files.keepass;
-        pw_cache_period_min = 360;
-        autotype_default = "{USERNAME}{DELAY 300}{TAB}{DELAY 300}{PASSWORD}";
-        type_library =
-          "pynput"; # pynput to resolve the weird issue with wtype parsing ^z in password
-      };
+  xdg.configFile."keepmenu/config.ini".source = (pkgs.formats.ini {}).generate "config.ini" {
+    dmenu = {
+      dmenu_command = "rofi -i -l 8";
+      title_path = false;
+      pinentry = "pinentry-gnome3";
     };
+
+    dmenu_passphrase = {obscure = true;};
+
+    database = {
+      database_1 = default.files.keepass;
+      pw_cache_period_min = 360;
+      autotype_default = "{USERNAME}{DELAY 300}{TAB}{DELAY 300}{PASSWORD}";
+      type_library = "pynput"; # pynput to resolve the weird issue with wtype parsing ^z in password
+    };
+  };
 
   xdg.dataFile."rofi/themes/colors.rasi".text = ''
     * {

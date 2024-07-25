@@ -28,6 +28,7 @@
   programs = {
     fzf = {
       enable = true;
+      catppuccin.enable = false;
       enableZshIntegration = true;
       colors = {
         spinner = default.xcolors.base06;
@@ -46,7 +47,6 @@
 
     bat = {
       enable = true;
-      catppuccin.enable = true;
       config = {
         pager = "less -FR";
         # theme = "Catppuccin-mocha";
@@ -60,10 +60,7 @@
       extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
     };
 
-    btop = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    btop.enable = true;
 
     zoxide = {
       enable = true;
@@ -74,6 +71,7 @@
 
     skim = {
       enable = true;
+      catppuccin.enable = false;
       enableZshIntegration = true;
       defaultCommand = "rg --files --hidden";
       changeDirWidgetOptions = [

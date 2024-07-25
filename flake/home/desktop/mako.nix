@@ -1,8 +1,13 @@
-{ default, pkgs, ... }: {
-  home.packages = with pkgs; [ libnotify ];
+{
+  default,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [libnotify];
 
   services.mako = {
     enable = true;
+    catppuccin.enable = false;
     font = default.settings.font.default;
     sort = "+time";
     margin = "10,10,0";

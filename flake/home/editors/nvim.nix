@@ -3,7 +3,10 @@
   inputs,
   ...
 }: {
-  programs.neovim = {enable = true;};
+  programs.neovim = {
+    enable = true;
+    catppuccin.enable = false;
+  };
 
   home.packages = with pkgs; [
     # lua stuff
