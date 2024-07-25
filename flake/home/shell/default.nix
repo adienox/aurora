@@ -10,6 +10,7 @@
     ./cli.nix
     ./direnv.nix
     ./lsd.nix
+    ./yazi.nix
     ./starship.nix
     ./kitty.nix
   ];

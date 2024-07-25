@@ -35,6 +35,7 @@
       submodules = true;
     };
 
+    yazi.url = "github:sxyazi/yazi";
     catppuccin.url = "github:catppuccin/nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
@@ -49,7 +50,10 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [(import ./system/pkgs)];
+      overlays = [
+        inputs.yazi.overlays.default
+        (import ./system/pkgs)
+      ];
     };
   in {
     nixosConfigurations = {
