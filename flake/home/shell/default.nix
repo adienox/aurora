@@ -6,10 +6,12 @@
   imports = [
     ./zsh
     ./xdg.nix
+    ./cava.nix
     ./cli.nix
     ./direnv.nix
     ./lsd.nix
     ./starship.nix
+    ./kitty.nix
   ];
 
   home.sessionVariables = {
