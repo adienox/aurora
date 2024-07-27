@@ -12,19 +12,21 @@
       };
       background = [
         {
-          path = "${config.xdg.userDirs.pictures}/backgrounds/minimal-squares-rosepine.png";
-          blur_size = 8;
-          blur_passes = 2;
+          monitor = "";
+          path = "${config.xdg.cacheHome}/background";
+          blur_size = 7;
+          blur_passes = 3;
           noise = 1.17e-2;
-          contrast = 1.2;
-          brightness = 1.0;
+          contrast = 0.8916;
+          brightness = 0.8172;
           vibrancy = 0.1696;
           vibrancy_darkness = 0.0;
         }
       ];
 
-      input-fields = [
+      input-field = [
         {
+          monitor = "";
           outline_thickness = 2;
           dots_size = 0.2;
           dots_spacing = 0.2;
@@ -36,96 +38,78 @@
           hide_input = false;
           placeholder_text = ''<i><span foreground="##ffffff99">The Password is?!</span></i>'';
 
-          shadow_passes = 1;
-          shadow_size = 5;
+          shadow_passes = 5;
+          shadow_size = 10;
           shadow_boost = 0.5;
 
-          size = {
-            width = 270;
-            height = 60;
-          };
-          position = {
-            x = 0;
-            y = -120;
-          };
+          size = "270, 60";
+          position = "0, -100";
           halign = "center";
           valign = "center";
         }
       ];
 
-      labels = [
+      image = {
+        monitor = "";
+        path = "${config.xdg.userDirs.pictures}/profile.png";
+        size = 280; # lesser side if not 1:1 ratio;
+        rounding = -1; # negative values mean circle;
+        border_size = 4;
+        border_color = "rgba(30, 30, 46, 0.3)";
+        rotate = 0; # degrees, counter-clockwise;
+        reload_time = -1; # seconds between reloading, 0 to reload with SIGUSR2;
+        position = "0, 200";
+        halign = "center";
+        valign = "center";
+      };
+
+      label = [
         {
+          monitor = "";
           text = "$TIME";
           color = "rgb(${default.colors.foreground})";
-          font_size = 125;
-          font_family = "SF Pro Display Bold";
+          font_size = 55;
+          font_family = "Fira Semibold";
 
-          shadow_passes = 1;
-          shadow_size = 5;
+          shadow_passes = 5;
+          shadow_size = 10;
           shadow_boost = 0.5;
 
-          position = {
-            x = 0;
-            y = 200;
-          };
-          halign = "center";
-          valign = "center";
-        }
-
-        {
-          text = ''
-            cmd[update:1000] echo "   $(cat /sys/class/power_supply/BAT0/capacity)%"'';
-          color = "rgb(${default.colors.foreground})";
-          font_size = 11;
-          font_family = "SF Pro Display";
-
-          shadow_passes = 1;
-          shadow_size = 5;
-          shadow_boost = 0.5;
-
-          position = {
-            x = -20;
-            y = -20;
-          };
+          position = "-100, 70";
           halign = "right";
-          valign = "top";
-        }
-
-        {
-          text = ''cmd[update:10000000] echo "   $USER"'';
-          color = "rgb(${default.colors.foreground})";
-          font_size = 11;
-          font_family = "SF Pro Display";
-
-          shadow_passes = 1;
-          shadow_size = 5;
-          shadow_boost = 0.5;
-
-          position = {
-            x = 20;
-            y = -20;
-          };
-          halign = "left";
-          valign = "top";
-        }
-
-        {
-          text = ''
-            <i><span foreground="##ffffff99">be present, be still, for it can be the last thing you ever experience</span></i>'';
-          font_size = 14;
-          font_family = "SF Pro Display";
-
-          shadow_passes = 1;
-          shadow_size = 5;
-          shadow_boost = 0.5;
-
-          position = {
-            x = 0;
-            y = 20;
-          };
-          halign = "center";
           valign = "bottom";
         }
+
+        {
+          monitor = "";
+          text = "$USER";
+          color = "rgb(${default.colors.foreground})";
+          font_size = 20;
+          font_family = "Fira Semibold";
+
+          shadow_passes = 5;
+          shadow_size = 10;
+          shadow_boost = 0.5;
+
+          position = "-100, 160";
+          halign = "right";
+          valign = "bottom";
+        }
+
+        # {
+        #   text = ''
+        #     <i><span foreground="##ffffff99">be present, be still, for it can be the last thing you ever experience</span></i>'';
+        #   font_size = 14;
+        #   font_family = "SF Pro Display";
+        #
+        #   shadow_passes = 1;
+        #   shadow_size = 5;
+        #   shadow_boost = 0.5;
+        #
+        #   position = "0, 20";
+        #   halign = "center";
+        #   valign = "bottom";
+        # }
       ];
     };
   };
