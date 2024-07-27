@@ -1,8 +1,8 @@
-self: super: {
-  xwaylandvideobridge = self.libsForQt5.callPackage ./xwaylandvideobridge { };
-  win11-icon-theme = self.callPackage ./win11-icon-theme { };
-  udiskie = self.callPackage ./udiskie { };
-  anipy-cli = self.callPackage ./anipy-cli { };
-  mov-cli = self.callPackage ./mov-cli { };
-  apple-fonts = self.callPackage ./fonts/apple-fonts.nix { };
+final: prev: {
+  xwaylandvideobridge = prev.libsForQt5.callPackage ./xwaylandvideobridge {};
+  win11-icon-theme = prev.callPackage ./win11-icon-theme {};
+  # udiskie = prev.callPackage ./udiskie { };
+  anipy-cli = prev.callPackage ./anipy-cli {};
+  mov-cli = prev.callPackage ./mov-cli {};
+  apple-fonts = prev.callPackage ./fonts/apple-fonts.nix {};
 }

@@ -117,9 +117,9 @@ in {
         sponsorblock
         ublock-origin
         darkreader
-        youtube-shorts-block
-        dearrow
-        youtube-recommended-videos
+        # youtube-shorts-block
+        # dearrow
+        # youtube-recommended-videos
         facebook-container
         leechblock-ng
         search-by-image
@@ -130,7 +130,7 @@ in {
         don-t-fuck-with-paste
         vimium
         canvasblocker
-        enhancer-for-youtube
+        # enhancer-for-youtube
         redirector
         wikiwand-wikipedia-modernized
         skip-redirect
