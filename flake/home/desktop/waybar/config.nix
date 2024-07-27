@@ -1,13 +1,12 @@
-{ default, ... }: {
+{default, ...}: {
   programs.waybar.settings.mainBar = {
     position = "top";
     layer = "top";
     spacing = 4;
 
-    modules-left =
-      [ "hyprland/workspaces" "hyprland/submap" "hyprland/window" ];
+    modules-left = ["hyprland/workspaces" "hyprland/submap" "hyprland/window"];
 
-    modules-center = [ "custom/playerlabel" ];
+    modules-center = ["custom/playerlabel"];
 
     modules-right = [
       "custom/recorder"
@@ -15,9 +14,32 @@
       "bluetooth"
       "pulseaudio"
       "custom/notification"
-      "clock"
+      "group/time"
       "tray"
     ];
+
+    "group/time" = {
+      orientation = "inherit";
+      drawer = {
+        transition-duration = 500;
+        transition-left-to-right = false;
+      };
+      modules = [
+        "clock"
+        "clock#date"
+      ];
+    };
+    "group/sounds" = {
+      orientation = "inherit";
+      drawer = {
+        transition-duration = 500;
+        transition-left-to-right = false;
+      };
+      modules = [
+        "pulseaudio"
+        "pulseaudio#mic"
+      ];
+    };
 
     "hyprland/workspaces" = {
       active-only = false;
@@ -56,7 +78,7 @@
       tooltip = false;
     };
 
-    "hyprland/window" = { format = ""; };
+    "hyprland/window" = {format = "";};
 
     "custom/playerlabel" = {
       format = "<span>{}</span>";
@@ -84,20 +106,19 @@
       format-plugged = " {capacity}%";
       format-full = "";
       format-alt = "{icon} {time}";
-      format-icons = [ "" "" "" "" "" ];
+      format-icons = ["" "" "" "" ""];
     };
 
     bluetooth = {
       format = "";
       on-click = "blueman-manager";
       format-connected = " {device_alias}";
-      format-connected-battery =
-        " {device_alias} {device_battery_percentage}%";
+      format-connected-battery = " {device_alias} {device_battery_percentage}%";
     };
 
     backlight = {
       format = "{icon} {percent}%";
-      format-icons = [ "" "" "" "" "" "" "" "" "" ];
+      format-icons = ["" "" "" "" "" "" "" "" ""];
     };
 
     pulseaudio = {
@@ -105,7 +126,7 @@
       format-bluetooth = " {icon}";
       format-bluetooth-muted = " ";
       format-muted = "";
-      format-icons = { default = [ "" "" "" ]; };
+      format-icons = {default = ["" "" ""];};
       reverse-mouse-scrolling = true;
       reverse-scrolling = true;
       on-click = "swayosd-client --output-volume=mute-toggle";
@@ -143,7 +164,6 @@
 
     clock = {
       format = " {:%H:%M}";
-      format-alt = " {:%B %d, %Y}";
       tooltip-format = "<tt><small>{calendar}</small></tt>";
       calendar = {
         mode = "month"; # month/year
@@ -160,15 +180,19 @@
         };
       };
       actions = {
-        on-click-right = "mode";
+        on-click = "mode";
         on-click-forward = "tz_up";
         on-click-backward = "tz_down";
         on-scroll-up = "shift_up";
         on-scroll-down = "shift_down";
       };
     };
+    "clock#date" = {
+      tooltip = false;
+      format = " {:%B %d, %Y}";
+    };
 
-    tray = { "spacing" = 12; };
+    tray = {"spacing" = 12;};
   };
 
   xdg.configFile = {

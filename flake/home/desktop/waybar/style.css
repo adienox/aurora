@@ -75,6 +75,10 @@ window#waybar {
   color: @base05;
 }
 
+#clock.date {
+  padding-right: 0;
+}
+
 window#waybar.fullscreen #custom-weather,
 window#waybar.fullscreen #submap,
 window#waybar.fullscreen #custom-playerlabel,
