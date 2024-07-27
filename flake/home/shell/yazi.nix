@@ -14,10 +14,37 @@ in {
     settings = {
       manager = {
         show_hidden = true;
+        show_symlink = false;
       };
       preview = {
         max_width = 1000;
         max_height = 1000;
+      };
+      open = {
+        rules = [
+          {
+            mime = "text/*";
+            use = "edit";
+          }
+          {
+            mime = "{audio,video}/*";
+            use = "play";
+          }
+        ];
+      };
+      opener = {
+        edit = [
+          {
+            run = "$EDITOR \"$@\"";
+            block = true;
+          }
+        ];
+        play = [
+          {
+            run = "mpv \"$@\"";
+            orphan = true;
+          }
+        ];
       };
     };
 
@@ -36,6 +63,19 @@ in {
     initLua = ''
       require("full-border"):setup()
       require("starship"):setup()
+
+      function Status:name()
+        local h = cx.active.current.hovered
+        if not h then
+          return ui.Span("")
+        end
+
+        local linked = ""
+        if h.link_to ~= nil then
+          linked = " -> " .. tostring(h.link_to)
+        end
+        return ui.Span(" " .. h.name .. linked)
+      end
     '';
 
     keymap = {
@@ -50,7 +90,46 @@ in {
           run = "plugin chmod";
           desc = "Chmod on selected files";
         }
+        {
+          on = ["j"];
+          run = ["plugin --sync arrow --args=1"];
+          desc = "Move selection downwards; or wrap.";
+        }
+        {
+          on = ["k"];
+          run = ["plugin --sync arrow --args=-1"];
+          desc = "Move selection upwards; or wrap.";
+        }
+        {
+          on = ["l"];
+          run = ["plugin smart-enter --sync" "escape --visual --select"];
+          desc = "Enter the child directory; or open file.";
+        }
+        {
+          on = ["L"];
+          run = "plugin smart-enter --sync --args='detatch'";
+          desc = "Open in new window.";
+        }
       ];
     };
+  };
+  xdg.configFile = {
+    "yazi/plugins/smart-enter.yazi/init.lua".text = ''
+        return {
+      	entry = function()
+      		local h = cx.active.current.hovered
+      		ya.manager_emit(h and h.cha.is_dir and "enter" or "open", { hovered = true })
+      	end,
+      }
+    '';
+    "yazi/plugins/arrow.yazi/init.lua".text = ''
+      return {
+      	entry = function(_, args)
+      		local current = cx.active.current
+      		local new = (current.cursor + args[1]) % #current.files
+      		ya.manager_emit("arrow", { new - current.cursor })
+      	end,
+      }
+    '';
   };
 }
