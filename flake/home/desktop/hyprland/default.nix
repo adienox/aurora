@@ -12,8 +12,8 @@
     xorg.xrandr # For wallpaper setting utility
     yad # Picker
     gnome.zenity # Another picker
-    # xwaylandvideobridge # Xwayland screen share
     wl-clipboard # Clipboard
+    socat
     # ianny # tells you to take breaks
 
     # recorder and screenshot
