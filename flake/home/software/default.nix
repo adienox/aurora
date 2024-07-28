@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -26,6 +27,7 @@
     telegram-desktop
     qpwgraph
     qbittorrent
+    inputs.anipy-cli.packages.${pkgs.system}.default
   ];
 
   programs = {

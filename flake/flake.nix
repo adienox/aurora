@@ -39,6 +39,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
+    anipy-cli.url = "github:sdaqo/anipy-cli";
   };
 
   outputs = {
