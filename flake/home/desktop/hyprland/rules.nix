@@ -51,7 +51,7 @@
         "size 485 300, title:^(Discord Popout)$"
         "size 485 300, title:^(Picture in picture)$"
         "size 485 300, title:^(Picture-in-Picture)$"
-        "size 800 500, title:^(fly_is_kitty)$"
+        "size 800 500, ^(floating)$"
 
         # Animation Rules
         "animation popin, title:^(Discord Popout)$"
@@ -85,6 +85,7 @@
 
         # centering
         "center, class:^(firefox)$, title:^(Enter name of file to save to…)$"
+        "center, class:^(floating)$"
 
         # Idle inhibit rules
         "idleinhibit fullscreen, class:^(librewolf)$"

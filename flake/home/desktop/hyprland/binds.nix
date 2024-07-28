@@ -16,7 +16,7 @@
         "$ALT, RETURN, exec, $FLOATING_TERM zsh"
         "$ALT, 1, exec, $FLOATING_TERM cava"
         "$ALT, 2, exec, $FLOATING_TERM pulsemixer"
-        "$ALT, 3, exec, $FLOATING_TERM newsboat"
+        "$ALT, 3, exec, $FLOATING_TERM anipy-cli"
 
         # Applications
         "$MOD, W, exec, $SCRIPTS/focus.sh firefox firefox"
