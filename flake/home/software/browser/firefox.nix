@@ -20,10 +20,6 @@ in {
   programs.firefox = {
     enable = true;
 
-    nativeMessagingHosts = with pkgs; [
-      kdePackages.kdeconnect-kde
-    ];
-
     profiles.${default.firefox.profile} = {
       search = {
         default = "Brave";
@@ -117,9 +113,6 @@ in {
         sponsorblock
         ublock-origin
         darkreader
-        # youtube-shorts-block
-        # dearrow
-        # youtube-recommended-videos
         facebook-container
         leechblock-ng
         search-by-image
@@ -130,12 +123,15 @@ in {
         don-t-fuck-with-paste
         vimium
         canvasblocker
-        # enhancer-for-youtube
         redirector
         wikiwand-wikipedia-modernized
         skip-redirect
         bitwarden
-        #smart-referer
+        # youtube-shorts-block
+        # dearrow
+        # youtube-recommended-videos
+        # enhancer-for-youtube
+        # smart-referer
         # temporary-containers
         # tabcenter-reborn
         # multi-account-containers

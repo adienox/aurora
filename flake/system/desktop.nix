@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -12,6 +12,7 @@
 
   programs = {
     hyprland.enable = true;
+    hyprlock.enable = true;
 
     # make HM-managed GTK stuff work
     dconf.enable = true;
@@ -27,11 +28,11 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" ]; })
+      (nerdfonts.override {fonts = ["CascadiaCode" "JetBrainsMono"];})
       font-awesome
       google-fonts
       apple-fonts
     ];
-    fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
+    fontconfig.defaultFonts.emoji = ["Apple Color Emoji"];
   };
 }

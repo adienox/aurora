@@ -16,6 +16,7 @@
     };
 
     discord-43.url = "github:nixos/nixpkgs/a343533bccc62400e8a9560423486a3b6c11a23b";
+    amberol-102.url = "github:nixos/nixpkgs/c7eb65213bd7d95eafb8c5e2e181f04da103d054";
 
     rofi-1751.url = "github:nixos/nixpkgs/58ae79ea707579c40102ddf62d84b902a987c58b";
 

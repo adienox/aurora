@@ -20,14 +20,15 @@
     amberol
     ticktick
     gnome.gnome-clocks
-    gnome.gnome-calculator
-    gnome.nautilus
+    gnome-calculator
+    nautilus
     obsidian
     keepassxc
     telegram-desktop
     qpwgraph
     qbittorrent
     inputs.anipy-cli.packages.${pkgs.system}.default
+    ookla-speedtest
   ];
 
   programs = {

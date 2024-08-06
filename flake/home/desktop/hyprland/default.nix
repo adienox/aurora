@@ -11,7 +11,7 @@
     gojq # For wallpaper setting utility
     xorg.xrandr # For wallpaper setting utility
     yad # Picker
-    gnome.zenity # Another picker
+    zenity # Another picker
     wl-clipboard # Clipboard
     socat
     # ianny # tells you to take breaks

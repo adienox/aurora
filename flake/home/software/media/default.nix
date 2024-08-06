@@ -6,7 +6,7 @@
     pavucontrol
     playerctl
     pulsemixer
-    xwaylandvideobridge
+    # xwaylandvideobridge
 
     # images
     imv

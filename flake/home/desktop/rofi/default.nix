@@ -6,7 +6,6 @@
 }: {
   home.packages = with pkgs; [
     cliphist # Clipboard History
-    keepmenu # Keepass integration
     pinentry-gnome3
   ];
 
