@@ -6,6 +6,7 @@
     hash = "sha256-jg8+GDsHOSIh8QPYxCvMde1c1D9M78El0PljSerkLQc=";
   };
 in {
+  home.packages = with pkgs; [unar];
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
@@ -27,8 +28,12 @@ in {
             use = "edit";
           }
           {
-            mime = "{audio,video}/*";
-            use = "play";
+            mime = "audio/*";
+            use = "play-audio";
+          }
+          {
+            mime = "video/*";
+            use = "play-video";
           }
         ];
       };
@@ -39,9 +44,15 @@ in {
             block = true;
           }
         ];
-        play = [
+        play-audio = [
           {
-            run = "mpv \"$@\"";
+            run = "mpv --no-resume-playback --no-video \"$@\"";
+            orphan = true;
+          }
+        ];
+        play-video = [
+          {
+            run = "mpv --no-resume-playback \"$@\"";
             orphan = true;
           }
         ];
@@ -50,7 +61,6 @@ in {
 
     plugins = {
       chmod = "${plugins-repo}/chmod.yazi";
-      full-border = "${plugins-repo}/full-border.yazi";
       max-preview = "${plugins-repo}/max-preview.yazi";
       starship = pkgs.fetchFromGitHub {
         owner = "Rolv-Apneseth";
@@ -61,7 +71,6 @@ in {
     };
 
     initLua = ''
-      require("full-border"):setup()
       require("starship"):setup()
 
       function Status:name()
