@@ -7,7 +7,7 @@
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     autocd = true;
     dotDir = ".config/zsh";
@@ -60,7 +60,7 @@
       sf = "fc-list | grep -i";
       sudo = "sudo ";
       yt-audio = "yt-dlp -x --audio-format mp3 --audio-quality 0";
-      speedtest = "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
+      # speedtest = "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -";
       cat = "bat";
       wget = "wget -c ";
       grep = "grep --color=auto";
@@ -117,16 +117,16 @@
 
       # Plugins
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
-      source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+      # source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
       source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
       source ${config.xdg.configHome}/zsh/modules/termsupport.zsh
 
       # press <C-v><UP> and <C-v><DOWN> at your ZSH command line prompt for correct key codes.
-      bindkey '^[OA' history-substring-search-up
-      bindkey '^[OB' history-substring-search-down
+      # bindkey '^[OA' history-substring-search-up
+      # bindkey '^[OB' history-substring-search-down
 
-      bindkey -M vicmd 'k' history-substring-search-up
-      bindkey -M vicmd 'j' history-substring-search-down
+      # bindkey -M vicmd 'k' history-substring-search-up
+      # bindkey -M vicmd 'j' history-substring-search-down
     '';
   };
 }

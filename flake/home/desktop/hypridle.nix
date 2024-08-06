@@ -24,23 +24,24 @@ in {
   services.hypridle = {
     enable = true;
     settings = {
-      before_sleep_cmd = hyprlock;
-      after_sleep_cmd = hyprlock;
-      lock_cmd = hyprlock;
+      general = {
+        before_sleep_cmd = hyprlock;
+        after_sleep_cmd = hyprlock;
+        lock_cmd = hyprlock;
+      };
       listener = [
         {
           timeout = 300;
-          onTimeout = "${brightness-fade}/bin/brightness-fade fade";
-          onResume = "${brightness-fade}/bin/brightness-fade resume";
+          on-timeout = "${brightness-fade}/bin/brightness-fade fade";
+          on-resume = "${brightness-fade}/bin/brightness-fade resume";
         }
         {
           timeout = 500;
-          onTimeout = hyprlock;
+          on-timeout = hyprlock;
         }
         {
           timeout = 600;
-          # onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
-          onTimeout = "${suspend-script}";
+          on-timeout = "${suspend-script}";
         }
       ];
     };
