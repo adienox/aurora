@@ -98,7 +98,7 @@
 
         {
           monitor = "";
-          text = ''cmd[update:1000] echo "$(~/.config/assets/scripts/hypr/songdetail.sh)"'';
+          text = ''cmd[update:1000] echo "$(${config.xdg.configHome}/assets/scripts/hypr/songdetail.sh)"'';
           color = "rgb(${default.colors.foreground})";
           font_size = 14;
           font_family = "JetBrains Mono Nerd, SF Pro Display Bold";

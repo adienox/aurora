@@ -66,6 +66,7 @@
         "workspace 4, ^(mpv)$"
         "workspace 4, ^(calibre-gui)$"
         "workspace 5, ^(discord)$"
+        "workspace 5, ^(vesktop)$"
         "workspace 5, ^(org.telegram.desktop)$"
         "workspace 6, ^(Todoist)$"
         "workspace 7, ^(Spotify)$"

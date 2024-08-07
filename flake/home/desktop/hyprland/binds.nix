@@ -1,9 +1,13 @@
-{default, ...}: {
+{
+  default,
+  config,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
-      "$SCRIPTS" = "~/.config/assets/scripts/hypr";
+      "$SCRIPTS" = "${config.xdg.configHome}/assets/scripts/hypr";
       "$TERM" = "kitty";
       "$FLOATING_TERM" = "kitty --class floating -e";
 

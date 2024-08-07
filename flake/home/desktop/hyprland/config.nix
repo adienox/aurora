@@ -1,4 +1,8 @@
-{default, ...}: {
+{
+  default,
+  config,
+  ...
+}: {
   imports = [./rules.nix ./binds.nix];
 
   wayland.windowManager.hyprland = {
@@ -8,7 +12,7 @@
         "[workspace 3 silent] obsidian"
         "[workspace 5 silent] telegram-desktop"
         "[workspace 6 silent] ticktick"
-        "~/.config/assets/scripts/hypr/autostart.sh"
+        "${config.xdg.configHome}/assets/scripts/hypr/autostart.sh"
       ];
       input = {
         kb_layout = "us";

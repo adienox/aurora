@@ -1,4 +1,8 @@
-{default, ...}: {
+{
+  default,
+  config,
+  ...
+}: {
   programs.waybar.settings.mainBar = {
     position = "top";
     layer = "top";
@@ -63,7 +67,7 @@
     };
 
     "custom/weather" = {
-      exec = "~/.config/assets/scripts/waybar/weather.sh Kathmandu+Nepal";
+      exec = "${config.xdg.configHome}/assets/scripts/waybar/weather.sh Kathmandu+Nepal";
       return-type = "json";
       format = "{}";
       tooltip = true;
@@ -91,8 +95,8 @@
     };
 
     "custom/recorder" = {
-      exec = "~/.config/assets/scripts/waybar/recorder.sh";
-      on-click = "~/.config/assets/scripts/hypr/screenrecord.sh";
+      exec = "${config.xdg.configHome}/assets/scripts/waybar/recorder.sh";
+      on-click = "${config.xdg.configHome}/assets/scripts/hypr/screenrecord.sh";
       restart-interval = 1;
     };
 
@@ -136,7 +140,7 @@
     };
 
     "custom/dunst" = {
-      exec = "~/.config/assets/scripts/waybar/dunst.sh";
+      exec = "${config.xdg.configHome}/assets/scripts/waybar/dunst.sh";
       on-click = "dunstctl set-paused toggle";
       restart-interval = 1;
     };
