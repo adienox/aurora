@@ -96,6 +96,17 @@
           valign = "bottom";
         }
 
+        {
+          monitor = "";
+          text = ''cmd[update:1000] echo "$(~/.config/assets/scripts/hypr/songdetail.sh)"'';
+          color = "rgb(${default.colors.foreground})";
+          font_size = 14;
+          font_family = "JetBrains Mono Nerd, SF Pro Display Bold";
+          position = "0, -20";
+          halign = "center";
+          valign = "top";
+        }
+
         # {
         #   text = ''
         #     <i><span foreground="##ffffff99">be present, be still, for it can be the last thing you ever experience</span></i>'';
