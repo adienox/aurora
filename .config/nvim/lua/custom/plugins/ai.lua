@@ -32,6 +32,12 @@ return {
       '<cmd>ChatGPTRun explain_code<CR>',
       desc = 'E[X]plain Code',
     },
+    {
+      '<leader>ae',
+      mode = { 'n', 'v' },
+      '<cmd>ChatGPTEditWithInstruction<CR>',
+      desc = '[E]dit with instruction',
+    },
   },
   config = function()
     require('chatgpt').setup {
@@ -39,7 +45,6 @@ return {
     }
     -- local wk = require 'which-key'
     -- wk.register({
-    --   e = { '<cmd>ChatGPTEditWithInstruction<CR>', '[E]dit with instruction', mode = { 'n', 'v' } },
     --   f = { '<cmd>ChatGPTRun fix_bugs<CR>', '[F]ix Bugs', mode = { 'n', 'v' } },
     --   g = { '<cmd>ChatGPTRun grammar_correction<CR>', '[G]rammar Correction', mode = { 'n', 'v' } },
     --   k = { '<cmd>ChatGPTRun keywords<CR>', '[K]eywords', mode = { 'n', 'v' } },
