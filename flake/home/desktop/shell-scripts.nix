@@ -9,14 +9,14 @@
       sox
       libnotify
     ];
-    text = builtins.readFile ../../../assets/scripts/hyprland/battery-status.sh;
+    text = builtins.readFile ../../../assets/scripts/hypr/battery-status.sh;
   };
 
   bluetooth-auto-off = pkgs.writeShellApplication {
     name = "bluetooth-auto-off";
     runtimeInputs = with pkgs; [coreutils gawk bluez];
     text =
-      builtins.readFile ../../../assets/scripts/hyprland/bluetooth-auto-off.sh;
+      builtins.readFile ../../../assets/scripts/hypr/bluetooth-auto-off.sh;
   };
 
   play-with-mpv = pkgs.writeShellApplication {

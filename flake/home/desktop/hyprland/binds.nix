@@ -3,7 +3,7 @@
     settings = {
       "$MOD" = "SUPER";
       "$ALT" = "ALT";
-      "$SCRIPTS" = "~/.config/assets/scripts/hyprland";
+      "$SCRIPTS" = "~/.config/assets/scripts/hypr";
       "$TERM" = "kitty";
       "$FLOATING_TERM" = "kitty --class floating -e";
 

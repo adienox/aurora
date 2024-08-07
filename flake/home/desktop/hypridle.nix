@@ -10,11 +10,11 @@
       pipewire
       ripgrep
     ];
-    text = builtins.readFile ../../../assets/scripts/hyprland/fade.sh;
+    text = builtins.readFile ../../../assets/scripts/hypr/fade.sh;
   };
 
   suspend-script = pkgs.writeShellScript "suspend-script" ''
-    ${pkgs.playerctl}/bin/playerctl -a metadata -f "{{status}}" | ${pkgs.ripgrep}/bin/rg "Playing"
+    ${pkgs.playerctl}/bin/playerctl metadata -f "{{status}}" | ${pkgs.ripgrep}/bin/rg "Playing"
     # only suspend if audio isn't running and no other user is logged in
     if [ $? == 1 ] && [ "$(who | wc -l)" -eq 1 ]; then
       ${pkgs.systemd}/bin/systemctl suspend

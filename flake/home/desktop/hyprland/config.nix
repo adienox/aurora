@@ -8,7 +8,7 @@
         "[workspace 3 silent] obsidian"
         "[workspace 5 silent] telegram-desktop"
         "[workspace 6 silent] ticktick"
-        "~/.config/assets/scripts/hyprland/autostart.sh"
+        "~/.config/assets/scripts/hypr/autostart.sh"
       ];
       input = {
         kb_layout = "us";

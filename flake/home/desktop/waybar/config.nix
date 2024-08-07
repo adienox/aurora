@@ -92,7 +92,7 @@
 
     "custom/recorder" = {
       exec = "~/.config/assets/scripts/waybar/recorder.sh";
-      on-click = "~/.config/assets/scripts/hyprland/screenrecord.sh";
+      on-click = "~/.config/assets/scripts/hypr/screenrecord.sh";
       restart-interval = 1;
     };
 
