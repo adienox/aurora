@@ -105,7 +105,7 @@ in {
         "Bing".metaData.hidden = true;
         "DuckDuckGo".metaData.hidden = true;
         "Amazon.com".metaData.hidden = true;
-        "Wikipedia (en)".metaData.hidden = true;
+        "Wikipedia (en)".metaData.alias = "wk";
         "Google".metaData.alias = "gg";
       };
 

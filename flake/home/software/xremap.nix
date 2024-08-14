@@ -23,6 +23,12 @@
           remap:
             M-j: down
             M-k: up
+        - name: browser
+          application:
+            only: firefox
+          remap:
+            M-j: down
+            M-k: up
     '';
   };
 }

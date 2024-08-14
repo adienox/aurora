@@ -46,9 +46,16 @@
       };
     };
 
+    carapace = {
+      enable = true;
+      enableZshIntegration = true;
+      enableNushellIntegration = true;
+    };
+
     atuin = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
       settings = {
         update_check = false;
         keymap_mode = "vim-normal";
@@ -91,9 +98,16 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
-    ssh.enable = true;
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        HostKeyAlgorithms ssh-rsa
+        PubkeyAcceptedKeyTypes ssh-rsa
+      '';
+    };
 
     skim = {
       enable = true;

@@ -21,38 +21,41 @@
     ntfs3g
   ];
 
-  # Enable adbusers in extragroups for user
-  programs.adb.enable = true;
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
+  programs = {
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+    adb.enable = true;
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+    };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      settings = {max-cache-ttl = 86400;};
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      enableBashCompletion = true;
+      shellInit = ''
+        export ZDOTDIR="$HOME"/.config/zsh
+      '';
+    };
   };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    settings = {max-cache-ttl = 86400;};
+  environment = {
+    shells = with pkgs; [zsh];
+
+    # enable zsh autocompletion for system packages (systemd, etc)
+    pathsToLink = ["/share/zsh"];
+
+    # setting the ~/.local/bin to be in path for every user
+    localBinInPath = true;
   };
-
-  environment.shells = with pkgs; [zsh];
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableBashCompletion = true;
-    shellInit = ''
-      export ZDOTDIR="$HOME"/.config/zsh
-    '';
-  };
-
-  # enable zsh autocompletion for system packages (systemd, etc)
-  environment.pathsToLink = ["/share/zsh"];
-
-  # setting the ~/.local/bin to be in path for every user
-  environment.localBinInPath = true;
-
-  services.cron = {enable = true;};
 
   # virtualisation.docker = {
   #   enable = true;

@@ -21,6 +21,7 @@
     ticktick
     gnome.gnome-clocks
     gnome-calculator
+    gnome.gvfs
     nautilus
     obsidian
     keepassxc
@@ -29,6 +30,7 @@
     qbittorrent
     inputs.anipy-cli.packages.${pkgs.system}.default
     ookla-speedtest
+    termshark
   ];
 
   programs = {
@@ -45,6 +47,15 @@
       enable = true;
       enableSshSupport = true;
       pinentryPackage = pkgs.pinentry.gnome3;
+    };
+
+    pueue = {
+      enable = true;
+      settings = {
+        daemon = {
+          default_parallel_tasks = 3;
+        };
+      };
     };
 
     syncthing.enable = true;

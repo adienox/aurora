@@ -83,7 +83,9 @@
       dv-create = "nix flake init --template github:cachix/devenv && direnv allow";
       dv-create-py = "nix flake init --template github:cachix/devenv && echo 'layout python' >> .envrc && direnv allow";
 
-      zls = "zellij ls";
+      pa = "pueue add";
+      pbs = "pueue status";
+      pf = "pueue follow";
     };
 
     initExtra = ''
