@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./zsh
+    ./nushell
     ./xdg.nix
     ./cava.nix
     ./cli.nix
