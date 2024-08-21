@@ -62,6 +62,7 @@ in {
     plugins = {
       chmod = "${plugins-repo}/chmod.yazi";
       max-preview = "${plugins-repo}/max-preview.yazi";
+      full-border = "${plugins-repo}/full-border.yazi";
       starship = pkgs.fetchFromGitHub {
         owner = "Rolv-Apneseth";
         repo = "starship.yazi";
@@ -72,6 +73,7 @@ in {
 
     initLua = ''
       require("starship"):setup()
+      require("full-border"):setup()
 
       function Status:name()
         local h = cx.active.current.hovered

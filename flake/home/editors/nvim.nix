@@ -27,7 +27,7 @@
     # web-dev stuff
     prettierd
     emmet-ls
-    vscode-langservers-extracted
+    # vscode-langservers-extracted
     tailwindcss-language-server
 
     # shell stuff

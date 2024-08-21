@@ -48,7 +48,7 @@
   };
 
   environment = {
-    shells = with pkgs; [zsh];
+    shells = with pkgs; [zsh nushell];
 
     # enable zsh autocompletion for system packages (systemd, etc)
     pathsToLink = ["/share/zsh"];

@@ -35,7 +35,7 @@
         "col.active_border" = "0xff${default.colors.base0E} 0xff${default.colors.base0C} 45deg";
         "col.inactive_border" = "0xff${default.colors.base02}";
 
-        sensitivity = 1.0; # for mouse cursor
+        # sensitivity = 1.0; # for mouse cursor
 
         layout = "dwindle";
       };

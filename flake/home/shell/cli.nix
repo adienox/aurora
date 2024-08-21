@@ -8,11 +8,17 @@
     zip
     unzip
     unrar
+    bzip2
+    gzip
+    p7zip
+
+    # Tmux
     tmux
     sesh
     gum
 
     # utils
+    tdf
     pfetch
     file
     du-dust
@@ -71,9 +77,10 @@
         history_filter = [
           "^cd"
           "^ls"
-          "y$"
+          "^y$"
           "^cls"
           "^rm"
+          "^source"
         ];
       };
     };
@@ -82,15 +89,8 @@
       enable = true;
       config = {
         pager = "less -FR";
-        # theme = "Catppuccin-mocha";
       };
-      # themes = {
-      #   Catppuccin-mocha = builtins.readFile (pkgs.fetchurl {
-      #     url = "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme";
-      #     hash = "sha256-UDJ6FlLzwjtLXgyar4Ld3w7x3/zbbBfYLttiNDe4FGY=";
-      #   });
-      # };
-      extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
+      extraPackages = with pkgs.bat-extras; [batman batgrep batwatch];
     };
 
     btop.enable = true;
@@ -104,8 +104,6 @@
     ssh = {
       enable = true;
       extraConfig = ''
-        HostKeyAlgorithms ssh-rsa
-        PubkeyAcceptedKeyTypes ssh-rsa
       '';
     };
 
@@ -138,13 +136,6 @@
       };
     };
   };
-
-  # xdg.configFile = {
-  #   "btop/themes/catppuccin_mocha.theme".source = pkgs.fetchurl {
-  #     url = "https://raw.githubusercontent.com/catppuccin/btop/7109eac2884e9ca1dae431c0d7b8bc2a7ce54e54/themes/catppuccin_mocha.theme";
-  #     hash = "sha256-KnXUnp2sAolP7XOpNhX2g8m26josrqfTycPIBifS90Y=";
-  #   };
-  # };
 
   xdg.configFile = {
     "python/pythonrc".text = ''
