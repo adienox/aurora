@@ -17,7 +17,7 @@
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
 
         # Alt Term
-        "$ALT, RETURN, exec, $FLOATING_TERM $SHELL"
+        "$ALT, RETURN, exec, $FLOATING_TERM $TREMINAL_SHELL"
         "$ALT, 1, exec, $FLOATING_TERM cava"
         "$ALT, 2, exec, $FLOATING_TERM pulsemixer"
         "$ALT, 3, exec, $FLOATING_TERM anipy-cli"

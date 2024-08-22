@@ -18,6 +18,7 @@
       touch_scroll_multiplier = "3.0";
 
       open_url_with = "default";
+      shell = "${default.terminal.shell}";
 
       # Copying and Selecting
       copy_on_select = false;

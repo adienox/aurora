@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # audio control
     pavucontrol
+    pulseaudio
     playerctl
     pulsemixer
     # xwaylandvideobridge

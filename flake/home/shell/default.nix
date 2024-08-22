@@ -6,6 +6,7 @@
   imports = [
     ./zsh
     ./nushell
+    ./tmux
     ./xdg.nix
     ./cava.nix
     ./cli.nix
@@ -23,6 +24,7 @@
     FLAKE = default.files.flake;
     KEEPASSDB = default.files.keepass;
     SUDO_ASKPASS = "${config.xdg.configHome}/assets/scripts/utils/zenity-askpass.sh";
+    TERMINAL_SHELL = "${default.terminal.shell}";
 
     # Reducing direnv logs
     DIRENV_LOG_FORMAT = "";

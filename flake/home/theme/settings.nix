@@ -53,6 +53,7 @@ in rec {
   };
 
   terminal = {
+    shell = "nu";
     font = "JetBrainsMono Nerd Font";
     name = "kitty";
     opacity = 0.7;

@@ -31,7 +31,7 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = user;
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
     extraGroups = [
       "vboxusers"
       "networkmanager"
