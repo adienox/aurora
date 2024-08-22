@@ -8,7 +8,7 @@
     layer = "top";
     spacing = 4;
 
-    modules-left = ["hyprland/workspaces" "hyprland/submap" "hyprland/window"];
+    modules-left = ["hyprland/workspaces" "custom/privacy" "hyprland/submap" "hyprland/window"];
 
     modules-center = ["custom/playerlabel"];
 
@@ -74,6 +74,12 @@
       interval = 600;
       on-click = "pkill -RTMIN+8 waybar";
       signal = 8;
+    };
+
+    "custom/privacy" = {
+      exec = "${config.xdg.configHome}/assets/scripts/waybar/mic.sh";
+      # on-click = "${config.xdg.configHome}/assets/scripts/hypr/screenrecord.sh";
+      restart-interval = 1;
     };
 
     "hyprland/submap" = {
