@@ -10,6 +10,7 @@
     ./discord.nix
     ./git.nix
     ./xremap.nix
+    ./glance.nix
     # ./webcord.nix
     # ./dunst.nix
   ];
@@ -31,6 +32,7 @@
     inputs.anipy-cli.packages.${pkgs.system}.default
     ookla-speedtest
     termshark
+    fabric-ai
   ];
 
   programs = {
