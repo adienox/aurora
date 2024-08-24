@@ -4,4 +4,5 @@ final: prev: {
   mov-cli = prev.callPackage ./mov-cli {};
   apple-fonts = prev.callPackage ./fonts/apple-fonts.nix {};
   nu_scripts = prev.callPackage ./nu_scripts {};
+  fabric-ai = prev.callPackage ./fabric-ai {};
 }
