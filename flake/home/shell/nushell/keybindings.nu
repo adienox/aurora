@@ -1,6 +1,28 @@
 $env.config = {
     keybindings: [
         {
+          name: reload_config
+          modifier: none
+          keycode: f5
+          mode: [emacs vi_normal vi_insert]
+          event: {
+            send: executehostcommand,
+            cmd: $"source '($nu.env-path)';source '($nu.config-path)'"
+          }
+        }
+        # https://discord.com/channels/601130461678272522/615253963645911060/1274100945877467179
+        {
+          name: format_commandline
+          modifier: alt
+          keycode: char_s
+          mode: [ emacs vi_insert ]
+          event: {
+            send: executehostcommand
+            # if statement needed to not throw errors to repl for some reason, dunno
+            cmd: "commandline | format-nu | if ($in | is-not-empty) { commandline edit --replace $in }"
+          }
+        }
+        {
             name: completion_menu
             modifier: none
             keycode: tab

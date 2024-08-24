@@ -126,7 +126,7 @@ $env.config = {
             PWD: [{|before, after| null }] # run if the PWD environment is different since the last repl input
         }
         display_output: "if (term size).columns >= 100 { table -e } else { table }" # run to display the output of a pipeline
-        command_not_found: { null } # return an error message when a command is not found
+        command_not_found: [{ |command| (comma $command) }] # return an error message when a command is not found
     }
 
     menus: [
