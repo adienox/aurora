@@ -32,6 +32,7 @@
         "float, file-roller"
         "float, title:DevTools"
         "float, title:wlogout"
+        "float, ^(org.pwmt.zathura)"
         "float, ^(blueman-manager)$"
         "float, ^(io.bassi.Amberol)$"
         "float, ^(org.gnome.Calculator)$"
@@ -65,6 +66,7 @@
         "workspace 2, ^(Code)$"
         "workspace 4, ^(mpv)$"
         "workspace 4, ^(calibre-gui)$"
+        "workspace 4, ^(org.pwmt.zathura)$"
         "workspace 5, ^(discord)$"
         "workspace 5, ^(vesktop)$"
         "workspace 5, ^(org.telegram.desktop)$"
@@ -78,6 +80,7 @@
         "fullscreen, obsidian"
         "fullscreen, ^(mpv)$"
         "fullscreen, Morgen"
+        "fullscreen, ^(org.pwmt.zathura)$"
       ];
       windowrulev2 = [
         # Utils

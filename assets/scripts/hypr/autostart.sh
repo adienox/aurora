@@ -6,8 +6,8 @@ udiskie -s &
 waybar &
 ianny &
 
-"$XDG_CONFIG_HOME"/assets/scripts/hyprland/clipboard.sh &
-"$XDG_CONFIG_HOME"/assets/scripts/hyprland/fullscreen-fade.sh &
+"$XDG_CONFIG_HOME"/assets/scripts/hypr/clipboard.sh &
+"$XDG_CONFIG_HOME"/assets/scripts/hypr/fullscreen-fade.sh &
 
 # other
 sleep 3 && rm "$HOME/test.log" &

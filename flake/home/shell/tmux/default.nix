@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  default,
+  pkgs,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     prefix = "C-Space";
@@ -8,10 +12,10 @@
     newSession = true;
     mouse = true;
     keyMode = "vi";
-    shell = "${pkgs.nushell}/bin/nu";
+    escapeTime = 0;
+    shell = "${default.terminal.shell}";
     catppuccin.enable = false;
     plugins = with pkgs.tmuxPlugins; [
-      cpu
       vim-tmux-navigator
       yank
       tmux-fzf

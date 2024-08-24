@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: let
@@ -53,7 +54,7 @@ in rec {
   };
 
   terminal = {
-    shell = "nu";
+    shell = "${pkgs.nushell}/bin/nu";
     font = "JetBrainsMono Nerd Font";
     name = "kitty";
     opacity = 0.7;
