@@ -10,6 +10,7 @@ in {
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    enableNushellIntegration = true;
     shellWrapperName = "y";
 
     settings = {
@@ -35,6 +36,18 @@ in {
             mime = "video/*";
             use = "play-video";
           }
+          {
+            mime = "application/epub+zip";
+            use = "document-viewer";
+          }
+          {
+            mime = "application/x-mobipocket-ebook";
+            use = "document-viewer";
+          }
+          {
+            mime = "application/pdf";
+            use = "document-viewer";
+          }
         ];
       };
       opener = {
@@ -42,6 +55,12 @@ in {
           {
             run = "$EDITOR \"$@\"";
             block = true;
+          }
+        ];
+        document-viewer = [
+          {
+            run = "zathura \"$@\"";
+            orphan = true;
           }
         ];
         play-audio = [

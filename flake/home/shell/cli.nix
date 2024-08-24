@@ -33,6 +33,18 @@
   ];
 
   programs = {
+    zathura = {
+      enable = true;
+      extraConfig = ''
+        set default-bg          ${default.rgba.base00 0.7}
+        set statusbar-bg        ${default.rgba.base00 0.7}
+        set index-active-bg     ${default.rgba.base00 0.7}
+        set inputbar-bg         ${default.rgba.base00 0.7}
+        set render-loading-bg   ${default.rgba.base00 0.7}
+        set recolor             "false"
+        set database            "sqlite"
+      '';
+    };
     fzf = {
       enable = true;
       catppuccin.enable = false;

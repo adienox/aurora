@@ -6,6 +6,7 @@
   browser = ["firefox.desktop"];
   image-viewer = ["imv.desktop"];
   video-player = ["mpv.desktop"];
+  document-viewer = ["org.pwmt.zathura.desktop"];
 
   associations = {
     "text/html" = browser;
@@ -16,13 +17,16 @@
     "application/x-extension-xhtml" = browser;
     "application/xhtml+xml" = browser;
     "application/json" = browser;
-    "application/pdf" = browser;
     "x-scheme-handler/about" = browser;
     "x-scheme-handler/ftp" = browser;
     "x-scheme-handler/http" = browser;
     "x-scheme-handler/https" = browser;
     "x-scheme-handler/unknown" = browser;
     "x-scheme-handler/chrome" = ["chromium-browser.desktop"];
+
+    "application/pdf" = document-viewer;
+    "application/epub+zip" = document-viewer;
+    "application/x-mobipocket-ebook" = document-viewer;
 
     "audio/*" = video-player;
     "video/*" = video-player;
