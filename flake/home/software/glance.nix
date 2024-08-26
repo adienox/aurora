@@ -12,16 +12,7 @@
                   type = "calendar";
                 }
                 {
-                  type = "rss";
-                  feeds = [
-                    {
-                      url = "https://ciechanow.ski/atom.xml";
-                    }
-                    {
-                      url = "https://www.joshwcomeau.com/rss.xml";
-                      title = "Josh Comeau";
-                    }
-                  ];
+                  type = "hacker-news";
                 }
                 {
                   type = "twitch-channels";
@@ -36,15 +27,26 @@
               size = "full";
               widgets = [
                 {
-                  type = "hacker-news";
+                  type = "rss";
+                  feeds = [
+                    {
+                      url = "https://www.joshwcomeau.com/rss.xml";
+                      title = "Josh Comeau";
+                    }
+                    {
+                      url = "https://www.theverge.com/rss/index.xml";
+                      title = "The Verge";
+                    }
+                  ];
                 }
                 {
                   type = "videos";
                   style = "grid-cards";
                   collapse-after-rows = 2;
+                  cache = "5m";
                   channels = [
                     "UCR-DXc1voovS8nhAvccRZhg" # Jeff Geerling
-                    "UCXuqSBlHAE6Xw-yeJA0Tunw" #LTT
+                    "UCXuqSBlHAE6Xw-yeJA0Tunw" # LTT
                     "UCJ0-OtVpF0wOKEqT2Z1HEtA" # Electro Boom
                     "UCODHrzPMGbNv67e84WDZhQQ" # Fern
                     "UCoZd78hRUdxxsuGiABuHF_A" # Historically
@@ -86,7 +88,7 @@
                         }
                         {
                           title = "Selfh.st";
-                          url = "https://https://selfh.st/";
+                          url = "https://https://selfh.st/apps";
                         }
                       ];
                     }
@@ -125,6 +127,22 @@
           ];
           name = "Home";
         }
+        {
+          name = "Reddit";
+          columns = [
+            {
+              size = "full";
+              widgets = [
+                {
+                  type = "reddit";
+                  subreddit = "unixporn";
+                  show-thumbnails = true;
+                  style = "vertical-list";
+                }
+              ];
+            }
+          ];
+        }
       ];
       theme = {
         background-color = "0 0 0";
@@ -134,7 +152,7 @@
         negative-color = "347 70 65";
       };
       server = {
-        port = 8080;
+        port = 1337;
       };
     };
   };
