@@ -14,6 +14,7 @@
     ./lsd.nix
     ./yazi.nix
     ./starship.nix
+    ./atuin.nix
     ./kitty.nix
   ];
 
