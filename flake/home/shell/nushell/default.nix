@@ -13,7 +13,6 @@ in {
 
       tn = "tmux new -A -s \"home 🏡\"";
 
-      gc = "git commit -m";
       ga = "git add";
       gp = "git push";
       gs = "git status";
@@ -39,10 +38,16 @@ in {
       # modules
       use ${nu_scripts}/modules/nix/nix.nu *
       use ${nu_scripts}/modules/background_task/task.nu
+
+      # completions
+      use ${nu_scripts}/custom-completions/nix/nix-completions.nu *
+      use ${nu_scripts}/custom-completions/git/git-completions.nu *
+
       source ${nu_scripts}/themes/nu-themes/catppuccin-mocha.nu
 
       ${builtins.readFile ./keybindings.nu}
       ${builtins.readFile ./snippets.nu}
+      ${builtins.readFile ./completions.nu}
     '';
   };
 }
