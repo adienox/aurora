@@ -15,11 +15,11 @@
     # Tmux
     tmux
     sesh
-    gum
 
     # utils
-    tdf
-    pfetch
+    gum
+    glow
+    freeze
     file
     du-dust
     duf

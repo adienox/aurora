@@ -118,15 +118,15 @@ in {
         search-by-image
         simple-tab-groups
         stylus
-        web-archives
         clearurls
         don-t-fuck-with-paste
         vimium
         canvasblocker
         redirector
-        wikiwand-wikipedia-modernized
         skip-redirect
         bitwarden
+        # web-archives
+        # wikiwand-wikipedia-modernized
         # youtube-shorts-block
         # dearrow
         # youtube-recommended-videos

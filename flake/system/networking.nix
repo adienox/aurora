@@ -9,6 +9,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
+        1337
         22000 # syncthing
         8080 # anki
         9090 # calibre
@@ -17,7 +18,7 @@
         4040
         5040
       ];
-      allowedUDPPorts = [8080 9090 2222];
+      allowedUDPPorts = [1337 8080 9090 2222];
       allowedTCPPortRanges = [
         {
           from = 1714;
