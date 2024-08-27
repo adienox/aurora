@@ -19,7 +19,7 @@
     # utils
     gum
     glow
-    freeze
+    charm-freeze
     file
     du-dust
     duf
