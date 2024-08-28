@@ -69,6 +69,9 @@
         "$MOD,g,togglegroup"
         "$MOD,tab,changegroupactive"
 
+        # Focus last window
+        "$MOD, N, focuscurrentorlast"
+
         # Move focus with MOD + vim keys
         "$MOD, H, movefocus, l"
         "$MOD, J, movefocus, d"
