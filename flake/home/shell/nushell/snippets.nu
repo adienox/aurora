@@ -98,3 +98,19 @@ def extract [name:string] {
     nu -c ($handler.command + ' ' + $name)
   }
 }
+
+def package-locate [package:string] {
+    try {
+        let package = (
+            nix-locate --no-group --type x --type s --top-level --whole-name --minimal $"bin/($package)"
+            | parse -r "^(.*?)(?=.out$)"
+            | get capture0
+            | to text
+            | gum choose --header="Choose to Run:"
+        )
+        if ($package | is-empty) {
+            return null
+        }
+        nix-shell -p $package
+    }
+}
