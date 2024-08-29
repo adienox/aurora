@@ -3,7 +3,7 @@ return {
   cmd = { 'ZenMode' },
 
   keys = {
-    { '<leader>tz', '<cmd>ZenMode<CR>' },
+    { '<leader>tz', '<cmd>ZenMode<CR>', desc = '[Z]en Mode' },
   },
   opts = {
     window = {
