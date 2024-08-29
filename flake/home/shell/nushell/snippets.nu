@@ -8,7 +8,7 @@ def xkcd [number = ""] {
       date: $"($xkcd.day)-($xkcd.month)-($xkcd.year)"
       title: $xkcd.title
       ...($xkcd | reject day month year safe_title title)
-    }
+  }
   print $display
   http get $xkcd.img | kitty icat --align left
 }
