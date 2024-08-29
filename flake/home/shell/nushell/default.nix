@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   nu_scripts = "${pkgs.nu_scripts}/share/nu_scripts";
 in {
+  home.packages = with pkgs; [fish];
   programs.nushell = {
     enable = true;
     shellAliases = {

@@ -38,19 +38,6 @@ $env.config = {
         isolation: false
     }
 
-    completions: {
-        case_sensitive: false
-        quick: true
-        partial: true
-        algorithm: "prefix"
-        external: {
-            enable: true
-            max_results: 100
-            completer: null # check 'carapace_completer' above as an example
-        }
-        use_ls_colors: true
-    }
-
     filesize: {
         metric: true
         format: "auto"
