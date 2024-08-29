@@ -101,6 +101,7 @@ def extract [name:string] {
 
 def package-locate [package:string] {
     try {
+        print $"Trying to locate package: ($package)"
         let package = (
             nix-locate --no-group --type x --type s --top-level --whole-name --minimal $"bin/($package)"
             | parse -r "^(.*?)(?=.out$)"
@@ -109,8 +110,10 @@ def package-locate [package:string] {
             | gum choose --header="Choose to Run:"
         )
         if ($package | is-empty) {
+            print $"($package) not found"
             return null
         }
-        nix-shell -p $package
+        print $"Creating a nix shell out of package ($package)"
+        nix-shell --command nu -p $package
     }
 }

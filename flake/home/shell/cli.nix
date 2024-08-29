@@ -67,7 +67,7 @@
     carapace = {
       enable = true;
       enableZshIntegration = true;
-      enableNushellIntegration = true;
+      enableNushellIntegration = false; # using custom login look nushell/completions
     };
 
     bat = {
