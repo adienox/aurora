@@ -26,6 +26,7 @@ let carapace_completer = {|spans: list<string>|
 
 # This completer will use carapace by default
 let external_completer = {|spans|
+    # fixing completers for aliases
     let expanded_alias = scope aliases
     | where name == $spans.0
     | get -i 0.expansion
@@ -38,6 +39,7 @@ let external_completer = {|spans|
         $spans
     }
 
+    # specific completer for specific programs
     match $spans.0 {
         # carapace completions are incorrect for nu
         nu => $fish_completer
