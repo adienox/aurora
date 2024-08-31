@@ -117,3 +117,10 @@ def package-locate [package:string] {
         nix-shell --command nu -p $option
     }
 }
+
+def shellify [package:string] {
+    try {
+        print $"Creating a nix shell out of package ($package)"
+        nix-shell --command nu -p $package
+    }
+}
