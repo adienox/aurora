@@ -74,7 +74,7 @@ def format-nu [
 # https://github.com/nushell/nu_scripts/blob/main/modules/data_extraction/ultimate_extractor.nu
 # Function to extract archives with different extensions.
 def extract [name:string] {
-  let handlers = [ [extension command];
+    let handlers = [ [extension command];
                    ['tar\.bz2|tbz|tbz2' 'tar xvjf']
                    ['tar\.gz|tgz'       'tar xvzf']
                    ['tar\.xz|txz'       'tar xvf']
@@ -90,12 +90,12 @@ def extract [name:string] {
                    ['Z'                 'uncompress']
                    ['7z'                '7za x']
                  ]
-  let maybe_handler = ($handlers | where $name =~ $'\.(($it.extension))$')
-  if ($maybe_handler | is-empty) {
-    error make { msg: "unsupported file extension" }
-  } else {
-    let handler = ($maybe_handler | first)
-    nu -c ($handler.command + ' ' + $name)
+    let maybe_handler = ($handlers | where $name =~ $'\.(($it.extension))$')
+    if ($maybe_handler | is-empty) {
+        error make { msg: "unsupported file extension" }
+    } else {
+        let handler = ($maybe_handler | first)
+        nu -c ($handler.command + ' ' + $name)
   }
 }
 
