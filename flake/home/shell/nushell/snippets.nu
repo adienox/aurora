@@ -102,18 +102,18 @@ def extract [name:string] {
 def package-locate [package:string] {
     try {
         print $"Trying to locate package: ($package)"
-        let package = (
+        let options = (
             nix-locate --no-group --type x --type s --top-level --whole-name --minimal $"bin/($package)"
             | parse -r "^(.*?)(?=.out$)"
             | get capture0
             | to text
-            | gum choose --header="Choose to Run:"
         )
-        if ($package | is-empty) {
+        if ($options | is-empty) {
             print $"($package) not found"
             return null
         }
-        print $"Creating a nix shell out of package ($package)"
-        nix-shell --command nu -p $package
+        let option = ($options | gum choose --header="Choose to Run:")
+        print $"Creating a nix shell out of package ($option)"
+        nix-shell --command nu -p $option
     }
 }
