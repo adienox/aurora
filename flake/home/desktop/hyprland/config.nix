@@ -55,13 +55,11 @@
 
         blur = {
           enabled = true;
-          size = 8; # minimum 1
-          passes = 3; # minimum 1, more passes = more resource intensive.
+          size = 3;
+          passes = 5;
+          contrast = 1.2;
           ignore_opacity = true;
           new_optimizations = true;
-          contrast = 1.2;
-          xray = false;
-          brightness = 1;
         };
       };
 
