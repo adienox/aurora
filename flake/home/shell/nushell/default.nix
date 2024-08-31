@@ -7,6 +7,7 @@
 in {
   home.packages = with pkgs; [
     fish
+    vivid
   ];
   programs.nushell = {
     enable = true;
