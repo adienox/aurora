@@ -52,5 +52,6 @@
       --color=fg:${default.xcolors.base05},matched:${default.xcolors.base02},matched_bg:${default.xcolors.base0F},current:${default.xcolors.base05},current_bg:${default.xcolors.base03},current_match:${default.xcolors.base00},current_match_bg:${default.xcolors.base06},spinner:${default.xcolors.base0B},info:${default.xcolors.base0E},prompt:${default.xcolors.base0D},cursor:${default.xcolors.base08},selected:${default.xcolors.extra01},header:${default.xcolors.base0C},border:${default.xcolors.extra06}'';
 
     NIXPKGS_ALLOW_UNFREE = 1;
+    _ZO_EXCLUDE_DIRS = "/nix/*:/sys/*:/run/*";
   };
 }
