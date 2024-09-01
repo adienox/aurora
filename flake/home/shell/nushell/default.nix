@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
+{pkgs, ...}: let
   nu_scripts = "${pkgs.nu_scripts}/share/nu_scripts";
 in {
   home.packages = with pkgs; [
@@ -26,7 +22,6 @@ in {
       gs = "git status";
 
       sudo = "sudo ";
-      yt-audio = "yt-dlp -x --audio-format mp3 --audio-quality 0";
       wget = "wget -c ";
       grep = "grep --color=auto";
       hw = "hwinfo --short";

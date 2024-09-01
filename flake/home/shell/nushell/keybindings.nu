@@ -36,33 +36,6 @@ $env.config = {
             }
         }
         {
-            name: ide_completion_menu
-            modifier: control
-            keycode: char_n
-            mode: [emacs vi_normal vi_insert]
-            event: {
-                until: [
-                    { send: menu name: ide_completion_menu }
-                    { send: menunext }
-                    { edit: complete }
-                ]
-            }
-        }
-        {
-            name: history_menu
-            modifier: control
-            keycode: char_r
-            mode: [emacs, vi_insert, vi_normal]
-            event: { send: menu name: history_menu }
-        }
-        {
-            name: help_menu
-            modifier: none
-            keycode: f1
-            mode: [emacs, vi_insert, vi_normal]
-            event: { send: menu name: help_menu }
-        }
-        {
             name: completion_previous_menu
             modifier: shift
             keycode: backtab
@@ -87,13 +60,6 @@ $env.config = {
                     { edit: undo }
                 ]
             }
-        }
-        {
-            name: escape
-            modifier: none
-            keycode: escape
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: esc }    # NOTE: does not appear to work
         }
         {
             name: cancel_command
@@ -324,181 +290,6 @@ $env.config = {
             event: { edit: moveleft }
         }
         {
-            name: newline_or_run_command
-            modifier: none
-            keycode: enter
-            mode: emacs
-            event: { send: enter }
-        }
-        {
-            name: move_left
-            modifier: control
-            keycode: char_b
-            mode: emacs
-            event: {
-                until: [
-                    { send: menuleft }
-                    { send: left }
-                ]
-            }
-        }
-        {
-            name: move_right_or_take_history_hint
-            modifier: control
-            keycode: char_f
-            mode: emacs
-            event: {
-                until: [
-                    { send: historyhintcomplete }
-                    { send: menuright }
-                    { send: right }
-                ]
-            }
-        }
-        {
-            name: redo_change
-            modifier: control
-            keycode: char_g
-            mode: emacs
-            event: { edit: redo }
-        }
-        {
-            name: undo_change
-            modifier: control
-            keycode: char_z
-            mode: emacs
-            event: { edit: undo }
-        }
-        {
-            name: paste_before
-            modifier: control
-            keycode: char_y
-            mode: emacs
-            event: { edit: pastecutbufferbefore }
-        }
-        {
-            name: cut_word_left
-            modifier: control
-            keycode: char_w
-            mode: emacs
-            event: { edit: cutwordleft }
-        }
-        {
-            name: cut_line_to_end
-            modifier: control
-            keycode: char_k
-            mode: emacs
-            event: { edit: cuttoend }
-        }
-        {
-            name: cut_line_from_start
-            modifier: control
-            keycode: char_u
-            mode: emacs
-            event: { edit: cutfromstart }
-        }
-        {
-            name: swap_graphemes
-            modifier: control
-            keycode: char_t
-            mode: emacs
-            event: { edit: swapgraphemes }
-        }
-        {
-            name: move_one_word_left
-            modifier: alt
-            keycode: left
-            mode: emacs
-            event: { edit: movewordleft }
-        }
-        {
-            name: move_one_word_right_or_take_history_hint
-            modifier: alt
-            keycode: right
-            mode: emacs
-            event: {
-                until: [
-                    { send: historyhintwordcomplete }
-                    { edit: movewordright }
-                ]
-            }
-        }
-        {
-            name: move_one_word_left
-            modifier: alt
-            keycode: char_b
-            mode: emacs
-            event: { edit: movewordleft }
-        }
-        {
-            name: move_one_word_right_or_take_history_hint
-            modifier: alt
-            keycode: char_f
-            mode: emacs
-            event: {
-                until: [
-                    { send: historyhintwordcomplete }
-                    { edit: movewordright }
-                ]
-            }
-        }
-        {
-            name: delete_one_word_forward
-            modifier: alt
-            keycode: delete
-            mode: emacs
-            event: { edit: deleteword }
-        }
-        {
-            name: delete_one_word_backward
-            modifier: alt
-            keycode: backspace
-            mode: emacs
-            event: { edit: backspaceword }
-        }
-        {
-            name: delete_one_word_backward
-            modifier: alt
-            keycode: char_m
-            mode: emacs
-            event: { edit: backspaceword }
-        }
-        {
-            name: cut_word_to_right
-            modifier: alt
-            keycode: char_d
-            mode: emacs
-            event: { edit: cutwordright }
-        }
-        {
-            name: upper_case_word
-            modifier: alt
-            keycode: char_u
-            mode: emacs
-            event: { edit: uppercaseword }
-        }
-        {
-            name: lower_case_word
-            modifier: alt
-            keycode: char_l
-            mode: emacs
-            event: { edit: lowercaseword }
-        }
-        {
-            name: capitalize_char
-            modifier: alt
-            keycode: char_c
-            mode: emacs
-            event: { edit: capitalizechar }
-        }
-        # The following bindings with `*system` events require that Nushell has
-        # been compiled with the `system-clipboard` feature.
-        # This should be the case for Windows, macOS, and most Linux distributions
-        # Not available for example on Android (termux)
-        # If you want to use the system clipboard for visual selection or to
-        # paste directly, uncomment the respective lines and replace the version
-        # using the internal clipboard.
-        {
             name: copy_selection
             modifier: control_shift
             keycode: char_c
@@ -521,12 +312,5 @@ $env.config = {
         #     mode: emacs
         #     event: { edit: pastesystem }
         # }
-        {
-            name: select_all
-            modifier: control_shift
-            keycode: char_a
-            mode: emacs
-            event: { edit: selectall }
-        }
     ]
 }
