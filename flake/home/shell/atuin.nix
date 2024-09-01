@@ -18,11 +18,16 @@
       daemon = {enabled = true;};
       history_filter = [
         "^cd"
+        "^z "
         "^ls"
+        "^mv"
+        "^cp"
         "^y$"
         "^cls"
+        "^clear"
         "^rm"
         "^source"
+        "^package-locate"
       ];
     };
   };

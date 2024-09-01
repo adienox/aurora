@@ -104,6 +104,10 @@
                           title = "Movies";
                           url = "https://mov2day.to";
                         }
+                        {
+                          title = "Genshin Interactive Map";
+                          url = "https://act.hoyolab.com/ys/app/interactive-map?lang=en-us#/map/2";
+                        }
                       ];
                     }
                     {

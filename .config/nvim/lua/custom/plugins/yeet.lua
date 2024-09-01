@@ -5,7 +5,8 @@ return {
   },
   cmd = 'Yeet',
   opts = {
-    interrupt_before_yeet = true,
+    interrupt_before_yeet = false,
+    clear_before_yeet = true,
     notify_on_success = false,
   },
   keys = {
