@@ -124,3 +124,40 @@ def shellify [package:string] {
         nix-shell --command nu -p $package
     }
 }
+
+def yt [
+    url:string # url of the youtube video
+    --audio(-a) # get the audio
+    --transcript(-t) # get the transcript
+    --output(-o):string # output file name (don't provide file extension)
+] {
+    mut args = []
+    if $audio {
+        $args = ($args | append ["-x", "--audio-quality", "0", "-S", "ext"])
+    }
+    if $transcript {
+        $args = ($args | append ["--write-auto-sub", "--sub-lang", "en"])
+    }
+
+    if $transcript and not $audio {
+        $args = ($args | append ["--skip-download"])
+    }
+
+    mut stream = false
+    if ($output | is-not-empty) {
+        if ($output  == "-") {
+            $stream = true
+            $args = ($args | append ["-o", "output-stream-temp"])
+        } else {
+            $args = ($args | append ["-o", $output])
+        }
+    }
+
+    yt-dlp ...$args $url
+
+    if $stream {
+        let file = ls | where name =~ "output-stream-temp*" | get name | to text
+        ^cat $file
+        rm $file
+    }
+}
