@@ -10,12 +10,12 @@ if [ ! -d "$HOME/.local/bin" ]; then
 	ln -s "$(pwd)/assets/scripts/utils" "$HOME/.local/bin"
 fi
 
-if [ ! -d "$XDG_PICTURES_DIR/backgrounds" ]; then
-	ln -s "$(pwd)/assets/backgrounds" "$XDG_PICTURES_DIR/backgrounds"
+if [ ! -d "$XDG_PICTURES_DIR/wallpapers" ]; then
+	ln -s "$(pwd)/assets/wallpapers" "$XDG_PICTURES_DIR/wallpapers"
 fi
 
 if [ ! -f "$XDG_CACHE_HOME/background" ]; then
-	ln -s "$XDG_PICTURES_DIR"/backgrounds/astronaut.jpg "$XDG_CACHE_HOME"/background
+	ln -s "$XDG_PICTURES_DIR"/wallpapers/astronaut.jpg "$XDG_CACHE_HOME"/background
 fi
 
 if [ ! -d "$XDG_CONFIG_HOME/doom" ]; then

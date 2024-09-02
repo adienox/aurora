@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$HOME"/Pictures/backgrounds || exit
+cd "$HOME"/Pictures/wallpapers || exit
 imgpath=$(yad --width 1000 --height 600 --file --add-preview --large-preview --title='Choose wallpaper')
 screensizey=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 cursorposx=$(hyprctl cursorpos -j | gojq '.x')
