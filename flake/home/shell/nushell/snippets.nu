@@ -83,7 +83,7 @@ def yt [
     --transcript(-t) # get the transcript
     --output(-o):string # output file name (don't provide file extension)
 ] {
-    mut args = []
+    mut args = ["--quiet", "--progress"]
     if $audio {
         $args = ($args | append ["-x", "--audio-quality", "0", "-S", "ext"])
     }
@@ -97,7 +97,7 @@ def yt [
 
     mut stream = false
     if ($output | is-not-empty) {
-        if ($output  == "-") {
+        if (($output  == "-") and $transcript) {
             $stream = true
             $args = ($args | append ["-o", "output-stream-temp"])
         } else {
@@ -109,7 +109,8 @@ def yt [
 
     if $stream {
         let file = ls | where name =~ "output-stream-temp*" | get name | to text
-        ^cat $file
+        let $outputText = (open $file)
         rm $file
+        return $outputText
     }
 }
