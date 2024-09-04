@@ -9,6 +9,8 @@ set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Quality of life
 set({ 'n', 'v' }, 'H', '^')
 set({ 'n', 'v' }, 'L', '$')
+set({ 'n', 'v' }, 'j', 'gj')
+set({ 'n', 'v' }, 'k', 'gk')
 set('n', '<leader>x', '<cmd>source %<CR>', { desc = 'E[X]ecute current file' })
 set('n', '<leader>n', '<cmd>Noice dismiss<CR>', { desc = 'Dismiss [N]otifications' })
 
