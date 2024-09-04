@@ -90,6 +90,7 @@ def yt [
     --audio(-a) # get the audio
     --transcript(-t) # get the transcript
     --output(-o):string # output file name (don't provide file extension)
+    --clean(-c) # clenup the transcript to just have the text
 ] {
     mut args = ["--quiet", "--progress"]
     if $audio {
@@ -114,6 +115,23 @@ def yt [
     }
 
     yt-dlp ...$args $url
+
+    def cleanTranscript [fileName:string] {
+        let file = ls | where name == $"($fileName).en.srt" | get name | to text
+        open $file | lines | where ($it != "" and $it !~ "^\\d+") | parse -r "<font[^>]*>(.*?)<\\/font>" | where ( $it.capture0 != "[Music]") | get capture0 | save -f $"($fileName).txt"
+        rm $file
+    }
+
+    if $clean and $transcript {
+        if ($output | is-not-empty) {
+          if ($output  == "-") {
+            cleanTranscript ("output-stream-temp")
+          } else {
+            cleanTranscript ($output)
+          }
+        }
+        # TODO: handle when user doesn't provide output file name
+    }
 
     if $stream {
         let file = ls | where name =~ "output-stream-temp*" | get name | to text
