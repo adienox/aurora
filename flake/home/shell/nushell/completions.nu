@@ -1,6 +1,5 @@
 def "nu-complete fabric-patterns" [] {
-     ls ~/.config/fabric/patterns
-     | get name | path parse | get stem
+     fabric -l | lines | skip 2 | str trim
 }
 
 def "nu-complete mods-roles" [] {
@@ -48,6 +47,9 @@ extern mods [
 extern fabric [
     -p: string@"nu-complete fabric-patterns" # choose a pattern
     -s # stream the output
+    -l # list patterns
+    -U # update patterns
+    -c # copy to clipboard
 ]
 
 let fish_completer = {|spans|
