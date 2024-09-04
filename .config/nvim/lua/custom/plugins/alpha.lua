@@ -3,6 +3,17 @@
 local if_nil = vim.F.if_nil
 local leader = 'SPC'
 
+local function truncateString(str, limit)
+  -- Check if the input string is longer than the limit
+  if #str > limit then
+    -- Truncate the string and append ellipsis
+    return str:sub(1, limit - 3) .. '...'
+  else
+    -- Return the string as is if it's within the limit
+    return str
+  end
+end
+
 local function button(sc, txt, keybind, keybind_opts)
   local sc_ = sc:gsub('%s', ''):gsub(leader, '<leader>')
 
@@ -27,7 +38,7 @@ local function button(sc, txt, keybind, keybind_opts)
 
   return {
     type = 'button',
-    val = txt,
+    val = truncateString(txt, 45),
     on_press = on_press,
     opts = opts,
   }
