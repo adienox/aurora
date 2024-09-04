@@ -41,10 +41,13 @@ in {
       # modules
       use ${nu_scripts}/modules/nix/nix.nu *
       use ${nu_scripts}/modules/background_task/task.nu
+      use ${nu_scripts}/modules/data_extraction/ultimate_extractor.nu
+      use ${nu_scripts}/modules/network/sockets/sockets.nu
 
       # completions
       use ${nu_scripts}/custom-completions/nix/nix-completions.nu *
       use ${nu_scripts}/custom-completions/git/git-completions.nu *
+      use ${nu_scripts}/custom-completions/bitwarden-cli/bitwarden-cli-completions.nu *
 
       source ${nu_scripts}/themes/nu-themes/catppuccin-mocha.nu
 
