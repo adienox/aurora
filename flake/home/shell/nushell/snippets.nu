@@ -77,6 +77,14 @@ def shellify [package:string] {
     }
 }
 
+def bathelp [
+    command:string # command whose help is to be shown
+] {
+    if ($command | is-not-empty) {
+        run-external $command "--help" | bat --plain --language=help
+    }
+}
+
 def yt [
     url:string # url of the youtube video
     --audio(-a) # get the audio
