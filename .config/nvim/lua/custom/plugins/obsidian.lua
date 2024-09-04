@@ -10,13 +10,6 @@ return {
     'ObsidianTomorrow',
   },
   ft = 'markdown',
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-  -- event = {
-  --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-  --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-  --   "BufReadPre path/to/my-vault/**.md",
-  --   "BufNewFile path/to/my-vault/**.md",
-  -- },
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
@@ -24,23 +17,25 @@ return {
     workspaces = {
       {
         name = 'personal',
-        path = '~/Documents/Logs',
+        path = '~/Documents/Zettles',
       },
     },
 
     daily_notes = {
-      -- Optional, if you keep daily notes in a separate directory.
-      folder = 'Calendar',
-      -- Optional, if you want to change the date format for the ID of daily notes.
-      date_format = '%Y-%m-%d',
-      -- Optional, if you want to change the date format of the default alias of daily notes.
+      folder = 'Logs',
+      date_format = '%Y/Daily/%m/%Y-%m-%d',
       alias_format = '%B %-d, %Y',
-      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = nil,
+      default_tags = { 'note/daily' },
+      template = 'daily.md',
     },
 
-    notes_subdir = 'Cards',
-    new_notes_location = 'notes_subdir',
+    templates = {
+      folder = 'Extras/Templates/nvim-templates',
+      date_format = '%Y-%m-%d',
+      time_format = '%H:%M',
+    },
+
+    notes_subdir = 'Workbench',
 
     use_advanced_uri = true,
     open_app_foreground = true,
@@ -66,7 +61,7 @@ return {
           suffix = suffix .. string.char(math.random(65, 90))
         end
       end
-      return tostring(os.time()) .. '-' .. suffix
+      return tostring(os.date('%Y%m%d%H%M', os.time())) .. '-' .. suffix
     end,
   },
 }
