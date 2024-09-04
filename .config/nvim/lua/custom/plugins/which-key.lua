@@ -14,7 +14,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>c', group = '[C]ode' },
       { '<leader>d', group = '[D]ocument' },
       { '<leader>g', group = '[G]it' },
-      { '<leader>l', group = '[L]sp' },
+      { '<leader>o', group = '[O]bsidian' },
       { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]earch' },
       { '<leader>t', group = '[T]oggle' },
