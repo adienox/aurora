@@ -20,6 +20,7 @@
     gum
     glow
     charm-freeze
+    mods
     file
     du-dust
     duf

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+find ~/.config/fabric/patterns/ -maxdepth 2 -name 'system.md' | while read -r line; do
+  echo "  $(basename $(dirname $line)):"
+  echo "    - file://$(readlink -f $line)"
+done

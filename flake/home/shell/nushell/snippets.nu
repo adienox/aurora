@@ -114,3 +114,13 @@ def yt [
         return $outputText
     }
 }
+
+def modgen [] {
+    let roles = (genmodroles | from yml | insert default [])
+
+    mut mods = (cat ~/.config/mods/mods.yml | from yml | reject roles)
+
+    $mods = ($mods  | insert roles $roles)
+
+    $mods | to yaml | save -f ~/.config/mods/mods.yml
+}
