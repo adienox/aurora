@@ -37,8 +37,27 @@ return {
         font = '+2', -- font size increment
       },
     },
+
     on_open = function(win)
       vim.cmd 'normal! zz'
+      vim.keymap.set({ 'n', 'i' }, '<C-n>', function()
+        vim.fn.jobstart { 'kitten', '@', 'set-font-size', '0' }
+        vim.fn.jobstart { 'tmux', 'switch-client', '-l' }
+      end)
+      vim.api.nvim_create_autocmd({ 'FocusGained' }, {
+        pattern = '*',
+        group = vim.api.nvim_create_augroup('zen-mode-toggle', { clear = true }),
+        callback = function()
+          vim.fn.jobstart { 'kitten', '@', 'set-font-size', '15' }
+        end,
+      })
+    end,
+
+    on_close = function()
+      vim.api.nvim_del_augroup_by_name 'zen-mode-toggle'
+      vim.keymap.set({ 'n', 'i' }, '<C-n>', function()
+        vim.fn.jobstart { 'tmux', 'switch-client', '-l' }
+      end)
     end,
   },
 }
