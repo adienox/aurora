@@ -9,6 +9,26 @@ return {
     'ObsidianYesterday',
     'ObsidianTomorrow',
   },
+  keys = {
+    {
+      '<leader>od',
+      '<cmd>ObsidianToday<CR>',
+      mode = 'n',
+      desc = '[D]aily Note',
+    },
+    {
+      '<leader>on',
+      '<cmd>ObsidianNew<CR>',
+      mode = 'n',
+      desc = '[N]ew Note',
+    },
+    {
+      '<leader>os',
+      '<cmd>ObsidianQuickSwitch<CR>',
+      mode = 'n',
+      desc = '[S]earch Notes',
+    },
+  },
   ft = 'markdown',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -35,22 +55,18 @@ return {
       time_format = '%H:%M',
     },
 
+    attachments = {
+      img_folder = 'Extras/Media/imgs',
+    },
+
     notes_subdir = 'Workbench',
 
     use_advanced_uri = true,
     open_app_foreground = true,
 
-    ---@param url string
-    follow_url_func = function(url)
-      vim.fn.jobstart { 'xdg-open', url } -- linux
-    end,
-
     ---@param title string|?
     ---@return string
     note_id_func = function(title)
-      -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
-      -- In this case a note with the title 'My new note' will be given an ID that looks
-      -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
       local suffix = ''
       if title ~= nil then
         -- If title is given, transform it into valid file name.
@@ -62,6 +78,11 @@ return {
         end
       end
       return tostring(os.date('%Y%m%d%H%M', os.time())) .. '-' .. suffix
+    end,
+
+    ---@param url string
+    follow_url_func = function(url)
+      vim.fn.jobstart { 'xdg-open', url } -- linux
     end,
   },
 }
