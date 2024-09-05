@@ -70,6 +70,11 @@ return {
   },
 
   {
+    'tpope/vim-fugitive',
+    event = 'VeryLazy',
+  },
+
+  {
     'kdheepak/lazygit.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
