@@ -14,6 +14,7 @@
     keyMode = "vi";
     escapeTime = 0;
     shell = "${default.terminal.shell}";
+    terminal = "tmux-256color";
     catppuccin.enable = false;
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator

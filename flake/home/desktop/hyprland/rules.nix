@@ -33,6 +33,7 @@
         "float, title:DevTools"
         "float, title:wlogout"
         "float, ^(org.pwmt.zathura)"
+        "float, ^(imv)"
         "float, ^(blueman-manager)$"
         "float, ^(io.bassi.Amberol)$"
         "float, ^(org.gnome.Calculator)$"
@@ -53,6 +54,7 @@
         "size 485 300, title:^(Picture in picture)$"
         "size 485 300, title:^(Picture-in-Picture)$"
         "size 800 500, ^(floating)$"
+        "size 800 500, ^(imv)$"
 
         # Animation Rules
         "animation popin, title:^(Discord Popout)$"
@@ -90,6 +92,7 @@
         # centering
         "center, class:^(firefox)$, title:^(Enter name of file to save to…)$"
         "center, class:^(floating)$"
+        "center, class:^(imv)$"
 
         # Idle inhibit rules
         "idleinhibit fullscreen, class:^(librewolf)$"

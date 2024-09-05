@@ -19,6 +19,7 @@ return {
         'drools_lsp', -- causing startup issues
         'mutt_ls', -- causing startup issues
         'als', -- causing startup issues
+        'bazelrc-lsp', -- causing startup issues
       },
       experimental_lazy_setup = true,
       prefer_local = true, -- Prefer locally installed servers over nix-shell

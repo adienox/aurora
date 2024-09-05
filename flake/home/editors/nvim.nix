@@ -6,6 +6,8 @@
   programs.neovim = {
     enable = true;
     catppuccin.enable = false;
+    extraLuaPackages = ps: [ps.magick];
+    extraPackages = with pkgs; [imagemagick];
   };
 
   home.packages = with pkgs; [

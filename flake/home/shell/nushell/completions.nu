@@ -21,7 +21,7 @@ extern mods [
     --title(-t) # Saves the current conversation with the given title.
     --delete(-d) # Deletes a saved conversation with the given title or ID.
     --delete-older-than # Deletes all saved conversations older than the specified duration. Valid units are: ns, us, µs, μs, ms, s, m, h, d, w, mo, and y.
-    --show(-s) # Show a saved conversation with the given title or ID.
+    --show(-s): string # Show a saved conversation with the given title or ID.
     --show-last(-S) # Show the last saved conversation.
     --quiet(-q) # Quiet mode (hide the spinner while loading and stderr messages for success).
     --help(-h) # Show help and exit.
