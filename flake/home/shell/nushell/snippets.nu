@@ -150,3 +150,19 @@ def modgen [] {
 
     $mods | to yaml | save -f ~/.config/mods/mods.yml
 }
+
+def getresponse [
+    hash?:string # hash of the mods conversation to get response from
+    --showlast(-S) # Show the last saved conversation.
+] {
+    mut text = ""
+    if $showlast {
+        $text = (mods -S)
+    } else {
+        $text = (mods -s $hash)
+    }
+    mut response = ($text | lines | to text | grep -A 9999999 Assistant | str trim | lines)
+
+    $response.0 = ($response.0 | split column "**Assistant**: " | get column2.0)
+    return ($response | to text)
+}
