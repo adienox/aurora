@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     catppuccin.enable = false;
@@ -13,6 +9,8 @@
   home.packages = with pkgs; [
     # lua stuff
     stylua
+    luajitPackages.luarocks
+    lua
 
     # nix stuff
     alejandra
