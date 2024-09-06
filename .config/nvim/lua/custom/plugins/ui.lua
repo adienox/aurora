@@ -63,7 +63,18 @@ return {
         desc = 'T[W]ilight',
       },
     },
-    opts = {},
+    opts = {
+      context = 0,
+      expand = {
+        'function',
+        'method',
+        'table',
+        'if_statement',
+        -- markdown
+        'paragraph',
+        'fenced_code_block',
+      },
+    },
   },
 
   {
