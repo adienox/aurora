@@ -92,7 +92,7 @@ def yt [
     --output(-o):string # output file name (don't provide file extension)
     --clean(-c) # clenup the transcript to just have the text
 ] {
-    mut args = ["--quiet", "--no-warnings", "--progress"]
+    mut args = ["--quiet", "--no-warnings", "--progress", "--sponsorblock-remove", "sponsor"]
     if $audio {
         $args = ($args | append ["-x", "--audio-quality", "0", "-S", "ext"])
     }
