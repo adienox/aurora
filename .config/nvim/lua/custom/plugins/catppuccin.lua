@@ -18,12 +18,18 @@ return {
         TabLineSel = { bg = colors.pink },
         CmpBorder = { fg = colors.surface2 },
         Pmenu = { bg = colors.none },
+        RenderMarkdownLink = { fg = colors.mauve, style = { 'underline' } },
+        Label = { fg = colors.mauve, style = { 'underline' } },
+        RenderMarkdownH1Bg = { bg = '#000000' },
+        RenderMarkdownH2Bg = { bg = '#000000' },
+        RenderMarkdownH3Bg = { bg = '#000000' },
+        RenderMarkdownH4Bg = { bg = '#000000' },
+        RenderMarkdownH5Bg = { bg = '#000000' },
+        RenderMarkdownH6Bg = { bg = '#000000' },
       }
     end,
   },
   init = function()
     vim.cmd.colorscheme 'catppuccin'
-    -- You can configure highlights by doing something like:
-    -- vim.cmd.hi 'Comment gui=none'
   end,
 }
