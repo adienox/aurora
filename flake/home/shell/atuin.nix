@@ -39,7 +39,7 @@
         After = ["network.target"];
       };
       Service = {
-        ExecStart = "${pkgs.atuin}/bin/atuin daemon";
+        ExecStart = "rm -f ~/.local/share/atuin/atuin.sock && ${pkgs.atuin}/bin/atuin daemon";
         Restart = "on-failure";
       };
       Install.WantedBy = ["default.target"];
