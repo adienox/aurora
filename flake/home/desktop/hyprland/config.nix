@@ -9,9 +9,8 @@
     settings = {
       monitor = ",preferred,auto,1";
       exec-once = [
-        "[workspace 3 silent] obsidian"
+        "[workspace 2 silent] kitty"
         "[workspace 5 silent] telegram-desktop"
-        "[workspace 6 silent] ticktick"
         "${config.xdg.configHome}/assets/scripts/hypr/autostart.sh"
       ];
       input = {
