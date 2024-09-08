@@ -47,6 +47,7 @@ in {
       use ${nu_scripts}/custom-completions/nix/nix-completions.nu *
       use ${nu_scripts}/custom-completions/git/git-completions.nu *
       use ${nu_scripts}/custom-completions/bitwarden-cli/bitwarden-cli-completions.nu *
+      source ${nu_scripts}/custom-completions/atuin/atuin-completions.nu
 
       source ${nu_scripts}/themes/nu-themes/catppuccin-mocha.nu
 
