@@ -72,6 +72,20 @@ return {
   {
     'tpope/vim-fugitive',
     event = 'VeryLazy',
+    keys = {
+      {
+        '<leader>gw',
+        '<cmd>Gw<CR>',
+        mode = 'n',
+        desc = '[W]rite file',
+      },
+      {
+        '<leader>gc',
+        ':G commit -m ',
+        mode = 'n',
+        desc = '[C]ommit file',
+      },
+    },
   },
 
   {
