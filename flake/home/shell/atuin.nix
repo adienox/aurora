@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
@@ -39,7 +43,8 @@
         After = ["network.target"];
       };
       Service = {
-        ExecStart = "rm -f ~/.local/share/atuin/atuin.sock && ${pkgs.atuin}/bin/atuin daemon";
+        ExecStartPre = "${pkgs.coreutils}/bin/rm -f  ${config.xdg.dataHome}/atuin/atuin.sock";
+        ExecStart = "${pkgs.atuin}/bin/atuin daemon";
         Restart = "on-failure";
       };
       Install.WantedBy = ["default.target"];
