@@ -46,13 +46,13 @@
         "pin, title:^(Discord Popout)$"
 
         "move 1430 45, title:^(Discord Popout)$"
-        "move 1430 770, title:^(Picture in picture)$"
-        "move 1430 770, title:^(Picture-in-Picture)$"
+        "move 1280 715, title:^(Picture in picture)$"
+        "move 1280 715, title:^(Picture-in-Picture)$"
         "move 560 290, title:^(fly_is_kitty)$"
 
         "size 485 300, title:^(Discord Popout)$"
-        "size 485 300, title:^(Picture in picture)$"
-        "size 485 300, title:^(Picture-in-Picture)$"
+        "size 630 360, title:^(Picture in picture)$"
+        "size 630 360, title:^(Picture-in-Picture)$"
         "size 800 500, ^(floating)$"
         "size 800 500, ^(imv)$"
 
@@ -119,6 +119,10 @@
         "opacity 0.9, class:^(ticktick)$"
         "opacity 0.9, class:^(Anki)$"
         "opacity 0.9, class:^(calibre-gui)$"
+
+        # Focus Rules
+        "noinitialfocus, title:^(Picture-in-Picture)$"
+        "noinitialfocus, title:^(Picture in Picture)$"
 
         "tile, class:^(Vivaldi-stable)$"
         "float, class:^(Anki)$, title:^(Add)$"
