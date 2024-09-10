@@ -37,6 +37,12 @@ return {
         mode = 'n',
         desc = '[S]earch Notes',
       },
+      {
+        '<leader>oc',
+        '<cmd>ObsidianTemplate current<CR>',
+        mode = 'n',
+        desc = '[C]urrent Date & Time',
+      },
     },
     opts = {
       -- ui = { enable = false },
@@ -60,6 +66,11 @@ return {
         folder = 'Extras/Templates/nvim-templates',
         date_format = '%Y-%m-%d',
         time_format = '%H:%M',
+        substitutions = {
+          current = function()
+            return os.date '%b %d, %Y %H:%M'
+          end,
+        },
       },
 
       attachments = {
