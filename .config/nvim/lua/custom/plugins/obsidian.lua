@@ -94,6 +94,7 @@ return {
           note:add_alias(note.title)
         end
 
+        -- add new field 'created' if its not a daily note
         if note:get_field 'created' == nil and not string.find(note.path.filename, 'Logs') then
           note:add_field('created', os.date '%b %d, %Y %H:%M')
         end
