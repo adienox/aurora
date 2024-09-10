@@ -20,10 +20,10 @@ return {
         desc = '[D]aily Note',
       },
       {
-        '<C-v>',
+        '<leader>op',
         '<cmd>ObsidianPasteImg<CR>',
         mode = { 'n', 'i' },
-        desc = '[D]aily Note',
+        desc = '[P]aste Image',
       },
       {
         '<leader>on',
