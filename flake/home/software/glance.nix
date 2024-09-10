@@ -90,6 +90,10 @@
                           title = "Selfh.st";
                           url = "https://https://selfh.st/apps";
                         }
+                        {
+                          title = "Conventional Commits";
+                          url = "https://www.conventionalcommits.org";
+                        }
                       ];
                     }
                     {
