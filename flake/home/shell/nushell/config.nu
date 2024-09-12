@@ -31,6 +31,11 @@ $env.config = {
 
     error_style: "fancy"
 
+    datetime_format: {
+        normal: '%b %d, %Y %H:%M'    # shows up in displays of variables or other datetime's outside of tables
+        # table: '%m/%d/%y %I:%M:%S%p'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
+    }
+
     history: {
         max_size: 100_000
         sync_on_enter: true
