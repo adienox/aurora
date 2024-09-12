@@ -1,6 +1,6 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
-  event = 'UiEnter',
+  event = 'VeryLazy',
   cmd = {
     'Telescope',
   },
