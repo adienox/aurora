@@ -1,5 +1,5 @@
 {lib, ...}: {
-  imports = [./desktop ./editors ./shell ./software ./theme];
+  imports = [./desktop ./editors ./shell ./software ./theme ./secrets.nix];
 
   home.username = "nox";
   home.homeDirectory = "/home/nox";

@@ -16,6 +16,9 @@
     tmux
     sesh
 
+    sops
+    age
+
     # utils
     gum
     glow
