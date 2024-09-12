@@ -20,7 +20,7 @@
     anki-bin
     amberol
     ticktick
-    gnome.gnome-clocks
+    gnome-clocks
     gnome-calculator
     gnome.gvfs
     nautilus
