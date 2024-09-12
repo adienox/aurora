@@ -36,6 +36,8 @@
     yazi.url = "github:sxyazi/yazi";
     catppuccin.url = "github:catppuccin/nix";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
     xremap-flake.url = "github:xremap/nix-flake";
     anipy-cli.url = "github:sdaqo/anipy-cli";
   };
@@ -60,6 +62,7 @@
         specialArgs = {inherit system inputs;};
         modules = [
           ./system
+          inputs.sops-nix.nixosModules.sops
         ];
       };
     };
@@ -71,6 +74,7 @@
           ./home
           inputs.nix-index-db.hmModules.nix-index
           inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.sops-nix.homeManagerModules.sops
         ];
         extraSpecialArgs = {inherit inputs;};
       };

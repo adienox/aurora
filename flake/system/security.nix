@@ -41,6 +41,12 @@
     "net.core.default_qdisc" = "cake";
   };
   boot.kernelModules = [ "tcp_bbr" ];
+  sops = {
+    defaultSopsFile = ./secrets/secrets.sops.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/nox/.config/sops/age/keys.txt";
+    secrets.hello = {};
+  };
 
   security = {
     polkit.enable = true;
