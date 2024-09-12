@@ -144,6 +144,7 @@ return {
         right_pad = 1,
       },
       link = { hyperlink = '' },
+      code = { style = 'language' },
     },
   },
 }
