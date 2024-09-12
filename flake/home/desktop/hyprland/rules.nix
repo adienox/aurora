@@ -46,8 +46,8 @@
         "pin, title:^(Discord Popout)$"
 
         "move 1430 45, title:^(Discord Popout)$"
-        "move 1280 715, title:^(Picture in picture)$"
-        "move 1280 715, title:^(Picture-in-Picture)$"
+        "move 1285 715, title:^(Picture in picture)$"
+        "move 1285 715, title:^(Picture-in-Picture)$"
         "move 560 290, title:^(fly_is_kitty)$"
 
         "size 485 300, title:^(Discord Popout)$"

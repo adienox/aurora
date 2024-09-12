@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = [ pkgs.material-symbols ];
+{pkgs, ...}: {
+  home.packages = [pkgs.material-symbols];
 
   programs.wlogout = {
     enable = true;
@@ -27,13 +27,13 @@
         label = "shutdown";
         action = "systemctl poweroff";
         text = "power_settings_new";
-        keybind = "s";
+        keybind = "o";
       }
       {
         label = "suspend";
         action = "systemctl suspend";
         text = "bedtime";
-        keybind = "u";
+        keybind = "s";
       }
       {
         label = "reboot";

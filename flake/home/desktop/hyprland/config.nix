@@ -47,8 +47,8 @@
         rounding = 5;
 
         drop_shadow = true;
-        shadow_range = 35;
-        shadow_render_power = 3;
+        shadow_range = 5;
+        shadow_render_power = 4;
         "col.shadow" = "0x33000000";
         "col.shadow_inactive" = "0x22000000";
 
