@@ -125,6 +125,7 @@ return {
 
       ---@param url string
       follow_url_func = function(url)
+        vim.notify 'Opening in browser...'
         vim.fn.jobstart { 'xdg-open', url }
       end,
     },
