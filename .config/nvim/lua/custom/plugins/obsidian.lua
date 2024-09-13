@@ -22,7 +22,7 @@ return {
       {
         '<leader>op',
         '<cmd>ObsidianPasteImg<CR>',
-        mode = { 'n', 'i' },
+        mode = 'n',
         desc = '[P]aste Image',
       },
       {
