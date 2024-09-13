@@ -1074,22 +1074,6 @@
         "type": "github"
       }
     },
-    "rofi-1751": {
-      "locked": {
-        "lastModified": 1709747860,
-        "narHash": "sha256-RT4zuBy579m+l8VyIQFOR66WXfcs4g1jntZUHjh6eoI=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "58ae79ea707579c40102ddf62d84b902a987c58b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "58ae79ea707579c40102ddf62d84b902a987c58b",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "anipy-cli": "anipy-cli",
@@ -1100,7 +1084,7 @@
         "neovim-nightly": "neovim-nightly",
         "nix-index-db": "nix-index-db",
         "nixpkgs": "nixpkgs_5",
-        "rofi-1751": "rofi-1751",
+        "sesh-202": "sesh-202",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "xremap-flake": "xremap-flake",
@@ -1126,6 +1110,22 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "b7996075da11a2d441cfbf4e77c2939ce51506fd",
+        "type": "github"
+      }
+    },
+    "sesh-202": {
+      "locked": {
+        "lastModified": 1725276169,
+        "narHash": "sha256-ghHL09zFzM+W2T7Qw/5KpK6SiZG/tWyqYwPeSFrtLBE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "51b45dc262830ab95c7b9b039bb4f911d4b2509b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "51b45dc262830ab95c7b9b039bb4f911d4b2509b",
         "type": "github"
       }
     },

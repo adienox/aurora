@@ -45,6 +45,9 @@
 
       background = "#000000";
     };
-    keybindings = {"f1" = "debug_config";};
+    keybindings = {
+      "f1" = "debug_config";
+      "ctrl+shift+h" = "";
+    };
   };
 }
