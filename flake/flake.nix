@@ -15,8 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rofi-1751.url = "github:nixos/nixpkgs/58ae79ea707579c40102ddf62d84b902a987c58b";
-
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";

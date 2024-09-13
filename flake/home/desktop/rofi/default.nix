@@ -1,7 +1,6 @@
 {
   pkgs,
   default,
-  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -12,11 +11,10 @@
   programs.rofi = {
     enable = true;
     catppuccin.enable = false;
-    package = inputs.rofi-1751.legacyPackages.${pkgs.system}.rofi-wayland;
-    # package = pkgs.rofi-wayland;
+    package = pkgs.rofi-wayland;
     terminal = default.terminal.name;
     font = "${default.settings.font.default} 16";
-    plugins = with pkgs; [rofi-emoji rofi-calc];
+    plugins = with pkgs; [rofi-emoji-wayland rofi-calc];
 
     theme = ./theme.rasi;
     extraConfig = {
