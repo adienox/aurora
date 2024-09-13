@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sesh-202.url = "github:nixos/nixpkgs/51b45dc262830ab95c7b9b039bb4f911d4b2509b";
+
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
