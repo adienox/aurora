@@ -1,8 +1,10 @@
 {
   default,
   pkgs,
+  inputs,
   ...
 }: {
+  home.packages = with pkgs; [inputs.sesh-202.legacyPackages.${pkgs.system}.sesh];
   programs.tmux = {
     enable = true;
     prefix = "C-Space";

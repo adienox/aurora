@@ -12,10 +12,6 @@
     gzip
     p7zip
 
-    # Tmux
-    tmux
-    sesh
-
     sops
     age
 
