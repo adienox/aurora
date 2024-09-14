@@ -78,18 +78,6 @@ return {
   },
 
   {
-    'j-hui/fidget.nvim',
-    event = 'LspAttach',
-    opts = {
-      notification = {
-        window = {
-          winblend = 0,
-        },
-      },
-    },
-  },
-
-  {
     'folke/todo-comments.nvim',
     event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim' },
