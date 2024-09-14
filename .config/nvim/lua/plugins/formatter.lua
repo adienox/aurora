@@ -31,11 +31,15 @@ return { -- Autoformat
       javascript = { 'prettierd' },
       css = { 'prettierd' },
       sh = { 'shfmt' },
+      go = { 'goimports-reviser', 'gofumpt', 'golines' },
     },
     formatters = {
       black = {
         prepend_args = { '--fast' },
       },
+      ['goimports-reviser'] = { prepend_args = { '-rm-unused' } },
+      golines = { prepend_args = { '--max-len=80' } },
+      injected = { options = { ignore_errors = true, lang_to_ext = { go = 'go' } } },
     },
   },
 }
