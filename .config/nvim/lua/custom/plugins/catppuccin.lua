@@ -26,6 +26,8 @@ return {
         RenderMarkdownH4Bg = { bg = '#000000' },
         RenderMarkdownH5Bg = { bg = '#000000' },
         RenderMarkdownH6Bg = { bg = '#000000' },
+        NoiceLspProgress = { link = 'NonText' },
+        NoiceLspProgressTitle = { link = 'Constant' },
       }
     end,
   },

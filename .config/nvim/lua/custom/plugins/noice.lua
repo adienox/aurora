@@ -37,6 +37,17 @@ return {
       inc_rename = true, -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = true, -- add a border to hover docs and signature help
     },
+
+    format = {
+      lsp_progress = {
+        { '{data.progress.message} ', hl_group = 'NoiceLspProgress' },
+        { '{data.progress.title} ', hl_group = 'NoiceLspProgressTitle' },
+      },
+      lsp_progress_done = {
+        { '✔ ', hl_group = 'NoiceLspProgressSpinner' },
+        { '{data.progress.title} ', hl_group = 'NoiceLspProgressTitle' },
+      },
+    },
   },
   dependencies = {
     'MunifTanjim/nui.nvim',
