@@ -24,6 +24,11 @@
     black
     isort
 
+    # go stuff
+    goimports-reviser
+    golines
+    gofumpt
+
     # web-dev stuff
     prettierd
     emmet-ls
