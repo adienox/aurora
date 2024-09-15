@@ -26,8 +26,8 @@ return {
               -- image_path is the potentially relative path to the image. for
               -- markdown it's `![](this text)`
 
-              if string.find(document_path, 'Documents/Zettles') then
-                return '~/Documents/Zettles/' .. image_path
+              if string.find(document_path, 'Documents/Zettels') then
+                return '~/Documents/Zettels/' .. image_path
               else
                 return fallback(document_path, image_path)
               end

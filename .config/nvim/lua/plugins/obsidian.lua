@@ -50,7 +50,7 @@ return {
       workspaces = {
         {
           name = 'personal',
-          path = '~/Documents/Zettles',
+          path = '~/Documents/Zettels',
         },
       },
 
