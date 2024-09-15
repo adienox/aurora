@@ -20,7 +20,7 @@ return {
   },
   config = function()
     require('nvim-tree').setup {
-      filters = { custom = { '^.git$', '^.devenv$', '^.direnv$', '^venv$', '^.mypy_cache$' } },
+      filters = { custom = { '^.git$', '^.devenv$', '^.direnv$', '^venv$', '^.mypy_cache$', '^.obsidian$', '^.stfolder$' } },
       disable_netrw = true,
       hijack_netrw = true,
       hijack_cursor = true,
