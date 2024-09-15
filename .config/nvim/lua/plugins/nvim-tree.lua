@@ -29,6 +29,8 @@ return {
           '^.mypy_cache$',
           '^.obsidian$',
           '^.stfolder$',
+          '^lazy-lock.json$',
+          '^flake.lock$',
         },
       },
       disable_netrw = true,
