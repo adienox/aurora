@@ -144,7 +144,7 @@
         ", XF86AudioNext, exec, playerctl next"
 
         # Notification
-        "$MOD, N, exec, makoctl dismiss"
+        "$MOD SHIFT, N, exec, makoctl dismiss"
         # "$MOD SHIFT, N, exec, swaync-client -t"
         # "$MOD SHIFT, D, exec, swaync-client -d"
       ];
