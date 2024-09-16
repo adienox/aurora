@@ -48,6 +48,9 @@
     keybindings = {
       "f1" = "debug_config";
       "ctrl+shift+h" = "";
+      "ctrl+shift+j" = "";
+      "ctrl+shift+k" = "";
+      "ctrl+shift+l" = "";
     };
   };
 }
