@@ -43,25 +43,25 @@ return {
         desc = '[N]ext Mark',
       },
       {
-        '<C-S-h>',
+        '<C-h>',
         function()
           harpoon:list():select(1)
         end,
       },
       {
-        '<C-S-j>',
+        '<C-j>',
         function()
           harpoon:list():select(2)
         end,
       },
       {
-        '<C-S-k>',
+        '<C-k>',
         function()
           harpoon:list():select(3)
         end,
       },
       {
-        '<C-S-l>',
+        '<C-l>',
         function()
           harpoon:list():select(4)
         end,
