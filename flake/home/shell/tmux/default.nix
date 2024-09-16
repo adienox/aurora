@@ -19,7 +19,6 @@
     terminal = "tmux-256color";
     catppuccin.enable = false;
     plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
       yank
       tmux-fzf
       {
