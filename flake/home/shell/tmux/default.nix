@@ -4,7 +4,10 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [inputs.sesh-202.legacyPackages.${pkgs.system}.sesh];
+  home.packages = with pkgs; [
+    inputs.sesh-202.legacyPackages.${pkgs.system}.sesh
+    tmux-harpoon
+  ];
   programs.tmux = {
     enable = true;
     prefix = "C-Space";
