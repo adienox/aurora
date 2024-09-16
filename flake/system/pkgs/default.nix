@@ -6,4 +6,5 @@ final: prev: {
   nu_scripts = prev.callPackage ./nu_scripts {};
   fabric-ai = prev.callPackage ./fabric-ai {};
   rofi-calc = prev.callPackage ./rofi-calc {};
+  tmux-harpoon = prev.callPackage ./tmux-harpoon {};
 }
