@@ -70,10 +70,10 @@ def package-locate [package:string] {
     }
 }
 
-def shellify [package:string] {
+def shellify [...package:string] {
     try {
         print $"Creating a nix shell out of package ($package)"
-        nix-shell --command nu -p $package
+        nix-shell --command nu -p ...$package
     }
 }
 
