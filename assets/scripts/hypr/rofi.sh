@@ -8,8 +8,6 @@ elif [ "$1" == "drun" ]; then
 	rofi -show drun
 elif [ "$1" == "emoji" ]; then
   rofi -show emoji -modi emoji -theme-str 'element-icon {size: 0px;}' -emoji-mode copy -emoji-file ~/.config/assets/utils/all_emojis.txt
-elif [ "$1" == "emoji-sub" ]; then
-  rofi -show emoji -modi emoji -theme-str 'element-icon {size: 0px;}' -emoji-mode copy -emoji-file ~/.config/assets/utils/sub_emojis.txt
 elif [ "$1" == "calc" ]; then
 	rofi -show calc -modi calc -theme-str 'mainbox { children: [inputbar, message]; }' -hint-welcome "Pure mathematics is, in its way, the poetry of logical ideas."
 elif [ "$1" == "bluetooth" ]; then
