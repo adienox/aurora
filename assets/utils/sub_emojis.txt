@@ -1,0 +1,16 @@
+😚	Smileys & Emotion	face-affection	kissing face with closed eyes	closed | eye | face | kiss | kissing face with closed eyes
+😭	Smileys & Emotion	face-concerned	loudly crying face	cry | face | loudly crying face | sad | sob | tear | lc
+🥺	Smileys & Emotion	face-concerned	pleading face	begging | mercy | pleading face | puppy eyes | cf
+🥰	Smileys & Emotion	face-affection	smiling face with hearts	adore | crush | hearts | in love | smiling face with hearts
+😁	Smileys & Emotion	face-smiling	beaming face with smiling eyes	beaming face with smiling eyes | eye | face | grin | smile
+😤	Smileys & Emotion	face-negative	face with steam from nose	face | face with steam from nose | triumph | won | angry | frustration
+😘	Smileys & Emotion	face-affection	face blowing a kiss	face | face blowing a kiss | kiss | mh
+🤤	Smileys & Emotion	face-sleepy	drooling face	drooling | face
+😂	Smileys & Emotion	face-smiling	face with tears of joy	face | face with tears of joy | joy | laugh | tear
+💖	Smileys & Emotion	heart	sparkling heart	excited | sparkle | sparkling heart
+🥲	Smileys & Emotion	face-affection	smiling face with tear	grateful | proud | relieved | smiling | smiling face with tear | tear | touched | cc
+😩	Smileys & Emotion	face-concerned	weary face	face | tired | weary | mm
+😍	Smileys & Emotion	face-affection	smiling face with heart-eyes	eye | face | love | smile | smiling face with heart-eyes | smiling face with heart eyes
+🫡	Smileys & Emotion	face-hand	saluting face	OK | salute | saluting face | sunny | troops | yes
+🤦	People & Body	person-gesture	person facepalming	disbelief | exasperation | face | palm | person facepalming
+🏡	Travel & Places	place-building	house with garden	garden | home | house | house with garden
