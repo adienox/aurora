@@ -2,8 +2,8 @@
   programs.neovim = {
     enable = true;
     catppuccin.enable = false;
-    extraLuaPackages = ps: [ps.magick];
-    extraPackages = with pkgs; [imagemagick];
+    extraLuaPackages = ps: [ps.magick ps.jsregexp];
+    extraPackages = with pkgs; [imagemagick nodejs];
   };
 
   home.packages = with pkgs; [
@@ -41,6 +41,9 @@
 
     # db stuff
     sqlite
+
+    # latex stuff
+    python312Packages.pylatexenc
 
     # needed for best functioning of nvim
     tree-sitter
