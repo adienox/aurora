@@ -5,7 +5,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    iw
+    wirelesstools
     psmisc
     wget
     seatd
