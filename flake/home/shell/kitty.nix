@@ -6,7 +6,6 @@
       name = "${default.terminal.font}";
       size = 13;
     };
-    theme = "Catppuccin-Mocha";
     settings = {
       # Mouse
       cursor_shape = "beam";
