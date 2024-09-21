@@ -19,6 +19,18 @@
 in {
   programs.firefox = {
     enable = true;
+    policies = {
+      Cookies = {
+        Allow = [
+          "https://chatgpt.com"
+          "https://accounts.google.com"
+          "https://readwise.io"
+          "https://read.readwise.io"
+          "https://account.proton.me"
+          "https://www.youtube.com"
+        ];
+      };
+    };
 
     profiles.${default.firefox.profile} = {
       search = {
