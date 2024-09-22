@@ -756,4 +756,6 @@
   # [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
   # [2] https://caniuse.com/mdn-api_sanitizer
   "dom.security.sanitizer.enabled" = true;
+
+  "layout.css.prefer-color-scheme.content-override" = default.firefox.colorscheme;
 }
