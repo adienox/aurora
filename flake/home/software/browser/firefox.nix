@@ -28,6 +28,8 @@ in {
           "https://read.readwise.io"
           "https://account.proton.me"
           "https://www.youtube.com"
+          "https://github.com"
+          "https://monkeytype.com"
         ];
       };
     };
