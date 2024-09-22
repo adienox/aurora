@@ -35,6 +35,8 @@ in rec {
       # 3 = DoH without fallback
       # 5 = DoH is off
     };
+
+    colorscheme = 0;
   };
 
   settings = {
