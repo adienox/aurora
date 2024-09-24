@@ -9,7 +9,7 @@
     settings = {
       monitor = ",preferred,auto,1";
       exec-once = [
-        "[workspace 2 silent] kitty --start-as=fullscreen -e tmux new -A -s 'home 🏡'"
+        "[workspace 2 silent] kitty --start-as=fullscreen -e tmux new -A -s home"
         "[workspace 5 silent] telegram-desktop"
         "${config.xdg.configHome}/assets/scripts/hypr/autostart.sh"
       ];
