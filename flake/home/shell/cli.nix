@@ -109,7 +109,7 @@
         gui = {
           theme = {
             activeBorderColor = [default.xcolors.base0E "bold"];
-            inactiveBorderColor = [default.xcolors.extra05];
+            inactiveBorderColor = [default.xcolors.base];
             optionsTextColor = [default.xcolors.base0D];
             selectedLineBgColor = [default.xcolors.base02];
             selectedRangeBgColor = [default.xcolors.base02];
