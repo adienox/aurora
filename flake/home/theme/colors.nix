@@ -1,4 +1,5 @@
 rec {
+  base = "1e1e2f"; # default base
   base00 = "000000"; # base
   base01 = "090909"; # mantle
   base02 = "181825"; # surface0
