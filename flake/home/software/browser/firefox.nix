@@ -32,6 +32,14 @@ in {
           "https://monkeytype.com"
         ];
       };
+      NoDefaultBookmarks = true;
+      ExtensionSettings = {
+        # imagus
+        "{00000f2a-7cde-4f20-83ed-434fcb420d71}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/imagus/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
     };
 
     profiles.${default.firefox.profile} = {
