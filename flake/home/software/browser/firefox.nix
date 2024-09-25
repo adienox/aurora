@@ -30,6 +30,7 @@ in {
           "https://www.youtube.com"
           "https://github.com"
           "https://monkeytype.com"
+          "https://search.brave.com"
         ];
       };
       NoDefaultBookmarks = true;
