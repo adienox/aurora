@@ -111,6 +111,26 @@ in {
           icon = brave-icon;
           definedAliases = ["bb"];
         };
+        "Brave Summary" = {
+          urls = [
+            {
+              template = "https://search.brave.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "summary";
+                  value = "1";
+                }
+              ];
+            }
+          ];
+
+          icon = brave-icon;
+          definedAliases = ["bs"];
+        };
 
         "AniWave" = {
           urls = [
