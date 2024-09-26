@@ -100,10 +100,6 @@ in {
                   name = "q";
                   value = "{searchTerms}";
                 }
-                {
-                  name = "summary";
-                  value = "1";
-                }
               ];
             }
           ];
