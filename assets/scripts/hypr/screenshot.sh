@@ -4,13 +4,12 @@ DATE=$(date +%Y-%m-%dT%H:%M:%S)
 FULLPATH="$HOME/Pictures/Screenshots/$DATE.png"
 
 if [ "$1" == 'full' ]; then
-
-	grim "$FULLPATH" &
-	timeout 0.15s slurp -w 0 -b "#$2""33"
-	wl-copy <"$FULLPATH"
+  timeout 0.1s slurp -w 0 -b "#$2""33"
+  sleep 0.1
+  grim "$FULLPATH" && wl-copy <"$FULLPATH"
 elif [ "$1" == 'partial' ]; then
-	grim -g "$(slurp -w 0 -b "#$2""33")" "$FULLPATH"
-	wl-copy <"$FULLPATH"
+  grim -g "$(slurp -w 0 -b "#$2""33")" "$FULLPATH"
+  wl-copy <"$FULLPATH"
 elif [ "$1" == 'ocr' ]; then
-	grim -g "$(slurp -w 0 -b "#$2""33")" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"
+  grim -g "$(slurp -w 0 -b "#$2""33")" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"
 fi
