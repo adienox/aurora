@@ -40,6 +40,11 @@ in {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/imagus/latest.xpi";
           installation_mode = "force_installed";
         };
+        # improve youtube
+        "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-addon/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
 
