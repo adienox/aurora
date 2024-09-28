@@ -40,6 +40,8 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
     anipy-cli.url = "github:sdaqo/anipy-cli";
+
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = {
