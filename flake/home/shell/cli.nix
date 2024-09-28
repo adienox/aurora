@@ -1,6 +1,7 @@
 {
   pkgs,
   default,
+  config,
   ...
 }: {
   home.packages = with pkgs; [
@@ -134,7 +135,7 @@
       readline.write_history_file = lambda *args: None
     '';
     "glow/glow.yml".source = (pkgs.formats.yaml {}).generate "glow.yaml" {
-      style = "./style.json";
+      style = "${config.xdg.configHome}/glow/style.json";
       local = false;
       mouse = false;
       pager = true;
