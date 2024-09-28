@@ -9,11 +9,13 @@
   home.packages = with pkgs; [
     # lua stuff
     stylua
+    lua-language-server
     luajitPackages.luarocks
     lua
 
     # nix stuff
     alejandra
+    nil
 
     # python stuff
     python3
@@ -25,6 +27,7 @@
     isort
 
     # go stuff
+    gopls
     goimports-reviser
     golines
     gofumpt
@@ -38,6 +41,7 @@
     # shell stuff
     shellcheck
     shfmt
+    bash-language-server
 
     # db stuff
     sqlite
