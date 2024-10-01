@@ -38,6 +38,8 @@
     anipy-cli.url = "github:sdaqo/anipy-cli";
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = {

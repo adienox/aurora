@@ -16,6 +16,7 @@
     ./starship.nix
     ./atuin.nix
     ./kitty.nix
+    ./wezterm.nix
   ];
 
   home.sessionVariables = {
