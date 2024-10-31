@@ -65,6 +65,7 @@
         "workspace 1, ^(firefox)$"
         "workspace 2, ^(kitty)$"
         "workspace 2, ^(Emacs)$"
+        "workspace 2, ^(emacs)$"
         "workspace 2, ^(Code)$"
         "workspace 4, ^(mpv)$"
         "workspace 4, ^(calibre-gui)$"
@@ -80,6 +81,8 @@
 
         # Fullscreen Rules
         "fullscreen, obsidian"
+        "fullscreen, ^(Emacs)"
+        "fullscreen, ^(emacs)"
         "fullscreen, ^(mpv)$"
         "fullscreen, Morgen"
         "fullscreen, ^(org.pwmt.zathura)$"
@@ -141,6 +144,10 @@
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         "noshadow,class:^(xwaylandvideobridge)$"
         "noblur,class:^(xwaylandvideobridge)$"
+      ];
+      workspace = [
+        "w[t1], gapsout:0, gapsin:0, border: 0, rounding:0"
+        "w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0"
       ];
       layerrule = [
         "blur, rofi"

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: let
   user = "adienox";
@@ -47,7 +48,8 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   nix = {
-    package = pkgs.nixFlakes;
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    package = pkgs.nixVersions.latest;
     settings = {
       warn-dirty = false;
       auto-optimise-store = true;

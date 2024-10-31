@@ -5,6 +5,7 @@ nm-applet &
 udiskie -s &
 waybar &
 ianny &
+pypr &
 
 "$XDG_CONFIG_HOME"/assets/scripts/hypr/clipboard.sh &
 "$XDG_CONFIG_HOME"/assets/scripts/hypr/fullscreen-fade.sh &

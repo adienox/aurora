@@ -26,6 +26,7 @@
     libsForQt5.qt5.qtwayland
     qt6.qmake
     qt6.qtwayland
+    inputs.pyprland.packages."x86_64-linux".pyprland
   ];
 
   fonts.fontconfig.enable = true;

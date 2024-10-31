@@ -2,14 +2,18 @@
   default,
   config,
   ...
-}: {
-  imports = [./rules.nix ./binds.nix];
+}:
+{
+  imports = [
+    ./rules.nix
+    ./binds.nix
+  ];
 
   wayland.windowManager.hyprland = {
     settings = {
       monitor = ",preferred,auto,1";
       exec-once = [
-        "[workspace 2 silent] kitty --start-as=fullscreen -e tmux new -A -s home"
+        "[workspace 2 silent] emacsclient -c"
         "[workspace 5 silent] telegram-desktop"
         "${config.xdg.configHome}/assets/scripts/hypr/autostart.sh"
       ];
@@ -77,7 +81,6 @@
       dwindle = {
         pseudotile = true; # enable pseudotiling on dwindle
         force_split = 0;
-        no_gaps_when_only = true;
       };
 
       gestures = {

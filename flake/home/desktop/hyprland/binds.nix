@@ -2,7 +2,8 @@
   default,
   config,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland = {
     settings = {
       "$MOD" = "SUPER";
@@ -17,8 +18,7 @@
         "$MOD SHIFT, RETURN, exec, kitty --start-as=fullscreen -o 'font_size=16' --title all_is_kitty"
 
         # Alt Term
-        "$ALT, RETURN, exec, $FLOATING_TERM $TREMINAL_SHELL"
-        "$ALT, 1, exec, $FLOATING_TERM cava"
+        "$ALT, 1, exec, pypr toggle term"
         "$ALT, 2, exec, $FLOATING_TERM pulsemixer"
         "$ALT, 3, exec, $FLOATING_TERM anipy-cli"
 
@@ -26,7 +26,7 @@
         "$MOD, W, exec, $SCRIPTS/focus.sh firefox firefox"
         "$MOD, O, exec, $SCRIPTS/focus.sh obsidian obsidian"
         "$MOD, M, exec, $SCRIPTS/focus.sh Morgen morgen"
-        "$MOD, E, exec, $SCRIPTS/focus.sh Code 'code --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+        "$MOD, E, exec, $SCRIPTS/emacs.sh"
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
 
@@ -94,6 +94,11 @@
         "$MOD, 7, workspace, 7"
         "$MOD, 8, workspace, 8"
         "$MOD, 9, workspace, 9"
+
+        "$MOD $ALT, h, workspace, 1"
+        "$MOD $ALT, j, workspace, 2"
+        "$MOD $ALT, k, workspace, 3"
+        "$MOD $ALT, l, workspace, 4"
 
         # Move active window to a workspace with MOD + SHIFT + [0-9]
         "$MOD SHIFT, 1, movetoworkspace, 1"

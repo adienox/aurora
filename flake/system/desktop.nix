@@ -28,7 +28,7 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["CascadiaCode" "JetBrainsMono" "FantasqueSansMono"];})
+      (nerdfonts.override {fonts = ["CascadiaCode" "JetBrainsMono"];})
       font-awesome
       google-fonts
       apple-fonts

@@ -29,6 +29,8 @@
 
     hyprland.url = "github:hyprwm/hyprland";
 
+    pyprland.url = "github:hyprland-community/pyprland";
+
     yazi.url = "github:sxyazi/yazi";
     catppuccin.url = "github:catppuccin/nix";
 
@@ -42,42 +44,49 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        inputs.yazi.overlays.default
-        (import ./system/pkgs)
-      ];
-    };
-  in {
-    nixosConfigurations = {
-      anomaly = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit system inputs;};
-        modules = [
-          ./system
-          inputs.sops-nix.nixosModules.sops
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          inputs.yazi.overlays.default
+          (import ./system/pkgs)
         ];
       };
-    };
+    in
+    {
+      nixosConfigurations = {
+        anomaly = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system inputs;
+          };
+          modules = [
+            ./system
+            inputs.sops-nix.nixosModules.sops
+          ];
+        };
+      };
 
-    homeConfigurations = {
-      nox = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home
-          inputs.nix-index-db.hmModules.nix-index
-          inputs.catppuccin.homeManagerModules.catppuccin
-          inputs.sops-nix.homeManagerModules.sops
-        ];
-        extraSpecialArgs = {inherit inputs;};
+      homeConfigurations = {
+        nox = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home
+            inputs.nix-index-db.hmModules.nix-index
+            inputs.catppuccin.homeManagerModules.catppuccin
+            inputs.sops-nix.homeManagerModules.sops
+          ];
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+        };
       };
     };
-  };
 }

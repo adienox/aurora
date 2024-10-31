@@ -129,6 +129,7 @@
 
       # bindkey -M vicmd 'k' history-substring-search-up
       # bindkey -M vicmd 'j' history-substring-search-down
+      export LS_COLORS=$(${pkgs.vivid}/bin/vivid generate catppuccin-mocha)
     '';
   };
 }

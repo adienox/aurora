@@ -366,7 +366,7 @@
   "toolkit.zoomManager.zoomValues" = ".8,.90,.95,1,1.1,1.2,1.3,1.4,1.5";
   "browser.tabs.firefox-view" = false;
   # Disable alt key opening menu bar
-  "ui.key.menuAccessKey" = 17;
+  "ui.key.menuAccessKey" = 0;
 
   # Do not tell what plugins do we have enabled: https://mail.mozilla.org/pipermail/firefox-dev/2013-November/001186.html
   "plugins.enumerable_names" = "";

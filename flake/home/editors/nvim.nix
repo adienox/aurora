@@ -1,9 +1,16 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     catppuccin.enable = false;
-    extraLuaPackages = ps: [ps.magick ps.jsregexp];
-    extraPackages = with pkgs; [imagemagick nodejs];
+    extraLuaPackages = ps: [
+      ps.magick
+      ps.jsregexp
+    ];
+    extraPackages = with pkgs; [
+      imagemagick
+      nodejs
+    ];
   };
 
   home.packages = with pkgs; [
@@ -15,7 +22,7 @@
 
     # nix stuff
     alejandra
-    nil
+    nixd
 
     # python stuff
     python3

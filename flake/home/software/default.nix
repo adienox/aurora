@@ -16,15 +16,10 @@
   ];
 
   home.packages = with pkgs; [
-    calibre
-    anki-bin
-    amberol
-    ticktick
     gnome-clocks
     gnome-calculator
     gnome.gvfs
     nautilus
-    obsidian
     keepassxc
     telegram-desktop
     qpwgraph
@@ -32,7 +27,6 @@
     inputs.anipy-cli.packages.${pkgs.system}.default
     ookla-speedtest
     termshark
-    fabric-ai
   ];
 
   programs = {

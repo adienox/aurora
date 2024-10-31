@@ -1,25 +1,45 @@
-{ pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}:
+{
   home.packages = with pkgs; [
-    ispell
-    nixfmt
     cmake
     gnumake
+
     gcc
     ripgrep
     fd
-    nodejs
-    ktlint
-    black
-    shellcheck
-    shfmt
-    html-tidy
-    isort
+    libtool
+    ispell
+
+    # nix stuff
+    nixfmt-rfc-style
+    nixd
+
+    # bash stuff
+    bash-language-server
+
+    # go stuff
+    go
   ];
-  programs.emacs.enable = true;
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs29-pgtk;
+    extraPackages =
+      epkgs: with epkgs; [
+        pdf-tools
+      ];
+  };
 
   services.emacs = {
     enable = true;
-    package = pkgs.emacs-gtk;
     client.enable = true;
   };
+
+  home.sessionPath = [
+    "${config.xdg.configHome}/emacs/bin"
+  ];
 }

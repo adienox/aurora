@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
-    # ./emacs.nix
+    ./emacs.nix
     # ./vscode.nix
     ./nvim.nix
   ];

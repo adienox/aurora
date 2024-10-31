@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    cliphist # Clipboard History
+    #cliphist # Clipboard History
     pinentry-gnome3
   ];
 

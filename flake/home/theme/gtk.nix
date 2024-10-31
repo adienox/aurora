@@ -3,7 +3,8 @@
   pkgs,
   default,
   ...
-}: {
+}:
+{
   gtk = {
     enable = true;
 
@@ -24,24 +25,35 @@
     };
 
     catppuccin = {
-      enable = true;
+      enable = false;
       accent = "peach";
-      tweaks = ["black" "rimless"];
+      tweaks = [
+        "black"
+        "rimless"
+      ];
       flavor = "mocha";
     };
 
-    # theme = {
-    #   name = "Catppuccin-Mocha-Standard-Peach-Dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     accents = [ "peach" ];
-    #     tweaks = [ "black" "rimless" ];
-    #     variant = "mocha";
-    #   };
-    # };
+    theme = {
+      name = "Colloid-Orange-Dark-Catppuccin";
+      package = pkgs.colloid-gtk-theme.override {
+        colorVariants = [ "dark" ];
+        themeVariants = [ "orange" ];
+        tweaks = [
+          "catppuccin"
+          "black"
+          "rimless"
+        ];
+      };
+    };
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
-    gtk3.extraConfig = {gtk-application-prefer-dark-theme = true;};
-    gtk4.extraConfig = {gtk-application-prefer-dark-theme = true;};
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
 }

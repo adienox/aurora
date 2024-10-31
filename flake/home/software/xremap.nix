@@ -16,6 +16,10 @@
               held: leftctrl
               alone: esc
               alone_timeout_millis: 350
+            SHIFT_L:
+              held: SHIFT_L
+              alone: KEY_KPLEFTPAREN
+              alone_timeout_millis: 350
       keymap:
         - name: obsidian
           application:
@@ -27,8 +31,8 @@
           application:
             only: firefox
           remap:
-            M-j: down
-            M-k: up
+            C-j: down
+            C-k: up
     '';
   };
 }
