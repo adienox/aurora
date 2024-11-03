@@ -27,7 +27,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29-pgtk;
+    package = pkgs.emacs30-pgtk;
     extraPackages =
       epkgs: with epkgs; [
         pdf-tools
@@ -37,6 +37,7 @@
   services.emacs = {
     enable = true;
     client.enable = true;
+    startWithUserSession = "graphical";
   };
 
   home.sessionPath = [
