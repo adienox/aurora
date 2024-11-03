@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   nu_scripts = "${pkgs.nu_scripts}/share/nu_scripts";
-in {
+in
+{
   home.packages = with pkgs; [
     fish
     vivid
@@ -26,7 +28,6 @@ in {
       grep = "grep --color=auto";
       hw = "hwinfo --short";
       ipa = "ip --brief address";
-      man = "BAT_THEME='default' batman";
 
       dv-create = "nix flake init --template github:cachix/devenv and direnv allow";
       dv-create-py = "nix flake init --template github:cachix/devenv and echo 'layout python' >> .envrc and direnv allow";
@@ -50,10 +51,13 @@ in {
       source ${nu_scripts}/custom-completions/atuin/atuin-completions.nu
 
       source ${nu_scripts}/themes/nu-themes/catppuccin-mocha.nu
+      $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate catppuccin-mocha | str trim)
 
       ${builtins.readFile ./keybindings.nu}
       ${builtins.readFile ./snippets.nu}
       ${builtins.readFile ./completions.nu}
     '';
   };
+  xdg.configFile."nushell/emacs-config.nu".source = ./emacs-config.nu;
+  xdg.configFile."nushell/vterm.nu".source = ./vterm.nu;
 }

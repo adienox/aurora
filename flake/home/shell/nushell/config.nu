@@ -5,7 +5,7 @@
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
-    show_banner: false
+    show_banner: true
 
     ls: {
         use_ls_colors: true
@@ -17,23 +17,22 @@ $env.config = {
     }
 
     table: {
-        mode: light # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-        index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
-        show_empty: true # show 'empty list' and 'empty record' placeholders for command output
-        padding: { left: 1, right: 1 } # a left right padding of each column in a table
+        mode: light
+        index_mode: always
+        show_empty: true
+        padding: { left: 1, right: 1 }
         trim: {
-            methodology: truncating # wrapping or truncating
-            wrapping_try_keep_words: true # A strategy used by the 'wrapping' methodology
-            truncating_suffix: "..." # A suffix used by the 'truncating' methodology
+            methodology: truncating
+            wrapping_try_keep_words: true
+            truncating_suffix: "..."
         }
-        header_on_separator: false # show header text on separator/border line
+        header_on_separator: false
     }
 
     error_style: "fancy"
 
     datetime_format: {
-        normal: '%b %d, %Y %H:%M'    # shows up in displays of variables or other datetime's outside of tables
-        # table: '%m/%d/%y %I:%M:%S%p'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
+        normal: '%b %d, %Y %H:%M'
     }
 
     history: {
