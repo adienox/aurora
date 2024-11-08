@@ -19,5 +19,6 @@
   #FIXME: Remove this once its fixed
   nixpkgs.config.permittedInsecurePackages = [
     "python3.12-youtube-dl-2021.12.17"
+    "electron-27.3.11"
   ];
 }

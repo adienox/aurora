@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [(import ./pkgs)];
+    overlays = [ (import ./pkgs) ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -35,7 +36,9 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      settings = {max-cache-ttl = 86400;};
+      settings = {
+        max-cache-ttl = 86400;
+      };
     };
     zsh = {
       enable = true;
@@ -48,19 +51,22 @@
   };
 
   environment = {
-    shells = with pkgs; [zsh nushell];
+    shells = with pkgs; [
+      zsh
+      nushell
+    ];
 
     # enable zsh autocompletion for system packages (systemd, etc)
-    pathsToLink = ["/share/zsh"];
+    pathsToLink = [ "/share/zsh" ];
 
     # setting the ~/.local/bin to be in path for every user
     localBinInPath = true;
   };
 
-  # virtualisation.docker = {
-  #   enable = true;
-  #   autoPrune.enable = true;
-  # };
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
 
   services = {
     gnome.gnome-keyring.enable = true;
@@ -108,15 +114,15 @@
     '';
 
     # needed for GNOME services outside of GNOME Desktop
-    dbus.packages = [pkgs.gcr];
+    dbus.packages = [ pkgs.gcr ];
   };
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

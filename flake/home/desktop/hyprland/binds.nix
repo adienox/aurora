@@ -30,10 +30,7 @@
         "$MOD, S, exec, $SCRIPTS/focus.sh Spotify spotify"
         "$MOD, X, exec, wlogout -p layer-shell"
 
-        ", XF86Mail, exec, $SCRIPTS/rofi.sh task"
         ", XF86Calculator, exec, gnome-calculator"
-        ", XF86HomePage, exec, $SCRIPTS/focus.sh obsidian obsidian"
-        "SHIFT, XF86Mail, exec, $SCRIPTS/focus.sh ticktick ticktick"
 
         # Rofi
         "$MOD, B, exec, $SCRIPTS/rofi.sh bluetooth"

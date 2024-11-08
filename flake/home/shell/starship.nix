@@ -1,8 +1,9 @@
-{default, ...}: {
+{ default, ... }:
+{
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
-    enableNushellIntegration = true;
+    enableZshIntegration = false;
+    enableNushellIntegration = false;
     settings = {
       right_format = "$cmd_duration";
 

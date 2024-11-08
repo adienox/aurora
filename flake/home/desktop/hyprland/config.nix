@@ -13,8 +13,8 @@
     settings = {
       monitor = ",preferred,auto,1";
       exec-once = [
-        "[workspace 2 silent] emacsclient -c"
-        "[workspace 5 silent] telegram-desktop"
+        "[workspace 2 silent] ${config.xdg.configHome}/assets/scripts/hypr/emacs.sh"
+        "[workspace 4 silent] telegram-desktop"
         "${config.xdg.configHome}/assets/scripts/hypr/autostart.sh"
       ];
       input = {

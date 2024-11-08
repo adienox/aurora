@@ -19,6 +19,8 @@ in
 
       tn = "tmux new -A -s \"home 🏡\"";
 
+      em = "emacsclient -t";
+
       ga = "git add";
       gp = "git push";
       gs = "git status";

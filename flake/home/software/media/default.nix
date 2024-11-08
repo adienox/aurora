@@ -1,5 +1,10 @@
-{pkgs, ...}: {
-  imports = [./rnnoise.nix ./newsboat.nix ./mpv.nix];
+{ pkgs, ... }:
+{
+  imports = [
+    ./rnnoise.nix
+    ./newsboat.nix
+    ./mpv.nix
+  ];
 
   home.packages = with pkgs; [
     # audio control
@@ -11,7 +16,11 @@
 
     # images
     imv
+
+    ffmpeg
   ];
 
-  services = {playerctld.enable = true;};
+  services = {
+    playerctld.enable = true;
+  };
 }

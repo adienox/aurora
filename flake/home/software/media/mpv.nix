@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     mpv = {
       enable = true;
       catppuccin.enable = false;
-      defaultProfiles = ["gpu-hq"];
+      #defaultProfiles = [ "gpu-hq" ];
 
       bindings = {
         l = "seek 5";
@@ -17,13 +18,13 @@
 
       config = {
         screenshot-template = "~/Pictures/mpvscreenshots/%F (%P) %n";
-        ytdl-format = "bestvideo[height<=1080]+bestaudio/best[height<=1080]";
+        #ytdl-format = "bestvideo[height<=1080]+bestaudio/best[height<=1080]";
         save-position-on-quit = true;
         write-filename-in-watch-later-config = true;
         ignore-path-in-watch-later-config = true;
         cache = "yes";
-        demuxer-max-bytes = "800M";
-        demuxer-max-back-bytes = "200M";
+        #demuxer-max-bytes = "800M";
+        #demuxer-max-back-bytes = "200M";
         volume = 100;
         msg-color = true;
         keep-open = true;
@@ -31,7 +32,7 @@
         cursor-autohide = 1000;
         osc = "no";
         osd-bar = "no";
-        script-opts = "ytdl_hook-ytdl_path=${pkgs.yt-dlp}/bin/yt-dlp";
+        #script-opts = "ytdl_hook-ytdl_path=${pkgs.yt-dlp}/bin/yt-dlp";
         border = "no";
       };
     };

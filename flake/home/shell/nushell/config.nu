@@ -111,7 +111,7 @@ $env.config = {
 
     hooks: {
         display_output: "if (term size).columns >= 100 { table -e } else { table }" # run to display the output of a pipeline
-        command_not_found: [{ |command| (comma $command) }] # return an error message when a command is not found
+        command_not_found: [{ |command| (package-locate $command) }] # return an error message when a command is not found
     }
 
     menus: [

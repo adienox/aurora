@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   time.timeZone = "Asia/Kathmandu";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -28,11 +29,17 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["CascadiaCode" "JetBrainsMono"];})
+      (nerdfonts.override {
+        fonts = [
+          "CascadiaCode"
+          "JetBrainsMono"
+        ];
+      })
       font-awesome
       google-fonts
       apple-fonts
+      recursive
     ];
-    fontconfig.defaultFonts.emoji = ["Apple Color Emoji"];
+    fontconfig.defaultFonts.emoji = [ "Apple Color Emoji" ];
   };
 }

@@ -1,4 +1,5 @@
-{default, ...}: {
+{ default, ... }:
+{
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
@@ -63,16 +64,16 @@
 
         # Workspace Rules
         "workspace 1, ^(firefox)$"
-        "workspace 2, ^(kitty)$"
         "workspace 2, ^(Emacs)$"
         "workspace 2, ^(emacs)$"
         "workspace 2, ^(Code)$"
-        "workspace 4, ^(mpv)$"
-        "workspace 4, ^(calibre-gui)$"
-        "workspace 4, ^(org.pwmt.zathura)$"
+        "workspace 3, ^(kitty)$"
+        "workspace 3, ^(mpv)$"
+        "workspace 3, ^(org.pwmt.zathura)$"
+        "workspace 3, ^(calibre-gui)$"
+        "workspace 4, ^(org.telegram.desktop)$"
         "workspace 5, ^(discord)$"
         "workspace 5, ^(vesktop)$"
-        "workspace 5, ^(org.telegram.desktop)$"
         "workspace 6, ^(Todoist)$"
         "workspace 7, ^(Spotify)$"
         "workspace 8, ^(Morgen)$"
