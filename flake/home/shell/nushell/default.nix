@@ -11,6 +11,7 @@ in
     enable = true;
     shellAliases = {
       v = "nvim";
+      e = "emacsclient";
       cat = "bat";
       cls = "clear";
 
