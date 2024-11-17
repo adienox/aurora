@@ -16,6 +16,7 @@
     };
 
     sesh-202.url = "github:nixos/nixpkgs/51b45dc262830ab95c7b9b039bb4f911d4b2509b";
+    pavucontrol-6.url = "github:nixos/nixpkgs/d4f247e89f6e10120f911e2e2d2254a050d0f732";
 
     nix-index-db = {
       url = "github:Mic92/nix-index-database";

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./rnnoise.nix
@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     # audio control
-    pavucontrol
+    inputs.pavucontrol-6.legacyPackages.${pkgs.system}.pavucontrol
     pulseaudio
     playerctl
     pulsemixer

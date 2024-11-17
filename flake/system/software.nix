@@ -75,6 +75,7 @@
     udisks2.enable = true;
     gvfs.enable = true; # Nautilus Trash
     gnome.sushi.enable = true; # Nautilus file preview
+    mullvad-vpn.enable = true;
 
     xserver.xkb = {
       layout = "us";

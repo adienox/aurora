@@ -13,10 +13,14 @@
     fd
     libtool
     ispell
+    xclip
 
     # nix stuff
     nixfmt-rfc-style
     nixd
+
+    # web stuff
+    vscode-langservers-extracted
 
     # bash stuff
     bash-language-server
@@ -31,6 +35,7 @@
     extraPackages =
       epkgs: with epkgs; [
         pdf-tools
+        mu4e
       ];
   };
 

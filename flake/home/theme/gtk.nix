@@ -35,14 +35,12 @@
     };
 
     theme = {
-      name = "Colloid-Orange-Dark-Catppuccin";
-      package = pkgs.colloid-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        themeVariants = [ "orange" ];
+      name = "Catppuccin-GTK-Orange-Dark";
+      package = pkgs.magnetic-catppuccin-gtk.override {
+        shade = "dark";
+        accent = [ "orange" ];
         tweaks = [
-          "catppuccin"
           "black"
-          "rimless"
         ];
       };
     };

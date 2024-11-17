@@ -2,8 +2,9 @@
   pkgs,
   inputs,
   ...
-}: {
-  imports = [./config.nix];
+}:
+{
+  imports = [ ./config.nix ];
   home.packages = with pkgs; [
     udiskie # AutoMount disks
     bibata-cursors # Mouse Cursor
@@ -26,7 +27,7 @@
     libsForQt5.qt5.qtwayland
     qt6.qmake
     qt6.qtwayland
-    inputs.pyprland.packages."x86_64-linux".pyprland
+    inputs.pyprland.packages.${pkgs.system}.pyprland
   ];
 
   fonts.fontconfig.enable = true;
@@ -34,6 +35,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xwayland = {enable = true;};
+    xwayland = {
+      enable = true;
+    };
   };
 }

@@ -6,6 +6,7 @@ udiskie -s &
 waybar &
 ianny &
 pypr &
+protonmail-bridge -n &
 
 "$XDG_CONFIG_HOME"/assets/scripts/hypr/clipboard.sh &
 "$XDG_CONFIG_HOME"/assets/scripts/hypr/fullscreen-fade.sh &

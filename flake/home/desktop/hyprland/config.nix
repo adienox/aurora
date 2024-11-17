@@ -11,7 +11,16 @@
 
   wayland.windowManager.hyprland = {
     settings = {
-      monitor = ",preferred,auto,1";
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "NVD_BACKEND,direct"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+      ];
+      monitor = [
+        "eDP-1,1920x1080@120,auto,1"
+        "HDMI-A-1,2560x1440@144,auto,1"
+      ];
       exec-once = [
         "[workspace 2 silent] ${config.xdg.configHome}/assets/scripts/hypr/emacs.sh"
         "[workspace 4 silent] telegram-desktop"
@@ -45,16 +54,18 @@
       cursor = {
         no_warps = true;
         hide_on_key_press = true;
+        no_hardware_cursors = true;
       };
 
       decoration = {
         rounding = 5;
 
-        drop_shadow = true;
-        shadow_range = 5;
-        shadow_render_power = 4;
-        "col.shadow" = "0x33000000";
-        "col.shadow_inactive" = "0x22000000";
+        shadow = {
+          range = 5;
+          render_power = 4;
+          color = "0x33000000";
+          color_inactive = "0x22000000";
+        };
 
         blur = {
           enabled = true;
@@ -68,6 +79,7 @@
 
       animations = {
         enabled = true;
+        first_launch_animation = false;
         bezier = "overshot,0.13,0.99,0.29,1.1";
         animation = [
           "windows,1,4,default,slide"

@@ -15,15 +15,7 @@ window#waybar.solo {
   background-color: @base00;
 }
 
-window#waybar.fullscreen {
-  background: transparent;
-  color: transparent;
-}
-
-window#waybar.Anki,
-window#waybar.calibre-gui,
-window#waybar.ticktick,
-window#waybar.obsidian {
+window#waybar.calibre-gui {
   background-color: @background-semi-trans-9;
 }
 
@@ -78,22 +70,6 @@ window#waybar {
 
 #clock.date {
   padding-right: 0;
-}
-
-window#waybar.fullscreen #custom-weather,
-window#waybar.fullscreen #submap,
-window#waybar.fullscreen #custom-playerlabel,
-window#waybar.fullscreen #battery,
-window#waybar.fullscreen #bluetooth,
-window#waybar.fullscreen #backlight,
-window#waybar.fullscreen #pulseaudio,
-window#waybar.fullscreen #custom-dunst,
-window#waybar.fullscreen #custom-notification,
-window#waybar.fullscreen #custom-recorder,
-window#waybar.fullscreen #clock,
-window#waybar.fullscreen #tray {
-  background: transparent;
-  color: transparent;
 }
 
 #submap {
