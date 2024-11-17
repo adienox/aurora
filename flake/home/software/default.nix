@@ -41,6 +41,7 @@
     nix-index.enable = true;
     mbsync = {
       enable = true;
+      # You need to ignore the `All Mail` since it is a "magic" folder that groups all your email, which can be repeated from your other folder.
       extraConfig = ''
         IMAPAccount proton
         Host 127.0.0.1
@@ -63,7 +64,7 @@
         Near :proton-local:
         Create Both
         Expunge Both
-        Patterns *
+        Patterns * "!All Mail"
         SyncState *
       '';
     };
